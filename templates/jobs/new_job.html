@@ -1,0 +1,210 @@
+{% extends "jobs/base.html" %}
+{% block content %}
+
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+		$('#id_city').find('option').remove().end();
+		$('#id_city').append('<option value="" selected="selected">---------</option>');
+
+		jQuery("form select.styled").select_skin();
+		jQuery("#id_expires").datepicker({
+			dateFormat: 'yy-mm-dd',
+		});
+		jQuery("input[name=noexpire]").click(function(){
+			if(jQuery("input[name=noexpire]").attr("checked") && jQuery("#id_expiry").val()!="No expiry date"){
+
+				jQuery("#id_expiry").val('No expiry date');
+				jQuery("#id_expiry").addClass("disabled");
+				jQuery("#id_pexiry").attr("disabled",true);
+			}else {
+
+				jQuery("#id_expiry").val('yyyy/mm/dd');
+				jQuery("#id_expiry").removeClass("disabled");
+				jQuery("#id_expiry").attr("disabled",false);
+
+			}
+		});
+		$('#id_region').change(function(){
+			val = $(this).attr('value');
+			$.post("/jobs/new/region", {
+				id: val,
+				'csrfmiddlewaretoken': '{{ csrf_token }}'
+			},
+				function(data) {
+					$('#id_city').find('option').remove().end();
+					var rawCities = data.split('|');
+					rawCities.pop();
+					$('#id_city').append('<option value="" selected="selected">---------</option>');
+					$.each(rawCities, function(index, value) {
+						rawCity = value.split(':');
+						$('#id_city').append('<option value="' + rawCity[0] + '">' + rawCity[1] + '</option>');
+					});
+				}
+			);
+		});
+	});
+</script>
+
+<div class="post whiteboard">
+	<div class="title white">
+		<h1>Post a Job</h1>
+		<p>For help, <a href="#">click here</a></p>
+    </div>
+	<div class="description">
+		<form id="post" name="post" action="" method="post">{% csrf_token %}
+			<div class="form_post">
+                <div class="fieldset_set">
+					<fieldset class="field_position first last">
+                        <span class="required2 yes">Required</span>
+                       <label class="label">{{ form.title.label_tag }}
+			<span class="formerror">
+                         {{ form.title.errors }}
+                        </span></label>
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.title }}</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="fieldset_set">
+                   <fieldset class="field_category last">
+                        <span class="required2 yes">Required</span>
+                        <label class="label">{{ form.category.label_tag }}
+			<span class="formerror">
+			 {{ form.category.errors }}
+			</span></label>
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.category }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_description last">
+						<span id="labelcontent" class="required2">Required</span>
+						<label class="label" for="desc">
+							{{ form.description.label_tag }}
+							{% if form.category.errors %}
+								<span class="formerror">
+									{{ form.category.errors }}
+								</span>
+							{% endif %}
+								<span class="info">
+								Fill in as much detail as you can about the position, outlining responsibilities, perks and information about your company.
+								</span>
+						        
+                </label>
+                        <div class="field mod">
+                            <div class="input_wrap">{{ form.description }}</div>
+                        </div>
+                    </fieldset>
+				</div>
+				<div class="fieldset_set">
+                    <fieldset class="field_position first">
+                        <span class="required2 yes">Required</span>
+                        <label class="label">{{ form.company.label_tag }}
+				<span class="formerror">
+					{{ form.company.errors }}
+				</span></label>
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.company }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_position last">
+                        <span class="required2 yes">Required</span>
+                        <label class="label">{{ form.position.label_tag }}
+			<span class="formerror">
+                         {{ form.position.errors }}
+                        </span></label>
+
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.position }}</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="fieldset_set">
+                    <fieldset class="field_position first">
+                        <span class="required2 yes">Required</span>
+                        <label class="label">{{ form.region.label_tag }}
+			<span class="formerror">
+                         {{ form.region.errors }}
+                        </span></label>
+
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.region }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_position last">
+                        <span class="required2 yes">Required</span>
+                        <label class="label">{{ form.city.label_tag }}
+			<span class="formerror">
+                         {{ form.city.errors }}
+                        </span></label>
+
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.city }}</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="fieldset_set">
+                    <fieldset class="field_position first">
+                        <span class="required2 yes">Required</span>
+                        <label class="label">{{ form.remote.label_tag }}
+			<span class="formerror">
+                         {{ form.remote.errors }}
+                        </span></label>
+
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.remote }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_position last">
+                        <span class="required2 yes">Required</span>
+                        <label class="label">{{ form.type.label_tag }}
+			<span class="formerror">
+                         {{ form.type.errors }}
+                        </span></label>
+
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.type }}</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="fieldset_set">
+                    <fieldset class="field_position first">
+                        <span class="required2 yes">Required</span>
+                        <label class="label">{{ form.wage.label_tag }}</label>
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.wage }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_position first">
+                        <span class="required2 yes">Required</span>
+                        <label class="label">{{ form.expires.label_tag }}
+			<span class="formerror">
+                         {{ form.expires.errors }}
+                        </span></label>
+
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.expires }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_position last">
+                        <span class="required2 yes">Required</span>
+                        <label class="label">{{ form.tag_list.label_tag }}
+			<span class="formerror">
+                         {{ form.tag_list.errors }}
+                        </span></label>
+
+                        <div class="field mod">
+							<div class="input_wrap">{{ form.tag_list }}</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+	</div>
+		<div class="cap">
+			<div class="button_set">
+				<input id="jobsubmit" name="jobsubmit" type="submit" value="Submit Listing" class="button red large"/>
+			</div>
+		</div>
+		</form>
+</div>
+
+{% endblock %}

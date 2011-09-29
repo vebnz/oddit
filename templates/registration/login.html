@@ -1,0 +1,59 @@
+{% extends "registration/registration_base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+
+<div class="post whiteboard">
+
+	<div class="title white">
+		<h1>Log In</h1>
+		<p>Welcome to our site</p>
+		{% if form.errors %}
+		<p>Your username and password didn't match. Please try again.</p>
+		{% endif %}
+	</div>
+	<div class="description">
+		<form method="post" id="loginForm" class="loginform" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
+			<div class="form_post">
+				<h3>Log In</h3>
+				<div class="fieldset_set">
+					<fieldset class="first">
+                        <span class="required2" id="labelusername">Required</span>
+                        <label class="label" for="username">{{ form.username.label_tag }}
+			<span class="formerror">
+                         {{ form.username.errors }}
+                        </span></label>
+
+                        <div class="field mod">
+                            <div class="input_wrap">
+                                {{ form.username }}
+                            </div>
+                        </div>
+                    </fieldset>
+					<fieldset class="last">
+                        <span class="required2" id="labelpassword">Required</span>
+                        <label class="label" for="password">{{ form.password.label_tag }}
+			<span class="formerror">
+                         {{ form.password.errors }}
+                        </span></label>
+
+                        <div class="field mod">
+                            <div class="input_wrap">
+                                {{ form.password }}
+                            </div>
+                        </div>
+                    </fieldset>	
+				</div>
+				<div class="button_set mod">					
+                    <input id="loginsubmit" name="loginsubmit" type="submit" value="Login" />
+					<input type="hidden" name="next" value="{{ next }}" />
+                    <p>
+                        <a href="{% url auth_password_reset %}" title="Lost Password">Lost Password</a>&nbsp;
+						<a href="{% url registration_register %}">Need an account</a>?
+                    </p>
+                </div>
+			</div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

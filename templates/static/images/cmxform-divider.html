@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>
+            Not Found - Nine to Five        </title>
+        <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://svn.magnet.co/themes/ninetofive/demo/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://svn.magnet.co/themes/ninetofive/demo/wp-includes/wlwmanifest.xml" /> 
+<link rel='index' title='Nine to Five' href='http://svn.magnet.co/themes/ninetofive/demo/' />
+<meta name="generator" content="WordPress 3.1.2" />
+        <link href="http://svn.magnet.co/themes/ninetofive/demo/favicon.ico" rel="shortcut icon" />
+        <link rel="stylesheet" href="http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/style.css" type="text/css" media="screen" charset="utf-8" />
+        <link rel="stylesheet" href="http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/css/light.css" type="text/css" media="screen" charset="utf-8" />
+        <!--[if IE]>
+        	<link rel="stylesheet" href="http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/css/ie8.css" type="text/css" media="screen" charset="utf-8" />
+              	<![endif]-->
+              <!--[if IE 7]>
+              	<link rel="stylesheet" href="http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/css/ie7.css" type="text/css" media="screen" charset="utf-8" />
+              	<![endif]-->
+              <!--[if lt IE 7]>
+              	<link rel="stylesheet" href="http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/css/ie6.css" type="text/css" media="screen" charset="utf-8" />
+              	<![endif]-->
+              <style type="text/css" media="screen">
+                  body {
+                      background-color:#eeeeee;
+                      background-image:url('http://svn.magnet.co/themes/ninetofive/demo/wp-content/uploads/2010/10/background.light_.gif');
+                      background-position:;
+                      background-repeat:repeat;
+                  }
+            
+          </style>
+          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+          <script type="text/javascript" src="http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/scripts/jquery.autocomplete.pack.js"></script>
+          <script type="text/javascript" src="http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/scripts/jquery.select_skin.js"></script>
+          <script type="text/javascript" src="http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/scripts/jquery.pngfix.js"></script>
+          <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
+           <script type="text/javascript" src="http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/scripts/jcookie.js"></script>
+          <script type="text/javascript">
+  
+              jQuery(document).ready(function() {
+
+                  jQuery("form select.styled").select_skin();
+                  jQuery(".wp-post-image").addClass("alignright");
+                  jQuery(".listing iframe").attr("width","688");
+
+
+                  if(jQuery(".hidden").length == jQuery("ol.list li:not(#notice, #results)").length){
+                      setTimeout(function(){ jQuery("#notice").fadeIn(); },500);
+                  }
+
+                          jQuery("#all").addClass("active");
+
+          jQuery(".categories select").change(function(){
+              var filterVar = jQuery(this).val();
+              var dataString = 'cat=activeCat&val=' + filterVar;
+              if(filterVar=="all"){
+                  successURL = "http://svn.magnet.co/themes/ninetofive/demo";
+              }else {
+                  successURL = "http://svn.magnet.co/themes/ninetofive/demo/category/"+filterVar;
+              }
+              jQuery.ajax({
+                  type: "POST",
+                  url: "http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/scripts/variable.php",
+                  data: dataString,
+                  success: function(){ window.location = successURL; }
+              });
+          })
+
+          // Live Filtering
+
+          jQuery("select").change(function(){
+
+
+              var filter = jQuery('select').val();
+              var dataString = 'cat=active&val=' + jQuery(this).attr("id");
+              jQuery.ajax({
+                  type: "POST",
+                  url: "http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/scripts/variable.php",
+                  data: dataString
+              });
+
+              if(filter=="all"){
+                  jQuery('ol.list li').removeClass("disabled");
+                  jQuery('ol.list li').removeClass("enabled");
+                  jQuery(".categories input[type=checkbox]").attr("checked",true);
+                  jQuery(".categories input[type=checkbox]").trigger("click");
+                  jQuery(".categories input[type=checkbox]").attr("checked",true);
+                  updateJobCount();
+              } else {
+                  jQuery('ol.list .' + filter+":not(#notice, #results)").removeClass("disabled");
+                  jQuery('ol.list .' + filter+":not(#notice, #results)").addClass("enabled");
+
+                  jQuery("ol.list li:not(."+filter+", #notice, #results)").addClass("disabled");
+                  jQuery("ol.list li:not(."+filter+", #notice, #results)").removeClass("enabled");
+                  updateJobCount();
+              }
+
+              updateJobCount();
+              return false;
+          });
+
+
+          // Live Filtering
+          jQuery(".filter li a").click(function(){
+              var filter = jQuery(this).attr("id"); // Checked: 6 Aug - Working
+
+              jQuery(".filter li a").removeClass("active");
+              jQuery(this).addClass("active");
+
+              var dataString = 'cat=active&val=' + jQuery(this).attr("id");
+              jQuery.ajax({
+                  type: "POST",
+                  url: "http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/scripts/variable.php",
+                  data: dataString
+              });
+
+              if(filter=="all"){
+                  jQuery("ol.list li:not(#notice, #results)").animate({"opacity":"1"},300);
+                  jQuery('ol.list li:not(#notice, #results)').removeClass("disabled");
+                  jQuery('ol.list li:not(#notice, #results)').addClass("enabled");
+                  jQuery(".categories input[type=checkbox]").attr("checked",true);
+                  jQuery(".categories input[type=checkbox]").trigger("click");
+                  jQuery(".categories input[type=checkbox]").attr("checked",true);
+                  updateJobCount();
+              }else {
+                  jQuery("ol.list li."+filter+":not(#notice, #results)").animate({"opacity":"1"},300);
+                  jQuery('ol.list .' + filter+":not(#notice, #results)").removeClass("disabled");
+                  jQuery('ol.list .' + filter+":not(#notice, #results)").addClass("enabled");
+
+                  jQuery("ol.list li:not(."+filter+", #notice, #results)").animate({"opacity":"1"},300);
+                  jQuery("ol.list li:not(."+filter+", #notice, #results)").addClass("disabled");
+                  jQuery("ol.list li:not(."+filter+", #notice, #results)").removeClass("enabled");
+                  updateJobCount();
+              }
+
+              if(jQuery(this).hasClass(".active")){
+                  jQuery(this).removeClass(".active");
+              }else {
+                  jQuery(".filter li a").removeClass(".active");
+                  jQuery(this).addClass(".active");
+              }
+
+              updateJobCount();
+              return false;
+          });
+
+          var totalJobs;
+
+          function updateJobCount(){
+              totalJobs = jQuery("ol.list li").length;
+              if(jQuery("ol.list li.disabled").length!=totalJobs){
+                  jQuery("div.paging p.count strong").first().html(totalJobs - jQuery("ol.list li.disabled").length);
+              }else {
+                  jQuery("div.paging p.count").html("No jobs found");
+                  jQuery("span.job-count").text("");
+              }
+          }
+
+          // Autocomplete
+          var data = "actionscript android art asd asdsad asp blogroll brand coder copywriting design designer developer development dsf eg graphic f flash footer front-end graphics hendrerit html html5 illustrator interface ios iphone java jquery lamp magic mobile multimedia my job category new other photoshop php programming project management &amp; something sampler sdfdsf senior seo/sem social media stuff test testing ui ui/ux ux varius watchman web about us post a engineer linux systems administrator / drupal user for an organics delivery outlet quisque commodo lorem quis egestas 11 wordpress theme and ipad joomla template class aptent taciti sociosqu ad litora torquent per conubia 22 blog bbc news app is launched in condimentum facilisis porta sed nec diam eu 21 panasonic lumix lx5 morbi malesuada nulla purus convallis consequat vivamus id mollis quam 20 n korea threatens physical response over war games samplefavicon vestibulum mauris enim euismod magna ac rutrum 19 samplelogologin dem majority leader mocks speaker boehner his agenda: its not going to happen proin metus odio aliquam eget molestie 18 samplelogodark obama blames media culture administrations firing of shirley sherrod praesent massa ut blandit odio tortor orci 17 programmer/technical lead secret underground laboratory the children spies cap left closed feds work put price on spill damage dead bird reports double past month samplelogolight browse all jobs samplephoto flex home  fringilla porta ligula tincidunt nullam risus ornare vitae 10 erat volutpat 9 lacus quam tincidunt a lacinia vel velit 8 consequat 7 donec semper scelerisque dictum gravida 16 luctus urna ultricies 15 odio lectus faucibus 14 nam pulvinar rhoncus suscipit sem ultrices mauris 13 nunc non neque consectetur placerat lobortis 12 ruby rails software 6 5 4 3 2 1 samplephoto_-300x240 samplelogopayments junior graduate css programmer team freelance wordpress/magento application and/or backgroundlight contact technical documentation specialist director product engineering samplead_ samplead wood-bg noise business technology applications analyst static auto draft log or register authentification password recovery trabalho morbi elementum viverra auctor lobortis pellentesque est dignissim enim bibendum etiam scelerisque consequat nibh nulla nisialiquam volutpat sit amet congue purus velit aenean dui consequat  morbi consequat  vestibulum nisi  donec gravida hac habitasse platea dictumst nec sapien    something  morbi consequat  aliquam consequat           headerheaderheaderheader          datadatadatadata    datadatadatadata    datadatadatadata    datadatadatadata       vivamus vestibulum arcu sodales feugiat consectetur nisl bibendum elit sapien nibh  something  donec sapien     praesent proin   quisque faucibus   duis aliquet blandit curabitur vulputate ligula   vivamus urna   phasellus turpis sollicitudin   sed augue amet   donec in   mauris iaculis porttitor posuere praesent   maecenas arcu quis   duis curabitur   nullam dui mauris sed   vivamus ultricies    something  aliquam quam nulla egestas maecenas arcu     praesent faucibus   sed praesent   vivamus ultricies    phasellus sollicitudin venenatis eros interdum leo  vivamus nibh dictumstnam sapien phasellus odio leo magna eget scelerisque please fill fields marked required this example page you could edit information yourself your site so readers know where are coming from can create as many pages like one sub-pages manage content inside wordpress ".split(" ");
+
+
+          jQuery("#search_box, #tags, input[name=skills_value]").autocomplete(data,{ selectFirst : false  });
+
+          // Sustained Category Filters
+          var counter = 0;
+          jQuery(".categories input").click(function(){
+
+              if(jQuery(this).attr('checked')==false){
+                  var dataString = 'cat=' + jQuery(this).attr("id") + '&val=false';
+                  counter++;
+                  jQuery.ajax({
+                      type: "POST",
+                      url: "http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/scripts/variable.php",
+                      data: dataString
+                  });
+              }else {
+                  var dataString = 'cat=' + jQuery(this).attr("id") + '&val=true';
+                  counter++;
+                  jQuery.ajax({
+                      type: "POST",
+                      url: "http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/scripts/variable.php",
+                      data: dataString
+                  });
+              }
+              updateJobCount();
+          });
+
+          var skills = jQuery(".skills").children("li").length;
+          var visible = skills - jQuery(".skills").children("li").children("div").children(".hidden").length;
+          var maxSkills = 10;
+          var selected = skills - 3;
+
+          jQuery(".hidden").parent().parent().hide();
+
+          jQuery("#addskill").click(function(){
+
+              visible++;
+
+              if(skills == visible){
+                  jQuery(this).fadeOut();
+              }
+
+              if(skills >= visible){
+                  jQuery(".skills #skill" + visible).removeClass("hidden");
+                  jQuery(".skills #skill" + visible).parent().parent().show();
+              }
+
+              return false;
+          })
+
+          jQuery("#date").datepicker({
+              dateFormat: 'yy/mm/dd',
+              onSelect: function(dateText, inst) {
+                  jQuery('#labelexpdate').removeClass('yes').removeClass('no').addClass('yes')
+              }
+          });
+
+          jQuery("#enableApply").change(function(){
+              if(jQuery(this).attr("checked")!=true){
+                  jQuery(".onPageApplication").addClass("hide");
+                  jQuery(".field_apply").addClass("last");
+                  firstCheck = false;
+              }else {
+                  jQuery(".onPageApplication").removeClass("hide");
+                  jQuery(".field_apply").removeClass("last");
+                  firstCheck = false;
+              }
+          });
+
+          jQuery("#enableApply").trigger("click");
+
+          jQuery("input[name=anon]").click(function(){
+              if(jQuery("input[name=anon]").attr("checked") && jQuery("input[name=company_name_value]").val()!="Anonymous"){
+
+                  jQuery("#companyName").val('Anonymous');
+                  jQuery("#companyName").addClass("disabled");
+                  jQuery("#companyName").attr("disabled",true);
+                  jQuery("#companyName").css("color",'#000');
+                  jQuery('#labelcompany_name_value').removeClass('yes').removeClass('no').addClass('yes');
+                  jQuery("input[name=anon]").attr("checked",true);
+              }else {
+                  jQuery("#companyName").val('e.g. Acme Inc.');
+                  jQuery("#companyName").removeClass("disabled");
+                  jQuery("#companyName").attr("disabled",false);
+                  jQuery("#companyName").css("color",'#CCC');
+                  jQuery('#labelcompany_name_value').removeClass('yes').removeClass('no').addClass('no');
+                  jQuery("input[name=anon]").attr("checked",false);
+
+              }
+          });
+
+          jQuery("input[name=anywhere]").click(function(){
+              if(jQuery("input[name=anywhere]").attr("checked") && jQuery("input[name=location_value]").val()!="Anywhere"){
+
+                  jQuery("input[name=location_value]").val('Anywhere');
+                  jQuery("input[name=location_value]").addClass("disabled");
+                  jQuery("input[name=location_value]").attr("disabled",true);
+                  jQuery("input[name=location_value]").css("color",'#000');
+                  jQuery('#labellocation_value').removeClass('yes').removeClass('no').addClass('yes');
+                  jQuery("input[name=anywhere]").attr("checked",true);
+
+              }else {
+
+                  jQuery("input[name=location_value]").val('e.g. San Francisco, USA');
+                  jQuery("input[name=location_value]").removeClass("disabled");
+                  jQuery("input[name=location_value]").attr("disabled",false);
+                  jQuery("input[name=location_value]").css("color",'#CCC');
+                  jQuery('#labellocation_value').removeClass('yes').removeClass('no').addClass('no');
+                  jQuery("input[name=anywhere]").attr("checked",false);
+
+              }
+          });
+
+          jQuery("input[name=noexpire]").click(function(){
+              if(jQuery("input[name=noexpire]").attr("checked") && jQuery("#date").val()!="No expiry date"){
+
+                  jQuery("#date").val('No expiry date');
+                  jQuery("#date").addClass("disabled");
+                  jQuery("#date").attr("disabled",true);
+                  jQuery('#labelexpdate').removeClass('yes').removeClass('no').addClass('yes');
+                  jQuery("input[name=noexpire]").attr("checked",true);
+
+              }else {
+
+                  jQuery("#date").val('yyyy/mm/dd');
+                  jQuery("#date").removeClass("disabled");
+                  jQuery("#date").attr("disabled",false);
+                  jQuery('#labelexpdate').removeClass('yes').removeClass('no').addClass('no');
+                  jQuery("input[name=noexpire]").attr("checked",false);
+
+              }
+          });
+
+
+          jQuery("ul.filter .active").trigger("click");
+          updateJobCount();
+      });
+          </script>
+          </head>
+          <body>
+              <div class="container">
+                  <div class="header">
+                      <div class="inner mod">
+                          <div class="logo">
+                              <a href="http://svn.magnet.co/themes/ninetofive/demo"><img alt="Nine to Five" src="http://svn.magnet.co/themes/ninetofive/demo/wp-content/uploads/2010/10/sample.logo_.light_.png" /></a>
+                          </div>
+                          <div class="tagline">
+                              <p>Premium WordPress Jobs Board Theme</p>
+                          </div>
+
+                                        <p class="status">
+                        To post a job,                        <a href="http://svn.magnet.co/themes/ninetofive/demo/auth/"><strong>login</strong></a>
+or                        <a href="http://svn.magnet.co/themes/ninetofive/demo/auth/"><strong>create an account</strong></a>
+                        </p>
+                    
+                        <div class="category_menu orange">
+                        <ul>
+                            <li class="cat-item-all"><a href="http://svn.magnet.co/themes/ninetofive/demo">All Jobs</a></li>
+                        <li class="cat-item-4 "><a href="http://svn.magnet.co/themes/ninetofive/demo/category/design/">Design</a></li><li class="cat-item-5 "><a href="http://svn.magnet.co/themes/ninetofive/demo/category/development/">Development</a></li><li class="cat-item-6 "><a href="http://svn.magnet.co/themes/ninetofive/demo/category/other/">Other</a></li><li class="cat-item-1 "><a href="http://svn.magnet.co/themes/ninetofive/demo/category/seosem/">SEO/SEM</a></li><li class="cat-item-9 "><a href="http://svn.magnet.co/themes/ninetofive/demo/category/social-media/">Social Media</a></li><li class="cat-item-10 "><a href="http://svn.magnet.co/themes/ninetofive/demo/category/uiux/">UI/UX</a></li>
+                            <li class="rss"><a href="http://svn.magnet.co/themes/ninetofive/demo/feed/"><img src="http://svn.magnet.co/themes/ninetofive/demo/wp-content/themes/ninetofive/images/icon.rss.png" /></a></li>
+                                </ul>
+                            </div>
+                    
+                </div>
+            </div>
+            <div class="content mod">
+                <div class="inner">
+
+<div class="focus">
+
+    <div class="message white">
+        <div class="push">
+            <h3>Page not found</h3>
+            <p>The page you are looking for no longer exists. Try checking the URL you typed for spelling errors and if not header over to http://svn.magnet.co/themes/ninetofive/demo the homepage </a> to search what you were looking for.</p>
+        </div>
+    </div>
+
+</div>
+
+<div class="sidebar">
+        <ul>
+
+				<li class="cell action">
+					<p>For a limited time only, post a job free of charge to our site. We will review the job within 24 hours and add it to the site.</p>
+					<a href="http://svn.magnet.co/themes/ninetofive/demohttp://svn.magnet.co/themes/ninetofive/demo/post-a-job/" class="button orange xlarge">
+						<span>Post a job</span>
+					</a>
+				</li>
+			
+				<li><h2 class="widgettitle">Popular Categories</h2></li>
+				<li><ul class="tablets"><li><a href="http://svn.magnet.co/themes/ninetofive/demo/category/development/">Development<span>10</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/category/design/">Design<span>4</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/category/social-media/">Social Media<span>3</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/category/uiux/">UI/UX<span>3</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/category/seosem/">SEO/SEM<span>1</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/category/other/">Other<span>1</span></a></li></ul></li>
+				<li><h2 class="widgettitle">Popular Tags</h2></li>
+				<li><ul class="tablets"><li><a href="http://svn.magnet.co/themes/ninetofive/demo/tag/android/">Android<span>11</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/tag/developer/">Developer<span>6</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/tag/photoshop/">Photoshop<span>4</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/tag/illustrator/">Illustrator<span>3</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/tag/mobile/">Mobile<span>3</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/tag/php/">PHP<span>3</span></a></li><li><a href="http://svn.magnet.co/themes/ninetofive/demo/tag/ios/">iOS<span>3</span></a></li></ul></li>
+					<li class="quicksearch">
+						<form action="http://svn.magnet.co/themes/ninetofive/demo" method="get" role="search"><span><input type="text" name="s" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}" /><button name="submit" type="submit" class="icon icon_search"></button></span></form>
+					</li>
+				
+				<li class="advert">
+					<h4>Advertising</h4>
+					<a href="http://themeforest.net/item/nine-to-five-premium-wordpress-jobs-theme-/137052?ref=magnetc"><img src="http://svn.magnet.co/themes/ninetofive/demo/wp-content/uploads/2010/11/sample.ad_.png" /></a><p>Setup a powerful jobs site in minutes with Nine to Five, a Premium WordPress Jobs Theme.</p>
+				</li>
+			    </ul>
+
+</div>
+</div>
+</div>
+<div class="footer_push"></div>
+</div>
+<div class="footer">
+    <div class="inner">
+        <div class="menu"><ul><li class="page_item page-item-2"><a href="http://svn.magnet.co/themes/ninetofive/demo/about/" title="About Us">About Us</a></li><li class="page_item page-item-59"><a href="http://svn.magnet.co/themes/ninetofive/demo/blog/" title="Blog">Blog</a></li><li class="page_item page-item-506"><a href="http://svn.magnet.co/themes/ninetofive/demo/contact/" title="Contact Us">Contact Us</a></li><li class="page_item page-item-511"><a href="http://svn.magnet.co/themes/ninetofive/demo/auth/" title="Log In or Register">Log In or Register</a></li><li class="page_item page-item-490"><a href="http://svn.magnet.co/themes/ninetofive/demo/my-post-a-job/" title="My Post a Job">My Post a Job</a></li><li class="page_item page-item-529"><a href="http://svn.magnet.co/themes/ninetofive/demo/lostpassword/" title="Password Recovery">Password Recovery</a></li><li class="page_item page-item-21"><a href="http://svn.magnet.co/themes/ninetofive/demo/post-a-job/" title="Post a Job">Post a Job</a></li></ul></div>
+        <div class="copyright">
+            <p>Ã‚Â© Copyright Nine to Five. All rights reserved.</p>
+        </div>
+        <div class="seo">
+            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Proin vel ante a orci tempus eleifend ut et magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui.</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
