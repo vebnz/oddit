@@ -4,7 +4,9 @@ This project stopped after a while, we moved onto other things. I thought I'd op
 
 You can find out more at: http://blog.oddit.co.nz
 
-If you want the domain name (oddit.co.nz) let me know. 
+If you want the domain name (oddit.co.nz) let me know.
+
+To use this source, you'll need to know Django, and have some stuff like django-registrations installed.
 
 Authors:
 - Michael Mackenzie
