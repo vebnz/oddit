@@ -45,10 +45,13 @@
 	});
 </script>
 
+
 <div class="post whiteboard">
 	<div class="title white">
 		<h1>Post a Job</h1>
 		<p>For help, <a href="#">click here</a></p>
+		{{ form.errors }}
+		{{ form.non_field_errors }}
     </div>
 	<div class="description">
 		<form id="post" name="post" action="" method="post">{% csrf_token %}
