@@ -66,7 +66,7 @@ def detail(request, job_id, job_name):
                                                 'categories': category_list,
                                                 'popular_categories': popular_categories_list,
                                                 'popular_tags': popular_tags,
-                                               })
+                                               }, context_instance=RequestContext(request))
 
 
 API_URL = 'http://:twdfy1QVjimypE@61rg.api.searchify.com'
@@ -102,7 +102,8 @@ def results_search(request):
                                                            'popular_categories': popular_categories_list,
                                                            'total_jobs': total_jobs,
                                                            'job_types': job_types,
-                                                           'popular_tags': popular_tags})
+                                                           'popular_tags':
+                                                           popular_tags}, context_instance=RequestContext(request))
 
 
 @login_required

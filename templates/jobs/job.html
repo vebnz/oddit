@@ -5,7 +5,7 @@
 			<h1>{{ job.title }}</h1>
 		</div>
 		<div class="share">
-		     <a font-size: 16px" class="button red" href="/jobs/apply/{{ job.id }}/">Apply</a>
+			<a font-size: 16px" class="button red" href="/jobs/apply/{{ job.id }}/">Apply</a>
 		</div>
 		<p>{{ job.company }}</p>
 	</div>
@@ -14,12 +14,15 @@
 		<h2>This is a <strong>{{ job.get_type_display }}</strong> position in <strong>{{ job.region }}</strong> posted <strong>{{ job.updated }}</strong>.</h2>
 	</div>
 	<div class="description cms">
-		<p>
-		<a href="/static/uploads/2010/08/sample.photo_.png"><img src="/static/uploads/2010/08/sample.photo_-300x240.png" alt="" title="sample.photo" width="300" height="240" class="alignright size-medium wp-image-98" /></a>
-		{{ job.description|linebreaksbr }} ({{ company.url }})</p>
-		 <div class="button_set">
-			 <a font-size: 16px" class="button red large" href="/jobs/apply/{{ job.id }}/">Apply</a>
-                 </div>
+		<a href="/static/uploads/2010/08/sample.photo_.png">
+			<img src="/static/uploads/2010/08/sample.photo_-300x240.png" alt="" title="sample.photo" width="300" height="240" class="alignright size-medium wp-image-98" />
+		</a>
+		{% load humanize %}
+		<p>{{ job.description|linebreaksbr }}</p>
+		<p>Budget: ${{ job.wage|intcomma }}</p>
+		<div class="button_set">
+			<a font-size: 16px" class="button red large" href="/jobs/apply/{{ job.id }}/">Apply</a>
+		</div>
 
 	</div>
 
