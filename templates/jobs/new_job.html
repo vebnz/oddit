@@ -3,8 +3,11 @@
 
 <script type="text/javascript">
     jQuery(document).ready(function() {
-		$('#id_city').find('option').remove().end();
-		$('#id_city').append('<option value="" selected="selected">---------</option>');
+		if ($('#id_region').val() == "---------")
+		{
+			$('#id_city').find('option').remove().end();
+			$('#id_city').append('<option value="" selected="selected">---------</option>');
+		}
 
 		jQuery("form select.styled").select_skin();
 		jQuery("#id_expires").datepicker({
