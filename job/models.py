@@ -81,10 +81,10 @@ class Job(models.Model):
     category = models.ForeignKey(Category)
     description = models.TextField()
     company = models.CharField(max_length=30)
-    position = models.CharField(max_length=1, choices=POSITION_CHOICES)
+    position = models.IntegerField(default=0, choices=POSITION_CHOICES)
     region = models.ForeignKey(Region)
     city = models.ForeignKey(City)
-    remote = models.CharField(max_length=1, choices=REMOTE_CHOICES)
+    remote = models.IntegerField(default=0, choices=REMOTE_CHOICES)
     created = models.DateField(editable=False)
     updated = models.DateTimeField(editable=False)
     type = models.ForeignKey(JobType)
@@ -103,7 +103,11 @@ class Job(models.Model):
         super(Job, self).save()
 
         self.tags = self.tag_list
-        search.add_document(self.id, { 'title': self.title, 'match': 'all', 'tags': self.tag_list, 'company': self.company})
+
+        search.add_document(self.id, { 'title': self.title, 'match': 'all',
+                                      'tags': self.tag_list, 'company':
+                                      self.company, 'region': self.region.name,
+                                      'city': self.city.name})
 
     def _get_tags(self):
         return Tag.objects.get_for_object(self)
