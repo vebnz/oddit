@@ -19,7 +19,7 @@
 		</a>
 		{% load humanize %}
 		<p>{{ job.description|linebreaksbr }}</p>
-		<p>Budget: ${{ job.wage|intcomma }}</p>
+		<p>Budget: ${{ job.budget|intcomma }}</p>
 		<div class="button_set">
 			<a font-size: 16px" class="button red large" href="/jobs/apply/{{ job.id }}/">Apply</a>
 		</div>

@@ -8,7 +8,14 @@ class JobForm(forms.ModelForm):
         self.user = kwargs.pop('user', None)
         super(JobForm, self).__init__(*args, **kwargs)
 
+    #def clean(self):
+        #    cleaned_data = super(JobForm, self).clean()
+        #budget = cleaned)data.get("budget")
+        #if budget[0] == "$": budget = budget[1:] # cut off the dollar sign
+        #budget = budget.replace(',', '')
+
     def save(self, commit=True):
+        print self
         instance = super(JobForm, self).save(commit=False)
         if self.user:
             instance.user = self.user
@@ -23,6 +30,7 @@ class JobForm(forms.ModelForm):
         widgets = {
             'user'	: forms.Select(attrs={'class' : 'styled'}),
             'category' : forms.Select(attrs={'class' : 'styled'}),
+            'position' : forms.Select(attrs={'class' : 'styled'}),
             'region' : forms.Select(attrs={'class' : 'styled'}),
             'city' : forms.Select(attrs={'class' : 'styled'}),
             'remote' : forms.Select(attrs={'class' : 'styled'}),

@@ -68,22 +68,27 @@ class JobType(models.Model):
 
 class Job(models.Model):
     REMOTE_CHOICES = (
-            ('0', 'No'),
-            ('1', 'Yes')
+            (0, 'No'),
+            (1, 'Yes')
+    )
+    POSITION_CHOICES = (
+        (0, 'Junior'),
+        (1, 'Intermediate'),
+        (2, 'Senior')
     )
     user = models.ForeignKey(User)
     title = models.CharField(max_length=30)
     category = models.ForeignKey(Category)
     description = models.TextField()
     company = models.CharField(max_length=30)
-    position = models.CharField(max_length=30)
+    position = models.CharField(max_length=1, choices=POSITION_CHOICES)
     region = models.ForeignKey(Region)
     city = models.ForeignKey(City)
-    remote = models.CharField(max_length=1, choices=REMOTE_CHOICES);
+    remote = models.CharField(max_length=1, choices=REMOTE_CHOICES)
     created = models.DateField(editable=False)
     updated = models.DateTimeField(editable=False)
     type = models.ForeignKey(JobType)
-    wage = models.IntegerField()
+    budget = models.IntegerField()
     ip = models.IPAddressField(default="225.225.225.225")
     expires = models.DateField()
     featured = models.BooleanField()
