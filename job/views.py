@@ -72,6 +72,9 @@ def detail(request, job_id, job_name):
 API_URL = 'http://:twdfy1QVjimypE@61rg.api.searchify.com'
 INDEX_NAME = 'jobs'
 
+class InvalidQuery(Exception):
+    pass
+
 def results_search(request):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
@@ -80,7 +83,10 @@ def results_search(request):
     query = request.GET['query']
     api = ApiClient(API_URL)
     index = api.get_index(INDEX_NAME)
-    search_result = index.search(query, fetch_fields=['name'])
+    try:
+        search_result = index.search(query, fetch_fields=['name'])
+    except InvalidQuery:
+        pass
 
     total_jobs = Job.objects.count()
     job_types = JobType.objects.all()
