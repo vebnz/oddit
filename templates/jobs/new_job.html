@@ -175,7 +175,10 @@ $.each(rawCities, function(index, value) {
 				<div class="fieldset_set">
 					<fieldset class="field_position first">
 						<span class="required2 yes">Required</span>
-						<label class="label">{{ form.budget.label_tag }}</label>
+						<label class="label">{{ form.budget.label_tag }}
+							<span class="formerror">
+								{{ form.expires.errors }}
+						</span></label>
 						<div class="field mod">
 							<div class="input_wrap">{{ form.budget }}</div>
 						</div>
