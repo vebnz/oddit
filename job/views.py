@@ -69,8 +69,8 @@ def detail(request, job_id, job_name):
                                                })
 
 
-API_URL = 'http://:ropfsA7nqY4LZz@88bsn.api.indextank.com'
-#API_URL = 'http://88bsn.api.indextank.com'
+#API_URL = 'http://:ropfsA7nqY4LZz@88bsn.api.indextank.com'
+API_URL = 'http://:twdfy1QVjimypE@61rg.api.searchify.com'
 INDEX_NAME = 'jobs'
 
 def results_search(request):

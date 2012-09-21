@@ -8,8 +8,8 @@ from indextank.client import ApiClient
 from django.forms import ModelForm
 from job.validators import validate_pdf
 
-#api = ApiClient('http://:ropfsA7nqY4LZz@88bsn.api.indextank.com')
-#search = api.get_index('jobs')
+api = ApiClient('http://:twdfy1QVjimypE@61rg.api.searchify.com')
+search = api.get_index('jobs')
 
 # Create your models here.
 class Region(models.Model):
@@ -98,7 +98,7 @@ class Job(models.Model):
         super(Job, self).save()
 
         self.tags = self.tag_list
-        #search.add_document(self.id, { 'title': self.title, 'match': 'all', 'tags': self.tag_list, 'company': self.company})
+        search.add_document(self.id, { 'title': self.title, 'match': 'all', 'tags': self.tag_list, 'company': self.company})
 
     def _get_tags(self):
         return Tag.objects.get_for_object(self)
