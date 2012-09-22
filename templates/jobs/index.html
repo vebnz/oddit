@@ -36,6 +36,10 @@
 
 	</div>
 
+	<div class="sub red">
+		<h2><strong>{{ category_name|capfirst }}</strong> Jobs</h2>
+	</div>
+
 	{% if latest_job_list %}
 	<ol class="list">
 		{% for job in latest_job_list.object_list %}
