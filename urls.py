@@ -8,4 +8,5 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'^jobs/', include('job.urls')),
     (r'^accounts/', include('registration.urls')),
+    url(r'', include('social_auth.urls')),
 )

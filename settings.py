@@ -124,7 +124,27 @@ INSTALLED_APPS = (
     'tagging',
     'job',
     'registration',
+    'social_auth',
 )
+
+# social auth
+AUTHENTICATION_BACKENDS = (
+    'social_auth.backends.contrib.linkedin.LinkedinBackend',
+    'social_auth.backends.contrib.github.GithubBackend',
+    'django.contrib.auth.backends.ModelBackend',
+)
+
+LOGIN_URL          = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/jobs/'
+LOGIN_ERROR_URL    = '/login-error/'
+
+# linkedin
+LINKEDIN_CONSUMER_KEY        = 'v2piol60xxkk'
+LINKEDIN_CONSUMER_SECRET     = 'NqvpFS5umLj667tc'
+
+# github
+GITHUB_APP_ID = '38d0ede42fcde98b062f'
+GITHUB_API_SECRET = 'a233e6cef18b8507bbc17f27be4c315572a1399a'
 
 # registration
 DEFAULT_FROM_EMAIL = 'noreply@oddit.co.nz'
