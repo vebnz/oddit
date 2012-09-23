@@ -29,6 +29,102 @@ jQuery(document).ready(function() {
 				}
 			});
 			
+			$('#id_title').live('input', function(){
+                                if ($('#id_title').val() == "") {
+                                        $('#id_title').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_title').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			$('#id_category').change(function(){
+                                if ($('#id_category').val() == "") {
+                                        $('#id_category').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_category').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 $('#id_description').change(function(){
+                                if ($('#id_description').val() == "") {
+                                        $('#id_description').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_description').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			$('#id_company').live('input', function(){
+                                if ($('#id_company').val() == "") {
+                                        $('#id_company').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_company').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			$('#id_position').change(function(){
+                                if ($('#id_position').val() == "") {
+                                        $('#id_position').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_position').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+                       
+                       $('#id_region').change(function(){
+				if ($('#id_region').val() == "") {
+                                	$('#id_region').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+				} else {
+					$('#id_region').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');	 
+		  		}
+		       });
+
+			 $('#id_city').change(function(){
+                                if ($('#id_city').val() == "") {
+                                        $('#id_city').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_city').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 $('#id_remote').change(function(){
+                                if ($('#id_remote').val() == "") {
+                                        $('#id_remote').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_remote').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 $('#id_type').change(function(){
+                                if ($('#id_type').val() == "") {
+                                        $('#id_type').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_type').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 $('#id_budget').live('input', function(){
+                                if ($('#id_budget').val() == "") {
+                                        $('#id_budget').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_budget').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 $('#id_expires').live('input', function(){
+                                if ($('#id_expires').val() == "") {
+                                        $('#id_expires').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_expires').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 $('#id_tag_list').live('input', function(){
+                                if ($('#id_tag_list').val() == "") {
+                                        $('#id_tag_list').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_tag_list').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+			
                        $('#id_region').change(function(){
                                 val = $(this).attr('value');
                                 $.post("/jobs/new/region", {
@@ -119,7 +215,7 @@ jQuery(document).ready(function() {
 						</div>
 					</fieldset>
 					<fieldset class="field_position last">
-						<span class="required2">Required</span>
+						<span class="required2 yes">Required</span>
 						<label class="label">{{ form.position.label_tag }}
 							<span class="formerror">
 								{{ form.position.errors }}
@@ -156,7 +252,7 @@ jQuery(document).ready(function() {
 				</div>
 				<div class="fieldset_set">
 					<fieldset class="field_position first">
-						<span class="required2">Required</span>
+						<span class="required2 yes">Required</span>
 						<label class="label">{{ form.remote.label_tag }}
 							<span class="formerror">
 								{{ form.remote.errors }}
