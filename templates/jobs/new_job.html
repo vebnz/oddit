@@ -109,7 +109,7 @@ jQuery(document).ready(function() {
                                 }
                        });
 
-			 $('#id_expires').live('input', function(){
+			 $('#id_expires').change(function(){
                                 if ($('#id_expires').val() == "") {
                                         $('#id_expires').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
                                 } else {
