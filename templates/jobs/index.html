@@ -62,12 +62,14 @@
 		</li>
 		{% empty %}
 		<li class="design_filter_2">
-		No jobs available, <a href="/jobs/new">why don't you add one?</a>
+			No jobs available, <a href="/jobs/new">why don't you add one?</a>
 		</li>
 		{% endfor %}
 	</ol>
 	{% else %}
-	<p>No jobs are available</p>
+	<div class="title white">
+		<p>No jobs available here... <a href="/jobs/new">yet</a>.</p>
+	</div>
 	{% endif %}
 
 	<div class="pagingShows">
