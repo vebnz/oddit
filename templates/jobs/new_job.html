@@ -2,7 +2,7 @@
 {% block content %}
 
 <script type="text/javascript">
-	jQuery(document).ready(function() {
+jQuery(document).ready(function() {
 			if ($('#id_region').val() == "---------")
 			{
 				$('#id_city').find('option').remove().end();
@@ -29,38 +29,33 @@
 				}
 			});
 			
-			$('#id_region').change(function(){
-				val = $(this).attr('value');
-				$.post("/jobs/new/region", {
-					id: val,
-					'csrfmiddlewaretoken': '{{ csrf_token }}'
-				},
-					function(data) {
-						$('#id_city').find('option').remove().end();
-						var rawCities = data.split('|');
-						rawCities.pop();
-						$('#id_city').append('<option value="" selected="selected">---------</option>');
-						$.each(rawCities, function(index, value) {
-							rawCity = value.split(':');
-							$('#id_city').append('<option value="' + rawCity[0] + '">' + rawCity[1] + '</option>');
-						});
-					}
-				);
-			});
-			
-			$('#id_region').change(function(){
-				$('#id_region').prev().removeClass("required").addClass("required yes");
-			});
+                       $('#id_region').change(function(){
+                                val = $(this).attr('value');
+                                $.post("/jobs/new/region", {
+                                        id: val,
+                                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                                },
+                                        function(data) {
+                                                $('#id_city').find('option').remove().end();
+                                                var rawCities = data.split('|');
+                                                rawCities.pop();
+                                                $('#id_city').append('<option value="" selected="selected">---------</option>');
+                                                $.each(rawCities, function(index, value) {
+                                                        rawCity = value.split(':');
+                                                        $('#id_city').append('<option value="' + rawCity[0] + '">' + rawCity[1] + '</option>');
+                                                });
+                                        }
+                                );
+                        });
+
   
 });
-			
-	});
 </script>
 
 
 <div class="post whiteboard">
 	<div class="title white">
-		<h1>Post a Job</h1>
+		<h1>Post a Job Moron</h1>
 		<p>For help, <a href="#">click here</a></p>
 		<!--
 		uncomment to see all form errors
