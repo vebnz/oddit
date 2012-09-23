@@ -1,0 +1,5 @@
+Order deny,allow
+deny from all 
+
+<FilesMatch "\.(txt|pdf|doc|docx|zip|rar|tar|gz)$">
+allow from all

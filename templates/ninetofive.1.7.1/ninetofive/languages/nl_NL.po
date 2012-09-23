@@ -1,0 +1,1622 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 9to5 WordPress Template\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: Adan\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#@ 9to5
+#: archive.php:15
+#: index.php:19
+#: index.php:60
+#: search.php:15
+#: search.php:54
+msgid "All Types"
+msgstr "Alle types"
+
+#@ 9to5
+#: search.php:92
+#: search.php:175
+msgid "Search results:"
+msgstr "Zoekresultaten"
+
+#@ 9to5
+#: search.php:92
+#: search.php:175
+msgid "Job"
+msgstr "Baan"
+
+#@ 9to5
+#: search.php:92
+#: search.php:175
+msgid "found for"
+msgstr "Gevonden voor"
+
+#@ 9to5
+#: archive.php:141
+#: functions.php:240
+#: header.php:330
+#: header.php:332
+#: index.php:146
+#: postajob.php:13
+#: search.php:132
+msgid "Anonymous"
+msgstr "Anoniem"
+
+#@ 9to5
+#: functions.php:244
+#: header.php:350
+#: header.php:352
+#: index.php:161
+#: postajob.php:17
+#: postajob.php:260
+#: scripts/metaboxes.php:15
+#: search.php:146
+msgid "Anywhere"
+msgstr "Overal"
+
+#@ 9to5
+#: archive.php:163
+#: index.php:176
+#: search.php:159
+#: single-blog.php:33
+#: single.php:72
+msgid "Today"
+msgstr "Vandaag"
+
+#@ 9to5
+#: archive.php:45
+#: search.php:183
+msgid "Jobs"
+msgstr "Banen"
+
+#@ 9to5
+#: archive.php:194
+#: blog.php:64
+#: index.php:217
+#: search.php:205
+msgid "Prev"
+msgstr "Vorige"
+
+#@ 9to5
+#: archive.php:212
+#: blog.php:82
+#: index.php:235
+#: search.php:223
+msgid "Next"
+msgstr "Volgende"
+
+#@ 9to5
+#: searchform.php:3
+#: sidebar.php:18
+#: sidebar.php:26
+msgid "Search by keyword"
+msgstr "Zoek op keyword"
+
+#@ 9to5
+#: sidebar.php:44
+msgid "Popular Categories"
+msgstr "Populaire categoriën"
+
+#@ 9to5
+#: sidebar.php:69
+msgid "Popular Tags"
+msgstr "Populaire tags"
+
+#@ 9to5
+#: scripts/themeoptions.php:200
+#: sidebar.php:98
+msgid "About Us"
+msgstr "Over ons"
+
+#@ 9to5
+#: sidebar.php:109
+msgid "Advertising"
+msgstr "Advertentie"
+
+#@ 9to5
+#: 404.php:7
+msgid "Page not found"
+msgstr "Pagina niet gevonden"
+
+#@ 9to5
+#: 404.php:8
+msgid "The page you are looking for no longer exists. Try checking the URL you typed for spelling errors and if not header over to"
+msgstr "De pagina die u opgevraagd heeft bestaat niet langer. Check de URL voor spelfouten of ga naar de homepage"
+
+#@ 9to5
+#: 404.php:8
+msgid "the homepage</a> to search what you were looking for."
+msgstr "de homepage"
+
+#@ 9to5
+#: auth.php:17
+#: auth.php:52
+#: postajob.php:451
+#: postajob.php:486
+msgid "Username is required!"
+msgstr "Gebruikersnaam is verplicht"
+
+#@ 9to5
+#: auth.php:20
+#: auth.php:59
+#: postajob.php:454
+#: postajob.php:493
+msgid "Password is required!"
+msgstr "Wachtwoord is verplicht"
+
+#@ 9to5
+#: auth.php:55
+#: postajob.php:489
+msgid "Email is required."
+msgstr "E-mail is verplicht"
+
+#@ 9to5
+#: auth.php:56
+#: postajob.php:490
+#: single.php:206
+msgid "Incorrect email format."
+msgstr "Verkeerd E-mail adres"
+
+#@ 9to5
+#: auth.php:101
+#: postajob.php:529
+msgid "New password was sent to you by email."
+msgstr "Er is een nieuw wachtwoord naar uw E-mailadres gestuurd."
+
+#@ 9to5
+#: auth.php:116
+#: postajob.php:544
+msgid "Log In"
+msgstr "Log in"
+
+#@ 9to5
+#: auth.php:120
+#: auth.php:153
+#: postajob.php:548
+#: postajob.php:581
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#@ 9to5
+#: auth.php:129
+#: auth.php:171
+#: postajob.php:557
+#: postajob.php:599
+msgid "Password"
+msgstr "Wachtwoord"
+
+#@ 9to5
+#: auth.php:139
+#: postajob.php:567
+msgid "Login"
+msgstr "Login"
+
+#@ 9to5
+#: auth.php:141
+#: postajob.php:569
+msgid "Lost Password"
+msgstr "Wachtwoord vergeten"
+
+#@ 9to5
+#: auth.php:149
+#: auth.php:181
+#: postajob.php:577
+#: postajob.php:609
+msgid "Register"
+msgstr "Registreer"
+
+#@ 9to5
+#: auth.php:162
+#: postajob.php:590
+msgid "Email"
+msgstr "E-mail"
+
+#@ 9to5
+#: auth.php:192
+msgid "You already logged in!"
+msgstr "U bent al ingelogd!"
+
+#@ 9to5
+#: auth.php:193
+msgid "You will be redirected now."
+msgstr "U wordt nu omgeleid"
+
+#@ 9to5
+#: single-blog.php:30
+msgid "Posted:"
+msgstr "Geplaatst:"
+
+#@ 9to5
+#: header.php:339
+#: postajob.php:13
+#: postajob.php:238
+msgid "e.g. Acme Inc."
+msgstr "Bijvoorbeeld Acme B.V."
+
+#@ 9to5
+#: header.php:361
+#: postajob.php:17
+#: postajob.php:256
+msgid "e.g. San Francisco, USA"
+msgstr "Bijvoorbeeld Vlieland"
+
+#@ 9to5
+#: single.php:202
+#: single.php:205
+msgid "This field is required!"
+msgstr "Dit veld is verplicht!"
+
+#@ 9to5
+#: functions.php:160
+msgid "Invalid email format."
+msgstr "Verkeerd E-mail adres"
+
+#@ 9to5
+#: postajob.php:106
+msgid "Job listing successful"
+msgstr "Vacature succesvol toegevoegd"
+
+#@ 9to5
+#: postajob.php:108
+msgid "Manage your Listings"
+msgstr "Bewerk uw advertenties"
+
+#@ 9to5
+#: header.php:423
+#: postajob.php:108
+msgid "or"
+msgstr "of"
+
+#@ 9to5
+#: header.php:439
+#: postajob.php:109
+msgid "Logout"
+msgstr "Log uit"
+
+#@ 9to5
+#: postajob.php:147
+msgid "Job Post Token"
+msgstr "Vacature krediet"
+
+#@ 9to5
+#: postajob.php:151
+msgid "Purchase token for"
+msgstr "Koop vacature krediet"
+
+#@ 9to5
+#: postajob.php:151
+msgid "Buy Job Posting Token"
+msgstr "Koop vacature krediet"
+
+#@ 9to5
+#: postajob.php:179
+#: postajob.php:193
+#: postajob.php:213
+#: postajob.php:220
+#: postajob.php:235
+#: postajob.php:253
+#: postajob.php:278
+#: postajob.php:355
+#: postajob.php:371
+#: postajob.php:383
+#: postajob.php:394
+#: single.php:286
+#: single.php:292
+#: single.php:300
+msgid "Required"
+msgstr "Verplicht"
+
+#@ 9to5
+#: postajob.php:180
+msgid "Position"
+msgstr "Dienstverband"
+
+#@ 9to5
+#: postajob.php:194
+msgid "Category"
+msgstr "Categorie"
+
+#@ 9to5
+#: postajob.php:222
+msgid "Description"
+msgstr "Omschrijving"
+
+#@ 9to5
+#: postajob.php:224
+msgid "Fill in as much detail as you can about the position, outlining responsibilities, perks and information about your company."
+msgstr "Vul zo gedetailleerd mogelijk informatie in over de baan, verantwoordelijkheden, uw bedrijf etc."
+
+#@ 9to5
+#: postajob.php:236
+#: scripts/metaboxes.php:9
+msgid "Company Name"
+msgstr "Bedrijfsnaam"
+
+#@ 9to5
+#: postajob.php:247
+msgid "Post Anonymously"
+msgstr "Plaats anoniem"
+
+#@ 9to5
+#: postajob.php:254
+msgid "Job Location"
+msgstr "Locatie van de baan"
+
+#@ 9to5
+#: postajob.php:265
+msgid "Google Map"
+msgstr "Google map"
+
+#@ 9to5
+#: postajob.php:267
+msgid "Optionally embed a fully functional map. In Google Maps, select Link then Paste HTML to embed in website. Copy and paste the <code>iframe</code> code here."
+msgstr "Optioneel: embed een volledig functionele Google map. In Google Maps, selecteer Link en plak vervolgens de HTML in de website. Kopieer en plak <code>iframe</code> code hier."
+
+#@ 9to5
+#: postajob.php:280
+#: scripts/metaboxes.php:31
+msgid "Skills"
+msgstr "Vaardigheden"
+
+#@ 9to5
+#: postajob.php:282
+msgid "These core competencies (eg. HTML) or more abstract abilities (eg. Teamwork) will assist applicants in finding your listing."
+msgstr "Deze competenties of eigenschappen zal sollicitanten helpen bij het vinden van uw vacature."
+
+#@ 9to5
+#: postajob.php:312
+#: scripts/metaboxes.php:238
+msgid "Add another"
+msgstr "Voeg nog een toe"
+
+#@ 9to5
+#: postajob.php:318
+msgid "Tags"
+msgstr "Tags"
+
+#@ 9to5
+#: postajob.php:320
+msgid "e.g. Graphic, Designer, HTML"
+msgstr "Bijvoorbeeld: Afwas, Receptie, Bediening"
+
+#@ 9to5
+#: postajob.php:356
+#: scripts/metaboxes.php:59
+msgid "Expiry Date"
+msgstr "Vervaldatum"
+
+#@ 9to5
+#: postajob.php:363
+msgid "No Expiration Date"
+msgstr "Geen vervaldatum"
+
+#@ 9to5
+#: postajob.php:374
+msgid "Tell applicants how to apply for the listed position.<br /><br /><strong>Optionally:</strong> Allow applications directly from your job listing. </span>"
+msgstr "Hoe kunnen werkzoekenden solliciteren? Vertel het hier.<br /><br /><strong>Optioneel:</strong> Sollicitanten kunnen direct via het formulier solliciteren.</span>"
+
+#@ 9to5
+#: postajob.php:379
+msgid "Enable on-page application"
+msgstr "Activeer sollicitatieformulier op de pagina"
+
+#@ 9to5
+#: postajob.php:385
+#: single.php:292
+msgid "Email Address"
+msgstr "E-mail adres"
+
+#@ 9to5
+#: postajob.php:386
+msgid "The address all job applications will be sent to."
+msgstr "Het adres waar de sollicitaties naar toe gestuurd zullen worden."
+
+#@ 9to5
+#: postajob.php:396
+#: scripts/metaboxes.php:87
+msgid "Email Message"
+msgstr "E-mail bericht"
+
+#@ 9to5
+#: postajob.php:397
+msgid "This is the response sent to applicants upon succesful delivery of their application.<br /><br />The email starts with:<br /><strong>Hi [Name],</strong></span>"
+msgstr "Dit is het bericht dat verstuurd wordt naar kandidaten na sollicatie. <br /><br />De E-mail start met:<br /><strong>Hi [Naam],</strong></span>"
+
+#@ 9to5
+#: postajob.php:413
+msgid "Submit Listing"
+msgstr "Verstuur"
+
+#@ 9to5
+#: postajob.php:516
+msgid "Please login or register first"
+msgstr "Log in of registreer eerst"
+
+#@ 9to5
+#: postajob.php:517
+msgid "To post a job you must be logged in or register"
+msgstr "Om een vacature te plaatsen moet u eerst inloggen of registreren"
+
+#@ 9to5
+#: comments.php:2
+msgid "Comments"
+msgstr "Reacties"
+
+#@ 9to5
+#: comments.php:4
+msgid "This post is password protected. Enter the password to view any comments."
+msgstr "Deze reactie is beveiligd met een wachtwoord. Voer het wachtwoord in om te lezen. "
+
+#@ 9to5
+#: comments.php:16
+#: comments.php:27
+msgid "<span class=\"meta-nav\">&larr;</span> Older Comments"
+msgstr "Eerdere reacties"
+
+#@ 9to5
+#: comments.php:17
+#: comments.php:28
+msgid "Newer Comments <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Nieuwere reacties"
+
+#@ 9to5
+#: comments.php:34
+msgid "Comments are closed."
+msgstr "Reacties gesloten"
+
+#@ 9to5
+#: header.php:31
+msgid "Archive"
+msgstr "Archief"
+
+#@ 9to5
+#: header.php:35
+msgid "Search for"
+msgstr "Zoek naar"
+
+#@ 9to5
+#: header.php:44
+msgid "Not Found"
+msgstr "Niet gevonden"
+
+#@ 9to5
+#: header.php:58
+msgid "page"
+msgstr "pagina"
+
+#@ 9to5
+#: header.php:225
+msgid "No jobs found"
+msgstr "Geen vacatures gevonden"
+
+#@ 9to5
+#: header.php:372
+#: header.php:374
+msgid "No expiry date"
+msgstr "Geen vervaldatum"
+
+#@ 9to5
+#: single.php:245
+msgid "Application Sent!"
+msgstr "Sollicitatie verstuurd!"
+
+#@ 9to5
+#: header.php:421
+msgid "To post a job,"
+msgstr "Om een vacature te plaatsen,"
+
+#@ 9to5
+#: header.php:422
+msgid "login"
+msgstr "Login"
+
+#@ 9to5
+#: header.php:424
+msgid "create an account"
+msgstr "maak een account"
+
+#@ 9to5
+#: header.php:433
+msgid "Logged in as"
+msgstr "Ingelogd als"
+
+#@ 9to5
+#: header.php:438
+msgid "Edit Listings"
+msgstr "Bewerk advertenties"
+
+#@ 9to5
+#: header.php:448
+msgid "All Jobs"
+msgstr "Alle vacatures"
+
+#@ 9to5
+#: archive.php:134
+#: archives.php:13
+#: index.php:138
+#: single.php:18
+msgid "New"
+msgstr "New"
+
+#@ 9to5
+#: single.php:57
+msgid "This is a"
+msgstr "Dit is een"
+
+#@ 9to5
+#: single.php:60
+msgid "position"
+msgstr "baan"
+
+#@ 9to5
+#: single.php:63
+msgid "in"
+msgstr "in"
+
+#@ 9to5
+#: single.php:68
+msgid "posted"
+msgstr "geplaatst"
+
+#@ 9to5
+#: single.php:93
+msgid "Skills Required"
+msgstr "Vaardigheden"
+
+#@ 9to5
+#: single.php:278
+msgid "Application deadline:"
+msgstr "Deadline"
+
+#@ 9to5
+#: single.php:286
+msgid "Your Name"
+msgstr "Je naam"
+
+#@ 9to5
+#: single.php:302
+msgid "Resume File"
+msgstr "CV"
+
+#@ 9to5
+#: single.php:315
+msgid "Additional Notes"
+msgstr "Aanvullende informatie"
+
+#@ 9to5
+#: single.php:323
+msgid "Send Application"
+msgstr "Verstuur sollicitatie"
+
+#@ ninetofive
+#@ 9to5
+#: functions.php:30
+#: scripts/themeoptions.php:228
+msgid "Footer"
+msgstr "Footer"
+
+#@ 9to5
+#: functions.php:57
+msgid "Blog Posts"
+msgstr "Blog Posts"
+
+#@ 9to5
+#: functions.php:58
+msgid "Blog Post"
+msgstr "Blog Post"
+
+#@ 9to5
+#: functions.php:130
+msgid "Fields \"Username\" and \"Password\" are required."
+msgstr "Velden \"Gebruikersnaam\" and \"Wachtwoord\" zijn verplicht."
+
+#@ 9to5
+#: functions.php:135
+#: functions.php:155
+msgid "\"Username\" may contain only A-Z,a-z,0-9."
+msgstr "\"Gebruikersnaam\" bestaat alleen uit A-Z,a-z,0-9."
+
+#@ 9to5
+#: functions.php:150
+msgid "Fields \"Username\", \"Password\" and \"Email\" are required."
+msgstr "Velden \"Gebruikersnaam\", \"Wachtwoord\" en \"E-mail\" zijn verplicht."
+
+#@ 9to5
+#: functions.php:165
+msgid "This username already taken."
+msgstr "Deze gebruikersnaam bestaat al."
+
+#@ 9to5
+#: functions.php:170
+msgid "This email already registered."
+msgstr "Dit E-mail adres is al gebruikt. "
+
+#@ 9to5
+#: functions.php:324
+msgid "Invalid username or password."
+msgstr "Foute gebruikersnaam of wachtwoord"
+
+#@ 9to5
+#: functions.php:345
+msgid "Please, specify your username or email."
+msgstr "Voer uw gebruikersnaam en wachtwoord in."
+
+#@ 9to5
+#: functions.php:353
+msgid "User with such email not found."
+msgstr "Er is geen gebruiker met dat E-mail adres gevonden."
+
+#@ 9to5
+#: functions.php:367
+#: functions.php:382
+msgid "User with such username not found."
+msgstr "Deze gebruikersnaam is niet gevonden."
+
+#@ 9to5
+#: functions.php:397
+msgid "Someone has asked to reset the password for the following site and username."
+msgstr "Iemand heeft gevraagd het wachtwoord te resetten voor de volgende website en gebruikersnaam."
+
+#@ 9to5
+#: functions.php:399
+#, php-format
+msgid "Username: %s"
+msgstr "Gebruikersnaam: %s"
+
+#@ 9to5
+#: functions.php:400
+msgid "To reset your password visit the following address, otherwise just ignore this email and nothing will happen."
+msgstr "Om uw wachtwoord te resetten bezoek de volgende website, in andere gevallen kunt u deze mail negeren. "
+
+#@ 9to5
+#: functions.php:407
+#, php-format
+msgid "[%s] Password Reset"
+msgstr "[%s] Password Reset"
+
+#@ 9to5
+#: functions.php:413
+msgid "The email could not be sent."
+msgstr "De mail kon niet verstuurd worden. "
+
+#@ 9to5
+#: functions.php:413
+msgid "Possible reason: your host may have disabled the mail() function..."
+msgstr "Mogelijke reden: uw host heeft de mail() function disabled."
+
+#@ 9to5
+#: functions.php:415
+msgid "Please, check your email."
+msgstr "Check alstublieft uw mail."
+
+#@ 9to5
+#: archives.php:21
+msgid "By Year"
+msgstr "Per jaar"
+
+#@ 9to5
+#: archives.php:23
+msgid "By Month"
+msgstr "per maand"
+
+#@ 9to5
+#: index.php:199
+msgid "Showing"
+msgstr "Toont"
+
+#@ 9to5
+#: index.php:199
+msgid "of"
+msgstr "van"
+
+#@ 9to5
+#: index.php:200
+msgid "jobs"
+msgstr "banen"
+
+#@ 9to5
+#: archive.php:59
+msgid "Jobs tagged"
+msgstr "Banen getagged"
+
+#@ 9to5
+#: archive.php:97
+msgid "Archives"
+msgstr "Archieven"
+
+#@ 9to5
+#: archive.php:177
+msgid "jobs found"
+msgstr "banen gevonden"
+
+#@ 9to5
+#: lostpassword.php:47
+msgid "Username or Email"
+msgstr "Gebruikersnaam of wachtwoord"
+
+#@ 9to5
+#: lostpassword.php:57
+msgid "Recover Password"
+msgstr "Wachtwoord opvragen"
+
+#@ 9to5
+#: scripts/apply.php:11
+msgid "No notes."
+msgstr "Geen notities"
+
+#@ 9to5
+#: scripts/apply.php:24
+msgid "Applicant Name:"
+msgstr "Sollicitant naam:"
+
+#@ 9to5
+#: scripts/apply.php:25
+msgid "Applicant Email:"
+msgstr "Sollicitant E-mail:"
+
+#@ 9to5
+#: scripts/apply.php:26
+msgid "Notes:"
+msgstr "Extra informatie:"
+
+#@ 9to5
+#: scripts/apply.php:42
+#: scripts/apply.php:56
+msgid "Job Application for"
+msgstr "Sollicitatie voor"
+
+#@ 9to5
+#: scripts/apply.php:47
+msgid "This is a confirmation to let you know that your application has been sent. This is an automatically-generated email so please do not respond."
+msgstr "Dit is een bevestiging om te laten weten dat uw sollicitatie met succes is verzonden. Dit is een geautomatiseerd E-mail dus alstublieft niet reageren. "
+
+#@ 9to5
+#: scripts/apply.php:51
+msgid "Hi"
+msgstr "Hoi"
+
+#@ 9to5
+#: scripts/apply.php:52
+msgid "Thanks,"
+msgstr "Bedankt, "
+
+#@ 9to5
+#: scripts/adminpage.php:8
+msgid "settings saved"
+msgstr "instellingen opgeslagen"
+
+#@ 9to5
+#: scripts/adminpage.php:10
+msgid "settings imported"
+msgstr "instellingen geimporteerd"
+
+#@ 9to5
+#: scripts/adminpage.php:12
+msgid "settings reset"
+msgstr "instellingen gereset"
+
+#@ 9to5
+#: scripts/adminpage.php:16
+msgid "Settings"
+msgstr "Instellingen"
+
+#@ 9to5
+#: scripts/adminpage.php:144
+#: scripts/adminpage.php:148
+msgid "Delete"
+msgstr "Delete"
+
+#@ 9to5
+#: scripts/adminpage.php:153
+msgid "Add"
+msgstr "Toevoegen"
+
+#@ 9to5
+#: scripts/adminpage.php:222
+msgid "Save changes"
+msgstr "Opslaan"
+
+#@ 9to5
+#: scripts/adminpage.php:234
+msgid "Warning: This will reset your settings back to the factory default settings! Continue?"
+msgstr ""
+
+#@ 9to5
+#: scripts/adminpage.php:236
+msgid "Reset"
+msgstr "Reset"
+
+#@ 9to5
+#: scripts/adminpage.php:242
+msgid "Export settings"
+msgstr "Exporteer instellingen"
+
+#@ 9to5
+#: scripts/adminpage.php:248
+msgid "Import settings"
+msgstr "Importeer instellingen"
+
+#@ 9to5
+#: scripts/adminpage.php:255
+msgid "OK"
+msgstr "OK"
+
+#@ 9to5
+#: scripts/metaboxes.php:10
+msgid "Please enter the name of the company under which you would like this job to be posted."
+msgstr "Voer de naam in van het bedrijf waar deze vacature onder gepost moet worden."
+
+#@ 9to5
+#: scripts/metaboxes.php:16
+msgid "Location"
+msgstr "Locatie"
+
+#@ 9to5
+#: scripts/metaboxes.php:17
+msgid "Please enter the location of the position, please format it with the city name followed by the state or country e.g. SAN DIEGO, CA"
+msgstr "Voer de locatie van de vacature, bijvoorbeeld Vlieland."
+
+#@ 9to5
+#: scripts/metaboxes.php:24
+msgid "Position Type"
+msgstr "Type"
+
+#@ 9to5
+#: scripts/metaboxes.php:25
+msgid "Please select the position type of the job."
+msgstr "Voer aub het type in."
+
+#@ 9to5
+#: scripts/metaboxes.php:32
+msgid "Please enter any particular skills you would like the applicant to posses and a list will be automatically generated. Separate with a comma e.g. HTML Skills, CSS Skills"
+msgstr "Vul vaardigheden en eigenschappen in waaraan de sollicitant aan zou moeten voldoen gescheiden door komma's. "
+
+#@ 9to5
+#: scripts/metaboxes.php:53
+msgid "Please enter any information you would like applicants to send to you, and the means by which to do so e.g. Please send examples of past work and your CV to info@example.com"
+msgstr "Wat moeten sollicitanten naar u toe sturen bij solliciteren? Bijvoorbeeld getuigschriften, diploma's, referenties, CV."
+
+#@ 9to5
+#: scripts/metaboxes.php:60
+msgid "Please enter an expiry date for this job listing in the format YYYY/MM/DD - without any spaces. If you don't want this job listing to expire enter \\\"noexpire\\\" without the quotation marks."
+msgstr "Wanneer vervalt de vacature (YYYY/MM/DD)"
+
+#@ 9to5
+#: scripts/metaboxes.php:66
+msgid "Map Code"
+msgstr "Google maps code"
+
+#@ 9to5
+#: scripts/metaboxes.php:67
+msgid "Please enter the map code, this can be found at Google Maps."
+msgstr "Vul hier de Google Maps code in"
+
+#@ 9to5
+#: scripts/metaboxes.php:73
+#: scripts/metaboxes.php:80
+msgid "Application Form"
+msgstr "Sollicitatieformulier"
+
+#@ 9to5
+#: scripts/metaboxes.php:74
+msgid "Allow users to apply for this job on the listing page."
+msgstr "Sta toe dat sollicitanten direct op de pagina het formulier in kunnen vullen. "
+
+#@ 9to5
+#: scripts/metaboxes.php:81
+msgid "If you enable the application form above, enter an email address here to send applications to."
+msgstr "Als u bovenstaande heeft geactiveerd, vul dan hier het E-mail adres is waar het formulier heen moet mailen. "
+
+#@ 9to5
+#: scripts/metaboxes.php:88
+msgid "If you enable the application form above, enter a message to send to applications who (the message will always begin with Hi [Applicant Name],)."
+msgstr "Als u het sollicitatieformulier hierboven heeft geactiveerd, vul dan hier een bericht dat naar de sollicitant gemaild moet worden na solliciteren. "
+
+#@ 9to5
+#: scripts/metaboxes.php:318
+msgid "Job Options"
+msgstr "Opties"
+
+#@ 9to5
+#: scripts/themeoptions.php:6
+msgid "Options"
+msgstr "Opties"
+
+#@ 9to5
+#: scripts/themeoptions.php:8
+msgid "Layout"
+msgstr "Layout"
+
+#@ 9to5
+#: scripts/themeoptions.php:11
+msgid "Category Bar"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:12
+msgid "Choose whether to display the full-width categories bar at the top of the page. Another option is to use the sidebar categories widget."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:18
+msgid "Filter Bar"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:19
+msgid "Select a style for the job type filters on the job list pages. Full tabs or rounded checkboxes."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:37
+msgid "Filter Types"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:38
+msgid "Add between 2 and 3 job tenure types. These are used for quick filtering on each list page."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:41
+msgid "Branding"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:44
+msgid "Custom Logo"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:45
+msgid "To replace the logo used by the theme, enter the full URL of an image here. Note: It should measure no more than 300 x 80px. To upload an image visit"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:45
+#: scripts/themeoptions.php:50
+#: scripts/themeoptions.php:55
+#: scripts/themeoptions.php:81
+msgid "The Media Libary"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:49
+msgid "Custom Favicon"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:50
+msgid "A favicon is a 16x16 pixel icon that represents your site, displayed in a browsers address bar; paste the URL to a .ico image that you wish to use as the favicon. To upload an image visit"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:54
+msgid "Custom Login Image"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:55
+msgid "To replace the default Wordpress logo on the login screen, enter the full URL of an image here. Note: It should measure 310 x 70px. To upload an image visit"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:60
+msgid "Styling"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:63
+msgid "Skin"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:64
+msgid "Choose a theme skin. Dark works better with dark backgrounds as the header, sidebar and footer type colors are reversed."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:69
+msgid "Typography"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:70
+msgid "Choose between Helvetica (sans serif) or Georgia (serif) to set the right mood for your site."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:75
+msgid "Background Color"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:76
+msgid "Choose a background color for the site."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:80
+msgid "Background Image"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:81
+msgid "Choose a background image for the site. To upload an image visit"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:85
+msgid "Background Position"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:86
+msgid "Choose the positioning of the background image for the site."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:91
+msgid "Background Repeat"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:92
+msgid "Choose a background repeat pattern for the site."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:97
+msgid "Category Background"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:98
+msgid "Choose a category colour scheme. This changes the category menu bar running across the top of the page."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:103
+msgid "Filter Background"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:104
+msgid "Choose a primary theme colour scheme. This changes the button and link styles across the site."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:109
+msgid "Subtitle Background"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:110
+msgid "Choose a secondary theme colour. This changes the top filter style across the site."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:115
+msgid "Title Background"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:116
+msgid "Choose a title background type. This changes the background of the job permalink page and several others across across the site."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:121
+msgid "Button Color"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:122
+msgid "Choose a tertiary theme colour. This changes the sub bar style across the site."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:128
+msgid "Header"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:131
+msgid "Sign In Link"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:132
+msgid "Enter the URL to your custom login page or leave standart."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:136
+msgid "Register Link"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:137
+msgid "Enter the URL to your custom register page or leave standart."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:142
+msgid "Sidebar"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:145
+msgid "Quick Search"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:146
+msgid "<strong><a href=#9t5_wid_order>Display Order: 1</a></strong><br /><br />Chose whether or not to enable the default search widget."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:151
+msgid "Search on all Pages"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:152
+msgid "Choose whether or not to display search on all pages (if this is disabled, search will on be displayed on pages that do not list jobs)."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:157
+msgid "Categories"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:158
+msgid "<strong><a href=#9t5_wid_order>Display Order: 2</a></strong><br /><br />Chose whether or not to enable categories in the sidebar."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:163
+msgid "Categories Maximum #"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:164
+msgid "Enter a maximum number of categories to display when using enabled."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:168
+msgid "Smart Tags"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:169
+msgid "<strong><a href=#9t5_wid_order>Display Order: 3</a></strong><br /><br />Chose whether or not to enable a cleaner view of tags in the sidebar."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:174
+msgid "Smart Tag Maximum #"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:175
+msgid "Enter a maximum number of tags to display when using smart tag display."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:179
+msgid "CTA"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:180
+msgid "<strong><a href=#9t5_wid_order>Display Order: 4</a></strong><br /><br />Chose whether or not to enable the default call to action widget."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:185
+msgid "CTA Button Text"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:186
+msgid "Change this text to reflect what you want to be displayed on the button."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:190
+msgid "CTA Button URL"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:191
+msgid "Enter the URL of the page that is used to post jobs."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:195
+msgid "CTA Caption Text"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:196
+msgid "Change this text to reflect what you want to be displayed just below the button."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:201
+msgid "<strong><a href=#9t5_wid_order>Display Order: 5</a></strong><br /><br />Chose whether or not to enable the default about us widget."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:206
+msgid "About Us Text"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:207
+msgid "If the about us widget is enabled, text entered in this field will be displayed."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:211
+msgid "Advert"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:212
+msgid "<strong><a href=#9t5_wid_order>Display Order: 6</a></strong><br /><br />A standard advert unit suitable for a 120x90 ad with text."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:217
+msgid "Advert Content (HTML)"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:218
+msgid "This will insert a 120x90 ad in the sidebar."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:222
+msgid "Widget Order"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:223
+msgid "Chose the order in which you would like the widgets above to appear. The Display Order of each is listed above."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:231
+msgid "Copyright Notice"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:232
+msgid "Add your copyright notice to the bottom of the site."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:236
+msgid "Additional Text"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:237
+msgid "Add some optional text underneath the copyright statement."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:241
+msgid "Analytics Code"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:242
+msgid "Add your analytics code just before the closing </body> tag by entering it here."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:247
+msgid "Job Posting"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:256
+msgid "Maximum Skills Allowed"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:257
+msgid "Enter the maximum number of skills you will allow users to post for a job."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:261
+msgid "Allow Location 'Anywhere'"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:262
+msgid "Allow users to be able to post jobs with a location of 'Anywhere'."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:267
+msgid "Allow Anonymous Posts"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:268
+msgid "Allow users to post jobs with an anonymous company."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:273
+msgid "Allow Permanent Posts"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:274
+msgid "Allow users to post jobs that do not expire."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:280
+msgid "Job Reading"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:299
+msgid "Share button in Jobs"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:300
+msgid "Use this option for enabling or disabling share button in job reading."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:305
+msgid "Share button in Blogs"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:306
+msgid "Use this option for enabling or disabling share button in blogs reading."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:311
+msgid "Custom RSS Feed"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:312
+msgid "Set your own RSS feed (e.g. Feedburner)."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:316
+msgid "Safe Email Display"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:317
+msgid "Use PHP to hide email addresses from spammers. <strong>PLEASE NOTE:</strong> This method does not guarantee the email addresses against all spam bots."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:322
+msgid "Show the 'NEW' tag"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:323
+msgid "Choose whether or not you would like to display the 'NEW' tag on newly posted jobs"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:327
+msgid "New Badge Display"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:328
+msgid "Enter how many days after posting the new badge should be displayed for."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:333
+msgid "Payments"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:336
+msgid "Enable Paid Listings"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:337
+msgid "Choose whether or not to charge users to post jobs."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:341
+msgid "PayPal Email"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:342
+msgid "Enter your PayPal email address - this is the account which will be credited."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:352
+msgid "Cost per Job"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:353
+msgid "Enter an amount in USD to charge for each job listing."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:357
+msgid "Header Image"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:358
+msgid "Enter the URL of an image (90x750px) to use when customers are using the PayPal site, if this is left blank your email address will be displayed in it's place."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:362
+msgid "Return Button Text"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:363
+msgid "Enter some text to be displayed on the button users click on the PayPal site to return to post a job."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:250
+msgid "Display 'Salary' field"
+msgstr ""
+
+#@ 9to5
+#: single.php:109
+msgid "Package"
+msgstr "Secundaire arbeidsvoorwaarden"
+
+#@ 9to5
+#: postajob.php:328
+#: scripts/metaboxes.php:38
+msgid "Salary"
+msgstr "Salaris"
+
+#@ 9to5
+#: postajob.php:340
+#: scripts/metaboxes.php:45
+msgid "Benefits"
+msgstr "Secundaire arbeidsvoorwaarden"
+
+#@ 9to5
+#: scripts/themeoptions.php:346
+msgid "Default currency"
+msgstr "Standaard munteenheid"
+
+#@ 9to5
+#: comments.php:11
+#, php-format
+msgid "One Response to %2$s"
+msgid_plural "%1$s Responses to %2$s"
+msgstr[0] ""
+msgstr[1] ""
+
+#@ 9to5
+#: functions.php:196
+#: postajob.php:334
+msgid "e.g. $1500 a month or 25 USD per hour"
+msgstr "Bijvoorbeeld € 1000,- per maand of € 8,- euro per uur. "
+
+#@ 9to5
+#: postajob.php:214
+msgid "Job Title"
+msgstr "Baan Titel"
+
+#@ 9to5
+#: postajob.php:330
+#: scripts/metaboxes.php:39
+msgid "Please, indicate the proposed salary including currency symbol or letters."
+msgstr "Geef het salaris in inclusief € symbool of letters. "
+
+#@ 9to5
+#: postajob.php:342
+#: scripts/metaboxes.php:46
+msgid "Fill in as much detail as you can what can you offer the applicant."
+msgstr "Wees zo gedetailleerd mogelijk over de sec. arbeidsvoorwaarden. "
+
+#@ 9to5
+#: postajob.php:373
+#: scripts/metaboxes.php:52
+#: single.php:128
+msgid "How to Apply"
+msgstr "Solliciteren?"
+
+#@ default
+#: scripts/adminpage.php:38
+msgid "Setup and configure the  theme using the options below."
+msgstr ""
+
+#@ 9to5
+#: scripts/apply.php:27
+msgid "Files attached:"
+msgstr "Bestanden bijgevoegd:"
+
+#@ 9to5
+#: scripts/themeoptions.php:251
+msgid "Allow users to specify jobs salary."
+msgstr "Sta gebruikers toe een salaris te specificeren."
+
+#@ 9to5
+#: scripts/themeoptions.php:283
+msgid "Require resume"
+msgstr "CV verplicht"
+
+#@ 9to5
+#: scripts/themeoptions.php:284
+msgid "Use this option for enabling or disabling requiment to upload contractor resume in application form."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:289
+msgid "Allowed resume file types"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:290
+msgid "Enter a comma-separated file types allowed for upload in Application Form. Or enter <b>*</b> to remove file types restrictions."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:294
+msgid "Max resume file size (MB)"
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:295
+msgid "Enter max file size allowed for upload in Application Form. <b>PLEASE NOTE:</b> If you entered size larger than in \"upload_max_filesize\" PHP directive, default value will be used."
+msgstr ""
+
+#@ 9to5
+#: scripts/themeoptions.php:347
+msgid "Use this option to set default currency for paid listings."
+msgstr ""
+
+#@ 9to5
+#: single.php:209
+msgid "Please, upload your CV!"
+msgstr "Upload je CV alstublieft!"
+
+#functions.php:457
+msgid "The %s is not writeable"
+msgstr ""
+

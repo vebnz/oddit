@@ -1,0 +1,248 @@
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.header {
+    float: left;
+    width: 960px;
+}
+
+.inner {
+    position: relative !important;
+    height: 100% !important;
+}
+
+.header .inner .logo {
+    float: left;
+    height: 65px;
+    line-height: 80px;
+    margin: 41px 0 0px 10px;
+    max-width: 40%;
+}
+
+.header .inner .status {
+    float: right;
+    display: block;
+    position: inherit !important;
+    top: 70px !important;
+    right: 0px !important;
+    color: #888;
+}
+
+.header .inner .status a {
+    color: #CCC;
+}
+
+.header .inner .status a:hover {
+    color: #eee;
+}
+
+.content {
+    float: left;
+    width: 960px;
+    display: block;
+}
+
+.category_menu {
+    float: none;
+    display: block;
+    width: 958px;
+    clear: both;
+}
+
+.focus {
+    float: left;
+    width: 690px;
+}
+
+.whiteboard {
+    float: left;
+    width: 688px;
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #AAAAAA;
+}
+
+.sub {
+    float: left;
+    width: 658px;
+}
+
+.sub h2 {
+    float: left !important;
+    width: 500px !important;
+}
+
+.sub .meta {
+    float: right !important;
+    width: 158px !important;
+    display: inline !important;
+    padding: 0 !important;
+}
+
+.listing .apply {
+    float: left;
+    display: block;
+    width: 658px;
+}
+
+.form_apply, .form_apply p {
+    float: left;
+    display: block;
+    width: 498px;
+}
+
+.form_apply fieldset {
+    float: left: width: 478px;
+}
+
+.form_apply fieldset p#uploadedFile {
+    width: 290px;
+    *display: none;
+}
+
+.form_apply fieldset .field .upload .realupload {
+    position: relative;
+}
+
+#uploadField {
+    position: relative;
+    top: 0px;
+}
+
+#uploadField input {
+    border: none;
+}
+
+#uploadedFile {
+    margin: 0;
+    padding: 5px 0 0 0;
+}
+
+.quicksearch form span input[type=text] {
+    padding-top: 6px;
+    height: 24px;
+}
+
+.form_apply fieldset .field .upload .fakeupload {
+    width: 285 px9\;z-index: 0;
+}
+
+.upload label.button {
+    position: relative9\;left: 200 px9\;z-index: 19 \;
+}
+
+/*.form_apply fieldset .field .upload .fakeupload input {width:285px!important;}*/
+.sidebar ul, .sidebar ul li {
+    float: left;
+    width: 250px;
+    margin: 0 0 20px 0;
+}
+
+.sidebar .tablets {
+    margin-top: -20px;
+}
+
+.sidebar .cell.action {
+    float: left;
+    display: block;
+    width: 218px;
+    height: auto;
+}
+
+.sidebar .cell.action .button {
+    position: relative !important;
+    display: block;
+    text-align: center;
+    height: 35px !important;
+    padding: 0;
+    width: 147px !important;
+    background-color: #E30A07;
+    *margin-left: 31px;
+}
+
+.sidebar .cell.action .button span {
+    padding-top: 9px;
+    width: 147px;
+    float: left;
+    height: 26px;
+    text-align: center;
+    margin-top: 9 px9\;
+}
+
+ol.list, ol.list li {
+    float: left;
+    display: block;
+    width: 688px;
+}
+
+.paging ul.grey li a {
+    cursor: pointer;
+}
+
+.quicksearch form span {
+    background: none repeat scroll 0 0 #F2F2F2;
+    border: 1px solid #CCCCCC;
+    display: block;
+    margin: 0;
+    padding: 2px;
+    position: relative;
+    float: left;
+    width: 244px;
+}
+
+.footer {
+    display: block;
+    margin: 0 auto;
+    width: 960px;
+}
+
+.footer .inner {
+    float: left;
+    display: block;
+    width: 960px;
+}
+
+.footer .inner .links {
+    float: right;
+    width: 500px !important;
+    display: inline;
+}
+
+.footer .inner .copyright {
+    float: left;
+    width: 290px !important;
+}
+
+.footer .seo {
+    float: left;
+    width: 960px;
+    margin-top: -10px;
+}
+
+.tagline {
+    position: relative !important;
+    color: #ccc;
+}
+
+.tagline p {
+    text-align: right;
+}
+
+.form_apply fieldset .field .upload {
+    z-index: 1;
+}
+
+.form_apply fieldset .field .upload .realupload {
+    width: 64px;
+    height: 25px;
+    left: 0px;
+    opacity: 0 !important;
+    filter: alpha(opacity = 0);
+}
+
+.form_apply fieldset .field .upload .fakeupload input {
+    padding-top: 4px;
+    height: 21px;
+    padding-left: 4px;
+}
