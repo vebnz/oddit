@@ -67,9 +67,11 @@
 		{% endfor %}
 	</ol>
 	{% else %}
-	<div class="title white">
-		<p>No jobs available here... <a href="/jobs/new">yet</a>.</p>
-	</div>
+	<ol class="list">
+		<li class="design_filter_2">
+		No jobs matching that query were found. <a href="/jobs/new">Perhaps you'd like to add one?</a>
+		</li>
+	</ol>
 	{% endif %}
 
 	<div class="pagingShows">
