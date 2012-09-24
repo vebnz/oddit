@@ -139,7 +139,7 @@ class JobApply(models.Model):
     created = models.DateField(editable=False)
     updated = models.DateTimeField(editable=False)
     text = models.CharField(max_length=64)
-    resume = filepicker.models.FDPFileField(upload_to='resumes/')
+    resume = filepicker.models.FPFileField(upload_to='resumes/')
 
     def save(self, *args, **kwargs):
         if not self.id:

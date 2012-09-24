@@ -128,6 +128,7 @@ def apply_job(request, job_id):
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
     popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
     category_list = Category.objects.all()[:10]
+
     j = get_object_or_404(Job, pk=job_id)
     try:
        checkApply = JobApply.objects.get(user=request.user, job=j)
@@ -148,6 +149,9 @@ def apply_job(request, job_id):
           form = ApplyForm(request.POST, request.FILES, instance=app, user=request.user, job=j)
           if form.is_valid():
              form.save()
+
+             fpfile = form.cleaned_data['resume']
+             fpfile.seek(0)
              return HttpResponseRedirect('/jobs/')
           else:
             print 'something fucked'
