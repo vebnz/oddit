@@ -35,6 +35,7 @@ class JobForm(forms.ModelForm):
             'city' : forms.Select(attrs={'class' : 'styled'}),
             'remote' : forms.Select(attrs={'class' : 'styled'}),
             'type' : forms.Select(attrs={'class' : 'styled'}),
+	    'budget_type' : forms.Select(attrs={'class' : 'styled'}),
             'description' : forms.Textarea(attrs={'class' : 'validation'}),
         }
         exclude = ('bold', 'featured', 'ip', 'user')
