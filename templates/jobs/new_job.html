@@ -109,6 +109,14 @@ jQuery(document).ready(function() {
                                 }
                        });
 
+			 $('#id_budget_type').change(function(){
+                                if ($('#id_budget_type').val() == "") {
+                                        $('#id_budget_type').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_budget_type').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
 			 $('#id_expires').change(function(){
                                 if ($('#id_expires').val() == "") {
                                         $('#id_expires').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
@@ -281,14 +289,14 @@ jQuery(document).ready(function() {
 						<span class="required2">Required</span>
 						<label class="label">{{ form.budget.label_tag }}
 							<span class="formerror">
-								{{ form.expires.errors }}
+								{{ form.budget.errors }}
 						</span></label><span class="tipTipClass" title="Enter in the budget/wage for this job.">[?]</span>
 						<div class="field mod">
 							<div class="input_wrap">{{ form.budget }}</div>
 						</div>
 					</fieldset>
 					<fieldset class="field_position first">
-                                                <span class="required2">Required</span>
+                                                <span class="required2 yes">Required</span>
                                                 <label class="label">{{ form.budget_type.label_tag }}
                                                         <span class="formerror">
                                                                 {{ form.budget_type.errors }}
