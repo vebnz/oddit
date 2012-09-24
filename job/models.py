@@ -8,8 +8,6 @@ from indextank.client import ApiClient
 from django.forms import ModelForm
 from job.validators import validate_pdf
 
-import filepicker
-
 api = ApiClient('http://:twdfy1QVjimypE@61rg.api.searchify.com')
 search = api.get_index('jobs')
 
@@ -139,7 +137,7 @@ class JobApply(models.Model):
     created = models.DateField(editable=False)
     updated = models.DateTimeField(editable=False)
     text = models.CharField(max_length=64)
-    resume = filepicker.models.FPFileField(upload_to='resumes/')
+    resume = models.FileField(upload_to='resumes/', validators=[validate_pdf])
 
     def save(self, *args, **kwargs):
         if not self.id:

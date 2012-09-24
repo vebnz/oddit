@@ -149,9 +149,6 @@ def apply_job(request, job_id):
           form = ApplyForm(request.POST, request.FILES, instance=app, user=request.user, job=j)
           if form.is_valid():
              form.save()
-
-             fpfile = form.cleaned_data['resume']
-             fpfile.seek(0)
              return HttpResponseRedirect('/jobs/')
           else:
             print 'something fucked'
