@@ -144,7 +144,9 @@ jQuery(document).ready(function() {
                                 );
                         });
 
-  
+			$(function(){
+				$(".tipTipClass").tipTip();
+			});  
 });
 </script>
 
@@ -164,10 +166,10 @@ jQuery(document).ready(function() {
 				<div class="fieldset_set">
 					<fieldset class="field_position first last">
 						<span class="required2">Required</span>
-						<label class="label">{{ form.title.label_tag }}
-							<span class="formerror">
-								{{ form.title.errors }}
-						</span></label>
+						<label class="label">{{ form.title.label_tag }}		
+						<span class="formerror">
+							{{ form.title.errors }}
+						</span></label><span class="tipTipClass" title="Enter a descriptive title for the job listing.">[?]</span>
 						<div class="field mod">
 							<div class="input_wrap">{{ form.title }}</div>
 						</div>
@@ -179,7 +181,7 @@ jQuery(document).ready(function() {
 						<label class="label">{{ form.category.label_tag }}
 							<span class="formerror">
 								{{ form.category.errors }}
-						</span></label>
+						</span></label><span class="tipTipClass" title="Select a category that best suits the job listing.">[?]</span>
 						<div class="field mod">
 							<div class="input_wrap">{{ form.category }}</div>
 						</div>
@@ -256,7 +258,7 @@ jQuery(document).ready(function() {
 						<label class="label">{{ form.remote.label_tag }}
 							<span class="formerror">
 								{{ form.remote.errors }}
-						</span></label>
+						</span></label><span class="tipTipClass" title="Can this job be worked on from a remote location?">[?]</span>
 
 						<div class="field mod">
 							<div class="input_wrap">{{ form.remote }}</div>
@@ -280,7 +282,7 @@ jQuery(document).ready(function() {
 						<label class="label">{{ form.budget.label_tag }}
 							<span class="formerror">
 								{{ form.expires.errors }}
-						</span></label>
+						</span></label><span class="tipTipClass" title="Enter in the budget/wage for this job.">[?]</span>
 						<div class="field mod">
 							<div class="input_wrap">{{ form.budget }}</div>
 						</div>
@@ -301,7 +303,7 @@ jQuery(document).ready(function() {
 						<label class="label">{{ form.tag_list.label_tag }}
 							<span class="formerror">
 								{{ form.tag_list.errors }}
-						</span></label>
+						</span></label><span class="tipTipClass" title="Comma seperated tags describing this job.">[?]</span>
 
 						<div class="field mod">
 							<div class="input_wrap">{{ form.tag_list }}</div>
