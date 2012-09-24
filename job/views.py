@@ -56,7 +56,8 @@ def index(request, category_name='all', type_name='all'):
                                                   'total_jobs': total_jobs,
                                                   'job_types': job_types,
                                                   'popular_tags': popular_tags,
-						  'category_name': category_name,
+                        						  'category_name': category_name,
+                                                  'type_name': type_name,
                                                  }, context_instance=RequestContext(request))
 
 def detail(request, job_id, job_name):

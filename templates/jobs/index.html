@@ -22,7 +22,7 @@
 			<ul>
 				<li class="first"><a href="/jobs" id="all" class="first" name="all"><span>All Types</span></a></li>
 				{% for type in job_types %}
-				<li class="first"><a href="/jobs/type/{{ type.name|slugify }}/" id="all" class="first" name="all"><span>{{ type.name }}</span></a></li>
+				<li class="first"><a href="/jobs/type/{{ type.name|slugify }}/" id="all" class="first {% if type_name == type.name|lower %}active{% endif %}" name="all"><span>{{ type.name }}</span></a></li>
 				{% endfor %}
 				{% if user.is_superuser %}
 				<li class="first"><a href="/admin/job/jobtype/add/" id="all" class="first" name="all"><span>Add</span></a></li>
