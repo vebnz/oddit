@@ -155,6 +155,10 @@ jQuery(document).ready(function() {
 			$(function(){
 				$(".tipTipClass").tipTip();
 			});  
+
+			$('#jobsubmit').click(function(){
+				return true;
+			});
 });
 </script>
 
@@ -173,7 +177,11 @@ jQuery(document).ready(function() {
 			<div class="form_post">
 				<div class="fieldset_set">
 					<fieldset class="field_position first last">
-						<span class="required2">Required</span>
+						{% if form.title.errors %}
+							<span class="required2 no">Required</span>
+						{% else %}
+							<span class="required2">Required</span>
+						{% endif %}
 						<label class="label">{{ form.title.label_tag }}		
 						<span class="formerror">
 							{{ form.title.errors }}
@@ -185,7 +193,12 @@ jQuery(document).ready(function() {
 				</div>
 				<div class="fieldset_set">
 					<fieldset class="field_category last">
-						<span class="required2">Required</span>
+						{% if form.category.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
+
 						<label class="label">{{ form.category.label_tag }}
 							<span class="formerror">
 								{{ form.category.errors }}
@@ -195,7 +208,11 @@ jQuery(document).ready(function() {
 						</div>
 					</fieldset>
 					<fieldset class="field_description last">
-						<span id="labelcontent" class="required2">Required</span>
+						{% if form.description.errors %}
+                                                        <span id="labelcontent" class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span id="labelcontent" class="required2">Required</span>
+                                                {% endif %}
 						<label class="label" for="desc">
 							{{ form.description.label_tag }}
 							{% if form.category.errors %}
@@ -215,7 +232,11 @@ jQuery(document).ready(function() {
 				</div>
 				<div class="fieldset_set">
 					<fieldset class="field_position first">
-						<span class="required2">Required</span>
+						{% if form.company.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
 						<label class="label">{{ form.company.label_tag }}
 							<span class="formerror">
 								{{ form.company.errors }}
@@ -225,7 +246,11 @@ jQuery(document).ready(function() {
 						</div>
 					</fieldset>
 					<fieldset class="field_position last">
-						<span class="required2 yes">Required</span>
+						{% if form.position.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2 yes">Required</span>
+                                                {% endif %}
 						<label class="label">{{ form.position.label_tag }}
 							<span class="formerror">
 								{{ form.position.errors }}
@@ -238,7 +263,11 @@ jQuery(document).ready(function() {
 				</div>
 				<div class="fieldset_set">
 					<fieldset class="field_position first">
-						<span class="required2">Required</span>
+						{% if form.region.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
 						<label class="label">{{ form.region.label_tag }}
 							<span class="formerror">
 								{{ form.region.errors }}
@@ -249,7 +278,11 @@ jQuery(document).ready(function() {
 						</div>
 					</fieldset>
 					<fieldset class="field_position last">
-						<span class="required2">Required</span>
+						{% if form.city.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
 						<label class="label">{{ form.city.label_tag }}
 							<span class="formerror">
 								{{ form.city.errors }}
@@ -262,7 +295,11 @@ jQuery(document).ready(function() {
 				</div>
 				<div class="fieldset_set">
 					<fieldset class="field_position first">
-						<span class="required2 yes">Required</span>
+						{% if form.remote.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2 yes">Required</span>
+                                                {% endif %}
 						<label class="label">{{ form.remote.label_tag }}
 							<span class="formerror">
 								{{ form.remote.errors }}
@@ -273,7 +310,11 @@ jQuery(document).ready(function() {
 						</div>
 					</fieldset>
 					<fieldset class="field_position last">
-						<span class="required2">Required</span>
+						{% if form.type.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
 						<label class="label">{{ form.type.label_tag }}
 							<span class="formerror">
 								{{ form.type.errors }}
@@ -286,7 +327,11 @@ jQuery(document).ready(function() {
 				</div>
 				<div class="fieldset_set">
 					<fieldset class="field_position first">
-						<span class="required2">Required</span>
+						{% if form.budget.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
 						<label class="label">{{ form.budget.label_tag }}
 							<span class="formerror">
 								{{ form.budget.errors }}
@@ -296,7 +341,11 @@ jQuery(document).ready(function() {
 						</div>
 					</fieldset>
 					<fieldset class="field_position first">
-                                                <span class="required2 yes">Required</span>
+                                                {% if form.budget_type.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2 yes">Required</span>
+                                                {% endif %}
                                                 <label class="label">{{ form.budget_type.label_tag }}
                                                         <span class="formerror">
                                                                 {{ form.budget_type.errors }}
@@ -306,7 +355,11 @@ jQuery(document).ready(function() {
                                                 </div>
                                         </fieldset>
 					<fieldset class="field_position first">
-						<span class="required2">Required</span>
+						{% if form.expires.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
 						<label class="label">{{ form.expires.label_tag }}
 							<span class="formerror">
 								{{ form.expires.errors }}
@@ -317,7 +370,11 @@ jQuery(document).ready(function() {
 						</div>
 					</fieldset>
 					<fieldset class="field_position last">
-						<span class="required2">Required</span>
+						{% if form.tag_list.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
 						<label class="label">{{ form.tag_list.label_tag }}
 							<span class="formerror">
 								{{ form.tag_list.errors }}
