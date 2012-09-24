@@ -20,6 +20,9 @@ DATABASES = {
     }
 }
 
+# filepicker.IO API key
+FILEPICKER_API_KEY = 'AumWdMezKT8adudlzMX3tz'
+
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
 # although not all choices may be available on all operating systems.
@@ -125,6 +128,7 @@ INSTALLED_APPS = (
     'job',
     'registration',
     'social_auth',
+    'filepicker',
 )
 
 # social auth
