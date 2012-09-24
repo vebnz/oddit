@@ -36,9 +36,11 @@
 
 	</div>
 
+	{% if category_name != 'all' %}
 	<div class="sub orange">
 		<h2><strong>{{ category_name|capfirst }}</strong> Jobs</h2>
 	</div>
+	{% endif %}
 
 	{% if latest_job_list %}
 	<ol class="list">
