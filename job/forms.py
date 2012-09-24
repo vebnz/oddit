@@ -24,7 +24,7 @@ class JobForm(forms.ModelForm):
     # over-ride anything here
     company = CharField(label='Company Name')
     title = CharField(label='Job Title')
-
+    budget = CharField(label='Budget ($)')
     class Meta:
         model = Job
         widgets = {
