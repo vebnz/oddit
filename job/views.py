@@ -7,12 +7,16 @@ from django.db.models import Count
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from indextank.client import ApiClient
 from django.core.exceptions import ObjectDoesNotExist
 from job.forms import JobForm, ApplyForm
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
+
+from indextank.client import ApiClient
+from indextank.client import InvalidQuery
+
+from  django.utils.datastructures  import  MultiValueDictKeyError
 
 def index(request, category_name='all', type_name='all'):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
@@ -72,21 +76,26 @@ def detail(request, job_id, job_name):
 API_URL = 'http://:twdfy1QVjimypE@61rg.api.searchify.com'
 INDEX_NAME = 'jobs'
 
-class InvalidQuery(Exception):
-    pass
-
 def results_search(request):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
     popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
     category_list = Category.objects.all()[:10]
-    query = request.GET['query']
+    job_types = JobType.objects.all()
+
     api = ApiClient(API_URL)
     index = api.get_index(INDEX_NAME)
+
     try:
+        query = request.GET['query']
         search_result = index.search(query, fetch_fields=['name'])
-    except InvalidQuery:
-        pass
+    except (InvalidQuery, MultiValueDictKeyError), e:
+        return render_to_response('jobs/search_results.html', {
+                                                           'categories': category_list,
+                                                           'popular_categories': popular_categories_list,
+                                                           'job_types': job_types,
+                                                           'popular_tags':
+                                                           popular_tags}, context_instance=RequestContext(request))
 
     total_jobs = Job.objects.count()
     job_types = JobType.objects.all()
@@ -100,7 +109,6 @@ def results_search(request):
             pass
 
     total_jobs = Job.objects.count()
-    job_types = JobType.objects.all()
 
     return render_to_response('jobs/search_results.html', {'query': query,
                                                            'job_list': entry_list,
