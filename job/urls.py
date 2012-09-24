@@ -12,6 +12,7 @@ urlpatterns = patterns('',
     (r'^search$', 'job.views.results_search'),
     (r'^new/region$', 'job.views.update_region'),
     (r'^new$', 'job.views.new_job'),
+    (r'^about-us$', 'job.views.about_us'),
 )
 
 if settings.DEBUG:

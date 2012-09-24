@@ -185,6 +185,18 @@ def new_job(request):
                                                      'categories': category_list},
                               context_instance=RequestContext(request))
 
+def about_us(request):
+    popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
+    popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
+    popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
+    category_list = Category.objects.all()[:10]
+
+    return render_to_response('jobs/about_us.html',  {'popular_categories': popular_categories_list,
+                                                     'popular_tags': popular_tags,
+                                                     'categories': category_list},
+                              context_instance=RequestContext(request))
+
+
 def update_region(request):
     ci = City.objects.filter(region=request.POST['id'])
     city_list = []
