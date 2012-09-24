@@ -74,7 +74,12 @@ class Job(models.Model):
     POSITION_CHOICES = (
         (0, 'Junior'),
         (1, 'Intermediate'),
-        (2, 'Senior')
+        (2, 'Senior'),
+	(3, 'Intern')
+    )
+    BUDGET_CHOICES = (
+            (0, 'Per Hour'),
+            (1, 'Total')
     )
     user = models.ForeignKey(User)
     title = models.CharField(max_length=30)
@@ -89,6 +94,7 @@ class Job(models.Model):
     updated = models.DateTimeField(editable=False)
     type = models.ForeignKey(JobType)
     budget = models.IntegerField()
+    budget_type = models.IntegerField(default=0, choices=BUDGET_CHOICES)
     ip = models.IPAddressField(default="225.225.225.225")
     expires = models.DateField()
     featured = models.BooleanField()
