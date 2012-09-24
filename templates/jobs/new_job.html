@@ -288,6 +288,16 @@ jQuery(document).ready(function() {
 						</div>
 					</fieldset>
 					<fieldset class="field_position first">
+                                                <span class="required2">Required</span>
+                                                <label class="label">{{ form.budget_type.label_tag }}
+                                                        <span class="formerror">
+                                                                {{ form.budget_type.errors }}
+                                                </span></label><span class="tipTipClass" title="Enter in the budget/wage for this job.">[?]</span>
+                                                <div class="field mod">
+                                                        <div class="input_wrap">{{ form.budget_type }}</div>
+                                                </div>
+                                        </fieldset>
+					<fieldset class="field_position first">
 						<span class="required2">Required</span>
 						<label class="label">{{ form.expires.label_tag }}
 							<span class="formerror">
