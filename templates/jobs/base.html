@@ -68,7 +68,7 @@
 							<li class="cat-item-all"><a href="/jobs">All Jobs</a></li>
 							{% if categories %}
 							{% for cat in categories %}
-								<li class="cat-item-4 "><a href="/jobs/category/{{ cat.name|slugify }}/">{{ cat.name }}</a></li>
+							<li class="cat-item-4 {% if category_name == cat.name|lower %}current-cat{% endif %}"><a href="/jobs/category/{{ cat.name|slugify }}/">{{ cat.name }}</a></li>
 							{% endfor %}
 							{% endif %}
 							{% if user.is_superuser %}
@@ -78,9 +78,12 @@
 						</ul>
 					</div>
 
+					{% if category_name == 'all' %}
 					<script type="text/javascript" charset="utf-8">
 						jQuery('.category_menu li:first-child').addClass('current-cat');
-						</script>
+					</script>
+					{% endif %}
+
 					</div>
 				</div>
 				<div class="content mod">
