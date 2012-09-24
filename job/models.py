@@ -79,7 +79,8 @@ class Job(models.Model):
     )
     BUDGET_CHOICES = (
             (0, 'Per Hour'),
-            (1, 'Total')
+            (1, 'Total'),
+	    (2, 'Negotiable')
     )
     user = models.ForeignKey(User)
     title = models.CharField(max_length=30)
