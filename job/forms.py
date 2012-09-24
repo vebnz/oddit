@@ -1,7 +1,11 @@
 from django import forms
 from job.models import Job, JobApply
 from django.forms import CharField
+from django.forms.widgets import TextInput
 from django.contrib.auth.models import User
+
+class NumberInput(TextInput):
+        input_type = 'number'
 
 class JobForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -13,6 +17,7 @@ class JobForm(forms.ModelForm):
         #budget = cleaned)data.get("budget")
         #if budget[0] == "$": budget = budget[1:] # cut off the dollar sign
         #budget = budget.replace(',', '')
+
 
     def save(self, commit=True):
         print self
@@ -35,6 +40,7 @@ class JobForm(forms.ModelForm):
             'city' : forms.Select(attrs={'class' : 'styled'}),
             'remote' : forms.Select(attrs={'class' : 'styled'}),
             'type' : forms.Select(attrs={'class' : 'styled'}),
+	    'budget' : NumberInput(attrs={'min' : '0', 'max' : '1000000', 'step' : '1'}),
 	    'budget_type' : forms.Select(attrs={'class' : 'styled'}),
             'description' : forms.Textarea(attrs={'class' : 'validation'}),
         }
