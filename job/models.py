@@ -136,7 +136,6 @@ class JobApply(models.Model):
     notes = models.TextField()
     created = models.DateField(editable=False)
     updated = models.DateTimeField(editable=False)
-    text = models.CharField(max_length=64)
     resume = models.FileField(upload_to='resumes/', validators=[validate_pdf])
 
     def save(self, *args, **kwargs):
