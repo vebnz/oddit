@@ -163,6 +163,24 @@ def apply_job(request, job_id):
                                context_instance=RequestContext(request))
 
 @login_required
+def applied(request):
+    popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id"))
+    popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
+    popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
+    category_list = Category.objects.all()[:10]
+
+    applied = JobApply.objects.filter(user=request.user).values_list('job_id', flat=True)
+    jobs = Job.objects.filter(id__in=applied)
+
+    return render_to_response('jobs/applied.html',  {
+        'popular_categories': popular_categories_list,
+        'popular_tags': popular_tags,
+        'categories': category_list,
+        'job_list': jobs},
+        context_instance=RequestContext(request))
+
+
+@login_required
 def new_job(request):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]

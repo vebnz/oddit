@@ -13,6 +13,7 @@ urlpatterns = patterns('',
     (r'^new/region$', 'job.views.update_region'),
     (r'^new$', 'job.views.new_job'),
     (r'^about-us$', 'job.views.about_us'),
+    (r'^applied-for$', 'job.views.applied'),
 )
 
 if settings.DEBUG:
