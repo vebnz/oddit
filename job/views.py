@@ -176,7 +176,7 @@ def applied(request):
         'popular_categories': popular_categories_list,
         'popular_tags': popular_tags,
         'categories': category_list,
-        'job_list': jobs},
+        'job_list': jobs,},
         context_instance=RequestContext(request))
 
 
