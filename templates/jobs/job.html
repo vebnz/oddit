@@ -6,7 +6,11 @@
 			<h1>{{ job.title }}</h1>
 		</div>
 		<div class="share">
-			<a font-size: 16px" class="button red" href="/jobs/apply/{{ job.id }}/">Apply</a>
+			{% if applied %}
+			<a style="font-size: 16px" class="button grey" href="#">Already applied</a>
+			{% else %}
+			<a style="font-size: 16px" class="button red" href="/jobs/apply/{{ job.id }}/">Apply</a>
+			{% endif %}
 		</div>
 		<p>{{ job.company }}</p>
 	</div>
@@ -32,7 +36,11 @@
 		<div class="subtitle"><h3>How to apply</h3></div>
 		<p>To apply for this job, please click the apply button</p>
 		<div class="button_set">
-			<a font-size: 16px" class="button red large" href="/jobs/apply/{{ job.id }}/">Apply</a>
+			{% if applied %}
+			<a style="font-size: 16px" class="button grey" href="#">Already applied</a>
+			{% else %}
+			<a style="font-size: 16px" class="button red" href="/jobs/apply/{{ job.id }}/">Apply</a>
+			{% endif %}
 		</div>
 	</div>
 

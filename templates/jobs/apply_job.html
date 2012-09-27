@@ -9,16 +9,15 @@
 
 </script>
 
-{% if error %}
-
+{% if errors %}
 <div class="post whiteboard">
-        <div class="title white">
-                <h1>Error</h1>
-                <p>{{ error }}</p>
-        </div>
+	<div class="title white">
+		<h1>Error</h1>
+		<p>{{ errors }}</p>
+	</div>
+	<div class="cap">
+	</div>
 </div>
-
-
 {% else %}
 
 {% if form %}
@@ -84,5 +83,4 @@
 </div>
 
 {% endif %}
-
 {% endblock %}

@@ -65,13 +65,22 @@ def detail(request, job_id, job_name):
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
     popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
     category_list = Category.objects.all()[:10]
-    p = get_object_or_404(Job, pk=job_id)
-    return render_to_response('jobs/job.html', {'job': p,
-                                                'company': p.title,
-                                                'categories': category_list,
-                                                'popular_categories': popular_categories_list,
-                                                'popular_tags': popular_tags,
-                                               }, context_instance=RequestContext(request))
+
+    job = get_object_or_404(Job, pk=job_id)
+
+    try:
+        checkApply = JobApply.objects.get(user=request.user, job=job)
+    except JobApply.DoesNotExist:
+        checkApply = None
+
+    return render_to_response('jobs/job.html', {
+        'job': job,
+        'applied': checkApply,
+        'company': job.title,
+        'categories': category_list,
+        'popular_categories': popular_categories_list,
+        'popular_tags': popular_tags,},
+        context_instance=RequestContext(request))
 
 
 API_URL = 'http://:twdfy1QVjimypE@61rg.api.searchify.com'
@@ -123,8 +132,7 @@ def results_search(request):
 
 @login_required
 def apply_job(request, job_id):
-    popular_categories_list = Job.objects.values('category',
-                                                 'category__name').annotate(num_jobs=Count("id"))
+    popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id"))
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
     popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
     category_list = Category.objects.all()[:10]
@@ -132,35 +140,37 @@ def apply_job(request, job_id):
     j = get_object_or_404(Job, pk=job_id)
     try:
        checkApply = JobApply.objects.get(user=request.user, job=j)
-       error = 'You have already applied for this job'
-       return render_to_response('jobs/apply_job.html',  {'error' : error,
-                                                       'popular_categories': popular_categories_list,
-                                                       'popular_tags': popular_tags,
-                                                       'categories': category_list,
-                                                        'job': j,},
-                               context_instance=RequestContext(request))
+       errors = 'You have already applied for this job'
+       return render_to_response('jobs/apply_job.html',  {
+           'errors' : errors,
+           'popular_categories': popular_categories_list,
+           'popular_tags': popular_tags,
+           'categories': category_list,
+           'job': j,},
+            context_instance=RequestContext(request))
 
 
     except JobApply.DoesNotExist:
-
        app = JobApply(user=request.user, job=j)
        if request.method == 'POST':
           print request.FILES['resume']
           form = ApplyForm(request.POST, request.FILES, instance=app, user=request.user, job=j)
+
           if form.is_valid():
              form.save()
-             return HttpResponseRedirect('/jobs/')
+             return HttpResponseRedirect('/jobs/applied-for')
           else:
             print 'something fucked'
        else:
           form = ApplyForm(instance=app, user=request.user, job=j)
 
-       return render_to_response('jobs/apply_job.html',  {'form' : form,
-                                                       'popular_categories': popular_categories_list,
-                                                      'popular_tags': popular_tags,
-                                                       'categories': category_list,
-                                                        'job': j,},
-                               context_instance=RequestContext(request))
+       return render_to_response('jobs/apply_job.html',  {
+           'form' : form,
+           'popular_categories': popular_categories_list,
+           'popular_tags': popular_tags,
+           'categories': category_list,
+           'job': j,},
+            context_instance=RequestContext(request))
 
 @login_required
 def applied(request):
