@@ -53,16 +53,13 @@
 					<p class="status">
 					{% if user.is_authenticated %}
 						{% if not user.first_name %}
-						Welcome {{ user.username }}, <a href="/accounts/logout/">logout?</a>
-						{% if user.is_superuser %}
-						 [<a href="/admin/">Admin</a>]
-						 {% endif %}
+							Welcome {{ user.username }}, <a href="/jobs/my-profile">visit your profile</a>
 						{% else %}
-						Welcome {{ user.first_name }} {{ user.last_name }}, <a href="/accounts/logout/">logout?</a>
+							Welcome {{ user.first_name }} {{ user.last_name }}, <a href="/jobs/my-profile">visit your profile</a>
 						{% endif %}
 					{% else %}
-					To post a job, <a href="/accounts/login"><strong>login</strong></a>
-					or <a href="/accounts/register/"><strong>create an account</strong></a>
+						To post a job, <a href="/accounts/login"><strong>login</strong></a>
+						or <a href="/accounts/register/"><strong>create an account</strong></a>
 					{% endif %}
 					</p>
 					<div class="category_menu orange">

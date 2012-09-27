@@ -1,0 +1,39 @@
+{% extends "jobs/base.html" %} {% block content %}
+
+<div class="results whiteboard">
+
+	<div class="title white">
+		<h1>Jobs you've applied for</h1>
+	</div>
+
+	<ol class="list">
+		{% for job in job_list %}
+		<li class="design filter_2">
+		<div class="details">
+			<h3><a href="show/{{ job.title|slugify }}/{{ job.id}}">{{ job.title }}</a></h3>
+			<div class="company">
+				<p>{{ job.company }}</p>
+			</div>
+		</div>
+		<div class="meta">
+			<dl>
+				<dt>{{ job.city }}, {{ job.region }}</dt>
+				<dd>{{ job.get_type_display }}</dd>
+			</dl>
+		</div>
+		<div class="datestamp">
+			<p>{{ job.expires }}</p>
+		</div>
+		</li>
+		{% empty %}
+		<li class="design_filter_2">
+			You have not applied for any jobs.
+		</li>
+		{% endfor %}
+	</ol>
+
+	<div class="cap">
+	</div>
+
+</div>
+{% endblock %}

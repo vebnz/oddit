@@ -6,11 +6,7 @@
 			<h1>{{ job.title }}</h1>
 		</div>
 		<div class="share">
-			{% if applied %}
-			<a style="font-size: 16px" class="button grey" href="#">Already applied</a>
-			{% else %}
-			<a style="font-size: 16px" class="button red" href="/jobs/apply/{{ job.id }}/">Apply</a>
-			{% endif %}
+			<a class="button green">share to facebook</a>
 		</div>
 		<p>{{ job.company }}</p>
 	</div>

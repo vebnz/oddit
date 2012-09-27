@@ -14,6 +14,7 @@ urlpatterns = patterns('',
     (r'^new$', 'job.views.new_job'),
     (r'^about-us$', 'job.views.about_us'),
     (r'^applied-for$', 'job.views.applied'),
+    (r'^my-profile$', 'job.views.profile'),
 )
 
 if settings.DEBUG:
