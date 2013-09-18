@@ -13,6 +13,7 @@ Packages required (install using pip):
 - MySQLdb
 - anyjson
 - openid.association
+- oauth2
 
 Authors:
 - Michael Mackenzie
