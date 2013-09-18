@@ -20,13 +20,6 @@
 </div>
 {% else %}
 
-{% if form %}
-<ol>
-	{% for field in form  %}
-	<li><strong>{{ field.errors|escape }}</strong></li>
-	{% endfor %}
-</ol>
-{% endif %}
 
 <div class="post whiteboard">
 	<div class="title white">
