@@ -5,7 +5,7 @@
 <div class="post whiteboard">
 	<div class="title white">
 		<h1>Activation Complete!</h1>
-		<p>Thanks {{ account }}, activation complete!  You may now <a href='{% url auth_login %}'>login</a> using the username and password you set at registration.</p>
+		<p>Thanks {{ account }}, activation complete!  You may now <a href='{% url "auth_login" %}'>login</a> using the username and password you set at registration.</p>
 	</div>
 </div>
 {% else %}

@@ -12,7 +12,7 @@
 		{% endif %}
 	</div>
 	<div class="description">
-		<form method="post" id="loginForm" class="loginform" action="{% url django.contrib.auth.views.login %}">{% csrf_token %}
+		<form method="post" id="loginForm" class="loginform" action="{% url "django.contrib.auth.views.login" %}">{% csrf_token %}
 			<div class="form_post">
 				<div class="fieldset_set">
 					<fieldset class="first">
@@ -46,8 +46,8 @@
                     <input id="loginsubmit" name="loginsubmit" type="submit" value="Login" />
 					<input type="hidden" name="next" value="{{ next }}" />
                     <p>
-                        <a href="{% url auth_password_reset %}" title="Lost Password">Lost Password</a>&nbsp;
-						<a href="{% url registration_register %}">Need an account</a>?
+                        <a href="{% url "auth_password_reset" %}" title="Lost Password">Lost Password</a>&nbsp;
+						<a href="{% url "registration_register" %}">Need an account</a>?
                     </p>
                 </div>
 			</div>
