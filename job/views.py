@@ -152,15 +152,16 @@ def apply_job(request, job_id):
 
     except JobApply.DoesNotExist:
        app = JobApply(user=request.user, job=j)
+
        if request.method == 'POST':
-          print request.FILES['resume']
+          errors = 'aaaa'
           form = ApplyForm(request.POST, request.FILES, instance=app, user=request.user, job=j)
 
           if form.is_valid():
              form.save()
              return HttpResponseRedirect('/jobs/applied-for')
           else:
-            print 'something fucked'
+            print "JobApply fucked\n"
        else:
           form = ApplyForm(instance=app, user=request.user, job=j)
 

@@ -9,11 +9,16 @@
 
 </script>
 
-{% if errors %}
+{% if form.errors or errors %}
 <div class="post whiteboard">
 	<div class="title white">
 		<h1>Error</h1>
-		<p>{{ errors }}</p>
+        {% if form.errors %}
+		<p>{{ form.errors }}</p>
+        {% endif %}
+        {% if errors %}
+        <p>{{ errors }}</p>
+        {% endif %}
 	</div>
 	<div class="cap">
 	</div>
