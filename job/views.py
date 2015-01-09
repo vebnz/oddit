@@ -205,7 +205,7 @@ def new_job(request):
             form.save()
             return HttpResponseRedirect('/jobs/')
         else:
-            print 'something fucked'
+            print 'new job something fucked'
     else:
         form = JobForm(instance=job, user=request.user)
 
