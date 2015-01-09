@@ -64,4 +64,4 @@ class ApplyForm(forms.ModelForm):
     class Meta:
         model = JobApply
 
-        exclude = 'user, job_id'
+        exclude = ('user', 'job_id')
