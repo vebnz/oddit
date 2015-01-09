@@ -69,7 +69,7 @@ def detail(request, job_id, job_name):
     job = get_object_or_404(Job, pk=job_id)
 
     try:
-        checkApply = JobApply.objects.get(user=request.user, job=job)
+        checkApply = JobApply.objects.get(user=request.user.id, job=job)
     except JobApply.DoesNotExist:
         checkApply = None
 
