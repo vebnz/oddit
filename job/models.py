@@ -98,8 +98,8 @@ class Job(models.Model):
     budget_type = models.IntegerField(default=0, choices=BUDGET_CHOICES)
     ip = models.IPAddressField(default="225.225.225.225")
     expires = models.DateField()
-    featured = models.BooleanField()
-    bold = models.BooleanField()
+    featured = models.NullBooleanField()
+    bold = models.NullBooleanField()
     tag_list = models.CharField(max_length=255)
 
     def save(self, *args, **kwargs):

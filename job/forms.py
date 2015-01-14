@@ -20,28 +20,27 @@ class JobForm(forms.ModelForm):
 
 
     def save(self, commit=True):
-        print self
         instance = super(JobForm, self).save(commit=False)
         if self.user:
             instance.user = self.user
             return instance.save()
 
-    # over-ride anything here
+    # override anything here
     company = CharField(label='Company Name')
     title = CharField(label='Job Title')
     budget = CharField(label='Budget ($)')
     class Meta:
         model = Job
         widgets = {
-            'user'	: forms.Select(attrs={'class' : 'styled'}),
-            'category' : forms.Select(attrs={'class' : 'styled'}),
-            'position' : forms.Select(attrs={'class' : 'styled'}),
-            'region' : forms.Select(attrs={'class' : 'styled'}),
-            'city' : forms.Select(attrs={'class' : 'styled'}),
-            'remote' : forms.Select(attrs={'class' : 'styled'}),
-            'type' : forms.Select(attrs={'class' : 'styled'}),
-	    'budget' : NumberInput(attrs={'min' : '0', 'max' : '1000000', 'step' : '1'}),
-	    'budget_type' : forms.Select(attrs={'class' : 'styled'}),
+            'user'      : forms.Select(attrs={'class' : 'styled'}),
+            'category'  : forms.Select(attrs={'class' : 'styled'}),
+            'position'  : forms.Select(attrs={'class' : 'styled'}),
+            'region'    : forms.Select(attrs={'class' : 'styled'}),
+            'city'      : forms.Select(attrs={'class' : 'styled'}),
+            'remote'    : forms.Select(attrs={'class' : 'styled'}),
+            'type'      : forms.Select(attrs={'class' : 'styled'}),
+	        'budget'    : NumberInput(attrs={'min' : '0', 'max' : '1000000', 'step' : '1'}),
+	        'budget_type' : forms.Select(attrs={'class' : 'styled'}),
             'description' : forms.Textarea(attrs={'class' : 'validation'}),
         }
         exclude = ('bold', 'featured', 'ip', 'user')
