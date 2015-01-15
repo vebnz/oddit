@@ -18,7 +18,7 @@ registration mail to set settings values.
 '''
 from django import forms
 from django.contrib.auth import authenticate
-from django.utils import simplejson
+import json
 from hashlib import md5
 from social_auth.backends import OAuthBackend, BaseOAuth2, USERNAME, \
                                  BaseAuth, SocialAuthBackend

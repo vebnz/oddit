@@ -4,7 +4,7 @@ Mixcloud OAuth2 support
 from urllib import urlencode
 from urllib2 import Request
 
-from django.utils import simplejson
+import json
 
 from social_auth.backends import BaseOAuth2, OAuthBackend, USERNAME
 from social_auth.utils import dsa_urlopen

@@ -8,7 +8,7 @@ server.
 """
 
 from django.contrib.auth import authenticate
-from django.utils import simplejson
+import json
 
 from urllib import urlencode
 from hashlib import md5

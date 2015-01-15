@@ -14,7 +14,7 @@ check OAuthBackend class for details on how to extend it.
 """
 from urllib import urlencode
 
-from django.utils import simplejson
+import json
 
 from social_auth.backends import OAuthBackend, USERNAME, BaseOAuth2
 from social_auth.utils import dsa_urlopen

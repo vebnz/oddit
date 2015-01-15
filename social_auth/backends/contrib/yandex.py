@@ -6,7 +6,7 @@ openid.yandex.ru/user. Username is retrieved from the identity url.
 
 If username is not specified, OpenID 2.0 url used for authentication.
 """
-from django.utils import simplejson
+import json
 
 from urllib import urlencode
 from urlparse import urlparse, urlsplit

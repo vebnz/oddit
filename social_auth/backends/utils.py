@@ -1,7 +1,7 @@
 from oauth2 import Consumer as OAuthConsumer, Token, Request as OAuthRequest, \
                    SignatureMethod_HMAC_SHA1, HTTP_METHOD
 
-from django.utils import simplejson
+import json
 
 from social_auth.models import UserSocialAuth
 from social_auth.utils import dsa_urlopen
