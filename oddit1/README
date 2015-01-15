@@ -1,0 +1,26 @@
+ODDIT (Odd IT jobs)
+
+Screenshot: http://i.imgur.com/LPqr8.png
+
+Started this about 3 years ago. We worked on it for a while but then we got caught up with life.
+
+Eventually we made some more changes to it, were about to release it... and life consumed us again.
+
+Now, 2015 life isn't quite so consuming so we're out to actually release it this time.
+
+To use this source, you'll need to know Django, and have some stuff like django-registrations installed.
+Packages required (install using pip):
+- MySQLdb
+- anyjson
+- openid.association
+- oauth2
+
+There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
+remember parts of it were created 3 to 4 years ago, so that was most likely Django 1.2 (and Django 2.0 is nearly out).
+
+You've been warned.
+
+Developed by veb ltd ~ http://veb.nz
+- Mike Mackenzie
+- Ray Arvin Rimorin
+- Jamie Gracie

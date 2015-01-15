@@ -1,0 +1,73 @@
+{% extends "registration/registration_base.html" %}
+{% block title %}Register for an account{% endblock %}
+{% block content %}
+
+<div class="post whiteboard">
+
+	<div class="title white">
+		<h1>Create an account</h1>
+		<p><a class="btn-auth btn-github" href="/login/github">Sign in with <b>GitHub</b></a> or <a class="btn-auth btn-linkedin" href="/login/linkedin">Sign in with <b>LinkedIn</b></a></p>
+	</div>
+	<div class="description">
+		<form method="post" id="registerForm" class="loginform">
+			<div class="form_post">
+				<div class="fieldset_set">
+					<fieldset class="first">
+                        <span class="required2" id="labelusername">Required</span>
+                        <label class="label" for="username">Username
+			<span class="formerror">
+                         {{ form.username.errors }}
+                        </span></label>
+                        <div class="field mod">
+                            <div class="input_wrap">
+                                {{ form.username }}
+                            </div>
+                        </div>
+                    </fieldset>	
+					<fieldset>
+                        <span class="required2" id="labelregemail">Required</span>
+                        <label class="label" for="regemail">Email
+			<span class="formerror">
+                         {{ form.email.errors }}
+                        </span></label>
+                        <div class="field mod">
+                            <div class="input_wrap">
+                                {{ form.email }}
+							</div>
+						</div>
+                    </fieldset>
+					<fieldset>
+                        <span class="required2" id="labelregpasswordRequired">Required</span>
+                        <label class="label" for="regpassword1">Password
+			<span class="formerror">
+                         {{ form.password1.errors }}
+                        </span></label>
+                        <div class="field mod">
+                            <div class="input_wrap">
+                                {{ form.password1 }}
+                            </div>
+                        </div>
+                    </fieldset>
+					<fieldset class="last">
+                        <span class="required2" id="labelregpasswordRequired">Required</span>
+                        <label class="label" for="regpassword2">Password (again)
+			<span class="formerror">
+                         {{ form.password2.errors }}
+                        </span></label>
+                        <div class="field mod">
+                            <div class="input_wrap">
+                                {{ form.password2 }}
+                            </div>
+                        </div>
+                    </fieldset>
+				</div>
+				<div class="button_set mod">					
+                    <input id="loginsubmit" name="loginsubmit" type="submit" value="Register" />
+                </div>
+			</div>
+			{% csrf_token %}
+		</form>
+		<div class="cap"></div>
+	</div>
+</div>
+{% endblock %}

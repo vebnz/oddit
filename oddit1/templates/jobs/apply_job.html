@@ -1,0 +1,84 @@
+{% extends "jobs/base.html" %}
+{% block content %}
+<script type="text/javascript">
+
+	jQuery(document).ready(function() {
+
+			//   jQuery("#id_resume").select_skin();
+			});
+
+</script>
+
+{% if form.errors or errors %}
+<div class="post whiteboard">
+	<div class="title white">
+		<h1>Error</h1>
+        {% if form.errors %}
+		<p>{{ form.errors }}</p>
+        {% endif %}
+        {% if errors %}
+        <p>{{ errors }}</p>
+        {% endif %}
+	</div>
+	<div class="cap">
+	</div>
+</div>
+{% else %}
+
+
+<div class="post whiteboard">
+	<div class="title white">
+		<h1>Apply for this position</h1>
+		<p>For help, <a href="#">click here</a></p>
+	</div>
+
+
+	<div class="description">
+		<form id="post" enctype="multipart/form-data" name="post" action="" method="post">{% csrf_token %}
+			<div class="form_post">
+				<div class="fieldset_set">
+					<fieldset class="field_category last">
+						<span class="required2 yes">Required</span>
+						<label class="label">{{ form.resume.label_tag }}
+						<span class="formerror">
+			                         {{ form.resume.errors }}
+                       			        </span></label>
+
+						<div class="field mod">
+							<div class="input_wrap">{{ form.resume }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_description last">
+						<label class="label" for="desc">
+							{{ form.notes.label_tag }}
+							{% if form.notes.errors %}
+								<span class="formerror">
+									{{ form.notes.errors }}
+								</span>
+							{% endif %}
+							<span class="info">
+								Add any applicable notes that you feel may be important for this application.
+							</span>
+						</label>
+						<div class="field mod">
+							<div class="input_wrap">{{ form.notes }}</div>
+						</div>
+					</fieldset>
+				</div>
+
+
+
+			</div>
+		</div>
+		<div class="cap">
+			<div class="button_set">
+				<input id="jobapplysubmit" name="jobapplysubmit" type="submit" value="Apply" class="button red large"/>
+
+			</div>
+		</div>
+	</form>
+
+</div>
+
+{% endif %}
+{% endblock %}

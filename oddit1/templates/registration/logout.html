@@ -1,0 +1,15 @@
+{% extends "registration/registration_base.html" %}
+{% block title %}Logged out{% endblock %}
+{% block content %}
+<div class="post whiteboard">
+{% if user.is_authenticated %}	
+	{{ user.logout }}
+{% endif %}
+	<div class="title white">
+		<h1>Logged Out</h1>
+		<p>You have successfully logged out!</p>
+	</div>
+
+</div>
+
+{% endblock %}

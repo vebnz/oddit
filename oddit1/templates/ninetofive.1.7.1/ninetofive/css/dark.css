@@ -1,0 +1,122 @@
+@import url("advanced.css");
+
+body {
+    background: #333;
+}
+
+.header .inner .tagline {
+    color: #ccc;
+    text-shadow: #222 1px 1px 1px;
+}
+
+.header .inner .status {
+    color: #888;
+    text-shadow: #222 1px 1px 1px;
+}
+
+.header .inner .status a {
+    color: #ccc;
+    text-shadow: #222 1px 1px 1px;
+}
+
+.header .inner .status a:hover {
+    color: #eee;
+}
+
+.title, .filter, .category_menu {
+    border: none;
+}
+
+.filter, .sub {
+    margin: 0px;
+}
+
+.sub {
+    border-left: none;
+    border-right: none;
+}
+
+.white.title {
+    margin: 0px;
+    border: none !important;
+}
+
+.sidebar .cell {
+    border-color: #555;
+}
+
+.sidebar, .sidebar .advert p {
+    color: #aaa;
+    text-shadow: #222 1px 1px 1px;
+}
+
+.sidebar .tablets li {
+    border: none;
+}
+
+.sidebar .tablets li a {
+    background: transparent url("../images/opaque.light.png") repeat;
+    border: none;
+    color: #eee;
+    text-shadow: #333 1px 1px 1px;
+}
+
+.sidebar .tablets li a:hover {
+    background: #444444 url("../images/opaque.light.png") repeat;
+    border: none;
+    color: #f2f2f2;
+}
+
+.sidebar .tablets li a span {
+    color: #f2f2f2;
+    background: transparent url("../images/opaque.light.png") repeat;
+}
+
+.sidebar table caption {
+    background: transparent url("../images/opaque.light.png") repeat;
+}
+
+.sidebar table th, .sidebar table td {
+    border-color: #555;
+}
+
+.sidebar table td#today {
+    background: #444;
+}
+
+.sidebar table a {
+    font-weight: bold;
+    color: #eee;
+    text-shadow: #222 1px 1px 1px;
+}
+
+.sidebar table a:hover {
+    color: #f2f2f2;
+}
+
+.footer {
+    color: #ddd;
+    text-shadow: #222 1px 1px 1px;
+}
+
+.footer .inner {
+    border-top-color: #444;
+}
+
+.footer a {
+    font-weight: bold;
+    color: #ddd;
+    text-shadow: #222 1px 1px 1px;
+}
+
+.footer a:hover {
+    color: #f2f2f2;
+}
+
+.footer .inner ul li {
+    border-right-color: #444;
+}
+
+.whiteboard {
+    border: none;
+}
