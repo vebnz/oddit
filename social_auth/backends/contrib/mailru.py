@@ -11,7 +11,7 @@ Then update your settings values using registration information
 """
 
 from django.conf import settings
-from django.utils import simplejson
+import json
 
 from urllib import urlencode, unquote
 from urllib2 import Request, HTTPError
@@ -94,7 +94,7 @@ def mailru_api(data):
     params = urlencode(data)
     request = Request(MAILRU_API_URL, params)
     try:
-        return simplejson.loads(dsa_urlopen(request).read())
+        return json.loads(dsa_urlopen(request).read())
     except (TypeError, KeyError, IOError, ValueError, IndexError):
         log('error', 'Could not load data from Mail.ru.',
             exc_info=True, extra=dict(data=params))

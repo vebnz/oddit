@@ -20,7 +20,7 @@ from oauth2 import Consumer as OAuthConsumer, Token, Request as OAuthRequest
 
 from django.contrib.auth import authenticate
 from django.contrib.auth.backends import ModelBackend
-from django.utils import simplejson
+import json
 from django.utils.importlib import import_module
 
 from social_auth.models import UserSocialAuth
@@ -726,7 +726,7 @@ class BaseOAuth2(BaseOAuth):
                           headers=headers)
 
         try:
-            response = simplejson.loads(dsa_urlopen(request).read())
+            response = json.loads(dsa_urlopen(request).read())
         except HTTPError, e:
             if e.code == 400:
                 raise AuthCanceled(self)

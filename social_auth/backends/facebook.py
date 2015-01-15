@@ -19,7 +19,7 @@ import time
 from urllib import urlencode
 from urllib2 import HTTPError
 
-from django.utils import simplejson
+import json
 from django.contrib.auth import authenticate
 
 from social_auth.backends import BaseOAuth2, OAuthBackend, USERNAME
@@ -72,7 +72,7 @@ class FacebookAuth(BaseOAuth2):
         url = FACEBOOK_ME + urlencode(params)
 
         try:
-            data = simplejson.load(dsa_urlopen(url))
+            data = json.load(dsa_urlopen(url))
         except ValueError:
             extra = {'access_token': sanitize_log_data(access_token)}
             log('error', 'Could not load user data from Facebook.',
@@ -176,7 +176,7 @@ def load_signed_request(signed_request, api_secret=None):
     try:
         sig, payload = signed_request.split(u'.', 1)
         sig = base64_url_decode(sig)
-        data = simplejson.loads(base64_url_decode(payload))
+        data = json.loads(base64_url_decode(payload))
 
         expected_sig = hmac.new(api_secret or setting('FACEBOOK_API_SECRET'),
                                 msg=payload,
