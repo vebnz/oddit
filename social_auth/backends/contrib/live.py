@@ -77,7 +77,7 @@ class LiveAuth(BaseOAuth2):
             'access_token': access_token
         })
         try:
-            return simplejson.load(dsa_urlopen(url))
+            return json.load(dsa_urlopen(url))
         except (ValueError, IOError):
             raise AuthUnknownError('Error during profile retrieval, '
                                    'please, try again later')

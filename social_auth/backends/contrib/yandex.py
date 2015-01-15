@@ -109,7 +109,7 @@ class YaruAuth(BaseOAuth2):
 
         url = self.get_api_url() + '?' + urlencode(params)
         try:
-            return simplejson.load(dsa_urlopen(url))
+            return json.load(dsa_urlopen(url))
         except (ValueError, IndexError):
             log('error', 'Could not load data from Yandex.',
                 exc_info=True, extra=dict(data=params))

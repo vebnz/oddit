@@ -276,7 +276,7 @@ def vkontakte_api(method, data):
     params = urlencode(data)
     url += '?' + params
     try:
-        return simplejson.load(dsa_urlopen(url))
+        return json.load(dsa_urlopen(url))
     except (TypeError, KeyError, IOError, ValueError, IndexError):
         log('error', 'Could not load data from VKontakte.',
             exc_info=True, extra=dict(data=data))

@@ -42,7 +42,7 @@ def mixcloud_profile(access_token):
     data = {'access_token': access_token, 'alt': 'json'}
     request = Request(MIXCLOUD_PROFILE_URL + '?' + urlencode(data))
     try:
-        return simplejson.loads(dsa_urlopen(request).read())
+        return json.loads(dsa_urlopen(request).read())
     except (ValueError, KeyError, IOError):
         return None
 

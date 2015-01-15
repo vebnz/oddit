@@ -79,7 +79,7 @@ class YahooOAuth(ConsumerBasedOAuth):
         request = self.oauth_request(access_token, url)
         response = self.fetch_response(request)
         try:
-            return simplejson.loads(response)['profile']
+            return json.loads(response)['profile']
         except ValueError:
             raise AuthUnknownError('Error during profile retrieval, '
                                    'please, try again later')
@@ -93,7 +93,7 @@ class YahooOAuth(ConsumerBasedOAuth):
         request = self.oauth_request(access_token, url)
         response = self.fetch_response(request)
         try:
-            json = simplejson.loads(response)
+            json = json.loads(response)
             return json['guid']['value']
         except ValueError:
             raise AuthUnknownError('Error during user id retrieval, '

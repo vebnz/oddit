@@ -56,7 +56,7 @@ class SkyrockAuth(ConsumerBasedOAuth):
         request = self.oauth_request(access_token, SKYROCK_CHECK_AUTH)
         json = self.fetch_response(request)
         try:
-            return simplejson.loads(json)
+            return json.loads(json)
         except ValueError:
             return None
 

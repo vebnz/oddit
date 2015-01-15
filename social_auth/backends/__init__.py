@@ -726,7 +726,7 @@ class BaseOAuth2(BaseOAuth):
                           headers=headers)
 
         try:
-            response = simplejson.loads(dsa_urlopen(request).read())
+            response = json.loads(dsa_urlopen(request).read())
         except HTTPError, e:
             if e.code == 400:
                 raise AuthCanceled(self)

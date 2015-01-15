@@ -64,7 +64,7 @@ class OrkutAuth(BaseGoogleOAuth):
         request = self.oauth_request(access_token, ORKUT_REST_ENDPOINT, params)
         response = dsa_urlopen(request.to_url()).read()
         try:
-            return simplejson.loads(response)['data']
+            return json.loads(response)['data']
         except (ValueError, KeyError):
             return None
 

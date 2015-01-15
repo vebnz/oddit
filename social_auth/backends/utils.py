@@ -17,7 +17,7 @@ def consumer_oauth_url_request(backend, url, user_or_id, redirect_uri='/',
     response = '\n'.join(dsa_urlopen(request.to_url()).readlines())
 
     if json:
-        response = simplejson.loads(response)
+        response = json.loads(response)
     return response
 
 

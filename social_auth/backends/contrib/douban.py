@@ -56,7 +56,7 @@ class DoubanAuth(ConsumerBasedOAuth):
         json = self.fetch_response(request)
 
         try:
-            return simplejson.loads(json)
+            return json.loads(json)
         except ValueError:
             return None
 

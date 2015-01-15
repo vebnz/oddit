@@ -59,7 +59,7 @@ class DropboxAuth(ConsumerBasedOAuth):
         request = self.oauth_request(access_token, url)
         response = self.fetch_response(request)
         try:
-            return simplejson.loads(response)
+            return json.loads(response)
         except ValueError:
             return None
 

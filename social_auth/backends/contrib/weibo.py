@@ -62,7 +62,7 @@ class WeiboAuth(BaseOAuth2):
         data = {'access_token': access_token, 'uid': uid}
         url = 'https://api.weibo.com/2/users/show.json?' + urlencode(data)
         try:
-            return simplejson.loads(dsa_urlopen(url).read())
+            return json.loads(dsa_urlopen(url).read())
         except (ValueError, KeyError, IOError):
             return None
 
