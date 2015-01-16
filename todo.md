@@ -1,1 +1,2 @@
-[ ] make a todo list
+# To do
+- [ ] Make a list
