@@ -14,7 +14,7 @@ check OAuthBackend class for details on how to extend it.
 """
 from urllib import urlencode
 
-from django.utils import simplejson
+import json
 
 from social_auth.backends import OAuthBackend, USERNAME, BaseOAuth2
 from social_auth.utils import dsa_urlopen
@@ -62,7 +62,7 @@ class WeiboAuth(BaseOAuth2):
         data = {'access_token': access_token, 'uid': uid}
         url = 'https://api.weibo.com/2/users/show.json?' + urlencode(data)
         try:
-            return simplejson.loads(dsa_urlopen(url).read())
+            return json.loads(dsa_urlopen(url).read())
         except (ValueError, KeyError, IOError):
             return None
 

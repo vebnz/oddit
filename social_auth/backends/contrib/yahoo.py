@@ -20,7 +20,7 @@ Throws:
 AuthUnknownError - if user data retrieval fails (guid or profile)
 """
 
-from django.utils import simplejson
+import json
 
 from social_auth.utils import setting
 from social_auth.backends import ConsumerBasedOAuth, OAuthBackend, USERNAME
@@ -79,7 +79,7 @@ class YahooOAuth(ConsumerBasedOAuth):
         request = self.oauth_request(access_token, url)
         response = self.fetch_response(request)
         try:
-            return simplejson.loads(response)['profile']
+            return json.loads(response)['profile']
         except ValueError:
             raise AuthUnknownError('Error during profile retrieval, '
                                    'please, try again later')
@@ -93,7 +93,7 @@ class YahooOAuth(ConsumerBasedOAuth):
         request = self.oauth_request(access_token, url)
         response = self.fetch_response(request)
         try:
-            json = simplejson.loads(response)
+            json = json.loads(response)
             return json['guid']['value']
         except ValueError:
             raise AuthUnknownError('Error during user id retrieval, '

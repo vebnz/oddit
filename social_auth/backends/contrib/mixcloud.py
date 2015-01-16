@@ -4,7 +4,7 @@ Mixcloud OAuth2 support
 from urllib import urlencode
 from urllib2 import Request
 
-from django.utils import simplejson
+import json
 
 from social_auth.backends import BaseOAuth2, OAuthBackend, USERNAME
 from social_auth.utils import dsa_urlopen
@@ -42,7 +42,7 @@ def mixcloud_profile(access_token):
     data = {'access_token': access_token, 'alt': 'json'}
     request = Request(MIXCLOUD_PROFILE_URL + '?' + urlencode(data))
     try:
-        return simplejson.loads(dsa_urlopen(request).read())
+        return json.loads(dsa_urlopen(request).read())
     except (ValueError, KeyError, IOError):
         return None
 
