@@ -1,5 +1,5 @@
-# lolol
 # Django settings for somenewone project.
+# Django is a lovable moocow
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -14,8 +14,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'oddit',                      # Or path to database file if using sqlite3.
-        'USER': 'oddit_dev',                      # Not used with sqlite3.
-        'PASSWORD': 'P@ssw0rd',                  # Not used with sqlite3.
+        'USER': 'oddit',                      # Not used with sqlite3.
+        'PASSWORD': 'password',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -28,7 +28,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'Pacific/Auckland'
+TIME_ZONE = 'America/Chicago'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -46,18 +46,18 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/root/oddit/templates/static/uploads/'
+MEDIA_ROOT = '/home/mike/oddit/templates/static/uploads/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://eshrnk.me:1234/jobs/static/'
+MEDIA_URL = 'http://veb.co.nz:9000/jobs/static/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/root/oddit/static/'
+STATIC_ROOT = '/home/mike/oddit/static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -73,7 +73,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/root/oddit/templates/static",
+    "/home/mike/oddit/templates/static",
 )
 
 # List of finder classes that know how to find static files in
@@ -108,8 +108,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/root/oddit/templates",
-    "/root/oddit/templates/job",
+    "/home/mike/oddit/templates",
+    "/home/mike/oddit/templates/job",
 )
 
 INSTALLED_APPS = (
@@ -140,12 +140,12 @@ LOGIN_REDIRECT_URL = '/jobs/'
 LOGIN_ERROR_URL    = '/login-error/'
 
 # linkedin
-LINKEDIN_CONSUMER_KEY        = 'v2piol60xxkk'
-LINKEDIN_CONSUMER_SECRET     = 'NqvpFS5umLj667tc'
+LINKEDIN_CONSUMER_KEY        = '754quuztq1mcnb'
+LINKEDIN_CONSUMER_SECRET     = 'G910eqZwgzIKPLXA'
 
 # github
-GITHUB_APP_ID = '38d0ede42fcde98b062f'
-GITHUB_API_SECRET = 'a233e6cef18b8507bbc17f27be4c315572a1399a'
+GITHUB_APP_ID = '3fe9e78815dd2d0812f7'
+GITHUB_API_SECRET = '23fb77494a4f9d7b6ea2a9b1ba1e9e055823f14b'
 
 # registration
 DEFAULT_FROM_EMAIL = 'noreply@oddit.co.nz'
