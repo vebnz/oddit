@@ -37,6 +37,6 @@ remember parts of it were created 3 to 4 years ago, so that was most likely Djan
 We'll be accepting pull requests and fixing issues/bugs posted. Help Oddit thrive! 
 
 Developed by veb ltd ~ http://veb.nz
-- Mike Mackenzie
-- Ray Arvin Rimorin
-- Jamie Gracie
+- [Mike Mackenzie](https://github.com/veb)
+- [Ray Arvin Rimorin](https://github.com/avwave)
+- [Jamie Gracie](https://github.com/Kingy)
