@@ -13,8 +13,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'oddit',                      # Or path to database file if using sqlite3.
-        'USER': 'oddit',                      # Not used with sqlite3.
-        'PASSWORD': 'password',                  # Not used with sqlite3.
+        'USER': 'oddit_dev',                      # Not used with sqlite3.
+        'PASSWORD': 'P@ssw0rd',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
@@ -27,7 +27,7 @@ DATABASES = {
 # timezone as the operating system.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Chicago'
+TIME_ZONE = 'Pacific/Auckland'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
@@ -45,18 +45,18 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/home/oddit/oddit/templates/static/uploads/'
+MEDIA_ROOT = '/root/oddit/templates/static/uploads/'
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://oddit.co.nz:9000/jobs/static/'
+MEDIA_URL = 'http://eshrnk.me:1234/jobs/static/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/home/oddit/oddit/static/'
+STATIC_ROOT = '/root/oddit/static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -72,7 +72,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/home/oddit/oddit/templates/static",
+    "/root/oddit/templates/static",
 )
 
 # List of finder classes that know how to find static files in
@@ -107,8 +107,8 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/home/oddit/oddit/templates",
-    "/home/oddit/oddit/templates/job",
+    "/root/oddit/templates",
+    "/root/oddit/templates/job",
 )
 
 INSTALLED_APPS = (

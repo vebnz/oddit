@@ -1,6 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils import simplejson
+import json
 from django.utils.encoding import smart_unicode
 
 
@@ -19,7 +19,7 @@ class JSONField(models.TextField):
             return None
         if isinstance(value, basestring):
             try:
-                return simplejson.loads(value)
+                return json.loads(value)
             except Exception, e:
                 raise ValidationError(str(e))
         else:
@@ -31,14 +31,14 @@ class JSONField(models.TextField):
         if isinstance(value, basestring):
             super(JSONField, self).validate(value, model_instance)
             try:
-                simplejson.loads(value)
+                json.loads(value)
             except Exception, e:
                 raise ValidationError(str(e))
 
     def get_prep_value(self, value):
         """Convert value to JSON string before save"""
         try:
-            return simplejson.dumps(value)
+            return json.dumps(value)
         except Exception, e:
             raise ValidationError(str(e))
 

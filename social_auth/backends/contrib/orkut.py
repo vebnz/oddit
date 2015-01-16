@@ -10,7 +10,7 @@ can be specified by defining ORKUT_EXTRA_DATA setting.
 OAuth settings ORKUT_CONSUMER_KEY and ORKUT_CONSUMER_SECRET are needed
 to enable this service support.
 """
-from django.utils import simplejson
+import json
 
 from social_auth.utils import setting, dsa_urlopen
 from social_auth.backends import OAuthBackend, USERNAME
@@ -64,7 +64,7 @@ class OrkutAuth(BaseGoogleOAuth):
         request = self.oauth_request(access_token, ORKUT_REST_ENDPOINT, params)
         response = dsa_urlopen(request.to_url()).read()
         try:
-            return simplejson.loads(response)['data']
+            return json.loads(response)['data']
         except (ValueError, KeyError):
             return None
 

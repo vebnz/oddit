@@ -1,6 +1,6 @@
 from urllib import urlencode
 
-from django.utils import simplejson
+import json
 
 from social_auth.backends import BaseOAuth2, OAuthBackend, USERNAME
 from social_auth.utils import dsa_urlopen
@@ -44,7 +44,7 @@ class FoursquareAuth(BaseOAuth2):
         params = {'oauth_token': access_token}
         url = FOURSQUARE_CHECK_AUTH + '?' + urlencode(params)
         try:
-            return simplejson.load(dsa_urlopen(url))
+            return json.load(dsa_urlopen(url))
         except ValueError:
             return None
 

@@ -18,7 +18,7 @@ from urllib2 import Request
 
 from oauth2 import Request as OAuthRequest
 
-from django.utils import simplejson
+import json
 
 from social_auth.utils import setting, dsa_urlopen
 from social_auth.backends import OpenIdAuth, ConsumerBasedOAuth, BaseOAuth2, \
@@ -213,7 +213,7 @@ def googleapis_email(url, params):
     """
     request = Request(url + '?' + params, headers={'Authorization': params})
     try:
-        return simplejson.loads(dsa_urlopen(request).read())['data']
+        return json.loads(dsa_urlopen(request).read())['data']
     except (ValueError, KeyError, IOError):
         return None
 
@@ -227,7 +227,7 @@ def googleapis_profile(url, access_token):
     data = {'access_token': access_token, 'alt': 'json'}
     request = Request(url + '?' + urlencode(data))
     try:
-        return simplejson.loads(dsa_urlopen(request).read())
+        return json.loads(dsa_urlopen(request).read())
     except (ValueError, KeyError, IOError):
         return None
 
