@@ -22,23 +22,33 @@ There's always someone who:
 
 ### The source code
 
-Oddit is built on the Python Django framework. 
+Oddit is built on the Python Django framework.
 
 Packages required (install using pip):
 
  - MySQLdb
-  - pip install mysql-python 
+  - pip install mysql-python
  - anyjson
-  - pip install anyjson 
+  - pip install anyjson
  - openid.association
   - pip install python-openid
   - pip install oauth2
  - django-registrations
 
+Make sure the following are correct for your system (oddit/settings.py):
+
+ - DATABASES
+ - MEDIA_ROOT
+ - MEDIA_URL
+ - STATIC_ROOT
+ - STATICFILES_DIRS
+ - TEMPLATE_DIRS
+ - All the secret keys and stuff.
+
 There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
 remember parts of it were created 3 to 4 years ago, so that was most likely Django 1.2 (and Django 2.0 is nearly out).
 
-We'll be accepting pull requests and fixing issues/bugs posted. Help Oddit thrive! 
+We'll be accepting pull requests and fixing issues/bugs posted. Help Oddit thrive!
 
 ### Developed by [veb ltd](http://veb.nz)
 - [Mike Mackenzie](https://github.com/veb)
