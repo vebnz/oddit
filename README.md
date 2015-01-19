@@ -27,22 +27,22 @@ Oddit is built on the Python Django framework.
 Packages required (install using pip):
 
  - MySQLdb
-  - pip install mysql-python
+  - `pip install mysql-python`
  - anyjson
-  - pip install anyjson
+  - `pip install anyjson`
  - openid.association
-  - pip install python-openid
-  - pip install oauth2
+  - `pip install python-openid`
+  - `pip install oauth2`
  - django-registrations
 
-Make sure the following are correct for your system (oddit/settings.py):
+Make sure the following are correct for your system (`oddit/settings.py`):
 
- - DATABASES
- - MEDIA_ROOT
- - MEDIA_URL
- - STATIC_ROOT
- - STATICFILES_DIRS
- - TEMPLATE_DIRS
+ - `DATABASES`
+ - `MEDIA_ROOT`
+ - `MEDIA_URL`
+ - `STATIC_ROOT`
+ - `STATICFILES_DIRS`
+ - `TEMPLATE_DIRS`
  - All the secret keys and stuff.
 
 There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
