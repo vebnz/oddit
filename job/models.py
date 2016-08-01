@@ -96,7 +96,7 @@ class Job(models.Model):
     type = models.ForeignKey(JobType)
     budget = models.IntegerField()
     budget_type = models.IntegerField(default=0, choices=BUDGET_CHOICES)
-    ip = models.IPAddressField(default="225.225.225.225")
+    ip = models.GenericIPAddressField(default="225.225.225.225")
     expires = models.DateField()
     featured = models.NullBooleanField()
     bold = models.NullBooleanField()
