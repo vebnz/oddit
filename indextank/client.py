@@ -24,9 +24,14 @@ class ApiClient(object):
     def get_index(self, index_name):
         return IndexClient(self.__index_url(index_name))
     
-    def create_index(self, index_name, public_search=False):
+    def create_index(self, index_name, options=None):
         index = self.get_index(index_name)
-        index.create_index(public_search=public_search)
+        index.create_index(options=options)
+        return index
+
+    def update_index(self, index_name, options):
+        index = self.get_index(index_name)
+        index.update_index(options=options)
         return index
     
     def delete_index(self, index_name):
@@ -53,10 +58,9 @@ class IndexClient(object):
 
     def __repr__(self):
         if self.__metadata:
-            return 'Index %s\n  index code: %s\n  has started?: %s\n  created on: %s\n  indexed documents: %s' % (self.__index_url, self.__metadata['code'], self.__metadata['started'], self.__metadata['creation_time'], self.__metadata['size'])
+            return 'Index %s\n  index code: %s\n  has started?: %s\n  status: %s\n  is public search enabled?: %s\n  created on: %s\n  indexed documents: %s' % (self.__index_url, self.__metadata['code'], self.__metadata['started'], self.__metadata['status'], self.__metadata['public_search'], self.__metadata['creation_time'], self.__metadata['size'])
         else:
             return 'Index %s\n  <no data available>' % (self.__index_url)
-
 
     def exists(self):
         """
@@ -81,6 +85,13 @@ class IndexClient(object):
         will raise an HttpException with a status of 503.
         """
         return self.refresh_metadata()['started']
+
+    def status(self):
+        """
+        Returns the status of this index. 
+        LIVE status means that your indexes is fully responsive.
+        """
+        return self.refresh_metadata()['status']
     
     def get_code(self):
         return self._get_metadata()['code']
@@ -93,24 +104,48 @@ class IndexClient(object):
         Returns a datetime of when this index was created 
         """
         return _isoparse(self._get_metadata()['creation_time'])
+
+    def is_public_search_enabled(self):
+        """
+        Returns whether this index has public search api enabled.
+        """
+        return self._get_metadata()['public_search']
     
 
-    def create_index(self, public_search=False):
+    def create_index(self, options=None):
         """
         Creates this index. 
         If it already existed a IndexAlreadyExists exception is raised. 
         If the account has reached the limit a TooManyIndexes exception is raised
         Arguments:
-            public_search: a boolean that sets the availability of the public API
+            options: a map with index configuration:
+                public_search: boolean value indicating whether public search api is enable
         """
         try:
-            data={'public_search':public_search}
-            status, _ = _request('PUT', self.__index_url, data=data)
-            if status == 204:
+            if self.exists():
                 raise IndexAlreadyExists('An index for the given name already exists')
+            
+            _request('PUT', self.__index_url, data=options)
         except HttpException, e:
             if e.status == 409:
                 raise TooManyIndexes(e.msg)
+            raise e
+
+    def update_index(self, options):
+        """
+        Update this index. 
+        If it doesn't exists a IndexDoesNotExist exception is raised. 
+        Arguments:
+            options: a map with index configuration:
+                public_search: boolean value indicating whether public search api is enable
+        """
+        try:
+            if not self.exists():
+                raise IndexDoesNotExist('An index for the given name doesn\'t exist')
+
+            status, _ = _request('PUT', self.__index_url, data=options)
+            self.refresh_metadata()
+        except HttpException, e:
             raise e
         
     def delete_index(self):
@@ -259,6 +294,58 @@ class IndexClient(object):
                 raise InvalidQuery(e.msg)
             raise
 
+    """
+    Searches the index and deletes the found results
+    Arguments:
+        query: the query string
+        start: result # to start at
+        scoring_function: a number specifying the scoring function to use when sorting results for this query
+        category_filter: a string to list of strings map with the values to filter for the categories (faceting)
+        variables: map integer -> float with values for variables that can later be used in scoring function
+        docvar_filters: map integer (variable index) -> list of tuples (where each tuple has the two values of a range, allowing -Infinity or Infinity)
+        function_filters: map integer (function index) -> list of tuples (where each tuple has the two values of a range, allowing -Infinity or Infinity)
+    """
+    def delete_by_search(self, query, start=None, scoring_function=None, category_filters=None, variables=None, docvar_filters=None, function_filters=None):
+        params = { 'q': query }
+        if start is not None: params['start'] = start
+        if scoring_function is not None: params['function'] = scoring_function
+        if category_filters is not None: params['category_filters'] = anyjson.serialize(category_filters)
+        if variables:
+            for k, v in variables.items():
+                params['var%d' % int(k)] = str(v)
+
+        if docvar_filters:
+            for key in docvar_filters.keys():
+                value = docvar_filters.get(key)
+                total_value = ''
+                                    
+                for range in value:
+                    if len(total_value) != 0:
+                        total_value += ','
+                    total_value += ("*" if range[0] == None else str(range[0])) + ':' + ("*" if range[1] == None else str(range[1]))
+                
+                params['filter_docvar' + str(key)] = total_value
+
+        if function_filters:
+            for key in function_filters.keys():
+                value = function_filters.get(key)
+                total_value = ''
+                                    
+                for range in value:
+                    if len(total_value) != 0:
+                        total_value += ','
+                    total_value += ("*" if range[0] == None else str(range[0])) + ':' + ("*" if range[1] == None else str(range[1]))
+                
+                params['filter_function' + str(key)] = total_value
+
+        try:
+            _, result = _request('DELETE', self.__search_url(), params=params)
+            return result
+        except HttpException, e:
+            if e.status == 400:
+                raise InvalidQuery(e.msg)
+            raise
+    
     """ metadata management """
     def _get_metadata(self):
         if self.__metadata is None:
@@ -283,6 +370,8 @@ class InvalidResponseFromServer(Exception):
 class TooManyIndexes(Exception):
     pass
 class IndexAlreadyExists(Exception):
+    pass
+class IndexDoesNotExist(Exception):
     pass
 class InvalidQuery(Exception):
     pass
@@ -349,6 +438,7 @@ def _request(method, url, params={}, data={}, headers={}):
     elif response.status == 401:
         raise Unauthorized('Authorization required. Use your private api_url.')
     else:
+        print response.status
         raise HttpException(response.status, response.body) 
     connection.close()
     return ret

@@ -83,7 +83,7 @@ def detail(request, job_id, job_name):
         context_instance=RequestContext(request))
 
 
-API_URL = 'http://:twdfy1QVjimypE@61rg.api.searchify.com'
+API_URL = 'http://:deqemyqymegy@deguby.api.indexden.com'
 INDEX_NAME = 'jobs'
 
 def results_search(request):
@@ -205,7 +205,8 @@ def new_job(request):
             form.save()
             return HttpResponseRedirect('/jobs/')
         else:
-            print 'new job something fucked'
+            return HttpResponseRedirect('/jobs/')
+            print "something fucked!"
     else:
         form = JobForm(instance=job, user=request.user)
 

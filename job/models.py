@@ -8,7 +8,7 @@ from indextank.client import ApiClient
 from django.forms import ModelForm
 from job.validators import validate_pdf
 
-api = ApiClient('http://:twdfy1QVjimypE@61rg.api.searchify.com')
+api = ApiClient('http://:deqemyqymegy@deguby.api.indexden.com')
 search = api.get_index('jobs')
 
 # Create your models here.
