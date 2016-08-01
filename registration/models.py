@@ -1,7 +1,7 @@
 import datetime
 import random
 import re
-import sha
+import hashlib
 
 from django.conf import settings
 from django.db import models
@@ -141,8 +141,8 @@ class RegistrationManager(models.Manager):
         username and a random salt.
 
         """
-        salt = sha.new(str(random.random())).hexdigest()[:5]
-        activation_key = sha.new(salt+user.username).hexdigest()
+        salt = hashlib.sha1(str(random.random())).hexdigest()[:5]
+        activation_key = hashlib.sha1(salt+user.username).hexdigest()
         return self.create(user=user,
                            activation_key=activation_key)
 
@@ -215,7 +215,7 @@ class RegistrationProfile(models.Model):
     ACTIVATED = u"ALREADY_ACTIVATED"
 
     user = models.ForeignKey(User, unique=True, verbose_name=_('user'))
-    activation_key = models.CharField(_('activation key'), max_length=40)
+    activation_key = models.CharField(_('activation key'), max_length=224)
 
     objects = RegistrationManager()
 
