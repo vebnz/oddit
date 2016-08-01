@@ -1,7 +1,7 @@
 """Social auth models"""
 import types
 
-from importlib import import_module
+from django.utils.module_loading import import_module
 
 from social_auth.utils import setting
 
