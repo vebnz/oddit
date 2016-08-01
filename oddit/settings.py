@@ -2,7 +2,6 @@
 # Django is a lovable moocow
 
 DEBUG = True
-TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -87,12 +86,26 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'ar9%$gtp$z+9h0z)eo^1j*=awaq8km!ms-jd2xo2$wn@7r1x3c'
 
-# List of callables that know how to import templates from various sources.
-TEMPLATE_LOADERS = (
-    'django.template.loaders.filesystem.Loader',
-    'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
-)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            # insert your TEMPLATE_DIRS here
+			"/oddit/templates",
+			"/oddit/templates/job",
+        ],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
+                # list if you haven't customized them:
+                    'django.core.context_processors.request',
+					'django.contrib.auth.context_processors.auth',
+					'django.core.context_processors.csrf',
+            ],
+        },
+    },
+]
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -103,14 +116,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'oddit.urls'
-
-TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    "/home/mike/oddit/templates",
-    "/home/mike/oddit/templates/job",
-)
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -152,13 +157,6 @@ DEFAULT_FROM_EMAIL = 'noreply@oddit.co.nz'
 LOGIN_REDIRECT_URL = '/jobs/'
 AUTH_PROFILE_MODULE = 'job.UserProfile'
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window for registering
-
-# Template context processors
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.core.context_processors.request',
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.csrf',
-)
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
