@@ -1,6 +1,6 @@
 """URLs module"""
 #from django.conf.urls import patterns, url
-from django.conf.urls.defaults import *
+from django.conf.urls import *
 
 from social_auth.views import auth, complete, disconnect
 

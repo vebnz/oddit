@@ -21,7 +21,7 @@ from oauth2 import Consumer as OAuthConsumer, Token, Request as OAuthRequest
 from django.contrib.auth import authenticate
 from django.contrib.auth.backends import ModelBackend
 import json
-from django.utils.importlib import import_module
+from django.utils.module_loading import import_module
 
 from social_auth.models import UserSocialAuth
 from social_auth.utils import setting, model_to_ctype, ctype_to_model, \
