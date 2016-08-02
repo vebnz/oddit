@@ -51,6 +51,12 @@ Make sure the following are correct for your system (`oddit/settings.py`):
 There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
 remember parts of it were created 3 to 4 years ago.
 
+### Initial Data load
+
+python manage.py makemigrations
+python manage.py migrate
+python loaddata job/sql/fixtures.json
+
 We'll be accepting pull requests and fixing issues/bugs posted. Help Oddit thrive!
 
 ### Developed by [veb ltd](http://veb.nz)
