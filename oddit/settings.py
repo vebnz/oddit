@@ -88,12 +88,6 @@ LOGIN_URL          = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/jobs/'
 LOGIN_ERROR_URL    = '/login-error/'
 
-# registration
-DEFAULT_FROM_EMAIL = 'noreply@oddit.co.nz'
-LOGIN_REDIRECT_URL = '/jobs/'
-AUTH_PROFILE_MODULE = 'job.UserProfile'
-ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window for registering
-
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.
@@ -120,5 +114,3 @@ LOGGING = {
 
 # Define a test runner (required from 1.6)
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
-
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
