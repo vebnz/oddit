@@ -78,6 +78,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
 )
 
+# allauth configs
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
