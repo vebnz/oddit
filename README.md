@@ -27,7 +27,12 @@ There's always someone who:
 
 Oddit is built on the Python Django framework (1.8).
 
-Packages are required, please see requirements.txt
+Packages are required, please see requirements.txt:
+
+ - cd to the directory where requirements.txt is located.
+ - activate your virtualenv.
+ - run: pip install -r requirements.txt in your shell.
+
 
 There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
 remember parts of it were created 5 years ago.
