@@ -1,6 +1,6 @@
 # Oddit
 
-Oddit stands for "Odd IT Jobs"
+Oddit stands for "Odd IT Jobs".
 
 Here's a screenshot of our first alpha version:
 ![oddit alpha screenshot](http://i.imgur.com/LPqr8.png)
