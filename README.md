@@ -45,11 +45,11 @@ Make sure the following are correct for your system (`oddit/settings.py`):
  - `MEDIA_URL`
  - `STATIC_ROOT`
  - `STATICFILES_DIRS`
- - `TEMPLATE_DIRS`
+ - `TEMPLATE`
  - All the secret keys and stuff.
 
 There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
-remember parts of it were created 3 to 4 years ago, so that was most likely Django 1.2 (and Django 2.0 is nearly out).
+remember parts of it were created 3 to 4 years ago.
 
 We'll be accepting pull requests and fixing issues/bugs posted. Help Oddit thrive!
 
