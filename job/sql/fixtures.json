@@ -1,0 +1,1283 @@
+[
+{
+    "fields": {
+        "model": "permission",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 1
+},
+{
+    "fields": {
+        "model": "group",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 2
+},
+{
+    "fields": {
+        "model": "user",
+        "app_label": "auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 3
+},
+{
+    "fields": {
+        "model": "contenttype",
+        "app_label": "contenttypes"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 4
+},
+{
+    "fields": {
+        "model": "session",
+        "app_label": "sessions"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 5
+},
+{
+    "fields": {
+        "model": "site",
+        "app_label": "sites"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 6
+},
+{
+    "fields": {
+        "model": "logentry",
+        "app_label": "admin"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 7
+},
+{
+    "fields": {
+        "model": "tag",
+        "app_label": "tagging"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 8
+},
+{
+    "fields": {
+        "model": "taggeditem",
+        "app_label": "tagging"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 9
+},
+{
+    "fields": {
+        "model": "region",
+        "app_label": "job"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 10
+},
+{
+    "fields": {
+        "model": "city",
+        "app_label": "job"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 11
+},
+{
+    "fields": {
+        "model": "category",
+        "app_label": "job"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 12
+},
+{
+    "fields": {
+        "model": "company",
+        "app_label": "job"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 13
+},
+{
+    "fields": {
+        "model": "jobtype",
+        "app_label": "job"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 14
+},
+{
+    "fields": {
+        "model": "job",
+        "app_label": "job"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 15
+},
+{
+    "fields": {
+        "model": "jobapply",
+        "app_label": "job"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 16
+},
+{
+    "fields": {
+        "model": "userprofile",
+        "app_label": "job"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 17
+},
+{
+    "fields": {
+        "model": "registrationprofile",
+        "app_label": "registration"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 18
+},
+{
+    "fields": {
+        "model": "usersocialauth",
+        "app_label": "social_auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 19
+},
+{
+    "fields": {
+        "model": "nonce",
+        "app_label": "social_auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 20
+},
+{
+    "fields": {
+        "model": "association",
+        "app_label": "social_auth"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 21
+},
+{
+    "fields": {
+        "domain": "example.com",
+        "name": "example.com"
+    },
+    "model": "sites.site",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Northland"
+    },
+    "model": "job.region",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Auckland"
+    },
+    "model": "job.region",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "Waikato"
+    },
+    "model": "job.region",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "Bay of Plenty"
+    },
+    "model": "job.region",
+    "pk": 4
+},
+{
+    "fields": {
+        "name": "Gisborne"
+    },
+    "model": "job.region",
+    "pk": 5
+},
+{
+    "fields": {
+        "name": "Hawke's Bay"
+    },
+    "model": "job.region",
+    "pk": 6
+},
+{
+    "fields": {
+        "name": "Taranaki"
+    },
+    "model": "job.region",
+    "pk": 7
+},
+{
+    "fields": {
+        "name": "Manuwatu-Wanganui"
+    },
+    "model": "job.region",
+    "pk": 8
+},
+{
+    "fields": {
+        "name": "Wellington"
+    },
+    "model": "job.region",
+    "pk": 9
+},
+{
+    "fields": {
+        "name": "Tasman"
+    },
+    "model": "job.region",
+    "pk": 10
+},
+{
+    "fields": {
+        "name": "Nelson"
+    },
+    "model": "job.region",
+    "pk": 11
+},
+{
+    "fields": {
+        "name": "Marlborough"
+    },
+    "model": "job.region",
+    "pk": 12
+},
+{
+    "fields": {
+        "name": "West Coast"
+    },
+    "model": "job.region",
+    "pk": 13
+},
+{
+    "fields": {
+        "name": "Canterbury"
+    },
+    "model": "job.region",
+    "pk": 14
+},
+{
+    "fields": {
+        "name": "Otago"
+    },
+    "model": "job.region",
+    "pk": 15
+},
+{
+    "fields": {
+        "name": "Southland"
+    },
+    "model": "job.region",
+    "pk": 16
+},
+{
+    "fields": {
+        "region": 1,
+        "name": "Whangarei"
+    },
+    "model": "job.city",
+    "pk": 2
+},
+{
+    "fields": {
+        "region": 1,
+        "name": "Kaitaia"
+    },
+    "model": "job.city",
+    "pk": 3
+},
+{
+    "fields": {
+        "region": 1,
+        "name": "Rest of Northland"
+    },
+    "model": "job.city",
+    "pk": 4
+},
+{
+    "fields": {
+        "region": 2,
+        "name": "Auckland Central"
+    },
+    "model": "job.city",
+    "pk": 5
+},
+{
+    "fields": {
+        "region": 2,
+        "name": "Manakau\\East Auckland"
+    },
+    "model": "job.city",
+    "pk": 6
+},
+{
+    "fields": {
+        "region": 2,
+        "name": "Papakura\\Franklin"
+    },
+    "model": "job.city",
+    "pk": 7
+},
+{
+    "fields": {
+        "region": 2,
+        "name": "Rodney\\North Shore"
+    },
+    "model": "job.city",
+    "pk": 8
+},
+{
+    "fields": {
+        "region": 2,
+        "name": "Waitakere\\West Auckland"
+    },
+    "model": "job.city",
+    "pk": 9
+},
+{
+    "fields": {
+        "region": 3,
+        "name": "Hamilton"
+    },
+    "model": "job.city",
+    "pk": 10
+},
+{
+    "fields": {
+        "region": 3,
+        "name": "Taupo"
+    },
+    "model": "job.city",
+    "pk": 11
+},
+{
+    "fields": {
+        "region": 3,
+        "name": "Theme\\Coromandel"
+    },
+    "model": "job.city",
+    "pk": 12
+},
+{
+    "fields": {
+        "region": 3,
+        "name": "Rest of Waikato"
+    },
+    "model": "job.city",
+    "pk": 13
+},
+{
+    "fields": {
+        "region": 4,
+        "name": "Rotorua"
+    },
+    "model": "job.city",
+    "pk": 14
+},
+{
+    "fields": {
+        "region": 4,
+        "name": "Tauranga"
+    },
+    "model": "job.city",
+    "pk": 15
+},
+{
+    "fields": {
+        "region": 4,
+        "name": "Rest of BOP"
+    },
+    "model": "job.city",
+    "pk": 16
+},
+{
+    "fields": {
+        "region": 5,
+        "name": "Gisborne"
+    },
+    "model": "job.city",
+    "pk": 17
+},
+{
+    "fields": {
+        "region": 5,
+        "name": "Rest of Gisborne"
+    },
+    "model": "job.city",
+    "pk": 18
+},
+{
+    "fields": {
+        "region": 6,
+        "name": "Hastings"
+    },
+    "model": "job.city",
+    "pk": 19
+},
+{
+    "fields": {
+        "region": 6,
+        "name": "Napier"
+    },
+    "model": "job.city",
+    "pk": 20
+},
+{
+    "fields": {
+        "region": 6,
+        "name": "Rest of Hawke's Bay"
+    },
+    "model": "job.city",
+    "pk": 21
+},
+{
+    "fields": {
+        "region": 7,
+        "name": "New Plymouth"
+    },
+    "model": "job.city",
+    "pk": 22
+},
+{
+    "fields": {
+        "region": 7,
+        "name": "Rest of Taranaki"
+    },
+    "model": "job.city",
+    "pk": 23
+},
+{
+    "fields": {
+        "region": 8,
+        "name": "Palmerston North"
+    },
+    "model": "job.city",
+    "pk": 24
+},
+{
+    "fields": {
+        "region": 8,
+        "name": "Wanganui"
+    },
+    "model": "job.city",
+    "pk": 25
+},
+{
+    "fields": {
+        "region": 8,
+        "name": "Rest of Manawatu-Wanganui"
+    },
+    "model": "job.city",
+    "pk": 26
+},
+{
+    "fields": {
+        "region": 9,
+        "name": "Wellington Central"
+    },
+    "model": "job.city",
+    "pk": 27
+},
+{
+    "fields": {
+        "region": 9,
+        "name": "Hutt Valley"
+    },
+    "model": "job.city",
+    "pk": 28
+},
+{
+    "fields": {
+        "region": 9,
+        "name": "Porirua\\Kapiti Coast"
+    },
+    "model": "job.city",
+    "pk": 29
+},
+{
+    "fields": {
+        "region": 9,
+        "name": "Rest of Wellington"
+    },
+    "model": "job.city",
+    "pk": 30
+},
+{
+    "fields": {
+        "region": 10,
+        "name": "Rest of Tasman"
+    },
+    "model": "job.city",
+    "pk": 31
+},
+{
+    "fields": {
+        "region": 11,
+        "name": "Nelson"
+    },
+    "model": "job.city",
+    "pk": 32
+},
+{
+    "fields": {
+        "region": 11,
+        "name": "Rest of Nelson"
+    },
+    "model": "job.city",
+    "pk": 33
+},
+{
+    "fields": {
+        "region": 12,
+        "name": "Blenheim"
+    },
+    "model": "job.city",
+    "pk": 34
+},
+{
+    "fields": {
+        "region": 12,
+        "name": "Rest of Marlborough"
+    },
+    "model": "job.city",
+    "pk": 35
+},
+{
+    "fields": {
+        "region": 13,
+        "name": "Greymouth"
+    },
+    "model": "job.city",
+    "pk": 36
+},
+{
+    "fields": {
+        "region": 13,
+        "name": "Rest of West Coast"
+    },
+    "model": "job.city",
+    "pk": 37
+},
+{
+    "fields": {
+        "region": 14,
+        "name": "Christchurch"
+    },
+    "model": "job.city",
+    "pk": 38
+},
+{
+    "fields": {
+        "region": 14,
+        "name": "North Canterbury"
+    },
+    "model": "job.city",
+    "pk": 39
+},
+{
+    "fields": {
+        "region": 14,
+        "name": "Timaru\\South Canterbury"
+    },
+    "model": "job.city",
+    "pk": 40
+},
+{
+    "fields": {
+        "region": 14,
+        "name": "Rest of Canterbury"
+    },
+    "model": "job.city",
+    "pk": 41
+},
+{
+    "fields": {
+        "region": 15,
+        "name": "Dunedin"
+    },
+    "model": "job.city",
+    "pk": 42
+},
+{
+    "fields": {
+        "region": 15,
+        "name": "Queenstown"
+    },
+    "model": "job.city",
+    "pk": 43
+},
+{
+    "fields": {
+        "region": 15,
+        "name": "Wanaka"
+    },
+    "model": "job.city",
+    "pk": 44
+},
+{
+    "fields": {
+        "region": 15,
+        "name": "Alexandra"
+    },
+    "model": "job.city",
+    "pk": 45
+},
+{
+    "fields": {
+        "region": 15,
+        "name": "Oamaru"
+    },
+    "model": "job.city",
+    "pk": 46
+},
+{
+    "fields": {
+        "region": 15,
+        "name": "Rest of Otago"
+    },
+    "model": "job.city",
+    "pk": 47
+},
+{
+    "fields": {
+        "region": 16,
+        "name": "Invercargill"
+    },
+    "model": "job.city",
+    "pk": 48
+},
+{
+    "fields": {
+        "region": 16,
+        "name": "Rest of Southland"
+    },
+    "model": "job.city",
+    "pk": 49
+},
+{
+    "fields": {
+        "name": "Programming"
+    },
+    "model": "job.category",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Design"
+    },
+    "model": "job.category",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "One off"
+    },
+    "model": "job.jobtype",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "Casual"
+    },
+    "model": "job.jobtype",
+    "pk": 2
+},
+{
+    "fields": {
+        "name": "Temp"
+    },
+    "model": "job.jobtype",
+    "pk": 3
+},
+{
+    "fields": {
+        "name": "Fixed Term"
+    },
+    "model": "job.jobtype",
+    "pk": 4
+},
+{
+    "fields": {
+        "codename": "add_permission",
+        "name": "Can add permission",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 1
+},
+{
+    "fields": {
+        "codename": "change_permission",
+        "name": "Can change permission",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 2
+},
+{
+    "fields": {
+        "codename": "delete_permission",
+        "name": "Can delete permission",
+        "content_type": 1
+    },
+    "model": "auth.permission",
+    "pk": 3
+},
+{
+    "fields": {
+        "codename": "add_group",
+        "name": "Can add group",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 4
+},
+{
+    "fields": {
+        "codename": "change_group",
+        "name": "Can change group",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 5
+},
+{
+    "fields": {
+        "codename": "delete_group",
+        "name": "Can delete group",
+        "content_type": 2
+    },
+    "model": "auth.permission",
+    "pk": 6
+},
+{
+    "fields": {
+        "codename": "add_user",
+        "name": "Can add user",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 7
+},
+{
+    "fields": {
+        "codename": "change_user",
+        "name": "Can change user",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 8
+},
+{
+    "fields": {
+        "codename": "delete_user",
+        "name": "Can delete user",
+        "content_type": 3
+    },
+    "model": "auth.permission",
+    "pk": 9
+},
+{
+    "fields": {
+        "codename": "add_contenttype",
+        "name": "Can add content type",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 10
+},
+{
+    "fields": {
+        "codename": "change_contenttype",
+        "name": "Can change content type",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 11
+},
+{
+    "fields": {
+        "codename": "delete_contenttype",
+        "name": "Can delete content type",
+        "content_type": 4
+    },
+    "model": "auth.permission",
+    "pk": 12
+},
+{
+    "fields": {
+        "codename": "add_session",
+        "name": "Can add session",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 13
+},
+{
+    "fields": {
+        "codename": "change_session",
+        "name": "Can change session",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 14
+},
+{
+    "fields": {
+        "codename": "delete_session",
+        "name": "Can delete session",
+        "content_type": 5
+    },
+    "model": "auth.permission",
+    "pk": 15
+},
+{
+    "fields": {
+        "codename": "add_site",
+        "name": "Can add site",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 16
+},
+{
+    "fields": {
+        "codename": "change_site",
+        "name": "Can change site",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 17
+},
+{
+    "fields": {
+        "codename": "delete_site",
+        "name": "Can delete site",
+        "content_type": 6
+    },
+    "model": "auth.permission",
+    "pk": 18
+},
+{
+    "fields": {
+        "codename": "add_logentry",
+        "name": "Can add log entry",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 19
+},
+{
+    "fields": {
+        "codename": "change_logentry",
+        "name": "Can change log entry",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 20
+},
+{
+    "fields": {
+        "codename": "delete_logentry",
+        "name": "Can delete log entry",
+        "content_type": 7
+    },
+    "model": "auth.permission",
+    "pk": 21
+},
+{
+    "fields": {
+        "codename": "add_tag",
+        "name": "Can add tag",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 22
+},
+{
+    "fields": {
+        "codename": "change_tag",
+        "name": "Can change tag",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 23
+},
+{
+    "fields": {
+        "codename": "delete_tag",
+        "name": "Can delete tag",
+        "content_type": 8
+    },
+    "model": "auth.permission",
+    "pk": 24
+},
+{
+    "fields": {
+        "codename": "add_taggeditem",
+        "name": "Can add tagged item",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 25
+},
+{
+    "fields": {
+        "codename": "change_taggeditem",
+        "name": "Can change tagged item",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 26
+},
+{
+    "fields": {
+        "codename": "delete_taggeditem",
+        "name": "Can delete tagged item",
+        "content_type": 9
+    },
+    "model": "auth.permission",
+    "pk": 27
+},
+{
+    "fields": {
+        "codename": "add_region",
+        "name": "Can add region",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 28
+},
+{
+    "fields": {
+        "codename": "change_region",
+        "name": "Can change region",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 29
+},
+{
+    "fields": {
+        "codename": "delete_region",
+        "name": "Can delete region",
+        "content_type": 10
+    },
+    "model": "auth.permission",
+    "pk": 30
+},
+{
+    "fields": {
+        "codename": "add_city",
+        "name": "Can add city",
+        "content_type": 11
+    },
+    "model": "auth.permission",
+    "pk": 31
+},
+{
+    "fields": {
+        "codename": "change_city",
+        "name": "Can change city",
+        "content_type": 11
+    },
+    "model": "auth.permission",
+    "pk": 32
+},
+{
+    "fields": {
+        "codename": "delete_city",
+        "name": "Can delete city",
+        "content_type": 11
+    },
+    "model": "auth.permission",
+    "pk": 33
+},
+{
+    "fields": {
+        "codename": "add_category",
+        "name": "Can add category",
+        "content_type": 12
+    },
+    "model": "auth.permission",
+    "pk": 34
+},
+{
+    "fields": {
+        "codename": "change_category",
+        "name": "Can change category",
+        "content_type": 12
+    },
+    "model": "auth.permission",
+    "pk": 35
+},
+{
+    "fields": {
+        "codename": "delete_category",
+        "name": "Can delete category",
+        "content_type": 12
+    },
+    "model": "auth.permission",
+    "pk": 36
+},
+{
+    "fields": {
+        "codename": "add_company",
+        "name": "Can add company",
+        "content_type": 13
+    },
+    "model": "auth.permission",
+    "pk": 37
+},
+{
+    "fields": {
+        "codename": "change_company",
+        "name": "Can change company",
+        "content_type": 13
+    },
+    "model": "auth.permission",
+    "pk": 38
+},
+{
+    "fields": {
+        "codename": "delete_company",
+        "name": "Can delete company",
+        "content_type": 13
+    },
+    "model": "auth.permission",
+    "pk": 39
+},
+{
+    "fields": {
+        "codename": "add_jobtype",
+        "name": "Can add job type",
+        "content_type": 14
+    },
+    "model": "auth.permission",
+    "pk": 40
+},
+{
+    "fields": {
+        "codename": "change_jobtype",
+        "name": "Can change job type",
+        "content_type": 14
+    },
+    "model": "auth.permission",
+    "pk": 41
+},
+{
+    "fields": {
+        "codename": "delete_jobtype",
+        "name": "Can delete job type",
+        "content_type": 14
+    },
+    "model": "auth.permission",
+    "pk": 42
+},
+{
+    "fields": {
+        "codename": "add_job",
+        "name": "Can add job",
+        "content_type": 15
+    },
+    "model": "auth.permission",
+    "pk": 43
+},
+{
+    "fields": {
+        "codename": "change_job",
+        "name": "Can change job",
+        "content_type": 15
+    },
+    "model": "auth.permission",
+    "pk": 44
+},
+{
+    "fields": {
+        "codename": "delete_job",
+        "name": "Can delete job",
+        "content_type": 15
+    },
+    "model": "auth.permission",
+    "pk": 45
+},
+{
+    "fields": {
+        "codename": "add_jobapply",
+        "name": "Can add Job Application",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 46
+},
+{
+    "fields": {
+        "codename": "change_jobapply",
+        "name": "Can change Job Application",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 47
+},
+{
+    "fields": {
+        "codename": "delete_jobapply",
+        "name": "Can delete Job Application",
+        "content_type": 16
+    },
+    "model": "auth.permission",
+    "pk": 48
+},
+{
+    "fields": {
+        "codename": "add_userprofile",
+        "name": "Can add user profile",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 49
+},
+{
+    "fields": {
+        "codename": "change_userprofile",
+        "name": "Can change user profile",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 50
+},
+{
+    "fields": {
+        "codename": "delete_userprofile",
+        "name": "Can delete user profile",
+        "content_type": 17
+    },
+    "model": "auth.permission",
+    "pk": 51
+},
+{
+    "fields": {
+        "codename": "add_registrationprofile",
+        "name": "Can add registration profile",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 52
+},
+{
+    "fields": {
+        "codename": "change_registrationprofile",
+        "name": "Can change registration profile",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 53
+},
+{
+    "fields": {
+        "codename": "delete_registrationprofile",
+        "name": "Can delete registration profile",
+        "content_type": 18
+    },
+    "model": "auth.permission",
+    "pk": 54
+},
+{
+    "fields": {
+        "codename": "add_usersocialauth",
+        "name": "Can add user social auth",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 55
+},
+{
+    "fields": {
+        "codename": "change_usersocialauth",
+        "name": "Can change user social auth",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 56
+},
+{
+    "fields": {
+        "codename": "delete_usersocialauth",
+        "name": "Can delete user social auth",
+        "content_type": 19
+    },
+    "model": "auth.permission",
+    "pk": 57
+},
+{
+    "fields": {
+        "codename": "add_nonce",
+        "name": "Can add nonce",
+        "content_type": 20
+    },
+    "model": "auth.permission",
+    "pk": 58
+},
+{
+    "fields": {
+        "codename": "change_nonce",
+        "name": "Can change nonce",
+        "content_type": 20
+    },
+    "model": "auth.permission",
+    "pk": 59
+},
+{
+    "fields": {
+        "codename": "delete_nonce",
+        "name": "Can delete nonce",
+        "content_type": 20
+    },
+    "model": "auth.permission",
+    "pk": 60
+},
+{
+    "fields": {
+        "codename": "add_association",
+        "name": "Can add association",
+        "content_type": 21
+    },
+    "model": "auth.permission",
+    "pk": 61
+},
+{
+    "fields": {
+        "codename": "change_association",
+        "name": "Can change association",
+        "content_type": 21
+    },
+    "model": "auth.permission",
+    "pk": 62
+},
+{
+    "fields": {
+        "codename": "delete_association",
+        "name": "Can delete association",
+        "content_type": 21
+    },
+    "model": "auth.permission",
+    "pk": 63
+}
+]
