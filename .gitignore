@@ -1,4 +1,3 @@
 *.pyc
 templates/static/uploads/resumes/
-oddit/_settings.py
-oddit/settings.py
+oddit/secret_settings.py

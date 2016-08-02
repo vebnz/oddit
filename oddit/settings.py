@@ -1,3 +1,5 @@
+from secret_settings import *
+
 # Django settings for somenewone project.
 # Django is a lovable moocow
 
@@ -8,17 +10,6 @@ ADMINS = (
 )
 
 MANAGERS = ADMINS
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'oddit',                      # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': 'komryiccay',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -43,21 +34,6 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = '/home/mike/oddit/templates/static/uploads/'
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = 'http://veb.co.nz:9000/jobs/static/'
-
-# Absolute path to the directory static files should be collected to.
-# Don't put anything in this directory yourself; store your static files
-# in apps' "static/" subdirectories and in STATICFILES_DIRS.
-# Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = '/home/mike/oddit/static/'
-
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
 STATIC_URL = '/static/'
@@ -67,14 +43,6 @@ STATIC_URL = '/static/'
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
-# Additional locations of static files
-STATICFILES_DIRS = (
-    # Put strings here, like "/home/html/static" or "C:/www/django/static".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    "/home/mike/oddit/templates/static",
-)
-
 # List of finder classes that know how to find static files in
 # various locations.
 STATICFILES_FINDERS = (
@@ -82,30 +50,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'ar9%$gtp$z+9h0z)eo^1j*=awaq8km!ms-jd2xo2$wn@7r1x3c'
-
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            # insert your TEMPLATE_DIRS here
-			"/oddit/templates",
-			"/oddit/templates/job",
-        ],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
-                # list if you haven't customized them:
-                    'django.core.context_processors.request',
-					'django.contrib.auth.context_processors.auth',
-					'django.core.context_processors.csrf',
-            ],
-        },
-    },
-]
 
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
@@ -144,14 +88,6 @@ LOGIN_URL          = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/jobs/'
 LOGIN_ERROR_URL    = '/login-error/'
 
-# linkedin
-LINKEDIN_CONSUMER_KEY        = '754quuztq1mcnb'
-LINKEDIN_CONSUMER_SECRET     = 'G910eqZwgzIKPLXA'
-
-# github
-GITHUB_APP_ID = '3fe9e78815dd2d0812f7'
-GITHUB_API_SECRET = '23fb77494a4f9d7b6ea2a9b1ba1e9e055823f14b'
-
 # registration
 DEFAULT_FROM_EMAIL = 'noreply@oddit.co.nz'
 LOGIN_REDIRECT_URL = '/jobs/'
@@ -184,3 +120,5 @@ LOGGING = {
 
 # Define a test runner (required from 1.6)
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
