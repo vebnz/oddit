@@ -73,20 +73,16 @@ INSTALLED_APPS = (
     'django.contrib.humanize',
     'tagging',
     'job',
-    'registration',
-    'social_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
 )
 
-# social auth
-AUTHENTICATION_BACKENDS = (
-    'social_auth.backends.contrib.linkedin.LinkedinBackend',
-    'social_auth.backends.contrib.github.GithubBackend',
-    'django.contrib.auth.backends.ModelBackend',
-)
-
-LOGIN_URL          = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/jobs/'
-LOGIN_ERROR_URL    = '/login-error/'
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = 'email'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
