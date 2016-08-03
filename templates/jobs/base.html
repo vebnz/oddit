@@ -90,151 +90,156 @@
 				{% block content %}{% endblock %}
 			</article>
 			<aside class="sidebar">
-				<ul>
-
-					<li class="cell action">
+				<div class="panel panel-default">
+					<div class="panel-body">
 						<p>For a limited time only, post a job free of charge to our site!</p>
-						<a href="/jobs/new" class="button orange xlarge">
+						<a href="/jobs/new" class="btn btn-primary btn-block">
 							<span>Post a job</span>
 						</a>
-					</li>
+					</div>
+				</div>
 
-					<li class="quicksearch">
-						<form action="/jobs/search" method="get" role="search">
-							<span><input type="text" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
-								<button id="submit" type="submit" class="icon icon_search"></button>
-							</span>
-						</form>
-					</li>
+				<div class="panel">
+					<form action="/jobs/search" method="get" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
+							<div class="input-group-btn">
+								<button class="btn btn-primary" id="submit" type="submit">
+									<i class="fa fa-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
 
-					<li>
-						<h2 class="widgettitle">Popular Categories</h2>
-					</li>
-					<li>
-						<ul class="tablets">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Popular Categories</h3>
+					</div>
+					<ul class="list-group">
 
-							{% if popular_categories %}
-								{% for category in popular_categories.all %}
-									<li>
-										<a href="/jobs/category/{{ category.category__name|slugify }}/">{{ category.category__name }}
-											<span>{{ category.num_jobs }}</span>
-										</a>
-									</li>
-								{% endfor %}
-							{% else %}
-								<li>
-									<a href="#">No popular categories yet</a>
-								</li>
-							{% endif %}
-
-						</ul>
-					</li>
-				</li>
-
-				<li>
-					<h2 class="widgettitle">Popular Skills</h2>
-				</li>
-				<li>
-					<ul class="tablets">
-
-						{% if popular_tags %}
-							{% for tag in popular_tags %}
-								<li>
-									<a href="/jobs/search?query=tags:{{ tag.name }}">{{ tag.name }}
-										<span>{{ tag.count }}</span>
+						{% if popular_categories %}
+							{% for category in popular_categories.all %}
+								<li class=list-group-item>
+									<a href="/jobs/category/{{ category.category__name|slugify }}/">{{ category.category__name }}
+										<span class="badge pull-right">{{ category.num_jobs }}</span>
 									</a>
 								</li>
 							{% endfor %}
 						{% else %}
-							<li>
+							<li class=list-group-item>
+								<a href="#">No popular categories yet</a>
+							</li>
+						{% endif %}
+
+					</ul>
+				</div>
+
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h3 class="panel-title">Popular Skills</h3>
+					</div>
+					<ul class="list-group">
+
+						{% if popular_tags %}
+							{% for tag in popular_tags %}
+								<li class="list-group-item">
+									<a href="/jobs/search?query=tags:{{ tag.name }}">{{ tag.name }}
+										<span class="badge pull-right">{{ tag.count }}</span>
+									</a>
+								</li>
+							{% endfor %}
+						{% else %}
+							<li class="list-group-item">
 								<a href="#">No popular tags yet</a>
 							</li>
 						{% endif %}
 
 					</ul>
+				</div>
 
-				</aside>
-			</div>
-		</main>
+			</aside>
+		</div>
+	</main>
 
-		<footer class="footer">
-			<div class="inner">
-				<div class="copyright">
-					<p>&copy; 2015. Developed and operated by
-						<a href="http://veb.nz">veb</a>.</p>
-				</div>
-				<div class="menu">
-					<ul>
-						<li class="page_item page-item-2">
-							<a href="/jobs/about-us" title="About Us">About Us</a>
-						</li>
-						<li class="page_item page-item-59">
-							<a href="http://blog.oddit.co.nz" target="_blank" title="Blog">Blog</a>
-						</li>
-						<li class="page_item page-item-506">
-							<a href="" title="Contact Us">Contact Us</a>
-						</li>
-						<li class="page_item page-item-511">
-							<a href="/accounts/login" title="Log In or Register">Log In or Register</a>
-						</li>
-						<li class="page_item page-item-490">
-							<a href="" title="My Post a Job">My Post a Job</a>
-						</li>
-						<li class="page_item page-item-529">
-							<a href="/accounts/password/reset" title="Password Recovery">Password Recovery</a>
-						</li>
-						<li class="page_item page-item-21">
-							<a href="/jobs/new" title="Post a Job">Post a Job</a>
-						</li>
-					</ul>
-				</div>
-				<div class="seo">
-					<p>Oddit is Odd Information Technology jobs, aimed at freelancers in New Zealand. It's a place where you can advertise for small jobs that require a professional or a student. It's cheap, and incredibly easy to use.</p>
-				</div>
+	<footer class="footer">
+		<div class="inner">
+			<div class="copyright">
+				<p>&copy; 2015. Developed and operated by
+					<a href="http://veb.nz">veb</a>.</p>
 			</div>
-		</footer>
-		<!-- insert javascript tracking -->
-		<!-- start Mixpanel -->
-		<script type="text/javascript">
-			(function (c, a) {
-				window.mixpanel = a;
-				var b,
-					d,
-					h,
-					e;
-				b = c.createElement("script");
-				b.type = "text/javascript";
-				b.async = !0;
-				b.src = ("https:" === c.location.protocol
-					? "https:"
-					: "http:") + '//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';
-				d = c.getElementsByTagName("script")[0];
-				d.parentNode.insertBefore(b, d);
-				a._i = [];
-				a.init = function (b, c, f) {
-					function d(a, b) {
-						var c = b.split(".");
-						2 == c.length && (a = a[c[0]], b = c[1]);
-						a[b] = function () {
-							a.push([b].concat(Array.prototype.slice.call(arguments, 0)))
-						}
+			<div class="menu">
+				<ul>
+					<li class="page_item page-item-2">
+						<a href="/jobs/about-us" title="About Us">About Us</a>
+					</li>
+					<li class="page_item page-item-59">
+						<a href="http://blog.oddit.co.nz" target="_blank" title="Blog">Blog</a>
+					</li>
+					<li class="page_item page-item-506">
+						<a href="" title="Contact Us">Contact Us</a>
+					</li>
+					<li class="page_item page-item-511">
+						<a href="/accounts/login" title="Log In or Register">Log In or Register</a>
+					</li>
+					<li class="page_item page-item-490">
+						<a href="" title="My Post a Job">My Post a Job</a>
+					</li>
+					<li class="page_item page-item-529">
+						<a href="/accounts/password/reset" title="Password Recovery">Password Recovery</a>
+					</li>
+					<li class="page_item page-item-21">
+						<a href="/jobs/new" title="Post a Job">Post a Job</a>
+					</li>
+				</ul>
+			</div>
+			<div class="seo">
+				<p>Oddit is Odd Information Technology jobs, aimed at freelancers in New Zealand. It's a place where you can advertise for small jobs that require a professional or a student. It's cheap, and incredibly easy to use.</p>
+			</div>
+		</div>
+	</footer>
+	<!-- insert javascript tracking -->
+	<!-- start Mixpanel -->
+	<script type="text/javascript">
+		(function (c, a) {
+			window.mixpanel = a;
+			var b,
+				d,
+				h,
+				e;
+			b = c.createElement("script");
+			b.type = "text/javascript";
+			b.async = !0;
+			b.src = ("https:" === c.location.protocol
+				? "https:"
+				: "http:") + '//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';
+			d = c.getElementsByTagName("script")[0];
+			d.parentNode.insertBefore(b, d);
+			a._i = [];
+			a.init = function (b, c, f) {
+				function d(a, b) {
+					var c = b.split(".");
+					2 == c.length && (a = a[c[0]], b = c[1]);
+					a[b] = function () {
+						a.push([b].concat(Array.prototype.slice.call(arguments, 0)))
 					}
-					var g = a;
-					"undefined" !== typeof f
-						? g = a[f] = []
-						: f = "mixpanel";
-					g.people = g.people || [];
-					h = "disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");
-					for (e = 0; e < h.length; e++)
-						d(g, h[e]);
-					a._i.push([b, c, f])
-				};
-				a.__SV = 1.1
-			})(document, window.mixpanel || []);
-			mixpanel.init("1a7df73008f28cbcdec0fe15f7911d66");
-			mixpanel.track("test");
-		</script>
-		<!-- end Mixpanel -->
-	</body>
+				}
+				var g = a;
+				"undefined" !== typeof f
+					? g = a[f] = []
+					: f = "mixpanel";
+				g.people = g.people || [];
+				h = "disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");
+				for (e = 0; e < h.length; e++)
+					d(g, h[e]);
+				a._i.push([b, c, f])
+			};
+			a.__SV = 1.1
+		})(document, window.mixpanel || []);
+		mixpanel.init("1a7df73008f28cbcdec0fe15f7911d66");
+		mixpanel.track("test");
+	</script>
+	<!-- end Mixpanel -->
+</body>
 
 </html>

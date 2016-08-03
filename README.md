@@ -38,9 +38,12 @@ Packages are required, please see requirements.txt:
 
  - Valid ruby environment (http://www.ruby-lang.org/en/downloads/)
  - Valid nodejs environment (https://nodejs.org/en/download/)
+ - Install following Packages
 
  `gem install compass`
+
  `npm install -g bower`
+
  `bower install`
 
 
