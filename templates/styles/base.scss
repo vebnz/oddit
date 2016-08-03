@@ -59,7 +59,7 @@ body > main {
     @extend .container-fluid;
     flex: 1;
     aside.sidebar {
-        @extend .col-lg-3;
+        @extend .col-md-3;
         ul {
             @extend .list-group;
             li {
@@ -68,7 +68,7 @@ body > main {
         }
     }
     article {
-        @extend .col-lg-9;
+        @extend .col-md-9;
     }
 }
 body > footer {
