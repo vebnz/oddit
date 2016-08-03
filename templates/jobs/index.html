@@ -76,7 +76,8 @@
 						</dl>
 					</div>
 					<div class="col-sm-2">
-						<p>Expires on {{ job.expires }}</p>
+						<p>Expires on
+							{{ job.expires }}</p>
 					</div>
 				</div>
 			</li>
@@ -99,38 +100,36 @@
 		of
 		<strong>{{ total_jobs }}</strong>&nbsp;jobs</p>
 </div>
-<div class="paging">
-	<ul class="orange">
-		{% if latest_job_list.has_previous %}
-			<li class="next">
-				<a href="?page={{ latest_job_list.previous_page_number }}">
-					<span>&lsaquo; Prev</span>
-				</a>
-			</li>
-			<li>
-				<a href="?page={{ latest_job_list.previous_page_number }}">
-					<span>{{ latest_job_list.previous_page_number }}</span>
-				</a>
-			</li>
-		{% endif %}
-		<li class="active">
-			<a href="">
-				<span>{{ latest_job_list.number }}</span>
-			</a>
-		</li>
-		{% if latest_job_list.has_next %}
-			<li>
-				<a href="?page={{ latest_job_list.next_page_number }}">
-					<span>{{ latest_job_list.next_page_number }}</span>
-				</a>
-			</li>
-			<li class="next">
-				<a href="?page={{ latest_job_list.next_page_number }}">
-					<span>Next &rsaquo;</span>
-				</a>
-			</li>
-		{% endif %}
+
+<nav class="paginate">
+	<ul class="pagination pagination-centered">
+	    {% if latest_job_list.has_previous %}
+	        <li><a href="?page=1">&laquo;</a></li>
+	        <li><a href="?page={{ latest_job_list.previous_page_number }}">&lsaquo;</a></li>
+	    {% endif %}
+
+	    {% for i in latest_job_list.paginator.page_range %}
+				{% if i == 1 or i == latest_job_list.paginator.num_pages %}
+					<li {% if latest_job_list.number == i %} class="active" {% endif %}><a href="?page={{i}}">{{i}}</a></li>
+				{% else %}
+					{% if i <= latest_job_list.number|add:-2  or i >= latest_job_list.number|add:2 %}
+						{% if i == latest_job_list.number|add:-2 or i == latest_job_list.number|add:2 %}
+							<li><a>...</a></li>
+						{% endif %}
+	    		{% else %}
+						<li {% if latest_job_list.number == i %} class="trunc active" {% else %} class="trunc" {% endif %}><a href="?page={{i}}">{{i}}</a></li>
+					{% endif %}
+				{% endif %}
+
+	    {% endfor %}
+
+	    {% if latest_job_list.has_next %}
+	        <li><a href="?page={{ latest_job_list.next_page_number }}">&rsaquo;</a></li>
+	        <li><a href="?page={{ latest_job_list.paginator.num_pages }}">&raquo;</a></li>
+	    {% endif %}
 	</ul>
-</div>
+</nav>
+
+
 </div>
 {% endblock %}
