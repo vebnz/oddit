@@ -31,7 +31,7 @@ Packages are required, please see requirements.txt:
 
  - cd to the directory where requirements.txt is located.
  - activate your virtualenv.
- - run: pip install -r requirements.txt in your shell.
+ - run: `pip install -r requirements.txt` in your shell.
 
 
 There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
@@ -39,9 +39,9 @@ remember parts of it were created 5 years ago.
 
 ### Initial Data load
 
- - python manage.py makemigrations
- - python manage.py migrate
- - python loaddata job/sql/fixtures.json
+ - `python manage.py makemigrations`
+ - `python manage.py migrate`
+ - `python manage.py loaddata job/sql/fixtures.json`
 
 We'll be accepting pull requests and fixing issues/bugs posted. Help Oddit thrive!
 
