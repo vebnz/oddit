@@ -112,3 +112,8 @@ LOGGING = {
 
 # Define a test runner (required from 1.6)
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
