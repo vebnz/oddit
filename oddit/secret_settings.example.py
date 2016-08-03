@@ -45,6 +45,7 @@ TEMPLATES = [
             # insert your TEMPLATE_DIRS here
 			"/path/to/templates",
 			"/path/to/templates/job",
+			"/path/to/templates/allauth",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
