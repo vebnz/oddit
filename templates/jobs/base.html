@@ -44,7 +44,7 @@
 			<div class="header">
 				<div class="inner mod">
 					<div class="logo">
-						<a href="/jobs"><img alt="oddit" src="/static/images/oddit-02.png" /></a>
+						<a href="/"><img alt="oddit" src="/static/images/oddit-02.png" /></a>
 					</div>
 					<div class="tagline">
 						<p>ODD IT JOBS</p>
@@ -52,9 +52,9 @@
 					<p class="status">
 					{% if user.is_authenticated %}
 						{% if not user.first_name %}
-							Welcome {{ user.username }}, <a href="/jobs/my-profile">visit your profile</a>
+							Welcome {{ user.username }}, <a href="/my-profile">visit your profile</a>
 						{% else %}
-							Welcome {{ user.first_name }} {{ user.last_name }}, <a href="/jobs/my-profile">visit your profile</a>
+							Welcome {{ user.first_name }} {{ user.last_name }}, <a href="/my-profile">visit your profile</a>
 						{% endif %}
 					{% else %}
 						To post a job, <a href="/accounts/login"><strong>login</strong></a>
