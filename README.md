@@ -34,6 +34,16 @@ Packages are required, please see requirements.txt:
  - run: `pip install -r requirements.txt` in your shell.
 
 
+### Additional requirements
+
+ - Valid ruby environment (http://www.ruby-lang.org/en/downloads/)
+ - Valid nodejs environment (https://nodejs.org/en/download/)
+
+ `gem install compass`
+ `npm install -g bower`
+ `bower install`
+
+
 There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
 remember parts of it were created 5 years ago.
 
