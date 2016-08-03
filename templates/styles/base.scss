@@ -1,0 +1,81 @@
+@import url( 'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,700,700i|Montserrat:400,700');
+$font-family-sans-serif: 'Fira Sans', Helvetica, arial, sans-serif;
+$font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
+$font-family-display-serif: 'Marcellus', Georgia, serif;
+$brand-primary: #e81e25;
+$brand-secondary: #ff9800;
+$base-font-size: 16px;
+$dark-secondary: darken($brand-secondary, 11.5%);
+$very-dark-secondary: darken($brand-secondary, 33.5%);
+$light-secondary: lighten($brand-secondary, 13.5%);
+$dark-brand: darken($brand-primary, 11.5%);
+$very-dark-brand: darken($brand-primary, 33.5%);
+$light-brand: lighten($brand-primary, 13.5%);
+$spacer: 0.5em;
+@import '../components/bootstrap-sass/assets/stylesheets/bootstrap';
+$fa-font-path: "../static/font-awesome/fonts";
+@import '../components/font-awesome/scss/font-awesome';
+html {
+    min-height: 100%;
+}
+body {
+    @extend .container;
+    display       : flex;
+    min-height    : 100vh;
+    flex-direction: column;
+}
+body > header {
+    @extend .page-header;
+    p {
+        @extend .lead;
+    }
+    .header_container {
+        @extend .row;
+        padding-bottom: $padding-base-vertical;
+        .logo {
+            @extend .col-md-6;
+        }
+        .status {
+            @extend .col-md-6, .text-right;
+        }
+    }
+    .category_menu {
+        .current-cat {
+            @extend .active;
+        }
+    }
+}
+body > main {
+    @extend .container;
+    flex: 1;
+    aside.sidebar {
+        @extend .col-lg-3;
+        ul {
+            @extend .list-group;
+            li {
+                @extend .list-group-item;
+            }
+        }
+    }
+    article {
+        @extend .col-lg-9;
+    }
+}
+body > footer {
+    @extend .container;
+    .inner {
+        @extend .row;
+        .menu {
+            @extend .col-md-8, .text-right;
+            ul {
+                @extend .list-inline;
+            }
+        }
+        .copyright {
+            @extend .col-md-4;
+        }
+        .seo {
+            @extend .col-lg-12;
+        }
+    }
+}

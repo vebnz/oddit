@@ -1,166 +1,240 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 	<head>
 		{% block head %}
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Oddit - Odd IT Jobs</title>
-		<link rel='index' title='Oddit' href='index.html' />
-		<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="/static/css/light.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="/static/css/auth-buttons.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="/static/css/tipTip.css" type="text/css" media="screen" charset="utf-8" />
-		<!--[if IE]>
-		<link rel="stylesheet" href="/static/css/ie8.css" type="text/css" media="screen" charset="utf-8" />
-		<![endif]-->
-		<!--[if IE 7]>
-		<link rel="stylesheet" href="/static/css/ie7.css" type="text/css" media="screen" charset="utf-8" />
-		<![endif]-->
-		<!--[if lt IE 7]>
-		<link rel="stylesheet" href="/static/css/ie6.css" type="text/css" media="screen" charset="utf-8" />
-		<![endif]-->
-		<style type="text/css" media="screen">
-			body {
-				background-color:#eeeeee;
-				background-image:url('/static/uploads/2010/10/background.light_.gif');
-				background-position:;
-				background-repeat:repeat;
-			}
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<title>Oddit - Odd IT Jobs</title>
+			<link rel='index' title='Oddit' href='index.html'/>
+			{% load compress %}
+			{% load staticfiles %}
+			{% compress css %}
+			<link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
+			{% endcompress %}
 
-		</style>
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-		<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
-		<script type="text/javascript" src="/static/scripts/jquery.select_skin.js"></script>
-		<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
-		 <script type="text/javascript" src="/static/scripts/jquery.tipTip.js"></script>
+			<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+			<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
+			<script type="text/javascript" src="/static/scripts/jquery.select_skin.js"></script>
+			<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
+			<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
+			<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
+			<script type="text/javascript" src="/static/scripts/jquery.tipTip.js"></script>
 		{% endblock %}
 	</head>
+
 	<body>
-		<div class="container">
-			<div class="header">
-				<div class="inner mod">
-					<div class="logo">
-						<a href="/"><img alt="oddit" src="/static/images/oddit-02.png" /></a>
-					</div>
-					<div class="tagline">
-						<p>ODD IT JOBS</p>
-					</div>
-					<p class="status">
+		<header>
+			<div class="header_container">
+				<div class="logo">
+					<a href="/"><img alt="oddit" src="/static/images/oddit-02.png"/></a>
+				</div>
+				<p class="status">
 					{% if user.is_authenticated %}
 						{% if not user.first_name %}
-							Welcome {{ user.username }}, <a href="/my-profile">visit your profile</a>
+							Welcome
+							{{ user.username }},
+							<a href="/my-profile">visit your profile</a>
 						{% else %}
-							Welcome {{ user.first_name }} {{ user.last_name }}, <a href="/my-profile">visit your profile</a>
+							Welcome
+							{{ user.first_name }}
+							{{ user.last_name }},
+							<a href="/my-profile">visit your profile</a>
 						{% endif %}
 					{% else %}
-						To post a job, <a href="/accounts/login"><strong>login</strong></a>
-						or <a href="/accounts/signup/"><strong>create an account</strong></a>
+						To post a job,
+						<a href="/accounts/login">
+							<strong>login</strong>
+						</a>
+						or
+						<a href="/accounts/signup/">
+							<strong>create an account</strong>
+						</a>
 					{% endif %}
-					</p>
-					<div class="category_menu orange">
-						<ul>
-							<li class="cat-item-all"><a href="/jobs">All Jobs</a></li>
-							{% if categories %}
-							{% for cat in categories %}
-							<li class="cat-item-4 {% if category_name == cat.name|lower %}current-cat{% endif %}"><a href="/jobs/category/{{ cat.name|slugify }}/">{{ cat.name }}</a></li>
-							{% endfor %}
+				</p>
+			</div>
+			<div class="category_menu orange">
+				<ul class="nav nav-tabs nav-justified">
+					<li class="cat-item-all">
+						<a href="/jobs">All Jobs</a>
+					</li>
+
+					{% if categories %}
+						{% for cat in categories %}
+							<li class="cat-item-4 {% if category_name == cat.name|lower %}current-cat{% endif %}">
+								<a href="/jobs/category/{{ cat.name|slugify }}/">{{ cat.name }}</a>
+							</li>
+						{% endfor %}
+					{% endif %}
+					{% if user.is_superuser %}
+						<li class="cat-item-4 ">
+							<a href="/admin/job/category/add/">Add</a>
+						</li>
+					{% endif %}
+
+					<li class="rss">
+						<a href=""><img src="/static/images/icon.rss.png"/></a>
+					</li>
+				</ul>
+			</div>
+
+			{% if category_name == 'all' %}
+				<script type="text/javascript" charset="utf-8">
+					jQuery('.category_menu li:first-child').addClass('current-cat');
+				</script>
+			{% endif %}
+
+		</header>
+		<main>
+			<article>
+				{% block content %}{% endblock %}
+			</article>
+			<aside class="sidebar">
+				<ul>
+
+					<li class="cell action">
+						<p>For a limited time only, post a job free of charge to our site!</p>
+						<a href="/jobs/new" class="button orange xlarge">
+							<span>Post a job</span>
+						</a>
+					</li>
+
+					<li class="quicksearch">
+						<form action="/jobs/search" method="get" role="search">
+							<span><input type="text" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
+								<button id="submit" type="submit" class="icon icon_search"></button>
+							</span>
+						</form>
+					</li>
+
+					<li>
+						<h2 class="widgettitle">Popular Categories</h2>
+					</li>
+					<li>
+						<ul class="tablets">
+
+							{% if popular_categories %}
+								{% for category in popular_categories.all %}
+									<li>
+										<a href="/jobs/category/{{ category.category__name|slugify }}/">{{ category.category__name }}
+											<span>{{ category.num_jobs }}</span>
+										</a>
+									</li>
+								{% endfor %}
+							{% else %}
+								<li>
+									<a href="#">No popular categories yet</a>
+								</li>
 							{% endif %}
-							{% if user.is_superuser %}
-							<li class="cat-item-4 "><a href="/admin/job/category/add/">Add</a></li>
-							{% endif %}
-							<li class="rss"><a href=""><img src="/static/images/icon.rss.png" /></a></li>
+
 						</ul>
-					</div>
+					</li>
+				</li>
 
-					{% if category_name == 'all' %}
-					<script type="text/javascript" charset="utf-8">
-						jQuery('.category_menu li:first-child').addClass('current-cat');
-					</script>
-					{% endif %}
+				<li>
+					<h2 class="widgettitle">Popular Skills</h2>
+				</li>
+				<li>
+					<ul class="tablets">
 
-					</div>
-				</div>
-				<div class="content mod">
-					<div class="inner">
-
-
-						<div class="focus">
-							{% block content %}
-
-							{% endblock %}
-
-						</div>
-
-						<div class="sidebar">
-							<ul>
-
-								<li class="cell action">
-								<p>For a limited time only, post a job free of charge to our site!</p>
-								<a href="/jobs/new" class="button orange xlarge">
-									<span>Post a job</span>
-								</a>
+						{% if popular_tags %}
+							{% for tag in popular_tags %}
+								<li>
+									<a href="/jobs/search?query=tags:{{ tag.name }}">{{ tag.name }}
+										<span>{{ tag.count }}</span>
+									</a>
 								</li>
+							{% endfor %}
+						{% else %}
+							<li>
+								<a href="#">No popular tags yet</a>
+							</li>
+						{% endif %}
 
-								<li class="quicksearch">
-								<form action="/jobs/search" method="get" role="search">
-									<span><input type="text" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}" /><button id="submit" type="submit" class="icon icon_search"></button></span></form>
-								</li>
+					</ul>
 
-								<li><h2 class="widgettitle">Popular Categories</h2></li>
-								<li><ul class="tablets">
-									{% if popular_categories %}
-									{% for category in popular_categories.all %}
-									<li><a href="/jobs/category/{{ category.category__name|slugify }}/">{{ category.category__name }}<span>{{ category.num_jobs }}</span></a></li>
-									{% endfor %}
-									{% else %}
-									<li><a href="#">No popular categories yet</a></li>
-									{% endif %}
-								</ul></li>
-								</li>
+				</aside>
+			</div>
+		</main>
 
-								<li><h2 class="widgettitle">Popular Skills</h2></li>
-								<li><ul class="tablets">
-									{% if popular_tags %}
-									{% for tag in popular_tags %}
-									<li><a href="/jobs/search?query=tags:{{ tag.name }}">{{ tag.name }}<span>{{ tag.count }}</span></a></li>
-									{% endfor %}
-									{% else %}
-									<li><a href="#">No popular tags yet</a></li>
-									{% endif %}
-
-								</ul>
-
-							</div>
-						</div>
-					</div>
-					<div class="footer_push"></div>
+		<footer class="footer">
+			<div class="inner">
+				<div class="copyright">
+					<p>&copy; 2015. Developed and operated by
+						<a href="http://veb.nz">veb</a>.</p>
 				</div>
-				<div class="footer">
-					<div class="inner">
-						<div class="menu"><ul><li class="page_item page-item-2"><a href="/jobs/about-us" title="About Us">About Us</a></li>
-								<li class="page_item page-item-59"><a href="http://blog.oddit.co.nz" target="_blank" title="Blog">Blog</a></li>
-								<li class="page_item page-item-506"><a href="" title="Contact Us">Contact Us</a></li>
-								<li class="page_item page-item-511"><a href="/accounts/login" title="Log In or Register">Log In or Register</a></li>
-								<li class="page_item page-item-490"><a href="" title="My Post a Job">My Post a Job</a></li>
-								<li class="page_item page-item-529"><a href="/accounts/password/reset" title="Password Recovery">Password Recovery</a></li>
-								<li class="page_item page-item-21"><a href="/jobs/new" title="Post a Job">Post a Job</a></li></ul></div>
-						<div class="copyright">
-							<p>&copy; 2015. Developed and operated by <a href="http://veb.nz">veb</a>.</p>
-						</div>
-						<div class="seo">
-							<p>Oddit is Odd Information Technology jobs, aimed at freelancers in New Zealand. It's a place where you can advertise for small jobs that require a professional or a student. It's cheap, and incredibly easy to use.</p>
-						</div>
-					</div>
+				<div class="menu">
+					<ul>
+						<li class="page_item page-item-2">
+							<a href="/jobs/about-us" title="About Us">About Us</a>
+						</li>
+						<li class="page_item page-item-59">
+							<a href="http://blog.oddit.co.nz" target="_blank" title="Blog">Blog</a>
+						</li>
+						<li class="page_item page-item-506">
+							<a href="" title="Contact Us">Contact Us</a>
+						</li>
+						<li class="page_item page-item-511">
+							<a href="/accounts/login" title="Log In or Register">Log In or Register</a>
+						</li>
+						<li class="page_item page-item-490">
+							<a href="" title="My Post a Job">My Post a Job</a>
+						</li>
+						<li class="page_item page-item-529">
+							<a href="/accounts/password/reset" title="Password Recovery">Password Recovery</a>
+						</li>
+						<li class="page_item page-item-21">
+							<a href="/jobs/new" title="Post a Job">Post a Job</a>
+						</li>
+					</ul>
 				</div>
-				<!-- insert javascript tracking -->
-                <!-- start Mixpanel -->
-                <script type="text/javascript">(function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?
-	g=a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1})(document,window.mixpanel||[]);
-	mixpanel.init("1a7df73008f28cbcdec0fe15f7911d66");mixpanel.track("test");</script><!-- end Mixpanel -->
-			</body>
+				<div class="seo">
+					<p>Oddit is Odd Information Technology jobs, aimed at freelancers in New Zealand. It's a place where you can advertise for small jobs that require a professional or a student. It's cheap, and incredibly easy to use.</p>
+				</div>
+			</div>
+		</footer>
+		<!-- insert javascript tracking -->
+		<!-- start Mixpanel -->
+		<script type="text/javascript">
+			(function (c, a) {
+				window.mixpanel = a;
+				var b,
+					d,
+					h,
+					e;
+				b = c.createElement("script");
+				b.type = "text/javascript";
+				b.async = !0;
+				b.src = ("https:" === c.location.protocol
+					? "https:"
+					: "http:") + '//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';
+				d = c.getElementsByTagName("script")[0];
+				d.parentNode.insertBefore(b, d);
+				a._i = [];
+				a.init = function (b, c, f) {
+					function d(a, b) {
+						var c = b.split(".");
+						2 == c.length && (a = a[c[0]], b = c[1]);
+						a[b] = function () {
+							a.push([b].concat(Array.prototype.slice.call(arguments, 0)))
+						}
+					}
+					var g = a;
+					"undefined" !== typeof f
+						? g = a[f] = []
+						: f = "mixpanel";
+					g.people = g.people || [];
+					h = "disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");
+					for (e = 0; e < h.length; e++)
+						d(g, h[e]);
+					a._i.push([b, c, f])
+				};
+				a.__SV = 1.1
+			})(document, window.mixpanel || []);
+			mixpanel.init("1a7df73008f28cbcdec0fe15f7911d66");
+			mixpanel.track("test");
+		</script>
+		<!-- end Mixpanel -->
+	</body>
 
-		</html>
+</html>

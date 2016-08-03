@@ -1,3 +1,10 @@
+/templates/static/CACHE
+/templates/components
+/bower_components
 *.pyc
 templates/static/uploads/resumes/
 oddit/secret_settings.py
+
+*.scssc
+/.sass-cache
+/.idea
