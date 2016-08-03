@@ -12,6 +12,7 @@ from job.forms import JobForm, ApplyForm
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 
 from indextank.client import ApiClient
 from indextank.client import InvalidQuery
@@ -205,6 +206,36 @@ def my_jobs(request):
         'categories': category_list,
         'job_list': myjobs,},
         context_instance=RequestContext(request))
+
+@login_required
+def applications(request, job_id, job_name):
+    popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
+    popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
+    popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
+    category_list = Category.objects.all()[:10]
+
+    job = get_object_or_404(Job, pk=job_id)
+	
+    try:
+        checkOwnerJob = Job.objects.get(user=request.user.id, id=job_id)
+    except Job.DoesNotExist:
+        raise Http404("You don't own this job")
+
+    apps = None
+    if (checkOwnerJob):	
+        try:
+            apps = JobApply.objects.filter(job=job)
+        except Job.DoesNotExist:
+            apps = None
+
+    return render_to_response('jobs/applications.html', {
+        'job': job,
+        'applications': apps,
+        'categories': category_list,
+        'popular_categories': popular_categories_list,
+        'popular_tags': popular_tags,},
+        context_instance=RequestContext(request))
+
 
 @login_required
 def new_job(request):
