@@ -15,6 +15,7 @@ urlpatterns = patterns('',
     (r'^new$', 'job.views.new_job'),
     (r'^about-us$', 'job.views.about_us'),
     (r'^applied-for$', 'job.views.applied'),
+    (r'^my-jobs$', 'job.views.my_jobs'),
     (r'^my-profile$', 'job.views.profile'),
     (r'^settings$', 'job.views.settings'),
 )
