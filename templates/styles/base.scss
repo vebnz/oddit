@@ -23,18 +23,20 @@ $fa-font-path: "../static/font-awesome/fonts";
     .navbar-header {
         margin: 0;
     }
-
 }
 html {
     min-height: 100%;
 }
 body {
-    @extend .container;
     display       : flex;
     min-height    : 100vh;
     flex-direction: column;
 }
-body > header {
+
+body > .content {
+  @extend .container;
+}
+body > .content > header {
     @extend .page-header;
     p {
         @extend .lead;
@@ -55,10 +57,10 @@ body > header {
         }
     }
 }
-body > main {
-    @extend .container-fluid;
+body > .content > main {
+    @extend .container;
     flex: 1;
-    aside.sidebar {
+    .sidebar {
         @extend .col-md-3;
         ul {
             @extend .list-group;
@@ -72,9 +74,13 @@ body > main {
     }
 }
 body > footer {
-    @extend .container-fluid;
+    padding-top     : 50px;
+    padding-bottom  : 50px;
+    margin-top      : 100px;
+    color           : $gray;
+    background-color: $gray-lighter;
     .inner {
-        @extend .row;
+        @extend .container;
         .menu {
             @extend .col-md-8, .text-right;
             ul {
@@ -89,7 +95,7 @@ body > footer {
         }
     }
 }
-aside .sidebar {}
+
 .list-group {
     .job-list {
         @extend .row;
@@ -97,5 +103,24 @@ aside .sidebar {}
             display    : flex;
             align-items: center;
         }
+    }
+}
+.listing {
+    .title {
+        .share {
+            margin-top: $line-height-computed;
+        }
+    }
+    .job-category {
+        padding: 0.3em 0.6em;
+    }
+    .description {
+        @extend .list-group-item, .disabled, .well-lg;
+    }
+    .package {
+        @extend .list-group-item-success;
+    }
+    .apply {
+        @extend .list-group-item-info;
     }
 }
