@@ -39,9 +39,9 @@ remember parts of it were created 5 years ago.
 
 ### Initial Data load
 
-python manage.py makemigrations
-python manage.py migrate
-python loaddata job/sql/fixtures.json
+ - python manage.py makemigrations
+ - python manage.py migrate
+ - python loaddata job/sql/fixtures.json
 
 We'll be accepting pull requests and fixing issues/bugs posted. Help Oddit thrive!
 
