@@ -18,9 +18,10 @@
   "dependencies": {
     "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.6.3",
-    "eonasdan-bootstrap-datetimepicker": "^4.17.37",
     "modernizr": "^3.3.1",
     "bootstrap-chosen": "^1.0.1",
-    "chosen": "^1.6.2"
+    "chosen": "^1.6.2",
+    "moment-datepicker": "^1.2.0",
+    "bootstrap-datepicker": "^1.6.2"
   }
 }

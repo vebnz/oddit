@@ -42,6 +42,7 @@ class JobForm(forms.ModelForm):
 	        'budget'    : NumberInput(attrs={'min' : '0', 'max' : '1000000', 'step' : '1'}),
 	        'budget_type' : forms.Select(attrs={'class' : 'styled'}),
             'description' : forms.Textarea(attrs={'class' : 'validation'}),
+            'expires'   : forms.DateInput(attrs={'class': 'datepicker', 'type' : 'date'}),
         }
         exclude = ('bold', 'featured', 'ip', 'user')
 
