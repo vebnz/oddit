@@ -8,19 +8,25 @@
 			<meta name="viewport" content="width=device-width, initial-scale=1">
 			<title>Oddit - Odd IT Jobs</title>
 			<link rel='index' title='Oddit' href='index.html'/>
-			{% load compress %}
-			{% load staticfiles %}
-			{% compress css %}
-			<link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
-			{% endcompress %}
 
-			<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+			<script type="text/javascript" src="/static/jquery/dist/jquery.js"></script>
+			<script type="text/javascript" src="/static/chosen/chosen.jquery.js"></script>
+
 			<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
 			<script type="text/javascript" src="/static/scripts/jquery.select_skin.js"></script>
 			<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
 			<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
 			<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
 			<script type="text/javascript" src="/static/scripts/jquery.tipTip.js"></script>
+
+			{% load compress %}
+			{% load staticfiles %}
+			{% compress css %}
+			{# <link rel="stylesheet" type="text/css" href="{% static 'selectize/dist/css/selectize.css' %}"/>#}
+			<link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
+			{% endcompress %}
+
+
 		{% endblock %}
 	</head>
 

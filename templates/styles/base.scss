@@ -13,6 +13,11 @@ $very-dark-brand: darken($brand-primary, 33.5%);
 $light-brand: lighten($brand-primary, 13.5%);
 $spacer: 0.5em;
 @import '../components/bootstrap-sass/assets/stylesheets/bootstrap';
+
+$chosen-sprite-path: '../static/bootstrap-chosen/chosen-sprite.png' !default;
+$chosen-sprite-retina-path: '../static/bootstrap-chosen/chosen-sprite@2x.png' !default;
+
+@import '../components/bootstrap-chosen/bootstrap-chosen';
 $fa-font-path: "../static/font-awesome/fonts";
 @import '../components/font-awesome/scss/font-awesome';
 @media (max-width: 767px) {
@@ -123,4 +128,12 @@ body > footer {
     .apply {
         @extend .list-group-item-info;
     }
+}
+
+.post {
+  form {
+    input[name],select,textarea {
+      @extend .form-control;
+    }
+  }
 }
