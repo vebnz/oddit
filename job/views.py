@@ -4,7 +4,7 @@ import operator, datetime, sys
 from django.template import Context, loader, RequestContext
 from job.models import Job, Company, Category, JobType, Tag, City, JobApply
 from django.db.models import Count
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.exceptions import ObjectDoesNotExist
@@ -216,10 +216,8 @@ def applications(request, job_id, job_name):
 
     job = get_object_or_404(Job, pk=job_id)
 	
-    try:
-        checkOwnerJob = Job.objects.get(user=request.user.id, id=job_id)
-    except Job.DoesNotExist:
-        raise Http404("You don't own this job")
+    if job.user != request.user:
+        return HttpResponseForbidden()
 
     apps = None
     if (checkOwnerJob):	
@@ -236,6 +234,32 @@ def applications(request, job_id, job_name):
         'popular_tags': popular_tags,},
         context_instance=RequestContext(request))
 
+@login_required
+def edit_job(request, job_id):
+    popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id"))
+    popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
+    popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
+    category_list = Category.objects.all()[:10]
+
+    job = get_object_or_404(Job, pk=job_id)
+    
+    if job.user != request.user:
+        return HttpResponseForbidden()
+        
+    if request.POST:
+        form = JobForm(request.POST, instance=job, user=request.user)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/jobs/my-jobs')
+    else:
+        form = JobForm(instance=job, user=request.user)
+
+    return render_to_response('jobs/edit_job.html',  {
+        'form' : form,
+        'popular_categories': popular_categories_list,
+        'popular_tags': popular_tags,
+        'categories': category_list,},
+        context_instance=RequestContext(request))
 
 @login_required
 def new_job(request):
