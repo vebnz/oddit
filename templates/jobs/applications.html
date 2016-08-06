@@ -1,38 +1,37 @@
-{% extends "jobs/base.html" %} {% block content %}
+{% extends "jobs/base.html" %}
+{% block content %}
 
-<div class="results whiteboard">
-
-	<div class="title white">
-		<h1>Applications for {{ job }}</h1>
-	</div>
-
-	<ol class="list">
-		{% for app in applications %}
-		<li class="design filter_2">
-		<div class="details">
-			<h3><a href="">{{ app.user }}</a></h3>
-			<div class="company">
-				<p>{{ app.notes }}</p>
+	<div class="results whiteboard">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="">Applications for {{job}}</h2>
 			</div>
+			<ol class="list-group">
+				{% for app in applications %}
+					<li class="list-group-item">
+						<div class="details">
+							<h3>
+								<a href="">{{ app.user }}</a>
+							</h3>
+							<div class="company">
+									<div class="panel-body">
+										{{ app.notes }}
+									</div>
+							</div>
+						</div>
+						<div class="meta container-fluid">
+							<span>Submitted: {{ app.created }}</span>
+							<a class="pull-right btn btn-primary" href="/jobs/static/{{ app.resume }}">Resume Download</a>
+						</div>
+					</li>
+					{% empty %}
+					<li class="list-group-item">
+						This job doesn't have any applications.
+					</li>
+				{% endfor %}
+			</ol>
 		</div>
-		<div class="meta">
-			<dl>
-				<dt><a href="/jobs/static/{{ app.resume }}">Resume Download</a></dt>
-			</dl>
-		</div>
-		<div class="datestamp">
-			<p>{{ app.created }}</p>
-		</div>		
-		</li>
-		{% empty %}
-		<li class="design_filter_2">
-			This job doesn't have any applications.
-		</li>
-		{% endfor %}
-	</ol>
+		<div class="cap"></div>
 
-	<div class="cap">
 	</div>
-
-</div>
 {% endblock %}

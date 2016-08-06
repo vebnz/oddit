@@ -1,10 +1,8 @@
-@import url( 'https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,700,700i|Montserrat:400,700');
-$font-family-sans-serif: 'Fira Sans', Helvetica, arial, sans-serif;
+@import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Montserrat:400,700');
+$font-family-sans-serif: 'Roboto', Helvetica, arial, sans-serif;
 $font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
-$font-family-display-serif: 'Marcellus', Georgia, serif;
 $brand-primary: #e81e25;
-$brand-secondary: #ff9800;
-$base-font-size: 16px;
+$brand-secondary: #ff9800; // $base-font-size: 16px;
 $dark-secondary: darken($brand-secondary, 11.5%);
 $very-dark-secondary: darken($brand-secondary, 33.5%);
 $light-secondary: lighten($brand-secondary, 13.5%);
@@ -21,7 +19,8 @@ $chosen-sprite-retina-path: "../static/bootstrap-chosen/chosen-sprite@2x.png" !d
 $fa-font-path: "../static/font-awesome/fonts";
 @import '../components/font-awesome/scss/font-awesome';
 @media (max-width: 767px) {
-    .container, .row {
+    .container,
+    .row {
         padding: 0;
     }
     .navbar-header {
@@ -39,12 +38,17 @@ body {
 body > .content {
     @extend .container;
 }
-
+button,
+input[type='submit'] {
+    @extend .btn;
+}
+input[type='submit'] {
+    @extend .btn-primary;
+}
 @import "compass/css3";
-
 body > .content > header {
     @extend .page-header;
-    .navbar{
+    .navbar {
         border-radius: 0;
         border-left  : transparent;
         @include box-shadow(transparent 0px 0px 0px);
@@ -53,16 +57,16 @@ body > .content > header {
         border-bottom: 1px solid $brand-secondary;
     }
     .lower-nav {
-        color           : #fff;
-        font-size       : 20px;
-        padding         : 23px 20px;
-        height          : 78px;
+        color    : #fff;
+        font-size: 20px;
+        padding  : 23px 20px;
+        height   : 78px;
     }
     #brand-logo {
         background-size: cover;
         position       : absolute;
         img {
-            width         : 100%;
+            width: 100%;
         }
     }
     div.nopadding {
@@ -99,7 +103,7 @@ body > .content > header {
             padding: 0 10px;
         }
         .navbar-brand {
-          height: auto;
+            height: auto;
         }
     }
     .category_menu {
