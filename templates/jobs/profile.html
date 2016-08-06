@@ -1,24 +1,84 @@
 {% extends "jobs/base.html" %}
+{% load humanize %}
 {% block content %}
 
-<div class="focus">
-	<div class="listing whiteboard">
-		<div class="title white">
-			<h1>Your profile</h1>
-		</div>
-		<div class="description cms">
-			<p>Welcome to your profile.</p>
-			<ul>
-				<li><a href="/jobs/my-jobs">Jobs Posted</a></li>
-				<li><a href="/jobs/applied-for">Applied Jobs</a></li>				
-			</ul>
-		</div>
-		<div class="cap">
-			<div class="button_set">
-				<a class="button red" href="/accounts/logout/">Log out</a>
-				{% if user.is_superuser %}
-				<a class="button green" href="/admin/">Admin</a>
-				{% endif %}
+	<div class="focus">
+		<div class="listing whiteboard">
+			<div class="panel panel-info">
+				<div class="panel-body">
+					<h1>Your Profile</h1>
+				</div>
+				<div class="panel-heading">
+					<h3 class="panel-title">
+						{%if not user.first_name or not user.last_name %}
+							<span class="text-muted">Complete your profile</span>
+						{% else %}
+							{{user.first_name}}
+							{{user.last_name}}
+						{% endif %}
+						({{user.username}})</h3>
+				</div>
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-md-3 col-lg-3 " align="center">
+							<img alt="User Pic" src="http://placehold.it/300x300" class="img-circle img-responsive">
+						</div>
+						<div class=" col-md-9 col-lg-9 ">
+							<table class="table table-user-information">
+								<tbody>
+									<tr>
+										<td>Location:</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>Join Date:</td>
+										<td>{{user.date_joined}}</td>
+									</tr>
+									<tr>
+										<td>Email</td>
+										<td>
+											{{ user.email }}>
+										</td>
+									</tr>
+									<tr>
+										<td>Contact Number</td>
+										<td></td>
+									</tr>
+									<tr>
+										<td>
+											Skills
+										</td>
+										<td>
+											<span class="label label-default">Python</span>
+											<span class="label label-default">Java</span>
+											<span class="label label-default">Brainfuck</span>
+											<span class="label label-default">Numberwang</span>
+										</td>
+									</tr>
+								</tr>
+
+							</tbody>
+						</table>
+
+						<a href="/jobs/my-jobs" class="btn btn-primary">Jobs Posted</a>
+						<a href="/jobs/applied-for" class="btn btn-primary">Jobs Applied</a>
+					</div>
+				</div>
+			</div>
+			<div class="panel-footer clearfix">
+				<span class="pull-right">
+					<a class="btn btn-sm btn-warning">
+						<i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Edit
+					</a>
+					{% if user.is_superuser %}
+						<a class="btn btn-sm btn-info" href="/admin/">
+							<i class="fa fa-gears fa-fw" aria-hidden="true"></i> Admin
+						</a>
+					{% endif %}
+					<a class="btn btn-sm btn-primary" href="/accounts/logout/">
+						<i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Log out
+					</a>
+				</span>
 			</div>
 		</div>
 	</div>
