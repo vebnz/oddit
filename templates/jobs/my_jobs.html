@@ -1,48 +1,48 @@
-{% extends "jobs/base.html" %} {% block content %}
+{% extends "jobs/base.html" %}
+{% block content %}
 
-<div class="results whiteboard">
-
-	<div class="title white">
-		<h1>Jobs you've posted</h1>
-	</div>
-
-	<ol class="list">
-		{% for job in job_list %}
-		<li class="design filter_2">
-		<div class="details">
-			<h3><a href="show/{{ job.title|slugify }}/{{ job.id}}">{{ job.title }}</a></h3>
-			<div class="company">
-				<p>{{ job.company }}</p>
+	<div class="results whiteboard">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="">Jobs you've posted</h2>
 			</div>
-		</div>
-		<div class="meta">
-			<dl>
-				<dt>{{ job.city }}, {{ job.region }}</dt>
-				<dd>{{ job.get_type_display }}</dd>
-			</dl>
-		</div>
-		<div class="datestamp">
-			<p>{{ job.expires }}</p>
-		</div>
-		<div class="details">
-			<ul style="display: inline">
-				<li style="display: inline">
-					<a href="applications/{{ job.title|slugify }}/{{ job.id}}">{{job.jobapply_set.all|length}} application{{job.jobapply_set.all|length|pluralize}}</a>
-				</li>
-				<li style="display: inline">Edit Job</li>
-				<li style="display: inline">Delete Job</li>
-			</ul>
-		</div>
-		</li>
-		{% empty %}
-		<li class="design_filter_2">
-			You have not posted any jobs.
-		</li>
-		{% endfor %}
-	</ol>
+			<ol class="list-group">
+				{% for job in job_list %}
+					<li class="list-group-item container-fluid">
+						<div class="details">
+							<h3>
+								<a href="show/{{ job.title|slugify }}/{{ job.id}}">{{ job.title }}</a>
+							</h3>
+							<div class="company">
+								<p>{{ job.company }}</p>
+							</div>
+						</div>
+						<div class="meta">
+							<dl>
+								<dt>{{ job.city }},
+									{{ job.region }}</dt>
+								<dd>{{ job.get_type_display }}</dd>
+							</dl>
+						</div>
+						<div class="datestamp">
+							<span>Expires: {{ job.expires }}</span>
+						</div>
+						<div class="btn-group pull-right" role="group" aria-label="...">
+							<a class="btn btn-link" href="applications/{{ job.title|slugify }}/{{ job.id}}">{{job.jobapply_set.all|length}}
+									application{{job.jobapply_set.all|length|pluralize}}</a>
+							<a class="btn btn-info" href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+							<a class="btn btn-warning" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+						</div>
 
-	<div class="cap">
+					</li>
+					{% empty %}
+					<li class="design_filter_2">
+						You have not posted any jobs.
+					</li>
+				{% endfor %}
+			</ol>
+		</div>
+		<div class="cap"></div>
+
 	</div>
-
-</div>
 {% endblock %}
