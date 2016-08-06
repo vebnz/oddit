@@ -27,11 +27,13 @@
 						<div class="datestamp">
 							<span>Expires: {{ job.expires }}</span>
 						</div>
-						<div class="btn-group pull-right" role="group" aria-label="...">
-							<a class="btn btn-link" href="applications/{{ job.title|slugify }}/{{ job.id}}">{{job.jobapply_set.all|length}}
-									application{{job.jobapply_set.all|length|pluralize}}</a>
-							<a class="btn btn-info" href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-							<a class="btn btn-warning" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+						<div class="clearfix panel-footer">
+							<div class="btn-group pull-right" role="group" aria-label="...">
+								<a class="btn btn-link" href="applications/{{ job.title|slugify }}/{{ job.id}}">{{job.jobapply_set.all|length}}
+										application{{job.jobapply_set.all|length|pluralize}}</a>
+								<a class="btn btn-info" href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+								<a class="btn btn-warning" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+							</div>
 						</div>
 
 					</li>
