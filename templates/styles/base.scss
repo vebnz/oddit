@@ -1,7 +1,7 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Montserrat:400,700');
 $font-family-sans-serif: 'Roboto', Helvetica, arial, sans-serif;
 $font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
-$brand-primary: #e81e25;
+$brand-primary: #FF5722;
 $brand-secondary: #ff9800; // $base-font-size: 16px;
 $dark-secondary: darken($brand-secondary, 11.5%);
 $very-dark-secondary: darken($brand-secondary, 33.5%);
@@ -66,6 +66,7 @@ body > .content > header {
         background-size: cover;
         position       : absolute;
         img {
+            background-color: $brand-primary;
             width: 100%;
         }
     }
@@ -78,6 +79,10 @@ body > .content > header {
     }
     .navbar-brand {
         display: none;
+        img {
+            background-color: $brand-primary;
+            width: 100%;
+        }
     }
     @media (max-width: 768px) {
         .lower-nav {
@@ -169,7 +174,8 @@ body > footer {
         padding: 0.3em 0.6em;
     }
     .description {
-        @extend .list-group-item, .disabled, .well-lg;
+        @extend .list-group-item, .well, .well-lg;
+        margin-bottom: 0px;
     }
     .package {
         @extend .list-group-item-success;
