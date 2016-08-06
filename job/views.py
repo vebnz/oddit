@@ -260,6 +260,37 @@ def edit_job(request, job_id):
         'popular_tags': popular_tags,
         'categories': category_list,},
         context_instance=RequestContext(request))
+        
+@login_required
+def expire_job(request, job_id):
+    popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id"))
+    popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
+    popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
+    category_list = Category.objects.all()[:10]
+
+    job = get_object_or_404(Job, pk=job_id)
+    
+    if job.user != request.user:
+        return HttpResponseForbidden()
+        
+    if request.method == 'POST':
+        form = JobForm(data=request.POST, instance=job, user=request.user)
+        if 'no' in request.POST:
+            return HttpResponseRedirect('/jobs/my-jobs')
+        elif 'yes' in request.POST:
+            print 'expiring job'
+            job.status = 2    
+            job.save()
+            return HttpResponseRedirect('/jobs/my-jobs')
+    else:
+        form = JobForm(instance=job, user=request.user)
+
+    return render_to_response('jobs/expire_job.html',  {
+        'form' : form,
+        'popular_categories': popular_categories_list,
+        'popular_tags': popular_tags,
+        'categories': category_list},
+        context_instance=RequestContext(request))
 
 @login_required
 def new_job(request):

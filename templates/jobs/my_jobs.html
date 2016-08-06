@@ -30,7 +30,7 @@
 					<a href="applications/{{ job.title|slugify }}/{{ job.id}}">{{job.jobapply_set.all|length}} application{{job.jobapply_set.all|length|pluralize}}</a>
 				</li>
 				<li style="display: inline"><a href="edit/{{ job.id}}">Edit Job</a></li>
-				<li style="display: inline">Expire Job</li>
+				<li style="display: inline"><a href="expire/{{job.id}}">Cancel Job</a></li>
 			</ul>
 		</div>
 		</li>
