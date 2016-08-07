@@ -22,6 +22,7 @@
     "bootstrap-chosen": "^1.0.1",
     "chosen": "^1.6.2",
     "moment-datepicker": "^1.2.0",
-    "bootstrap-datepicker": "^1.6.2"
+    "bootstrap-datepicker": "^1.6.2",
+    "bootstrap-validator": "^0.11.5"
   }
 }
