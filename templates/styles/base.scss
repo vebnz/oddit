@@ -11,6 +11,7 @@ $very-dark-brand: darken($brand-primary, 33.5%);
 $light-brand: lighten($brand-primary, 13.5%);
 $spacer: 0.5em;
 @import '../components/bootstrap-sass/assets/stylesheets/bootstrap';
+$gray-lightest: lighten($gray-base, 99%); 
 @import 'paper/swatch';
 @import 'paper/variables';
 $chosen-sprite-path: "../static/bootstrap-chosen/chosen-sprite.png" !default;
@@ -67,7 +68,7 @@ body > .content > header {
         position       : absolute;
         img {
             background-color: $brand-primary;
-            width: 100%;
+            width           : 100%;
         }
     }
     div.nopadding {
@@ -81,7 +82,7 @@ body > .content > header {
         display: none;
         img {
             background-color: $brand-primary;
-            width: 100%;
+            width           : 100%;
         }
     }
     @media (max-width: 768px) {
@@ -178,7 +179,7 @@ body > footer {
     }
     .description {
         @extend .list-group-item, .well, .well-lg;
-        margin-bottom: 0px;
+        margin-bottom: 0;
     }
     .package {
         @extend .list-group-item-success;
@@ -193,6 +194,16 @@ body > footer {
         select,
         textarea {
             @extend .form-control;
+        }
+        .input-block {
+            background-color: $gray-lightest;
+            border          : 1px solid darken($gray-lightest, 7%);
+            @extend .well, .well-sm;
+            .chosen-single,
+            input,
+            textarea {
+                background-color: inherit;
+            }
         }
     }
 }
