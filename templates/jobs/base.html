@@ -9,25 +9,26 @@
 			<title>Oddit - Odd IT Jobs</title>
 			<link rel='index' title='Oddit' href='index.html'/>
 
-			<script type="text/javascript" src="/static/scripts/modernizr.js"></script>
-			<script type="text/javascript" src="/static/jquery/dist/jquery.js"></script>
-			<script type="text/javascript" src="/static/chosen/chosen.jquery.js"></script>
-      <script type="text/javascript" src="/static/moment/min/moment.min.js"></script>
-      <script type="text/javascript" src="/static/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-      <script type="text/javascript" src="/static/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
-
-			<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
-			<script type="text/javascript" src="/static/scripts/jquery.select_skin.js"></script>
-			<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
-			<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
-			<script type="text/javascript" src="/static/scripts/jquery.tipTip.js"></script>
-
-      <link rel="stylesheet" type="text/css" href="/static/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css"/>
 
 			{% load compress %}
 			{% load staticfiles %}
+			{% compress js %}
+					<script type="text/javascript" src="/static/scripts/modernizr.js"></script>
+					<script type="text/javascript" src="/static/jquery/dist/jquery.js"></script>
+					<script type="text/javascript" src="/static/chosen/chosen.jquery.js"></script>
+		      <script type="text/javascript" src="/static/moment/min/moment.min.js"></script>
+		      <script type="text/javascript" src="/static/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+		      <script type="text/javascript" src="/static/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+					<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
+					<script type="text/javascript" src="/static/scripts/jquery.select_skin.js"></script>
+					<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
+					<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
+					<script type="text/javascript" src="/static/scripts/jquery.tipTip.js"></script>
+			{% endcompress %}
 			{% compress css %}
           <link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
+					<link rel="stylesheet" type="text/css" href="/static/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css"/>
 			{% endcompress %}
 
 
