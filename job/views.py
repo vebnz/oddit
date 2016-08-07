@@ -28,13 +28,13 @@ def index(request, category_name='all', type_name='all'):
     category_name = category_name.replace("-", " ") # url is slugified
     type_name = type_name.replace("-", " ")
     if category_name and category_name != 'all' and type_name and type_name == 'all':
-        latest_job_list = Job.objects.filter(category__name__iexact=category_name).order_by('created')
+        latest_job_list = Job.objects.filter(status=1,category__name__iexact=category_name).order_by('created')
     elif category_name and category_name != 'all' and type_name and type_name != 'all':
-        latest_job_list = Job.objects.filter(category__name__iexact=category_name,type__name__iexact=type_name).order_by('created')
+        latest_job_list = Job.objects.filter(status=1,category__name__iexact=category_name,type__name__iexact=type_name).order_by('created')
     elif  category_name and category_name == 'all' and type_name and type_name != 'all':
-        latest_job_list = Job.objects.filter(type__name__iexact=type_name).order_by('created')
+        latest_job_list = Job.objects.filter(status=1,type__name__iexact=type_name).order_by('created')
     else:
-        latest_job_list = Job.objects.all().order_by('created')
+        latest_job_list = Job.objects.filter(status=1).order_by('created')
 
     total_jobs = Job.objects.count()
     job_types = JobType.objects.all()
