@@ -27,7 +27,7 @@
 						<div class="datestamp">
 							<span>Expires: {{ job.expires }}</span>
 						</div>
-						<div class="clearfix panel-footer">
+						<div class="clearfix">
 							<div class="btn-group pull-right" role="group" aria-label="...">
 								<a class="btn btn-link" href="applications/{{ job.title|slugify }}/{{ job.id}}">{{job.jobapply_set.all|length}}
 										application{{job.jobapply_set.all|length|pluralize}}</a>
