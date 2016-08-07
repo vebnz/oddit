@@ -1,4 +1,5 @@
 {% extends "jobs/base.html" %}
+{% load bootstrap %}
 {% block content %}
 	<div class="post whiteboard">
 
@@ -15,117 +16,117 @@
 			<div class="panel-body">
 				<form id="post" name="post" class="form-horizontal" action="" method="post">{% csrf_token %}
 
-                    <div class="well well-sm">
-                        <div class="form-group {% if form.title.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.title.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.title }}
-                                <p class="help-block">Enter a descriptive title for the job listing.</p>
-                            </div>
-                        </div>
-                    </div>
+					<div class="input-block">
+						<div class="form-group {% if form.title.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.title.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.title }}
+								<p class="help-block">Enter a descriptive title for the job listing.</p>
+							</div>
+						</div>
+					</div>
 
-                    <div class="well well-sm">
-                        <div class="form-group {% if form.category.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.category.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.category }}
-                                <p class="help-block">Select a category that best suits the job listing.</p>
-                            </div>
-                        </div>
+					<div class="input-block">
+						<div class="form-group {% if form.category.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.category.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.category }}
+								<p class="help-block">Select a category that best suits the job listing.</p>
+							</div>
+						</div>
 
-                        <div class="form-group {% if form.description.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.description.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.description }}
-                                <p class="help-block">Fill in as much detail as you can about the position, outlining responsibilities, perks and information about your company.</p>
-                            </div>
-                        </div>
-                    </div>
+						<div class="form-group {% if form.description.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.description.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.description }}
+								<p class="help-block">Fill in as much detail as you can about the position, outlining responsibilities, perks and information about your company.</p>
+							</div>
+						</div>
+					</div>
 
-                    <div class="well well-sm">
-                        <div class="form-group {% if form.company.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.company.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.company }}
-                            </div>
-                        </div>
+					<div class="input-block">
+						<div class="form-group {% if form.company.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.company.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.company }}
+							</div>
+						</div>
 
-                        <div class="form-group {% if form.position.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.position.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.position }}
-                            </div>
-                        </div>
-                    </div>
+						<div class="form-group {% if form.position.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.position.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.position }}
+							</div>
+						</div>
+					</div>
 
-                    <div class="well well-sm">
-                        <div class="form-group {% if form.region.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.region.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.region }}
-                            </div>
-                        </div>
+					<div class="input-block">
+						<div class="form-group {% if form.region.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.region.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.region }}
+							</div>
+						</div>
 
-                        <div class="form-group {% if form.city.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.city.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.city }}
-                            </div>
-                        </div>
-                    </div>
+						<div class="form-group {% if form.city.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.city.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.city }}
+							</div>
+						</div>
+					</div>
 
-                    <div class="well well-sm">
-                        <div class="form-group {% if form.remote.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.remote.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.remote }}
-                                <p class="help-block">Can this job be worked on from a remote location?</p>
-                            </div>
-                        </div>
+					<div class="input-block">
+						<div class="form-group {% if form.remote.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.remote.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.remote }}
+								<p class="help-block">Can this job be worked on from a remote location?</p>
+							</div>
+						</div>
 
-                        <div class="form-group {% if form.type.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.type.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.type }}
-                            </div>
-                        </div>
-                    </div>
+						<div class="form-group {% if form.type.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.type.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.type }}
+							</div>
+						</div>
+					</div>
 
-                    <div class="well well-sm">
-                        <div class="form-group {% if form.budget.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.budget.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.budget }}
-                                <p class="help-block">Enter in the budget/wage for this job.</p>
-                            </div>
-                        </div>
+					<div class="input-block">
+						<div class="form-group {% if form.budget.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.budget.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.budget }}
+								<p class="help-block">Enter in the budget/wage for this job.</p>
+							</div>
+						</div>
 
-                        <div class="form-group {% if form.budget_type.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.budget_type.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.budget_type }}
-                                <p class="help-block">Enter in the budget/wage for this job.</p>
-                            </div>
-                        </div>
-                    </div>
+						<div class="form-group {% if form.budget_type.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.budget_type.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.budget_type }}
+								<p class="help-block">Enter in the budget/wage for this job.</p>
+							</div>
+						</div>
+					</div>
 
-                    <div class="well well-sm">
-                        <div class="form-group {% if form.expires.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.expires.label_tag }}</label>
-                            <div class='col-sm-10'>
-                                {{ form.expires }}
-                            </div>
-                        </div>
+					<div class="input-block">
+						<div class="form-group {% if form.expires.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.expires.label_tag }}</label>
+							<div class='col-sm-10'>
+								{{ form.expires }}
+							</div>
+						</div>
 
-                        <div class="form-group {% if form.tag_list.errors %} has-error {% endif %}">
-                            <label for="inputEmail3" class="col-sm-2 control-label">{{ form.tag_list.label_tag }}</label>
-                            <div class="col-sm-10">
-                                {{ form.tag_list }}
-                                <p class="help-block">Comma seperated tags describing this job.</p>
-                            </div>
-                        </div>
-                    </div>
+						<div class="form-group {% if form.tag_list.errors %} has-error {% endif %}">
+							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.tag_list.label_tag }}</label>
+							<div class="col-sm-10">
+								{{ form.tag_list }}
+								<p class="help-block">Comma seperated tags describing this job.</p>
+							</div>
+						</div>
+					</div>
 				</form>
 
 			</div>
@@ -137,27 +138,17 @@
 		</div>
 	</div>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $('#id_category, #id_position, #id_type, #id_budget_type').chosen({
-                disable_search_threshold: 10
-            });
-            $('#id_remote').chosen({
-                disable_search_threshold: 10
-            });
-            $('#id_region').chosen({
-                disable_search_threshold: 10
-            });
-            $('#id_city').chosen({
-                disable_search_threshold: 10
-            });
-        });
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$('#id_category, #id_position, #id_type, #id_budget_type').chosen({disable_search_threshold: 10});
+			$('#id_remote').chosen({disable_search_threshold: 10});
+			$('#id_region').chosen({disable_search_threshold: 10});
+			$('#id_city').chosen({disable_search_threshold: 10});
+		});
 
-        if (!Modernizr.touchevents || !Modernizr.inputtypes.date) {
-            $('.datepicker').prop('type', 'text');
-            $('.datepicker').datepicker();
-        } else {
-
-        }
-    </script>
+		if (!Modernizr.touchevents || !Modernizr.inputtypes.date) {
+			$('.datepicker').prop('type', 'text');
+			$('.datepicker').datepicker();
+		} else {}
+	</script>
 {% endblock %}
