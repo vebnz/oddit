@@ -1,24 +1,32 @@
 {% extends "account/base.html" %}
-
+{% load bootstrap %}
 {% load i18n %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="post whiteboard">
-    <div class="title white">
-        <h1>{% trans "Sign Up" %}</h1>
+    <div class="whiteboard">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h1>{% trans "Sign Up" %}</h1>
+            </div>
+            <div class="panel-body bg-info">
+              <p>{% blocktrans %}Already have an account? Then please
+                  <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+            </div>
 
-        <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-
-        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-            {% csrf_token %}
-            {{ form.as_p }}
-            {% if redirect_field_value %}
-            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-            {% endif %}
-            <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-        </form>
+            <form id="signup_form" method="post" action="{% url 'account_signup' %}" class="signup form-horizontal">
+                <div class="panel-body">
+                    {% csrf_token %}
+                    {{ form|bootstrap_horizontal }}
+                    {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                    {% endif %}
+                </div>
+                <div class="panel-footer clearfix">
+                    <input class="btn btn-primary pull-right" type="submit" name="action" value="{% trans 'Sign Up' %}"/>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 {% endblock %}

@@ -49,6 +49,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -76,7 +77,17 @@ INSTALLED_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'compressor',
+    'widget_tweaks',
+    'bootstrapform',
 )
+
+COMPRESS_PRECOMPILERS = (
+    ('text/scss', 'sass --scss --compass {infile} {outfile}'),
+)
+
+COMPRESS_OFFLINE = True
+COMPRESS_ENABLED = True
 
 # allauth configs
 ACCOUNT_EMAIL_REQUIRED = True

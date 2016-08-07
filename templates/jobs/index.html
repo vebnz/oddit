@@ -1,98 +1,133 @@
-{% extends "jobs/base.html" %} {% block content %}
+{% extends "jobs/base.html" %}
+{% block content %}
 
-<script type="text/javascript" charset="utf-8">
-	$( document ).ready( function() {
-			$( '#search_button' ).click( function() {
-				q = $( '#search_box' ).val();
-				$( '#results' ).html( '&nbsp;' ).load('jobs/search/' + q + '/' );
-				});
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function () {
+			$('#search_button').click(function () {
+				q = $('#search_box').val();
+				$('#results').html('&nbsp;').load('jobs/search/' + q + '/');
 			});
+		});
 
-	$( document ).ajaxStart( function() {
-		$( '#spinner' ).show();
-		}).ajaxStop( function() {
-			$( '#spinner' ).hide();
-			});
+		$(document).ajaxStart(function () {
+			$('#spinner').show();
+		}).ajaxStop(function () {
+			$('#spinner').hide();
+		});
+	</script>
 
-</script>
-
-<div class="results whiteboard">
-	<div class="filter grey">
-		<div class="push">
-			<ul>
-				<li class="first"><a href="/jobs" id="all" class="first" name="all"><span>All Types</span></a></li>
-				{% for type in job_types %}
-				<li class="first"><a href="/jobs/type/{{ type.name|slugify }}/" id="all" class="first {% if type_name == type.name|lower %}active{% endif %}" name="all"><span>{{ type.name }}</span></a></li>
-				{% endfor %}
-				{% if user.is_superuser %}
-				<li class="first"><a href="/admin/job/jobtype/add/" id="all" class="first" name="all"><span>Add</span></a></li>
-				{% endif %}
-				</li>
+	<div class="results whiteboard">
+		<div class="filter grey">
+			<div class="push">
+				<ul class="nav nav-tabs nav-justified">
+					<li class="first active">
+						<a href="/jobs" id="all" class="first" name="all">
+							<span>All Types</span>
+						</a>
+					</li>
+					{% for type in job_types %}
+						<li class="first {% if type_name == type.name|lower %}active{% endif %}">
+							<a href="/jobs/type/{{ type.name|slugify }}/" id="all" class="first" name="all">
+								<span>{{ type.name }}</span>
+							</a>
+						</li>
+					{% endfor %}
+					{% if user.is_superuser %}
+						<li class="first">
+							<a href="/admin/job/jobtype/add/" id="all" class="first" name="all">
+								<span>Add</span>
+							</a>
+						</li>
+					{% endif %}
 			</ul>
 		</div>
 	</div>
 
-	<div id="results">
-
-	</div>
+	<div id="results"></div>
 
 	{% if category_name != 'all' %}
-	<div class="sub orange">
-		<h2><strong>{{ category_name|capfirst }}</strong> Jobs</h2>
-	</div>
+		<div class="sub orange">
+			<h2>
+				<strong>{{ category_name|capfirst }}</strong>
+				Jobs</h2>
+		</div>
 	{% endif %}
 
 	{% if latest_job_list %}
-	<ol class="list">
-		{% for job in latest_job_list.object_list %}
-		<li class="design filter_2">
-		<div class="details"><em class="new orange">New</em>
-			<h3><a href="/jobs/show/{{ job.title|slugify }}/{{ job.id }}">{{ job.title }}</a></h3>
-			<div class="company">
-				<p>{{ job.company }}</p>
-			</div>
-		</div>
-		<div class="meta">
-			<dl>
-				<dt><a href='search?query=city:"{{ job.city }}"'>{{ job.city }}</a>, {{ job.region }}</dt>
-				<dd>{{ job.type }}</dd>
-			</dl>
-		</div>
-		<div class="datestamp">
-			<p>{{ job.expires }}</p>
-		</div>
-		</li>
-		{% empty %}
-		<li class="design_filter_2">
-			No jobs available, <a href="/jobs/new">why don't you add one?</a>
-		</li>
+		<ul class="list-group">
+			{% for job in latest_job_list.object_list %}
+				<li class="list-group-item">
+					<div class="job-list">
+						<div class="col-sm-6 col-xs-12">
+							<h3>
+								<a href="/jobs/show/{{ job.title|slugify }}/{{ job.id }}">{{ job.title }}</a>
+							</h3>
+							<div class="company">
+								<p>{{ job.company }}</p>
+							</div>
+						</div>
+						<div class="col-sm-4">
+							<strong>
+								<a href='search?query=city:"{{ job.city }}"'>{{ job.city }}</a>,
+								{{ job.region }}
+							</strong>
+							<p>{{ job.type }}</p>
+						</div>
+						<div class="col-sm-2">
+							<p>Expires on
+								{{ job.expires }}</p>
+						</div>
+				</div>
+			</li>
 		{% endfor %}
-	</ol>
-	{% else %}
-	<ol class="list">
-		<li class="design_filter_2">
-		No jobs matching that query were found. <a href="/jobs/new">Perhaps you'd like to add one?</a>
+	</ul>
+{% else %}
+	<ul class="list-group">
+		<li class="list-group-item design_filter_2">
+			No jobs matching that query were found.
+			<a href="/jobs/new">Perhaps you'd like to add one?</a>
 		</li>
-	</ol>
-	{% endif %}
+	</ul>
+{% endif %}
 
-	<div class="pagingShows">
-		<p class="count">Showing <strong>{{ latest_job_list.start_index }} - {{ latest_job_list.end_index }}</strong> of
+<div class="pagingShows">
+	<p class="count">Showing
+		<strong>{{ latest_job_list.start_index }}
+			-
+			{{ latest_job_list.end_index }}</strong>
+		of
 		<strong>{{ total_jobs }}</strong>&nbsp;jobs</p>
-	</div>
-	<div class="paging">
-		<ul class="orange">
-			{% if latest_job_list.has_previous %}
-			<li class="next"><a href="?page={{ latest_job_list.previous_page_number }}"><span>&lsaquo; Prev</span></a></li>    
-			<li><a href="?page={{ latest_job_list.previous_page_number }}"><span>{{ latest_job_list.previous_page_number }}</span></a></li>
-			{% endif %} 
-			<li class="active"><a href=	""><span>{{ latest_job_list.number }}</span></a></li>
-			{% if latest_job_list.has_next %}
-			<li><a href="?page={{ latest_job_list.next_page_number }}"><span>{{ latest_job_list.next_page_number }}</span></a></li>
-			<li class="next"><a href="?page={{ latest_job_list.next_page_number }}"><span>Next	&rsaquo;</span></a></li>
-			{% endif %}
-		</ul>
-	</div>
+</div>
+
+<nav class="paginate">
+	<ul class="pagination pagination-centered">
+	    {% if latest_job_list.has_previous %}
+	        <li><a href="?page=1">&laquo;</a></li>
+	        <li><a href="?page={{ latest_job_list.previous_page_number }}">&lsaquo;</a></li>
+	    {% endif %}
+
+	    {% for i in latest_job_list.paginator.page_range %}
+				{% if i == 1 or i == latest_job_list.paginator.num_pages %}
+					<li {% if latest_job_list.number == i %} class="active" {% endif %}><a href="?page={{i}}">{{i}}</a></li>
+				{% else %}
+					{% if i <= latest_job_list.number|add:-2  or i >= latest_job_list.number|add:2 %}
+						{% if i == latest_job_list.number|add:-2 or i == latest_job_list.number|add:2 %}
+							<li><a>...</a></li>
+						{% endif %}
+	    		{% else %}
+						<li {% if latest_job_list.number == i %} class="trunc active" {% else %} class="trunc" {% endif %}><a href="?page={{i}}">{{i}}</a></li>
+					{% endif %}
+				{% endif %}
+
+	    {% endfor %}
+
+	    {% if latest_job_list.has_next %}
+	        <li><a href="?page={{ latest_job_list.next_page_number }}">&rsaquo;</a></li>
+	        <li><a href="?page={{ latest_job_list.paginator.num_pages }}">&raquo;</a></li>
+	    {% endif %}
+	</ul>
+</nav>
+
+
 </div>
 {% endblock %}
-

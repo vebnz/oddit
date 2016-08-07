@@ -1,0 +1,228 @@
+@import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Montserrat:400,700');
+$font-family-sans-serif: 'Roboto', Helvetica, arial, sans-serif;
+$font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
+$brand-primary: #FF5722;
+$brand-secondary: #ff9800; // $base-font-size: 16px;
+$dark-secondary: darken($brand-secondary, 11.5%);
+$very-dark-secondary: darken($brand-secondary, 33.5%);
+$light-secondary: lighten($brand-secondary, 13.5%);
+$dark-brand: darken($brand-primary, 11.5%);
+$very-dark-brand: darken($brand-primary, 33.5%);
+$light-brand: lighten($brand-primary, 13.5%);
+$spacer: 0.5em;
+@import '../components/bootstrap-sass/assets/stylesheets/bootstrap';
+$gray-lightest: lighten($gray-base, 99%);
+@import 'paper/swatch';
+@import 'paper/variables';
+$chosen-sprite-path: "../static/bootstrap-chosen/chosen-sprite.png" !default;
+$chosen-sprite-retina-path: "../static/bootstrap-chosen/chosen-sprite@2x.png" !default;
+@import '../components/bootstrap-chosen/bootstrap-chosen';
+$fa-font-path: "../static/font-awesome/fonts";
+@import '../components/font-awesome/scss/font-awesome';
+@media (max-width: 767px) {
+    .container,
+    .row {
+        padding: 0;
+    }
+    .navbar-header {
+        margin: 0;
+    }
+}
+html {
+    min-height: 100%;
+}
+body {
+    display       : flex;
+    min-height    : 100vh;
+    flex-direction: column;
+}
+body > .content {
+    @extend .container;
+}
+button,
+input[type='submit'] {
+    @extend .btn;
+}
+input[type='submit'] {
+    @extend .btn-primary;
+}
+@import "compass/css3";
+body > .content > header {
+    @extend .page-header;
+    .navbar {
+        border-radius: 0;
+        border-left  : transparent;
+        @include box-shadow(transparent 0px 0px 0px);
+    }
+    #navbar-collapse {
+        border-bottom: 1px solid $brand-secondary;
+    }
+    .lower-nav {
+        color    : #fff;
+        font-size: 20px;
+        padding  : 23px 20px;
+        height   : 78px;
+    }
+    #brand-logo {
+        background-size: cover;
+        position       : absolute;
+        img {
+            background-color: $brand-primary;
+            width           : 100%;
+        }
+    }
+    div.nopadding {
+        padding: 0;
+        margin : 0;
+    }
+    .nav-buttons {
+        border-radius: 0;
+    }
+    .navbar-brand {
+        display: none;
+        img {
+            background-color: $brand-primary;
+            width           : 100%;
+        }
+    }
+    @media (max-width: 768px) {
+        .lower-nav {
+            font-size: 20px;
+            padding  : 25px 20px;
+        }
+        .navbar-brand {
+            display: block;
+        }
+    }
+    @media (max-width: 480px) {
+        .lower-nav {
+            font-size: 18px;
+            padding  : 20px 10px;
+        }
+    }
+    .navbar {
+        .navbar-login {
+            width  : 305px;
+            padding: 10px 10px 0;
+        }
+        .navbar-login-session {
+            padding: 0 10px;
+        }
+        .navbar-brand {
+            height: auto;
+        }
+    }
+    .category_menu {
+        .current-cat {
+            @extend .active;
+        }
+    }
+}
+body > .content > main {
+    @extend .container;
+    flex: 1;
+    .sidebar {
+        .search-panel {
+            padding-bottom: $line-height-computed;
+        }
+        @extend .col-md-3;
+        ul {
+            @extend .list-group;
+            li {
+                @extend .list-group-item;
+            }
+        }
+    }
+    article {
+        @extend .col-md-9;
+    }
+}
+body > footer {
+    padding-top     : 50px;
+    padding-bottom  : 50px;
+    margin-top      : 100px;
+    color           : $gray;
+    background-color: $gray-lighter;
+    .inner {
+        @extend .container;
+        .menu {
+            @extend .col-md-8, .text-right;
+            ul {
+                @extend .list-inline;
+            }
+        }
+        .copyright {
+            @extend .col-md-4;
+        }
+        .seo {
+            @extend .col-lg-12;
+        }
+    }
+}
+.list-group {
+    .job-list {
+        @extend .row;
+        @media (min-width: $screen-sm-min) {
+            display    : flex;
+            align-items: center;
+        }
+    }
+}
+.listing {
+    .title {
+        .share {
+            margin-top: $line-height-computed;
+        }
+    }
+    .job-category {
+        padding: 0.3em 0.6em;
+    }
+    .description {
+        @extend .list-group-item, .well, .well-lg;
+        margin-bottom: 0;
+    }
+    .package {
+        @extend .list-group-item-success;
+    }
+    .apply {
+        @extend .list-group-item-info;
+    }
+}
+.post {
+    form {
+        input:not([type='submit']),
+        select,
+        textarea {
+            @extend .form-control;
+        }
+        .input-block {
+            background-color: $gray-lightest;
+            border          : 1px solid darken($gray-lightest, 7%);
+            @extend .well, .well-sm;
+            .chosen-single,
+            input,
+            textarea {
+                background-color: inherit;
+            }
+        }
+    }
+}
+form {
+    .form-group {
+        &.has-error {
+            .chosen-container {
+                background-color: $state-danger-bg;
+            }
+        }
+        &.has-warning {
+            .chosen-container {
+                background-color: $state-warning-bg;
+            }
+        }
+        &.has-success {
+            .chosen-container {
+                background-color: $state-success-bg;
+            }
+        }
+    }
+}
