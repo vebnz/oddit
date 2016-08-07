@@ -11,7 +11,7 @@ $very-dark-brand: darken($brand-primary, 33.5%);
 $light-brand: lighten($brand-primary, 13.5%);
 $spacer: 0.5em;
 @import '../components/bootstrap-sass/assets/stylesheets/bootstrap';
-$gray-lightest: lighten($gray-base, 99%); 
+$gray-lightest: lighten($gray-base, 99%);
 @import 'paper/swatch';
 @import 'paper/variables';
 $chosen-sprite-path: "../static/bootstrap-chosen/chosen-sprite.png" !default;
@@ -190,7 +190,7 @@ body > footer {
 }
 .post {
     form {
-        input[name],
+        input:not([type='submit']),
         select,
         textarea {
             @extend .form-control;
@@ -203,6 +203,25 @@ body > footer {
             input,
             textarea {
                 background-color: inherit;
+            }
+        }
+    }
+}
+form {
+    .form-group {
+        &.has-error {
+            .chosen-container {
+                background-color: $state-danger-bg;
+            }
+        }
+        &.has-warning {
+            .chosen-container {
+                background-color: $state-warning-bg;
+            }
+        }
+        &.has-success {
+            .chosen-container {
+                background-color: $state-success-bg;
             }
         }
     }

@@ -1,10 +1,8 @@
 {% extends "jobs/base.html" %}
 {% load bootstrap %}
+{% load widget_tweaks %}
 {% block content %}
 	<div class="post whiteboard">
-
-		{{ form.errors }}
-		{{ form.non_field_errors }}
 		<div class="panel panel-default">
 			<div class="panel-heading">
 				<h2 class="">Post a Job</h2>
@@ -13,15 +11,16 @@
 					<a href="#">click here</a>
 				</p>
 			</div>
-			<div class="panel-body">
-				<form id="post" name="post" class="form-horizontal" action="" method="post">{% csrf_token %}
+			<form id="post" name="post"  action="" method="post" class="form-horizontal">{% csrf_token %}
+				<div class="panel-body">
 
 					<div class="input-block">
 						<div class="form-group {% if form.title.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.title.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.title }}
+								{{ form.title|attr:'required:true'}}
 								<p class="help-block">Enter a descriptive title for the job listing.</p>
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 					</div>
@@ -30,16 +29,18 @@
 						<div class="form-group {% if form.category.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.category.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.category }}
+								{{ form.category|attr:'required:true'}}
 								<p class="help-block">Select a category that best suits the job listing.</p>
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 
 						<div class="form-group {% if form.description.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.description.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.description }}
+								{{ form.description|attr:'required:true' }}
 								<p class="help-block">Fill in as much detail as you can about the position, outlining responsibilities, perks and information about your company.</p>
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 					</div>
@@ -48,14 +49,16 @@
 						<div class="form-group {% if form.company.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.company.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.company }}
+								{{ form.company|attr:'required:true' }}
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 
 						<div class="form-group {% if form.position.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.position.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.position }}
+								{{ form.position|attr:'required:true' }}
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 					</div>
@@ -64,14 +67,16 @@
 						<div class="form-group {% if form.region.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.region.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.region }}
+								{{ form.region|attr:'required:true' }}
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 
 						<div class="form-group {% if form.city.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.city.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.city }}
+								{{ form.city|attr:'required:true' }}
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 					</div>
@@ -80,15 +85,17 @@
 						<div class="form-group {% if form.remote.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.remote.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.remote }}
+								{{ form.remote|attr:'required:true' }}
 								<p class="help-block">Can this job be worked on from a remote location?</p>
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 
 						<div class="form-group {% if form.type.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.type.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.type }}
+								{{ form.type|attr:'required:true' }}
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 					</div>
@@ -97,16 +104,18 @@
 						<div class="form-group {% if form.budget.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.budget.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.budget }}
+								{{ form.budget|attr:'required:true'|attr:'type:number'|attr:'step:any' }}
 								<p class="help-block">Enter in the budget/wage for this job.</p>
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 
 						<div class="form-group {% if form.budget_type.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.budget_type.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.budget_type }}
+								{{ form.budget_type|attr:'required:true' }}
 								<p class="help-block">Enter in the budget/wage for this job.</p>
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 					</div>
@@ -115,26 +124,25 @@
 						<div class="form-group {% if form.expires.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.expires.label_tag }}</label>
 							<div class='col-sm-10'>
-								{{ form.expires }}
+								{{ form.expires|attr:'required:true' }}
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 
 						<div class="form-group {% if form.tag_list.errors %} has-error {% endif %}">
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.tag_list.label_tag }}</label>
 							<div class="col-sm-10">
-								{{ form.tag_list }}
+								{{ form.tag_list|attr:'required:true' }}
 								<p class="help-block">Comma seperated tags describing this job.</p>
+								<div class="help-block with-errors"></div>
 							</div>
 						</div>
 					</div>
-				</form>
-
-			</div>
-			<div class="panel-footer clearfix">
-				<button type="button" class="btn btn-primary pull-right">
-					Submit Listing
-				</button>
-			</div>
+				</div>
+				<div class="panel-footer clearfix">
+					<input id="jobsubmit" name="jobsubmit" type="submit" value="Submit Listing" class="btn btn-primary pull-right"/>					
+				</div>
+			</form>
 		</div>
 	</div>
 
@@ -152,7 +160,9 @@
 		} else {}
 
 		$(document).ready(function () {
-			$('#id_region').on('change', function(evt, params) {
+			$.fn.validator.Constructor.INPUT_SELECTOR += ':not(.chosen-search input)'
+			$("#post").validator();
+			$('#id_region').on('change', function (evt, params) {
 				val = this.value;
 				$.post("/jobs/new/region", {
 					id: val,
@@ -170,10 +180,11 @@
 				});
 			});
 
-
 			$('#jobsubmit').click(function () {
+				$("#post").validator('validate')
 				return true;
 			});
+
 		});
 	</script>
 {% endblock %}

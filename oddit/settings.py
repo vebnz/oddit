@@ -78,6 +78,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'compressor',
+    'widget_tweaks',
     'bootstrapform',
 )
 
