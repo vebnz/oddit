@@ -220,11 +220,10 @@ def applications(request, job_id, job_name):
         return HttpResponseForbidden()
 
     apps = None
-    if (checkOwnerJob):	
-        try:
-            apps = JobApply.objects.filter(job=job)
-        except Job.DoesNotExist:
-            apps = None
+    try:
+        apps = JobApply.objects.filter(job=job)
+    except Job.DoesNotExist:
+        apps = None
 
     return render_to_response('jobs/applications.html', {
         'job': job,
