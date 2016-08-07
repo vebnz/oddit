@@ -121,6 +121,9 @@ body > .content > main {
     @extend .container;
     flex: 1;
     .sidebar {
+        .search-panel {
+            padding-bottom: $line-height-computed;
+        }
         @extend .col-md-3;
         ul {
             @extend .list-group;
