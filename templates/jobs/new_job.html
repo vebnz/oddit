@@ -150,5 +150,30 @@
 			$('.datepicker').prop('type', 'text');
 			$('.datepicker').datepicker();
 		} else {}
+
+		$(document).ready(function () {
+			$('#id_region').on('change', function(evt, params) {
+				val = this.value;
+				$.post("/jobs/new/region", {
+					id: val,
+					'csrfmiddlewaretoken': '{{ csrf_token }}'
+				}, function (data) {
+					$('#id_city').find('option').remove().end();
+					var rawCities = data.split('|');
+					rawCities.pop();
+					$('#id_city').append('<option value="" selected="selected">---------</option>');
+					$.each(rawCities, function (index, value) {
+						rawCity = value.split(':');
+						$('#id_city').append('<option value="' + rawCity[0] + '">' + rawCity[1] + '</option>');
+					});
+					$("#id_city").trigger("chosen:updated");
+				});
+			});
+
+
+			$('#jobsubmit').click(function () {
+				return true;
+			});
+		});
 	</script>
 {% endblock %}
