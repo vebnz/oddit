@@ -39,9 +39,10 @@ class JobForm(forms.ModelForm):
             'city'      : forms.Select(attrs={'class' : 'styled'}),
             'remote'    : forms.Select(attrs={'class' : 'styled'}),
             'type'      : forms.Select(attrs={'class' : 'styled'}),
-	        'budget'    : NumberInput(attrs={'min' : '0', 'max' : '1000000', 'step' : '1'}),
+	        'budget'    : forms.NumberInput(attrs={'min' : '0', 'max' : '1000000', 'type' : 'number'}),
 	        'budget_type' : forms.Select(attrs={'class' : 'styled'}),
             'description' : forms.Textarea(attrs={'class' : 'validation'}),
+            'expires'   : forms.DateInput(attrs={'class': 'datepicker', 'type' : 'date'}),
         }
         exclude = ('bold', 'featured', 'ip', 'user')
 

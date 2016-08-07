@@ -2,14 +2,13 @@
 {% block content %}
 
 	<div class="results whiteboard">
-
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h2 class="">Jobs you've applied for</h2>
+				<h2 class="">Jobs you've posted</h2>
 			</div>
 			<ol class="list-group">
 				{% for job in job_list %}
-					<li class="list-group-item design filter_2">
+					<li class="list-group-item container-fluid">
 						<div class="details">
 							<h3>
 								<a href="show/{{ job.title|slugify }}/{{ job.id}}">{{ job.title }}</a>
@@ -28,16 +27,24 @@
 						<div class="datestamp">
 							<span>Expires: {{ job.expires }}</span>
 						</div>
+						<div class="clearfix">
+							<div class="btn-group pull-right" role="group" aria-label="...">
+								<a class="btn btn-default" href="applications/{{ job.title|slugify }}/{{ job.id}}">{{job.jobapply_set.all|length}}
+										application{{job.jobapply_set.all|length|pluralize}}</a>
+								<a class="btn btn-info" href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
+								<a class="btn btn-warning" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+							</div>
+						</div>
+
 					</li>
 					{% empty %}
-					<li class="list-group-item design_filter_2">
-						You have not applied for any jobs.
+					<li class="design_filter_2">
+						You have not posted any jobs.
 					</li>
 				{% endfor %}
 			</ol>
-
-			<div class="cap"></div>
 		</div>
+		<div class="cap"></div>
 
 	</div>
 {% endblock %}

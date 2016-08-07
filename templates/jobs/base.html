@@ -1,166 +1,333 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html class="nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 	<head>
 		{% block head %}
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-		<title>Oddit - Odd IT Jobs</title>
-		<link rel='index' title='Oddit' href='index.html' />
-		<link rel="stylesheet" href="/static/css/style.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="/static/css/light.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="/static/css/auth-buttons.css" type="text/css" media="screen" charset="utf-8" />
-		<link rel="stylesheet" href="/static/css/tipTip.css" type="text/css" media="screen" charset="utf-8" />
-		<!--[if IE]>
-		<link rel="stylesheet" href="/static/css/ie8.css" type="text/css" media="screen" charset="utf-8" />
-		<![endif]-->
-		<!--[if IE 7]>
-		<link rel="stylesheet" href="/static/css/ie7.css" type="text/css" media="screen" charset="utf-8" />
-		<![endif]-->
-		<!--[if lt IE 7]>
-		<link rel="stylesheet" href="/static/css/ie6.css" type="text/css" media="screen" charset="utf-8" />
-		<![endif]-->
-		<style type="text/css" media="screen">
-			body {
-				background-color:#eeeeee;
-				background-image:url('/static/uploads/2010/10/background.light_.gif');
-				background-position:;
-				background-repeat:repeat;
-			}
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+			<title>Oddit - Odd IT Jobs</title>
+			<link rel='index' title='Oddit' href='index.html'/>
 
-		</style>
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-		<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
-		<script type="text/javascript" src="/static/scripts/jquery.select_skin.js"></script>
-		<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.8.6/jquery-ui.min.js"></script>
-		<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
-		 <script type="text/javascript" src="/static/scripts/jquery.tipTip.js"></script>
+
+			{% load compress %}
+			{% load staticfiles %}
+			{% compress js %}
+					<script type="text/javascript" src="/static/scripts/modernizr.js"></script>
+					<script type="text/javascript" src="/static/jquery/dist/jquery.js"></script>
+					<script type="text/javascript" src="/static/chosen/chosen.jquery.js"></script>
+		      <script type="text/javascript" src="/static/moment/moment.js"></script>
+		      <script type="text/javascript" src="/static/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+		      <script type="text/javascript" src="/static/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+
+					<script type="text/javascript" src="/static/bootstrap-validator/dist/validator.js"></script>
+
+					<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
+					<script type="text/javascript" src="/static/scripts/jquery.select_skin.js"></script>
+					<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
+					<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
+					<script type="text/javascript" src="/static/scripts/jquery.tipTip.js"></script>
+			{% endcompress %}
+			{% compress css %}
+          <link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
+					<link rel="stylesheet" type="text/css" href="/static/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css"/>
+			{% endcompress %}
+
+
 		{% endblock %}
 	</head>
-	<body>
-		<div class="container">
-			<div class="header">
-				<div class="inner mod">
-					<div class="logo">
-						<a href="/"><img alt="oddit" src="/static/images/oddit-02.png" /></a>
-					</div>
-					<div class="tagline">
-						<p>ODD IT JOBS</p>
-					</div>
-					<p class="status">
-					{% if user.is_authenticated %}
-						{% if not user.first_name %}
-							Welcome {{ user.username }}, <a href="/my-profile">visit your profile</a>
-						{% else %}
-							Welcome {{ user.first_name }} {{ user.last_name }}, <a href="/my-profile">visit your profile</a>
-						{% endif %}
-					{% else %}
-						To post a job, <a href="/accounts/login"><strong>login</strong></a>
-						or <a href="/accounts/signup/"><strong>create an account</strong></a>
-					{% endif %}
-					</p>
-					<div class="category_menu orange">
-						<ul>
-							<li class="cat-item-all"><a href="/jobs">All Jobs</a></li>
-							{% if categories %}
-							{% for cat in categories %}
-							<li class="cat-item-4 {% if category_name == cat.name|lower %}current-cat{% endif %}"><a href="/jobs/category/{{ cat.name|slugify }}/">{{ cat.name }}</a></li>
-							{% endfor %}
-							{% endif %}
-							{% if user.is_superuser %}
-							<li class="cat-item-4 "><a href="/admin/job/category/add/">Add</a></li>
-							{% endif %}
-							<li class="rss"><a href=""><img src="/static/images/icon.rss.png" /></a></li>
-						</ul>
-					</div>
 
-					{% if category_name == 'all' %}
+	<body>
+		<div class="content">
+			<header>
+        <div class="container-fluid">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 hidden-xs nopadding">
+							<div id="brand-logo">
+								<img alt="oddit" src="/static/images/oddit-alpha@2x.png"/>
+							</div>
+						</div>
+						<div class="col-md-9 col-sm-9">
+							<nav class="navbar" role="navigation">
+								<div class="navbar-header">
+									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+										<i class="fa fa-bars fa-2x" aria-hidden="true"></i>
+									</button>
+									<a class="navbar-brand" href="#">
+											<img alt="oddit" src="/static/images/oddit-alpha@2x.png"/>
+									</a>
+
+								</div>
+								<div class="collapse navbar-collapse" id="navbar-collapse">
+									<ul class="nav navbar-nav navbar-right">
+										<li>
+											<form class="navbar-form navbar-left" action="/jobs/search" method="get" role="search">
+												<div class="input-group">
+													<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
+													<div class="input-group-btn">
+														<button class="btn btn-primary" id="submit" type="submit">
+															<i class="fa fa-search"></i>
+														</button>
+													</div>
+												</div>
+											</form>
+										</li>
+
+										<li class="dropdown">
+											{% if user.is_authenticated %}
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													<i class="fa fa-user" aria-hidden="true"></i>
+													{% if not user.first_name %}
+														<strong>{{ user.username }}</strong>
+													{% else %}
+														<strong>{{ user.first_name }}</strong>
+													{% endif %}
+													<span class="caret"></span>
+												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<div class="navbar-login">
+															<p class="text-left">
+																{% if not user.first_name %}
+																	<strong>{{ user.username }}</strong>
+																{% else %}
+																	<strong>{{ user.first_name }} {{ user.last_name }}</strong>
+																{% endif %}
+															</p>
+															<p class="text-left small">{{ user.email }}</p>
+															<p class="text-left">
+																<a href="/my-profile" class="btn btn-primary btn-block btn-sm">Profile</a>
+															</p>
+														</div>
+													</li>
+													<li>
+														<div class="navbar-login navbar-login-session">
+															<p>
+																<a href="/accounts/logout/" class="btn btn-danger btn-block">Logout</a>
+															</p>
+														</div>
+													</li>
+												</ul>
+											{% else %}
+												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+													Register/Sign In
+													<span class="caret"></span>
+												</a>
+												<ul class="dropdown-menu">
+													<li>
+														<div class="navbar-login navbar-login-session">
+															<p>
+																<a href="/accounts/signup/" class="btn btn-danger btn-block">Register</a>
+															</p>
+														</div>
+													</li>
+													<li>
+														<div class="navbar-login navbar-login-session">
+															<p>
+																<a href="/accounts/login" class="btn btn-danger btn-block">Sign In</a>
+															</p>
+														</div>
+													</li>
+												</ul>
+											{% endif %}
+										</li>
+									</ul>
+								</div>
+								<div class="lower-nav">
+
+								</div>
+							</nav>
+						</div>
+					</div>
+				</div>
+
+				<div class="category_menu orange">
+					<ul class="nav nav-pills nav-justified">
+						<li class="cat-item-all">
+							<a href="/jobs">All Jobs</a>
+						</li>
+
+						{% if categories %}
+							{% for cat in categories %}
+								<li class="cat-item-4 {% if category_name == cat.name|lower %}current-cat{% endif %}">
+									<a href="/jobs/category/{{ cat.name|slugify }}/">{{ cat.name }}</a>
+								</li>
+							{% endfor %}
+						{% endif %}
+						{% if user.is_superuser %}
+							<li class="cat-item-4 ">
+								<a href="/admin/job/category/add/">Add</a>
+							</li>
+						{% endif %}
+
+						<li class="rss">
+							<a href=""><img src="/static/images/icon.rss.png"/></a>
+						</li>
+					</ul>
+				</div>
+
+				{% if category_name == 'all' %}
 					<script type="text/javascript" charset="utf-8">
 						jQuery('.category_menu li:first-child').addClass('current-cat');
 					</script>
-					{% endif %}
+				{% endif %}
 
-					</div>
-				</div>
-				<div class="content mod">
-					<div class="inner">
-
-
-						<div class="focus">
-							{% block content %}
-
-							{% endblock %}
-
-						</div>
-
-						<div class="sidebar">
-							<ul>
-
-								<li class="cell action">
-								<p>For a limited time only, post a job free of charge to our site!</p>
-								<a href="/jobs/new" class="button orange xlarge">
-									<span>Post a job</span>
-								</a>
-								</li>
-
-								<li class="quicksearch">
-								<form action="/jobs/search" method="get" role="search">
-									<span><input type="text" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}" /><button id="submit" type="submit" class="icon icon_search"></button></span></form>
-								</li>
-
-								<li><h2 class="widgettitle">Popular Categories</h2></li>
-								<li><ul class="tablets">
-									{% if popular_categories %}
-									{% for category in popular_categories.all %}
-									<li><a href="/jobs/category/{{ category.category__name|slugify }}/">{{ category.category__name }}<span>{{ category.num_jobs }}</span></a></li>
-									{% endfor %}
-									{% else %}
-									<li><a href="#">No popular categories yet</a></li>
-									{% endif %}
-								</ul></li>
-								</li>
-
-								<li><h2 class="widgettitle">Popular Skills</h2></li>
-								<li><ul class="tablets">
-									{% if popular_tags %}
-									{% for tag in popular_tags %}
-									<li><a href="/jobs/search?query=tags:{{ tag.name }}">{{ tag.name }}<span>{{ tag.count }}</span></a></li>
-									{% endfor %}
-									{% else %}
-									<li><a href="#">No popular tags yet</a></li>
-									{% endif %}
-
-								</ul>
-
+			</header>
+			<main>
+				<article>
+					{% block content %}{% endblock %}
+				</article>
+				<div class="sidebar">
+					<div class="search-panel">
+						<form action="/jobs/search" method="get" role="search">
+							<div class="input-group">
+								<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
+								<div class="input-group-btn">
+									<button class="btn btn-primary" id="submit" type="submit">
+										<i class="fa fa-search"></i>
+									</button>
+								</div>
 							</div>
-						</div>
+						</form>
 					</div>
-					<div class="footer_push"></div>
-				</div>
-				<div class="footer">
-					<div class="inner">
-						<div class="menu"><ul><li class="page_item page-item-2"><a href="/jobs/about-us" title="About Us">About Us</a></li>
-								<li class="page_item page-item-59"><a href="http://blog.oddit.co.nz" target="_blank" title="Blog">Blog</a></li>
-								<li class="page_item page-item-506"><a href="" title="Contact Us">Contact Us</a></li>
-								<li class="page_item page-item-511"><a href="/accounts/login" title="Log In or Register">Log In or Register</a></li>
-								<li class="page_item page-item-490"><a href="" title="My Post a Job">My Post a Job</a></li>
-								<li class="page_item page-item-529"><a href="/accounts/password/reset" title="Password Recovery">Password Recovery</a></li>
-								<li class="page_item page-item-21"><a href="/jobs/new" title="Post a Job">Post a Job</a></li></ul></div>
-						<div class="copyright">
-							<p>&copy; 2015. Developed and operated by <a href="http://veb.nz">veb</a>.</p>
-						</div>
-						<div class="seo">
-							<p>Oddit is Odd Information Technology jobs, aimed at freelancers in New Zealand. It's a place where you can advertise for small jobs that require a professional or a student. It's cheap, and incredibly easy to use.</p>
-						</div>
-					</div>
-				</div>
-				<!-- insert javascript tracking -->
-                <!-- start Mixpanel -->
-                <script type="text/javascript">(function(c,a){window.mixpanel=a;var b,d,h,e;b=c.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===c.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';d=c.getElementsByTagName("script")[0];d.parentNode.insertBefore(b,d);a._i=[];a.init=function(b,c,f){function d(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]);a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var g=a;"undefined"!==typeof f?
-	g=a[f]=[]:f="mixpanel";g.people=g.people||[];h="disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");for(e=0;e<h.length;e++)d(g,h[e]);a._i.push([b,c,f])};a.__SV=1.1})(document,window.mixpanel||[]);
-	mixpanel.init("1a7df73008f28cbcdec0fe15f7911d66");mixpanel.track("test");</script><!-- end Mixpanel -->
-			</body>
 
-		</html>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<p>For a limited time only, post a job free of charge to our site!</p>
+							<a href="/jobs/new" class="btn btn-primary btn-block">
+								<span>Post a job</span>
+							</a>
+						</div>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Popular Categories</h3>
+						</div>
+						<ul class="list-group">
+
+							{% if popular_categories %}
+								{% for category in popular_categories.all %}
+									<li class=list-group-item>
+										<a href="/jobs/category/{{ category.category__name|slugify }}/">{{ category.category__name }}
+											<span class="badge pull-right">{{ category.num_jobs }}</span>
+										</a>
+									</li>
+								{% endfor %}
+							{% else %}
+								<li class=list-group-item>
+									<a href="#">No popular categories yet</a>
+								</li>
+							{% endif %}
+
+						</ul>
+					</div>
+
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">Popular Skills</h3>
+						</div>
+						<ul class="list-group">
+
+							{% if popular_tags %}
+								{% for tag in popular_tags %}
+									<li class="list-group-item">
+										<a href="/jobs/search?query=tags:{{ tag.name }}">{{ tag.name }}
+											<span class="badge pull-right">{{ tag.count }}</span>
+										</a>
+									</li>
+								{% endfor %}
+							{% else %}
+								<li class="list-group-item">
+									<a href="#">No popular tags yet</a>
+								</li>
+							{% endif %}
+
+						</ul>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<footer class="footer">
+			<div class="inner">
+				<div class="copyright">
+					<p>&copy; 2015. Developed and operated by
+						<a href="http://veb.nz">veb</a>.</p>
+				</div>
+				<div class="menu">
+					<ul>
+						<li class="page_item page-item-2">
+							<a href="/jobs/about-us" title="About Us">About Us</a>
+						</li>
+						<li class="page_item page-item-59">
+							<a href="http://blog.oddit.co.nz" target="_blank" title="Blog">Blog</a>
+						</li>
+						<li class="page_item page-item-506">
+							<a href="" title="Contact Us">Contact Us</a>
+						</li>
+						<li class="page_item page-item-511">
+							<a href="/accounts/login" title="Log In or Register">Log In or Register</a>
+						</li>
+						<li class="page_item page-item-490">
+							<a href="" title="My Post a Job">My Post a Job</a>
+						</li>
+						<li class="page_item page-item-529">
+							<a href="/accounts/password/reset" title="Password Recovery">Password Recovery</a>
+						</li>
+						<li class="page_item page-item-21">
+							<a href="/jobs/new" title="Post a Job">Post a Job</a>
+						</li>
+					</ul>
+				</div>
+				<div class="seo">
+					<p>Oddit is Odd Information Technology jobs, aimed at freelancers in New Zealand. It's a place where you can advertise for small jobs that require a professional or a student. It's cheap, and incredibly easy to use.</p>
+				</div>
+			</div>
+		</footer>
+
+	<!-- insert javascript tracking -->
+	<!-- start Mixpanel -->
+	<script type="text/javascript">
+		(function (c, a) {
+			window.mixpanel = a;
+			var b,
+				d,
+				h,
+				e;
+			b = c.createElement("script");
+			b.type = "text/javascript";
+			b.async = !0;
+			b.src = ("https:" === c.location.protocol
+				? "https:"
+				: "http:") + '//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';
+			d = c.getElementsByTagName("script")[0];
+			d.parentNode.insertBefore(b, d);
+			a._i = [];
+			a.init = function (b, c, f) {
+				function d(a, b) {
+					var c = b.split(".");
+					2 == c.length && (a = a[c[0]], b = c[1]);
+					a[b] = function () {
+						a.push([b].concat(Array.prototype.slice.call(arguments, 0)))
+					}
+				}
+				var g = a;
+				"undefined" !== typeof f
+					? g = a[f] = []
+					: f = "mixpanel";
+				g.people = g.people || [];
+				h = "disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");
+				for (e = 0; e < h.length; e++)
+					d(g, h[e]);
+				a._i.push([b, c, f])
+			};
+			a.__SV = 1.1
+		})(document, window.mixpanel || []);
+		mixpanel.init("1a7df73008f28cbcdec0fe15f7911d66");
+		mixpanel.track("test");
+	</script>
+	<!-- end Mixpanel -->
+</body>
+
+</html>

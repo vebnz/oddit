@@ -82,3 +82,4 @@ MEDIA_URL = 'http://example.com/jobs/static/'
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = '/path/to/static/'
+COMPRESS_ROOT = '/path/to/templates/static'
