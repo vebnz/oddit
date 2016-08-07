@@ -78,6 +78,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'compressor',
+    'bootstrapform',
 )
 
 COMPRESS_PRECOMPILERS = (
