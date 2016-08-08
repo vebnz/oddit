@@ -1,5 +1,6 @@
 {% extends "jobs/base.html" %}
 {% load humanize %}
+{% load job_extras %}
 {% block content %}
 
 	<div class="focus">
@@ -21,7 +22,7 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-md-3 col-lg-3 " align="center">
-							<img alt="User Pic" src="http://placehold.it/300x300" class="img-circle img-responsive">
+                            {{ user.email|gravatar:150 }}
 						</div>
 						<div class=" col-md-9 col-lg-9 ">
 							<table class="table table-user-information">
