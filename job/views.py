@@ -84,9 +84,6 @@ def detail(request, job_id, job_name):
         context_instance=RequestContext(request))
 
 
-API_URL = 'http://:deqemyqymegy@deguby.api.indexden.com'
-INDEX_NAME = 'jobs'
-
 def results_search(request):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
@@ -97,6 +94,7 @@ def results_search(request):
 
     try:
         query = request.GET['query']
+        print query
     except (InvalidQuery, MultiValueDictKeyError), e:
         return render_to_response('jobs/search_results.html', {
                                                            'categories': category_list,
@@ -108,18 +106,12 @@ def results_search(request):
     total_jobs = Job.objects.count()
     job_types = JobType.objects.all()
 
-    entry_list = []
-    for result in search_result['results']:
-        try:
-            entry_object = Job.objects.get(pk=result['docid'])
-            entry_list.append(entry_object)
-        except ObjectDoesNotExist, e:
-            pass
+    jobs = Job.objects.filter(title__contains=query)
 
     total_jobs = Job.objects.count()
 
     return render_to_response('jobs/search_results.html', {'query': query,
-                                                           'job_list': entry_list,
+                                                           'job_list': jobs,
                                                            'categories': category_list,
                                                            'popular_categories': popular_categories_list,
                                                            'total_jobs': total_jobs,
