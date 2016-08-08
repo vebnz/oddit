@@ -107,6 +107,7 @@ def results_search(request):
 
     jobs = Job.objects.filter(title__icontains=query) | \
             Job.objects.filter(company__icontains=query) | \
+            Job.objects.filter(tag_list__icontains=query) | \
             Job.objects.filter(description__icontains=query)
 
     total_jobs = Job.objects.count()
