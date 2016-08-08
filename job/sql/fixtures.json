@@ -169,8 +169,8 @@
 },
 {
     "fields": {
-        "domain": "example.com",
-        "name": "example.com"
+        "domain": "oddit.co.nz",
+        "name": "OddIT"
     },
     "model": "sites.site",
     "pk": 1
