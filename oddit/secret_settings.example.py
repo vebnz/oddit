@@ -66,6 +66,9 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     "/path/to/templates/static",
+    "/path/to/templates/components",
+    "/path/to/templates/styles",
+
 )
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
