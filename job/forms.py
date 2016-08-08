@@ -44,7 +44,7 @@ class JobForm(forms.ModelForm):
             'description' : forms.Textarea(attrs={'class' : 'validation'}),
             'expires'   : forms.DateInput(attrs={'class': 'datepicker', 'type' : 'date'}),
         }
-        exclude = ('bold', 'featured', 'ip', 'user')
+        exclude = ('bold', 'featured', 'ip', 'user', 'status')
 
 class ApplyForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
