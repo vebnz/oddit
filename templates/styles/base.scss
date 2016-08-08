@@ -191,7 +191,7 @@ body > footer {
 }
 .post {
     form {
-        input:not([type='submit']),
+        input[type]:not([type=search]):not([type=url]):not([type=hidden]):not([type=submit]):not([type=file]),
         select,
         textarea {
             @extend .form-control;
