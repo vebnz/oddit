@@ -1,84 +1,52 @@
 {% extends "jobs/base.html" %}
+{% load bootstrap %}
+{% load widget_tweaks %}
 {% block content %}
-<script type="text/javascript">
-
-	jQuery(document).ready(function() {
-
-			//   jQuery("#id_resume").select_skin();
-			});
-
-</script>
-
-{% if form.errors or errors %}
-<div class="post whiteboard">
-	<div class="title white">
-		<h1>Error</h1>
-        {% if form.errors %}
-		<p>{{ form.errors }}</p>
-        {% endif %}
-        {% if errors %}
-        <p>{{ errors }}</p>
-        {% endif %}
-	</div>
-	<div class="cap">
-	</div>
-</div>
-{% else %}
-
 
 <div class="post whiteboard">
-	<div class="title white">
-		<h1>Apply for this position</h1>
-		<p>For help, <a href="#">click here</a></p>
-	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h1>Apply for this position</h1>
+			<p>
+				For help,
+				<a href="#">click here</a>
+			</p>
+		</div>
 
-
-	<div class="description">
 		<form id="post" enctype="multipart/form-data" name="post" action="" method="post">{% csrf_token %}
-			<div class="form_post">
-				<div class="fieldset_set">
-					<fieldset class="field_category last">
-						<span class="required2 yes">Required</span>
-						<label class="label">{{ form.resume.label_tag }}
-						<span class="formerror">
-			                         {{ form.resume.errors }}
-                       			        </span></label>
-
-						<div class="field mod">
-							<div class="input_wrap">{{ form.resume }}</div>
-						</div>
-					</fieldset>
-					<fieldset class="field_description last">
-						<label class="label" for="desc">
-							{{ form.notes.label_tag }}
-							{% if form.notes.errors %}
-								<span class="formerror">
-									{{ form.notes.errors }}
-								</span>
-							{% endif %}
-							<span class="info">
-								Add any applicable notes that you feel may be important for this application.
-							</span>
-						</label>
-						<div class="field mod">
-							<div class="input_wrap">{{ form.notes }}</div>
-						</div>
-					</fieldset>
+			<div class="panel-body">
+				<div class="form-group {% if form.resume.errors %} has-error {% endif %}">
+					<label for="inputEmail3" class="col-sm-2 control-label">{{ form.resume.label_tag }}</label>
+					<div class="col-sm-10">
+						{{ form.resume|attr:'required:true'}}
+						<div class="help-block with-errors"></div>
+					</div>
 				</div>
-
-
-
+				<div class="form-group {% if form.notes.errors %} has-error {% endif %}">
+					<label for="inputEmail3" class="col-sm-2 control-label">{{ form.notes.label_tag }}</label>
+					<div class="col-sm-10">
+						{{ form.notes|attr:'required:true' }}
+						<p class="help-block">Add any applicable notes that you feel may be important for this application.</p>
+						<div class="help-block with-errors"></div>
+					</div>
+				</div>
 			</div>
-		</div>
-		<div class="cap">
-			<div class="button_set">
-				<input id="jobapplysubmit" name="jobapplysubmit" type="submit" value="Apply" class="button red large"/>
-
+			<div class="panel-footer clearfix">
+				<input id="jobapplysubmit" name="jobapplysubmit" type="submit" value="Apply" class="btn btn-primary pull-right"/>
 			</div>
-		</div>
-	</form>
-
+		</form>
+	</div>
 </div>
 
-{% endif %}
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("#post").validator();
+
+		$('#jobapplysubmit').click(function () {
+			$("#post").validator('validate')
+			return true;
+		});
+
+	});
+</script>
 {% endblock %}
