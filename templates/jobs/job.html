@@ -5,59 +5,38 @@
 		<div class="row">
 			<div class="jobtitle col-lg-8">
 				<h1>{{ job.title }}</h1>
-				<h3>{{ job.company }}</h3>
 			</div>
-			<div class="share col-lg-4 text-right">
-				<ul class="list-inline">
-	        <li><a href="#">
-	            <span class="fa-stack fa-lg">
-	                <i class="fa fa-circle fa-stack-2x"></i>
-	                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-	            </span>
-	        </a></li>
-	        <li><a href="#">
-	            <span class="fa-stack fa-lg">
-	                <i class="fa fa-circle fa-stack-2x"></i>
-	                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-	            </span>
-	        </a></li>
-	        <li><a href="#">
-	            <span class="fa-stack fa-lg">
-	                <i class="fa fa-circle fa-stack-2x"></i>
-	                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
-	            </span>
-	        </a></li>
-	    	</ul>
-			</div>
+			<div class="jobtitle col-lg-8">
+                <p>This position is in {{ job.city }}, {{ job.region }}</p>
+            {% if user.is_superuser %}
+            <p></p>
+                <a class="btn btn-sm btn-info" href="/admin/job/job/{{ job.id }}/">
+                    <i class="fa fa-gears fa-fw" aria-hidden="true"></i> Edit Job
+                </a>
+            {% endif %}
+            </div>
 		</div>
 	</div>
 
 	<div class="panel-heading">
 			<h3 class="panel-title">
-				This is a <strong>{{ job.get_type_display }}</strong> position in <strong>{{ job.region }}</strong> posted <strong>{{ job.updated|date:"D d M Y" }}</strong>.
+                Posted <strong>{{ job.updated|date:"D d M Y" }}</strong>
 				<span class="label label-info pull-right job-category">{{ job.category }}</span>
 			</h3>
 	</div>
 
 	<ul class="list-group">
 		<li class="list-group-item description">
+			<h4 class="list-group-item-heading">Job Details</h4>
+            <p></p>
 			<p>{{ job.description|linebreaksbr }}</p>
-		</li>
-		<li class="list-group-item package">
-			<h3 class="list-group-item-heading">Package</h3>
-			<div>
-				<p><span>Budget:</span> ${{ job.budget|intcomma }}</p>
-				<p><span>Benefits:</span>
-				<ul>
-					<li>Company car</li>
-					<li>15 weeks paid vacation</li>
-				</ul>
-			</div>
+			<p><strong>Budget:</strong> ${{ job.budget|intcomma }}</p>
+            <p><strong>Job Type:</strong> {{ job.type }}</p>
+            <hr />
+            <p>Job added by <a href="#"><strong>{{ job.company }}</strong></a> 
 		</li>
 
 		<li class="list-group-item apply">
-			<h3 class="list-group-item-heading">How to apply</h3>
-			<p>To apply for this job, please click the apply button</p>
 			{% if applied %}
 				<a class="btn btn-warning btn-block" href="#">Already applied</a>
 			{% else %}
