@@ -8,3 +8,5 @@ oddit/secret_settings.py
 *.scssc
 /.sass-cache
 /.idea
+
+templates/static/.DS_Store

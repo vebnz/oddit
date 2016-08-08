@@ -82,6 +82,11 @@ class Job(models.Model):
             (1, 'Total'),
 	    (2, 'Negotiable')
     )
+    STATUS_CHOICES = (
+        (0, 'Draft'),
+        (1, 'Published'),
+        (2, 'Expired')
+    )
     user = models.ForeignKey(User)
     title = models.CharField(max_length=30)
     category = models.ForeignKey(Category)
@@ -97,6 +102,7 @@ class Job(models.Model):
     budget = models.IntegerField()
     budget_type = models.IntegerField(default=0, choices=BUDGET_CHOICES)
     ip = models.GenericIPAddressField(default="225.225.225.225")
+    status = models.IntegerField(default=0, choices=STATUS_CHOICES)
     expires = models.DateField()
     featured = models.NullBooleanField()
     bold = models.NullBooleanField()
