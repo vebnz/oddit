@@ -215,7 +215,7 @@ def applications(request, job_id, job_name):
     category_list = Category.objects.all()[:10]
 
     job = get_object_or_404(Job, pk=job_id)
-	
+
     if job.user != request.user:
         return HttpResponseForbidden()
 
@@ -241,10 +241,10 @@ def edit_job(request, job_id):
     category_list = Category.objects.all()[:10]
 
     job = get_object_or_404(Job, pk=job_id)
-    
+
     if job.user != request.user:
         return HttpResponseForbidden()
-        
+
     if request.POST:
         form = JobForm(request.POST, instance=job, user=request.user)
         if form.is_valid():
@@ -253,13 +253,13 @@ def edit_job(request, job_id):
     else:
         form = JobForm(instance=job, user=request.user)
 
-    return render_to_response('jobs/edit_job.html',  {
+    return render_to_response('jobs/new_job.html',  {
         'form' : form,
         'popular_categories': popular_categories_list,
         'popular_tags': popular_tags,
         'categories': category_list,},
         context_instance=RequestContext(request))
-        
+
 @login_required
 def expire_job(request, job_id):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id"))
@@ -268,17 +268,17 @@ def expire_job(request, job_id):
     category_list = Category.objects.all()[:10]
 
     job = get_object_or_404(Job, pk=job_id)
-    
+
     if job.user != request.user:
         return HttpResponseForbidden()
-        
+
     if request.method == 'POST':
         form = JobForm(data=request.POST, instance=job, user=request.user)
         if 'no' in request.POST:
             return HttpResponseRedirect('/jobs/my-jobs')
         elif 'yes' in request.POST:
             print 'expiring job'
-            job.status = 2    
+            job.status = 2
             job.save()
             return HttpResponseRedirect('/jobs/my-jobs')
     else:
