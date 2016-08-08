@@ -10,7 +10,7 @@ register = template.Library()
 @register.filter
 def gravatar_url(email, size=40):
     default = "http://placehold.it/300x300"
-    return "https://www.gravatar.com/avatar/%s?d=retro" % (hashlib.md5(email.lower()).hexdigest())
+    return "https://api.adorable.io/avatars/285/%s" % (hashlib.md5(email.lower()).hexdigest())
 
 # return an image tag with the gravatar
 # TEMPLATE USE:  {{ email|gravatar:150 }}
