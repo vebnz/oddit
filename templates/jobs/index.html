@@ -8,10 +8,10 @@
 				$('#results').html('&nbsp;').load('jobs/search/' + q + '/');
 			});
 
-			var pexpire = $(".expire_date");
-			var date_expire = moment(new Date(pexpire.attr('data-date')));
-			pexpire.html(date_expire.fromNow());
-
+			$(".expire_date").each(function() {
+				var date_expire = moment(new Date($(this).attr('data-date')));
+				$(this).html(date_expire.fromNow());
+			})		
 		});
 
 		$(document).ajaxStart(function () {
