@@ -10,8 +10,8 @@
 
 			$(".expire_date").each(function() {
 				var date_expire = moment(new Date($(this).attr('data-date')));
-				$(this).html(date_expire.fromNow());
-			})		
+				$(this).html(date_expire.fromNow(true) + ' remaining');
+			})
 		});
 
 		$(document).ajaxStart(function () {
