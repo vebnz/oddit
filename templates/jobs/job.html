@@ -8,6 +8,12 @@
 			</div>
 			<div class="jobtitle col-lg-8">
                 <p>This position is in {{ job.city }}, {{ job.region }}</p>
+            {% if user.is_superuser %}
+            <p></p>
+                <a class="btn btn-sm btn-info" href="/admin/job/job/{{ job.id }}/">
+                    <i class="fa fa-gears fa-fw" aria-hidden="true"></i> Edit Job
+                </a>
+            {% endif %}
             </div>
 		</div>
 	</div>
@@ -24,7 +30,8 @@
 			<h4 class="list-group-item-heading">Job Details</h4>
             <p></p>
 			<p>{{ job.description|linebreaksbr }}</p>
-			<p><span>Budget:</span> ${{ job.budget|intcomma }}</p>
+			<p><strong>Budget:</strong> ${{ job.budget|intcomma }}</p>
+            <p><strong>Job Type:</strong> {{ job.type }}</p>
             <hr />
             <p>Job added by <a href="#"><strong>{{ job.company }}</strong></a> 
 		</li>
