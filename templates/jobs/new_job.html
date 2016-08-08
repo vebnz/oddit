@@ -5,7 +5,11 @@
 	<div class="post whiteboard">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h2 class="">Post a Job</h2>
+				{% if form.instance.pk %}
+					<h2 class="">Edit Job</h2>
+				{% else %}
+					<h2 class="">Post a Job</h2>
+				{% endif %}
 				<p>
 					For help,
 					<a href="#">click here</a>
