@@ -233,7 +233,7 @@
 							{% if popular_tags %}
 								{% for tag in popular_tags %}
 									<li class="list-group-item">
-										<a href="/jobs/search?query=tags:{{ tag.name }}">{{ tag.name }}
+										<a href="/jobs/search?query={{ tag.name }}">{{ tag.name }}
 											<span class="badge pull-right">{{ tag.count }}</span>
 										</a>
 									</li>
