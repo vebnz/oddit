@@ -25,7 +25,15 @@
 								<dd>{{ job.get_type_display }}</dd>
 							</dl>
 						</div>
-
+                        <div class="datestamp">
+							<span>Applied: 
+                            {% for app in job.jobapply_set.all %}
+                                {% if app.user.id = user.id %}
+                                    {{ app.created }}
+                                {% endif %}
+                            {% endfor %}
+                            </span>
+						</div>
 					</li>
 					{% empty %}
 					<li class="list-group-item design_filter_2">
