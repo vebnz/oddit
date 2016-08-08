@@ -5,10 +5,10 @@ $brand-primary: #FF5722;
 $brand-secondary: #ff9800; // $base-font-size: 16px;
 $dark-secondary: darken($brand-secondary, 11.5%);
 $very-dark-secondary: darken($brand-secondary, 33.5%);
-$light-secondary: lighten($brand-secondary, 13.5%);
+$light-secondary: lighten($brand-secondary, 35.5%);
 $dark-brand: darken($brand-primary, 11.5%);
 $very-dark-brand: darken($brand-primary, 33.5%);
-$light-brand: lighten($brand-primary, 13.5%);
+$light-brand: lighten($brand-primary, 35.5%);
 $spacer: 0.5em;
 @import '../components/bootstrap-sass/assets/stylesheets/bootstrap';
 $gray-lightest: lighten($gray-base, 99%);
@@ -48,7 +48,7 @@ input[type='submit'] {
 }
 @import "compass/css3";
 body > .content > header {
-    @extend .page-header;
+    margin: ($line-height-computed) 0 $line-height-computed;
     .navbar {
         border-radius: 0;
         border-left  : transparent;
@@ -61,7 +61,7 @@ body > .content > header {
         color    : #fff;
         font-size: 20px;
         padding  : 23px 20px;
-        height   : 78px;
+        height   : 0px;
     }
     #brand-logo {
         background-size: cover;
@@ -88,7 +88,7 @@ body > .content > header {
     @media (max-width: 768px) {
         .lower-nav {
             font-size: 20px;
-            padding  : 25px 20px;
+            padding  : 10px 20px;
         }
         .navbar-brand {
             display: block;
@@ -113,6 +113,7 @@ body > .content > header {
         }
     }
     .category_menu {
+        background-color: $light-secondary;
         .current-cat {
             @extend .active;
         }
