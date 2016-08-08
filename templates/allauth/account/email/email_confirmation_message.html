@@ -1,0 +1,64 @@
+{% extends 'account/email/email_base.html' %}
+{% load account %}
+{% user_display user as user_display %}{% load i18n %}
+{% block content %}
+<!--[if mso | IE]> <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;"> <tr> <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"> <![endif]-->
+<div style="margin:0 auto;max-width:600px;background:#fff;">
+    <table cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#fff;" align="center" border="0">
+        <tbody>
+            <tr>
+                <td style="text-align:center;vertical-align:top;font-size:0px;padding:20px 0px;">
+                    <!--[if mso | IE]> <table border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:top;width:600px;"> <![endif]-->
+                    <div aria-labelledby="mj-column-per-100" class="mj-column-per-100" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
+                        <table cellpadding="0" cellspacing="0" width="100%" border="0">
+                            <tbody>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;padding:10px 25px;padding-top:10px;padding-bottom:10px;padding-right:25px;padding-left:25px;" align="left">
+                                        <div style="cursor:auto;color:#333;font-family:Roboto, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
+
+                                            <h3>Hello from
+                                                {{ current_site.name }}!
+                                            </h3>
+                                            <p>
+                                                You're receiving this e-mail because user
+                                                {{ user_display }}
+                                                at
+                                                {{ current_site.domain }}
+                                                has given yours as an e-mail address to connect their account.
+                                            </p>
+                                            <p>
+                                                To confirm this is correct, go to
+                                                {{ activate_url }}
+                                            </p>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="word-break:break-word;font-size:0px;" align="center">
+                                        <table cellpadding="0" cellspacing="0" align="center" border="0">
+                                            <tbody>
+                                                <tr>
+                                                    <td
+                                                        style="border-left:solid 1px #ccc;border-top:0px solid #ccc;border-right:1px solid #ccc;border-bottom:4px solid #ccc;color:#333;line-height:1.42857;cursor:auto;font-family:Roboto;padding:8px 12px 6px;"
+                                                        align="center"
+                                                        valign="middle"
+                                                        bgcolor="#fff">
+                                                        <a href="{{ activate_url }}" style="display:inline-block;text-decoration:none;background:#fff;color:#333;font-family:Roboto;font-size:12px;font-weight:bold;text-transform:uppercase;margin:0px;" target="_blank">Or click here</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--[if mso | IE]> </td></tr></table> <![endif]-->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!--[if mso | IE]> </td></tr></table> <![endif]-->
+{% endblock %}
