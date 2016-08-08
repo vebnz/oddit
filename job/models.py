@@ -102,7 +102,7 @@ class Job(models.Model):
     budget = models.IntegerField()
     budget_type = models.IntegerField(default=0, choices=BUDGET_CHOICES)
     ip = models.GenericIPAddressField(default="225.225.225.225")
-    status = models.IntegerField(default=0, choices=STATUS_CHOICES)
+    status = models.IntegerField(default=1, choices=STATUS_CHOICES)
     expires = models.DateField()
     featured = models.NullBooleanField()
     bold = models.NullBooleanField()
