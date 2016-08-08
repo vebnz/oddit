@@ -25,8 +25,20 @@
 								<dd>{{ job.get_type_display }}</dd>
 							</dl>
 						</div>
-						<div class="datestamp">
-							<span>Expires: {{ job.expires }}</span>
+                        <div class="meta">
+                            {% for app in job.jobapply_set.all %}
+                                {% if app.user.id = user.id %}
+                                    <div>
+                                        <p>Notes: {{ app.notes }}</p>
+                                    </div>
+                                    <div>
+                                        <span>Résumé: <a href="/jobs/static/{{ app.resume }}">download</a></span>
+                                    </div>
+                                    <div>
+                                        <span>Applied: {{ app.created }}</span>
+                                    </div>
+                                 {% endif %} 
+                            {% endfor %}
 						</div>
 					</li>
 					{% empty %}
