@@ -1,22 +1,21 @@
-{% extends "jobs/base.html" %} {% block content %}
+{% extends "jobs/base.html" %}
+{% block content %}
 
-<div class="post whiteboard">
-	<div class="title white">
-		<h1>Cancel Job?</h1>
-		<!--
-		uncomment to see all form errors
-		{{ form.errors }}
-		{{ form.non_field_errors }}-->
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h1>Cancel Job?</h1>
+		</div>
+		<div class="panel-body">
+			<div class="description">
+				<form id="post" name="post" action="" method="post">{% csrf_token %}
+					<div class="form_post">
+						<div class="btn-group">
+							<button id="jobsubmitno" name="no" type="submit" class="btn btn-default">No</button>
+							<button id="jobsubmityes" name="yes" type="submit" class="btn btn-warning">Yes</button>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
 	</div>
-	<div class="description">
-		<form id="post" name="post" action="" method="post">{% csrf_token %}
-			<div class="form_post">
-				<div class="button_set">
-                    <input id="jobsubmitno" name="no" type="submit" value="No" class="button red large"/>
-                    <input id="jobsubmityes" name="yes" type="submit" value="Yes" class="button red large"/>                    
-                </div>
-			</div>
-		</div>		
-	</form>
-</div>
 {% endblock %}
