@@ -94,7 +94,6 @@ def results_search(request):
 
     try:
         query = request.GET['query']
-        print query
     except (InvalidQuery, MultiValueDictKeyError), e:
         return render_to_response('jobs/search_results.html', {
                                                            'categories': category_list,
@@ -106,7 +105,8 @@ def results_search(request):
     total_jobs = Job.objects.count()
     job_types = JobType.objects.all()
 
-    jobs = Job.objects.filter(title__contains=query)
+    jobs = Job.objects.filter(title__contains=query) | \
+            Job.objects.filter(company__contains=query)
 
     total_jobs = Job.objects.count()
 
