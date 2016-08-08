@@ -99,7 +99,7 @@ def results_search(request):
 
     try:
         query = request.GET['query']
-        search_result = index.search(query, fetch_fields=['name'])
+        search_result = index.search(query, fetch_fields=['title'])
     except (InvalidQuery, MultiValueDictKeyError), e:
         return render_to_response('jobs/search_results.html', {
                                                            'categories': category_list,
