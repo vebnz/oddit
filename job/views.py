@@ -94,12 +94,9 @@ def results_search(request):
     category_list = Category.objects.all()[:10]
     job_types = JobType.objects.all()
 
-    api = ApiClient(API_URL)
-    index = api.get_index(INDEX_NAME)
 
     try:
         query = request.GET['query']
-        search_result = index.search(query, fetch_fields=['title'])
     except (InvalidQuery, MultiValueDictKeyError), e:
         return render_to_response('jobs/search_results.html', {
                                                            'categories': category_list,

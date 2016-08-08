@@ -117,11 +117,6 @@ class Job(models.Model):
 
         self.tags = self.tag_list
 
-        search.add_document(self.id, { 'title': self.title, 'match': 'all',
-                                      'tags': self.tag_list, 'company':
-                                      self.company, 'region': self.region.name,
-                                      'city': self.city.name})
-
     def _get_tags(self):
         return Tag.objects.get_for_object(self)
 
