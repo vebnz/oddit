@@ -1,0 +1,437 @@
+{% extends "jobs/base.html" %}
+{% block content %}
+
+<script type="text/javascript">
+jQuery(document).ready(function() {
+			if ($('#id_region').val() == "---------")
+			{
+				$('#id_city').find('option').remove().end();
+				$('#id_city').append('<option value="" selected="selected">---------</option>');
+			}
+
+			jQuery("form select.styled").select_skin();
+			jQuery("#id_expires").datepicker({
+				dateFormat: 'yy-mm-dd',
+			});
+			
+			jQuery("input[name=noexpire]").click(function(){
+				if(jQuery("input[name=noexpire]").attr("checked") && jQuery("#id_expiry").val()!="No expiry date"){
+
+				jQuery("#id_expiry").val('No expiry date');
+				jQuery("#id_expiry").addClass("disabled");
+				jQuery("#id_pexiry").attr("disabled",true);
+				}else {
+
+				jQuery("#id_expiry").val('yyyy/mm/dd');
+				jQuery("#id_expiry").removeClass("disabled");
+				jQuery("#id_expiry").attr("disabled",false);
+
+				}
+			});
+			
+			if ($('#id_title').val() != "") {
+				$('#id_title').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+			}
+			$('#id_title').live('input', function(){
+                                if ($('#id_title').val() == "") {
+                                        $('#id_title').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_title').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 if ($('#id_category').val() != "") {
+                                $('#id_category').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			$('#id_category').change(function(){
+                                if ($('#id_category').val() == "") {
+                                        $('#id_category').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_category').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 if ($('#id_description').val() != "") {
+                                $('#id_description').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			 $('#id_description').change(function(){
+                                if ($('#id_description').val() == "") {
+                                        $('#id_description').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_description').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 if ($('#id_company').val() != "") {
+                                $('#id_company').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			$('#id_company').live('input', function(){
+                                if ($('#id_company').val() == "") {
+                                        $('#id_company').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_company').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 if ($('#id_position').val() != "") {
+                                $('#id_position').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			$('#id_position').change(function(){
+                                if ($('#id_position').val() == "") {
+                                        $('#id_position').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_position').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+                       
+			 if ($('#id_region').val() != "") {
+                                $('#id_region').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+                       $('#id_region').change(function(){
+				if ($('#id_region').val() == "") {
+                                	$('#id_region').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+				} else {
+					$('#id_region').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');	 
+		  		}
+		       });
+
+			 if ($('#id_city').val() != "") {
+                                $('#id_city').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			 $('#id_city').change(function(){
+                                if ($('#id_city').val() == "") {
+                                        $('#id_city').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_city').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 if ($('#id_remote').val() != "") {
+                                $('#id_remote').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			 $('#id_remote').change(function(){
+                                if ($('#id_remote').val() == "") {
+                                        $('#id_remote').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_remote').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 if ($('#id_type').val() != "") {
+                                $('#id_type').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			 $('#id_type').change(function(){
+                                if ($('#id_type').val() == "") {
+                                        $('#id_type').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_type').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 if ($('#id_budget').val() != "") {
+                                $('#id_budget').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			 $('#id_budget').live('input', function(){
+                                if ($('#id_budget').val() == "") {
+                                        $('#id_budget').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_budget').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 if ($('#id_budget_type').val() != "") {
+                                $('#id_budget_type').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			 $('#id_budget_type').change(function(){
+                                if ($('#id_budget_type').val() == "") {
+                                        $('#id_budget_type').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_budget_type').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 if ($('#id_expires').val() != "") {
+                                $('#id_expires').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			 $('#id_expires').change(function(){
+                                if ($('#id_expires').val() == "") {
+                                        $('#id_expires').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_expires').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+
+			 if ($('#id_tag_list').val() != "") {
+                                $('#id_tag_list').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                        }
+			 $('#id_tag_list').live('input', function(){
+                                if ($('#id_tag_list').val() == "") {
+                                        $('#id_tag_list').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2');
+                                } else {
+                                        $('#id_tag_list').closest('fieldset').has('span.required2').find('span.required2').removeClass().addClass('required2 yes');
+                                }
+                       });
+			
+                       $('#id_region').change(function(){
+                                val = $(this).attr('value');
+                                $.post("/jobs/new/region", {
+                                        id: val,
+                                        'csrfmiddlewaretoken': '{{ csrf_token }}'
+                                },
+                                        function(data) {
+                                                $('#id_city').find('option').remove().end();
+                                                var rawCities = data.split('|');
+                                                rawCities.pop();
+                                                $('#id_city').append('<option value="" selected="selected">---------</option>');
+                                                $.each(rawCities, function(index, value) {
+                                                        rawCity = value.split(':');
+                                                        $('#id_city').append('<option value="' + rawCity[0] + '">' + rawCity[1] + '</option>');
+                                                });
+                                        }
+                                );
+                        });
+
+			$(function(){
+				$(".tipTipClass").tipTip();
+			});  
+
+			$('#jobsubmit').click(function(){
+				return true;
+			});
+});
+</script>
+
+
+<div class="post whiteboard">
+	<div class="title white">
+		<h1>Edit Job</h1>
+		<p>For help, <a href="#">click here</a></p>
+		<!--
+		uncomment to see all form errors
+		{{ form.errors }}
+		{{ form.non_field_errors }}-->
+	</div>
+	<div class="description">
+		<form id="post" name="post" action="" method="post">{% csrf_token %}
+			<div class="form_post">
+				<div class="fieldset_set">
+					<fieldset class="field_position first last">
+						{% if form.title.errors %}
+							<span class="required2 no">Required</span>
+						{% else %}
+							<span class="required2">Required</span>
+						{% endif %}
+						<label class="label">{{ form.title.label_tag }}		
+						<span class="formerror">
+							{{ form.title.errors }}
+						</span></label><span class="tipTipClass" title="Enter a descriptive title for the job listing.">[?]</span>
+						<div class="field mod">
+							<div class="input_wrap">{{ form.title }}</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="fieldset_set">
+					<fieldset class="field_category last">
+						{% if form.category.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
+
+						<label class="label">{{ form.category.label_tag }}
+							<span class="formerror">
+								{{ form.category.errors }}
+						</span></label><span class="tipTipClass" title="Select a category that best suits the job listing.">[?]</span>
+						<div class="field mod">
+							<div class="input_wrap">{{ form.category }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_description last">
+						{% if form.description.errors %}
+                                                        <span id="labelcontent" class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span id="labelcontent" class="required2">Required</span>
+                                                {% endif %}
+						<label class="label" for="desc">
+							{{ form.description.label_tag }}
+							{% if form.category.errors %}
+							<span class="formerror">
+								{{ form.category.errors }}
+							</span>
+							{% endif %}
+							<span class="info">
+								Fill in as much detail as you can about the position, outlining responsibilities, perks and information about your company.
+							</span>
+
+						</label>
+						<div class="field mod">
+							<div class="input_wrap">{{ form.description }}</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="fieldset_set">
+					<fieldset class="field_position first">
+						{% if form.company.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
+						<label class="label">{{ form.company.label_tag }}
+							<span class="formerror">
+								{{ form.company.errors }}
+						</span></label>
+						<div class="field mod">
+							<div class="input_wrap">{{ form.company }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_position last">
+						{% if form.position.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2 yes">Required</span>
+                                                {% endif %}
+						<label class="label">{{ form.position.label_tag }}
+							<span class="formerror">
+								{{ form.position.errors }}
+						</span></label>
+
+						<div class="field mod">
+							<div class="input_wrap">{{ form.position }}</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="fieldset_set">
+					<fieldset class="field_position first">
+						{% if form.region.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
+						<label class="label">{{ form.region.label_tag }}
+							<span class="formerror">
+								{{ form.region.errors }}
+						</span></label>
+
+						<div class="field mod">
+							<div class="input_wrap">{{ form.region }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_position last">
+						{% if form.city.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
+						<label class="label">{{ form.city.label_tag }}
+							<span class="formerror">
+								{{ form.city.errors }}
+						</span></label>
+
+						<div class="field mod">
+							<div class="input_wrap">{{ form.city }}</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="fieldset_set">
+					<fieldset class="field_position first">
+						{% if form.remote.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2 yes">Required</span>
+                                                {% endif %}
+						<label class="label">{{ form.remote.label_tag }}
+							<span class="formerror">
+								{{ form.remote.errors }}
+						</span></label><span class="tipTipClass" title="Can this job be worked on from a remote location?">[?]</span>
+
+						<div class="field mod">
+							<div class="input_wrap">{{ form.remote }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_position last">
+						{% if form.type.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
+						<label class="label">{{ form.type.label_tag }}
+							<span class="formerror">
+								{{ form.type.errors }}
+						</span></label>
+
+						<div class="field mod">
+							<div class="input_wrap">{{ form.type }}</div>
+						</div>
+					</fieldset>
+				</div>
+				<div class="fieldset_set">
+					<fieldset class="field_position first">
+						{% if form.budget.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
+						<label class="label">{{ form.budget.label_tag }}
+							<span class="formerror">
+								{{ form.budget.errors }}
+						</span></label><span class="tipTipClass" title="Enter in the budget/wage for this job.">[?]</span>
+						<div class="field mod">
+							<div class="input_wrap">{{ form.budget }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_position first">
+                                                {% if form.budget_type.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2 yes">Required</span>
+                                                {% endif %}
+                                                <label class="label">{{ form.budget_type.label_tag }}
+                                                        <span class="formerror">
+                                                                {{ form.budget_type.errors }}
+                                                </span></label><span class="tipTipClass" title="Enter in the budget/wage for this job.">[?]</span>
+                                                <div class="field mod">
+                                                        <div class="input_wrap">{{ form.budget_type }}</div>
+                                                </div>
+                                        </fieldset>
+					<fieldset class="field_position first">
+						{% if form.expires.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
+						<label class="label">{{ form.expires.label_tag }}
+							<span class="formerror">
+								{{ form.expires.errors }}
+						</span></label>
+
+						<div class="field mod">
+							<div class="input_wrap">{{ form.expires }}</div>
+						</div>
+					</fieldset>
+					<fieldset class="field_position last">
+						{% if form.tag_list.errors %}
+                                                        <span class="required2 no">Required</span>
+                                                {% else %}
+                                                        <span class="required2">Required</span>
+                                                {% endif %}
+						<label class="label">{{ form.tag_list.label_tag }}
+							<span class="formerror">
+								{{ form.tag_list.errors }}
+						</span></label><span class="tipTipClass" title="Comma seperated tags describing this job.">[?]</span>
+
+						<div class="field mod">
+							<div class="input_wrap">{{ form.tag_list }}</div>
+						</div>
+					</fieldset>
+				</div>
+			</div>
+		</div>
+		<div class="cap">
+			<div class="button_set">
+				<input id="jobsubmit" name="jobsubmit" type="submit" value="Submit Listing" class="button red large"/>
+			</div>
+		</div>
+	</form>
+</div>
+
+{% endblock %}

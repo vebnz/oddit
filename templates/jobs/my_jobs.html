@@ -27,12 +27,14 @@
 						<div class="datestamp">
 							<span>Expires: {{ job.expires }}</span>
 						</div>
+
 						<div class="clearfix">
 							<div class="btn-group pull-right" role="group" aria-label="...">
 								<a class="btn btn-default" href="applications/{{ job.title|slugify }}/{{ job.id}}">{{job.jobapply_set.all|length}}
 										application{{job.jobapply_set.all|length|pluralize}}</a>
-								<a class="btn btn-info" href=""><i class="fa fa-pencil" aria-hidden="true"></i></a>
-								<a class="btn btn-warning" href=""><i class="fa fa-trash" aria-hidden="true"></i></a>
+								<a class="btn btn-info" href="edit/{{ job.id}}"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</a>
+								<a class="btn btn-warning" href="expire/{{job.id}}"><i class="fa fa-ban" aria-hidden="true"></i> Cancel</a>
+								<a class="btn btn-danger" href=""><i class="fa fa-trash" aria-hidden="true"></i>Delete</a>
 							</div>
 						</div>
 
@@ -44,7 +46,5 @@
 				{% endfor %}
 			</ol>
 		</div>
-		<div class="cap"></div>
-
 	</div>
 {% endblock %}

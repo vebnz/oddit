@@ -4,7 +4,7 @@ import operator, datetime, sys
 from django.template import Context, loader, RequestContext
 from job.models import Job, Company, Category, JobType, Tag, City, JobApply
 from django.db.models import Count
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.exceptions import ObjectDoesNotExist
@@ -28,13 +28,13 @@ def index(request, category_name='all', type_name='all'):
     category_name = category_name.replace("-", " ") # url is slugified
     type_name = type_name.replace("-", " ")
     if category_name and category_name != 'all' and type_name and type_name == 'all':
-        latest_job_list = Job.objects.filter(category__name__iexact=category_name).order_by('created')
+        latest_job_list = Job.objects.filter(status=1,category__name__iexact=category_name).order_by('created')
     elif category_name and category_name != 'all' and type_name and type_name != 'all':
-        latest_job_list = Job.objects.filter(category__name__iexact=category_name,type__name__iexact=type_name).order_by('created')
+        latest_job_list = Job.objects.filter(status=1,category__name__iexact=category_name,type__name__iexact=type_name).order_by('created')
     elif  category_name and category_name == 'all' and type_name and type_name != 'all':
-        latest_job_list = Job.objects.filter(type__name__iexact=type_name).order_by('created')
+        latest_job_list = Job.objects.filter(status=1,type__name__iexact=type_name).order_by('created')
     else:
-        latest_job_list = Job.objects.all().order_by('created')
+        latest_job_list = Job.objects.filter(status=1).order_by('created')
 
     total_jobs = Job.objects.count()
     job_types = JobType.objects.all()
@@ -216,17 +216,14 @@ def applications(request, job_id, job_name):
 
     job = get_object_or_404(Job, pk=job_id)
 	
-    try:
-        checkOwnerJob = Job.objects.get(user=request.user.id, id=job_id)
-    except Job.DoesNotExist:
-        raise Http404("You don't own this job")
+    if job.user != request.user:
+        return HttpResponseForbidden()
 
     apps = None
-    if (checkOwnerJob):	
-        try:
-            apps = JobApply.objects.filter(job=job)
-        except Job.DoesNotExist:
-            apps = None
+    try:
+        apps = JobApply.objects.filter(job=job)
+    except Job.DoesNotExist:
+        apps = None
 
     return render_to_response('jobs/applications.html', {
         'job': job,
@@ -236,6 +233,63 @@ def applications(request, job_id, job_name):
         'popular_tags': popular_tags,},
         context_instance=RequestContext(request))
 
+@login_required
+def edit_job(request, job_id):
+    popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id"))
+    popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
+    popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
+    category_list = Category.objects.all()[:10]
+
+    job = get_object_or_404(Job, pk=job_id)
+    
+    if job.user != request.user:
+        return HttpResponseForbidden()
+        
+    if request.POST:
+        form = JobForm(request.POST, instance=job, user=request.user)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/jobs/my-jobs')
+    else:
+        form = JobForm(instance=job, user=request.user)
+
+    return render_to_response('jobs/edit_job.html',  {
+        'form' : form,
+        'popular_categories': popular_categories_list,
+        'popular_tags': popular_tags,
+        'categories': category_list,},
+        context_instance=RequestContext(request))
+        
+@login_required
+def expire_job(request, job_id):
+    popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id"))
+    popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
+    popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
+    category_list = Category.objects.all()[:10]
+
+    job = get_object_or_404(Job, pk=job_id)
+    
+    if job.user != request.user:
+        return HttpResponseForbidden()
+        
+    if request.method == 'POST':
+        form = JobForm(data=request.POST, instance=job, user=request.user)
+        if 'no' in request.POST:
+            return HttpResponseRedirect('/jobs/my-jobs')
+        elif 'yes' in request.POST:
+            print 'expiring job'
+            job.status = 2    
+            job.save()
+            return HttpResponseRedirect('/jobs/my-jobs')
+    else:
+        form = JobForm(instance=job, user=request.user)
+
+    return render_to_response('jobs/expire_job.html',  {
+        'form' : form,
+        'popular_categories': popular_categories_list,
+        'popular_tags': popular_tags,
+        'categories': category_list},
+        context_instance=RequestContext(request))
 
 @login_required
 def new_job(request):
