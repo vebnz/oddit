@@ -12,6 +12,6 @@ def avatar_url(email):
 
 # TEMPLATE USE:  {{ email|avatar }}
 @register.filter
-def avatar(email, size=40):
+def avatar(email):
     url = avatar_url(email)
-    return mark_safe('<img src="%s" height="%d" width="%d" class="img-circle img-thumbnail img-responsive">' % (url, size, size))
+    return mark_safe('<img src="%s" class="img-circle img-thumbnail img-responsive">' % (url))
