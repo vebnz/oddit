@@ -26,8 +26,8 @@ class JobForm(forms.ModelForm):
             return instance.save()
 
     # override anything here
-    company = CharField(label='Company Name')
-    title = CharField(label='Job Title')
+    company = CharField(label='Company Name',max_length=30)
+    title = CharField(label='Job Title',max_length=30)
     budget = CharField(label='Budget ($)')
     class Meta:
         model = Job
