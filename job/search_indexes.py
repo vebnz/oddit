@@ -4,6 +4,7 @@ from job.models import Job
 
 class JobIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
+    title = indexes.CharField(model_attr='title')
     user = indexes.CharField(model_attr='user')
 
     def get_model(self):
