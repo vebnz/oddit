@@ -1,4 +1,5 @@
 {% extends "account/base.html" %}
+{% load account socialaccount %}
 {% load bootstrap %}
 {% load i18n %}
 
@@ -13,8 +14,26 @@
             <div class="panel-body bg-info">
               <p>{% blocktrans %}Already have an account? Then please
                   <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-            </div>
+            
+            
+            {% get_providers as socialaccount_providers %}
 
+            {% if socialaccount_providers %}
+              <p>{% blocktrans with site.name as site_name %}You can register with one
+              of your existing third party accounts. Or, sign up
+              for a {{ site_name }} account below:{% endblocktrans %}</p>
+
+              <div class="socialaccount_ballot">
+                  <ul class="socialaccount_providers">
+                      {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+                  </ul>
+              </div>
+            </div>
+            
+              {% include "socialaccount/snippets/login_extra.html" %}
+
+            {% endif %}
+            
             <form id="signup_form" method="post" action="{% url 'account_signup' %}" class="signup form-horizontal">
                 <div class="panel-body">
                     {% csrf_token %}
@@ -27,6 +46,7 @@
                     <input class="btn btn-primary pull-right" type="submit" name="action" value="{% trans 'Sign Up' %}"/>
                 </div>
             </form>
+
         </div>
     </div>
 {% endblock %}
