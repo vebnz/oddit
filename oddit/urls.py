@@ -8,5 +8,6 @@ urlpatterns = patterns('',
     (r'^admin/', include(admin.site.urls)),
     (r'jobs/', include('job.urls')),
     (r'^', include('job.urls')),
+    (r'^search/', include('haystack.urls')),
     url(r'^accounts/', include('allauth.urls')),
 )
