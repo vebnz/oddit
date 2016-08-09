@@ -78,6 +78,7 @@ INSTALLED_APPS = (
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.linkedin',
     'compressor',
     'widget_tweaks',
     'bootstrapform',
@@ -138,3 +139,39 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 )
+
+SOCIALACCOUNT_PROVIDERS = {
+'linkedin_oauth2': 
+    {'SCOPE': [ 'r_emailaddress',
+                'r_fullprofile',
+                'r_emailaddress',
+                'r_contactinfo',
+                'r_network'],
+      'PROFILE_FIELDS':
+            [
+                'id',
+                'first-name',
+                'last-name',
+
+                'email-address',
+                'picture-url',
+                'public-profile-url',
+                'skills',
+
+                'headline',
+                'industry',
+
+                'num-connections',
+                'positions',
+                'interests',
+                'languages',
+                'certifications',
+                'educations',
+                'courses',
+                'three-current-positions',
+                'three-past-positions',
+                'recommendations-received',
+                'honors-awards'
+            ]
+    }
+}
