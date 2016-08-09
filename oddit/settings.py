@@ -171,7 +171,7 @@ SOCIALACCOUNT_PROVIDERS = {
                 'recommendations-received',
                 'honors-awards'
             ]
-    }
+    },
 'github' : {
         'SCOPE': ['user:email']
     }
