@@ -38,18 +38,15 @@
 			<p><strong>Budget:</strong> ${{ job.budget|intcomma }}</p>
             <p><strong>Job Type:</strong> {{ job.type }}</p>
             <hr />
-            <p>Job added by <a href="#"><strong>{{ job.company }}</strong></a> 
+            <p>Job added by <a href="#"><strong>{{ job.company }}</strong></a>
 		</li>
-
-		<li class="list-group-item apply">
+	</ul>
+	<div class="panel-footer">
 			{% if applied %}
 				<a class="btn btn-warning btn-block" href="#">Already applied</a>
 			{% else %}
 				<a class="btn btn-info btn-block" href="/jobs/apply/{{ job.id }}/">Apply</a>
 			{% endif %}	
-		</li>
-	</ul>
-
-
+	</div>
 </div>
 {% endblock %}

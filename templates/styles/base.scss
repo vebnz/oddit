@@ -4,7 +4,7 @@
 
 $font-family-sans-serif: 'Roboto', Helvetica, arial, sans-serif;
 $font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
-$brand-primary: #F012BE;
+$brand-primary: #4CAF50;
 $brand-secondary: adjust-hue($brand-primary, 120deg); // $base-font-size: 16px;
 $dark-secondary: darken($brand-secondary, 11.5%);
 $very-dark-secondary: darken($brand-secondary, 33.5%);
@@ -13,7 +13,7 @@ $dark-brand: darken($brand-primary, 11.5%);
 $very-dark-brand: darken($brand-primary, 33.5%);
 $light-brand: lighten($brand-primary, 35.5%);
 $spacer: 0.5em;
-$navbar-default-bg: #fff;
+
 
 @import 'paper/variables';
 @import '../components/bootstrap-sass/assets/stylesheets/bootstrap/variables';
@@ -26,6 +26,24 @@ $chosen-sprite-retina-path: "../static/bootstrap-chosen/chosen-sprite@2x.png" !d
 @import '../components/bootstrap-chosen/bootstrap-chosen';
 $fa-font-path: "../static/font-awesome/fonts";
 @import '../components/font-awesome/scss/font-awesome';
+
+
+.navbar {
+  .nav {
+    > li {
+      > a {
+        color: $brand-primary;
+        &:hover,
+        &:focus {
+          color: $navbar-default-link-active-color;
+          background-color: $navbar-default-link-active-bg;
+
+        }
+      }
+    }
+  }
+}
+
 
 // hacky thing
 .navbar-form .input-group .input-group-btn {
@@ -63,7 +81,7 @@ input[type='submit'] {
 @import "compass/css3";
 body > header {
     .navbar-brand {
-        padding: 0 $navbar-padding-horizontal;
+        padding: $line-height-computed/3 $navbar-padding-horizontal;
         img {
             background-color: $brand-primary;
             width           : auto;
@@ -172,14 +190,8 @@ body > footer {
             @extend .form-control;
         }
         .input-block {
-            background-color: $gray-lightest;
-            border          : 1px solid darken($gray-lightest, 7%);
             @extend .well, .well-sm;
-            .chosen-single,
-            input,
-            textarea {
-                background-color: inherit;
-            }
+
         }
     }
 }
