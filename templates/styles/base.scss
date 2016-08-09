@@ -19,6 +19,7 @@ $chosen-sprite-retina-path: "../static/bootstrap-chosen/chosen-sprite@2x.png" !d
 @import '../components/bootstrap-chosen/bootstrap-chosen';
 $fa-font-path: "../static/font-awesome/fonts";
 @import '../components/font-awesome/scss/font-awesome';
+@import '../components/bootstrap-social/bootstrap-social';
 @media (max-width: 767px) {
     .container,
     .row {

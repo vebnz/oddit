@@ -14,8 +14,8 @@
             <div class="panel-body bg-info">
               <p>{% blocktrans %}Already have an account? Then please
                   <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
-            
-            
+
+
             {% get_providers as socialaccount_providers %}
 
             {% if socialaccount_providers %}
@@ -23,17 +23,17 @@
               of your existing third party accounts. Or, sign up
               for a {{ site_name }} account below:{% endblocktrans %}</p>
 
-              <div class="socialaccount_ballot">
-                  <ul class="socialaccount_providers">
+              <div class="socialaccount_ballot text-center">
+                  <div class="socialaccount_providers btn-group ">
                       {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-                  </ul>
+                  </div>
               </div>
             </div>
-            
+
               {% include "socialaccount/snippets/login_extra.html" %}
 
             {% endif %}
-            
+
             <form id="signup_form" method="post" action="{% url 'account_signup' %}" class="signup form-horizontal">
                 <div class="panel-body">
                     {% csrf_token %}
