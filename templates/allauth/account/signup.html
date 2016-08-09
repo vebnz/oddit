@@ -11,7 +11,7 @@
             <div class="panel-heading">
                 <h1>{% trans "Sign Up" %}</h1>
             </div>
-            <div class="panel-body bg-info">
+            <div class="panel-body">
               <p>{% blocktrans %}Already have an account? Then please
                   <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
 
@@ -27,6 +27,7 @@
                   <div class="socialaccount_providers btn-group ">
                       {% include "socialaccount/snippets/provider_list.html" with process="login" %}
                   </div>
+                  <h3 class="login-or">{% trans 'or' %}</h3>
               </div>
             </div>
 
