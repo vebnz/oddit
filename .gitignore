@@ -10,3 +10,4 @@ oddit/secret_settings.py
 /.idea
 
 templates/static/.DS_Store
+venv/
