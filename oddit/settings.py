@@ -79,6 +79,7 @@ INSTALLED_APPS = (
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.linkedin',
+    'allauth.socialaccount.providers.github',
     'compressor',
     'widget_tweaks',
     'bootstrapform',
@@ -152,15 +153,12 @@ SOCIALACCOUNT_PROVIDERS = {
                 'id',
                 'first-name',
                 'last-name',
-
                 'email-address',
                 'picture-url',
                 'public-profile-url',
                 'skills',
-
                 'headline',
                 'industry',
-
                 'num-connections',
                 'positions',
                 'interests',
