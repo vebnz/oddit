@@ -32,13 +32,17 @@ $fa-font-path: "../static/font-awesome/fonts";
   .nav {
     > li {
       > a {
-        color: $brand-primary;
+        color: $dark-brand;
+        font-weight: bold;
         &:hover,
         &:focus {
           color: $navbar-default-link-active-color;
           background-color: $navbar-default-link-active-bg;
 
         }
+      }
+      > a:not(.dropdown-toggle) {
+        text-transform: uppercase;
       }
     }
   }
