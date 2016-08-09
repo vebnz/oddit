@@ -172,4 +172,7 @@ SOCIALACCOUNT_PROVIDERS = {
                 'honors-awards'
             ]
     }
+'github' : {
+        'SCOPE': ['user:email']
+    }
 }
