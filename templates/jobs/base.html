@@ -9,171 +9,151 @@
 			<title>Oddit - Odd IT Jobs</title>
 			<link rel='index' title='Oddit' href='index.html'/>
 
-
 			{% load compress %}
 			{% load staticfiles %}
 			{% compress js %}
-					<script type="text/javascript" src="/static/scripts/modernizr.js"></script>
-					<script type="text/javascript" src="/static/jquery/dist/jquery.js"></script>
-					<script type="text/javascript" src="/static/chosen/chosen.jquery.js"></script>
-		      <script type="text/javascript" src="/static/moment/moment.js"></script>
-					<script type="text/javascript" src="/static/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
-		      <script type="text/javascript" src="/static/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-		      <script type="text/javascript" src="/static/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+			<script type="text/javascript" src="/static/scripts/modernizr.js"></script>
+			<script type="text/javascript" src="/static/jquery/dist/jquery.js"></script>
+			<script type="text/javascript" src="/static/chosen/chosen.jquery.js"></script>
+			<script type="text/javascript" src="/static/moment/moment.js"></script>
+			<script type="text/javascript" src="/static/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+			<script type="text/javascript" src="/static/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+			<script type="text/javascript" src="/static/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
 
-					<script type="text/javascript" src="/static/bootstrap-validator/dist/validator.js"></script>
+			<script type="text/javascript" src="/static/bootstrap-validator/dist/validator.js"></script>
 
-					<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
-					<script type="text/javascript" src="/static/scripts/jquery.select_skin.js"></script>
-					<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
-					<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
-					<script type="text/javascript" src="/static/scripts/jquery.tipTip.js"></script>
+			<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
+			<script type="text/javascript" src="/static/scripts/jquery.select_skin.js"></script>
+			<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
+			<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
+			<script type="text/javascript" src="/static/scripts/jquery.tipTip.js"></script>
 			{% endcompress %}
 			{% compress css %}
-          <link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
-					<link rel="stylesheet" type="text/css" href="/static/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css"/>
+			<link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
+			<link rel="stylesheet" type="text/css" href="/static/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css"/>
 			{% endcompress %}
-
 
 		{% endblock %}
 	</head>
 
 	<body>
-		<div class="content">
-			<header>
-        <div class="container-fluid">
-					<div class="row">
-						<div class="col-md-3 col-sm-3 hidden-xs nopadding">
-							<div id="brand-logo">
-                                <a href="http://oddit.co.nz"><img alt="oddit" src="/static/images/oddit-alpha@2x.png"/></a>
-							</div>
-						</div>
-						<div class="col-md-9 col-sm-9">
-							<nav class="navbar" role="navigation">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-										<i class="fa fa-bars fa-2x" aria-hidden="true"></i>
-									</button>
-									<a class="navbar-brand" href="#">
-											<img alt="oddit" src="/static/images/oddit-alpha@2x.png"/>
+		<header>
+			<nav class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" id="brand-logo" href="http://oddit.co.nz">
+							<img alt="oddit" src="/static/images/odditx_lg.png"/>
+						</a>
+
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="navbar">
+						<ul class="category_menu nav navbar-nav navbar-left">
+							<li class="cat-item-all">
+								<a href="/jobs">All Jobs</a>
+							</li>
+
+							{% if categories %}
+								{% for cat in categories %}
+									<li class="cat-item-4 {% if category_name == cat.name|lower %}active{% endif %}">
+										<a href="/jobs/category/{{ cat.name|slugify }}/">{{ cat.name }}</a>
+									</li>
+								{% endfor %}
+							{% endif %}
+							{% if user.is_superuser %}
+								<li class="cat-item-4 ">
+									<a href="/admin/job/category/add/">Add</a>
+								</li>
+							{% endif %}
+
+							<li class="rss">
+								<a href=""><img src="/static/images/icon.rss.png"/></a>
+							</li>
+						</ul>
+
+						<ul class="nav navbar-form navbar-right">
+							<li class="dropdown">
+								{% if user.is_authenticated %}
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										<i class="fa fa-user" aria-hidden="true"></i>
+										{% if not user.first_name %}
+											<strong>{{ user.username }}</strong>
+										{% else %}
+											<strong>{{ user.first_name }}</strong>
+										{% endif %}
+										<span class="caret"></span>
 									</a>
-
-								</div>
-								<div class="collapse navbar-collapse" id="navbar-collapse">
-									<ul class="nav navbar-nav navbar-right">
+									<ul class="dropdown-menu">
 										<li>
-											<form class="navbar-form navbar-left" action="/jobs/search" method="get" role="search">
-												<div class="input-group">
-													<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
-													<div class="input-group-btn">
-														<button class="btn btn-primary" id="submit" type="submit">
-															<i class="fa fa-search"></i>
-														</button>
-													</div>
-												</div>
-											</form>
-										</li>
-
-										<li class="dropdown">
-											{% if user.is_authenticated %}
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-													<i class="fa fa-user" aria-hidden="true"></i>
+											<div class="navbar-login">
+												<p class="text-left">
 													{% if not user.first_name %}
 														<strong>{{ user.username }}</strong>
 													{% else %}
-														<strong>{{ user.first_name }}</strong>
+														<strong>{{ user.first_name }}
+															{{ user.last_name }}</strong>
 													{% endif %}
-													<span class="caret"></span>
-												</a>
-												<ul class="dropdown-menu">
-													<li>
-														<div class="navbar-login">
-															<p class="text-left">
-																{% if not user.first_name %}
-																	<strong>{{ user.username }}</strong>
-																{% else %}
-																	<strong>{{ user.first_name }} {{ user.last_name }}</strong>
-																{% endif %}
-															</p>
-															<p class="text-left small">{{ user.email }}</p>
-															<p class="text-left">
-																<a href="/my-profile" class="btn btn-primary btn-block btn-sm">Profile</a>
-															</p>
-														</div>
-													</li>
-													<li>
-														<div class="navbar-login navbar-login-session">
-															<p>
-																<a href="/accounts/logout/" class="btn btn-danger btn-block">Logout</a>
-															</p>
-														</div>
-													</li>
-												</ul>
-											{% else %}
-												<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-													Register/Sign In
-													<span class="caret"></span>
-												</a>
-												<ul class="dropdown-menu">
-													<li>
-														<div class="navbar-login navbar-login-session">
-															<p>
-																<a href="/accounts/signup/" class="btn btn-danger btn-block">Register</a>
-															</p>
-														</div>
-													</li>
-													<li>
-														<div class="navbar-login navbar-login-session">
-															<p>
-																<a href="/accounts/login" class="btn btn-danger btn-block">Sign In</a>
-															</p>
-														</div>
-													</li>
-												</ul>
-											{% endif %}
+												</p>
+												<p class="text-left small">{{ user.email }}</p>
+												<div class="btn-group btn-group-justified" role="group" aria-label="...">
+													<a href="/my-profile" class="btn btn-primary btn-block">Profile</a>
+													<a href="/accounts/logout/" class="btn btn-danger btn-block">Logout</a>
+												</div>
+
+											</div>
+										</li>
+										<li role="separator" class="divider"></li>
+
+									</ul>
+								{% else %}
+									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										Register/Sign In
+										<span class="caret"></span>
+									</a>
+									<ul class="dropdown-menu">
+										<li>
+											<div class="navbar-login navbar-login-session">
+												<p>
+													<a href="/accounts/signup/" class="btn btn-danger btn-block">Register</a>
+												</p>
+											</div>
+										</li>
+										<li>
+											<div class="navbar-login navbar-login-session">
+												<p>
+													<a href="/accounts/login" class="btn btn-danger btn-block">Sign In</a>
+												</p>
+											</div>
 										</li>
 									</ul>
-								</div>
-								<div class="lower-nav">
-
-								</div>
-							</nav>
-						</div>
-					</div>
-				</div>
-
-				<div class="category_menu orange">
-					<ul class="nav nav-pills nav-justified">
-						<li class="cat-item-all">
-							<a href="/jobs">All Jobs</a>
-						</li>
-
-						{% if categories %}
-							{% for cat in categories %}
-								<li class="cat-item-4 {% if category_name == cat.name|lower %}current-cat{% endif %}">
-									<a href="/jobs/category/{{ cat.name|slugify }}/">{{ cat.name }}</a>
-								</li>
-							{% endfor %}
-						{% endif %}
-						{% if user.is_superuser %}
-							<li class="cat-item-4 ">
-								<a href="/admin/job/category/add/">Add</a>
+								{% endif %}
 							</li>
-						{% endif %}
+						</ul>
+						<form class="navbar-form" action="/jobs/search" method="get" role="search">
+								<div class="input-group">
+									<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
+									<div class="input-group-btn">
+										<button class="btn btn-primary" id="submit" type="submit">
+											<i class="fa fa-search"></i>
+										</button>
+									</div>
+								</div>
 
-						<li class="rss">
-							<a href=""><img src="/static/images/icon.rss.png"/></a>
-						</li>
-					</ul>
+						</form>
+					</div>
+					<!-- /.navbar-collapse -->
 				</div>
-
-				{% if category_name == 'all' %}
-					<script type="text/javascript" charset="utf-8">
-						jQuery('.category_menu li:first-child').addClass('current-cat');
-					</script>
-				{% endif %}
-
-			</header>
+				<!-- /.container-fluid -->
+			</nav>
+		</header>
+		<div class="content">
 			<main>
 				<article>
 					{% block content %}{% endblock %}
@@ -274,48 +254,48 @@
 			</div>
 		</footer>
 
-	<!-- insert javascript tracking -->
-	<!-- start Mixpanel -->
-	<script type="text/javascript">
-		(function (c, a) {
-			window.mixpanel = a;
-			var b,
-				d,
-				h,
-				e;
-			b = c.createElement("script");
-			b.type = "text/javascript";
-			b.async = !0;
-			b.src = ("https:" === c.location.protocol
-				? "https:"
-				: "http:") + '//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';
-			d = c.getElementsByTagName("script")[0];
-			d.parentNode.insertBefore(b, d);
-			a._i = [];
-			a.init = function (b, c, f) {
-				function d(a, b) {
-					var c = b.split(".");
-					2 == c.length && (a = a[c[0]], b = c[1]);
-					a[b] = function () {
-						a.push([b].concat(Array.prototype.slice.call(arguments, 0)))
+		<!-- insert javascript tracking -->
+		<!-- start Mixpanel -->
+		<script type="text/javascript">
+			(function (c, a) {
+				window.mixpanel = a;
+				var b,
+					d,
+					h,
+					e;
+				b = c.createElement("script");
+				b.type = "text/javascript";
+				b.async = !0;
+				b.src = ("https:" === c.location.protocol
+					? "https:"
+					: "http:") + '//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';
+				d = c.getElementsByTagName("script")[0];
+				d.parentNode.insertBefore(b, d);
+				a._i = [];
+				a.init = function (b, c, f) {
+					function d(a, b) {
+						var c = b.split(".");
+						2 == c.length && (a = a[c[0]], b = c[1]);
+						a[b] = function () {
+							a.push([b].concat(Array.prototype.slice.call(arguments, 0)))
+						}
 					}
-				}
-				var g = a;
-				"undefined" !== typeof f
-					? g = a[f] = []
-					: f = "mixpanel";
-				g.people = g.people || [];
-				h = "disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");
-				for (e = 0; e < h.length; e++)
-					d(g, h[e]);
-				a._i.push([b, c, f])
-			};
-			a.__SV = 1.1
-		})(document, window.mixpanel || []);
-		mixpanel.init("1a7df73008f28cbcdec0fe15f7911d66");
-		mixpanel.track("test");
-	</script>
-	<!-- end Mixpanel -->
-</body>
+					var g = a;
+					"undefined" !== typeof f
+						? g = a[f] = []
+						: f = "mixpanel";
+					g.people = g.people || [];
+					h = "disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");
+					for (e = 0; e < h.length; e++)
+						d(g, h[e]);
+					a._i.push([b, c, f])
+				};
+				a.__SV = 1.1
+			})(document, window.mixpanel || []);
+			mixpanel.init("1a7df73008f28cbcdec0fe15f7911d66");
+			mixpanel.track("test");
+		</script>
+		<!-- end Mixpanel -->
+	</body>
 
 </html>
