@@ -26,8 +26,7 @@ $chosen-sprite-retina-path: "../static/bootstrap-chosen/chosen-sprite@2x.png" !d
 @import '../components/bootstrap-chosen/bootstrap-chosen';
 $fa-font-path: "../static/font-awesome/fonts";
 @import '../components/font-awesome/scss/font-awesome';
-<<<<<<< HEAD
-
+@import '../components/bootstrap-social/bootstrap-social';
 
 .navbar {
   .nav {
@@ -51,15 +50,8 @@ $fa-font-path: "../static/font-awesome/fonts";
     width: 1%;
 }
 
-.container,
-.row {
+.container, .row {
     @include screen-tablet {
-=======
-@import '../components/bootstrap-social/bootstrap-social';
-@media (max-width: 767px) {
-    .container,
-    .row {
->>>>>>> master
         padding: 0;
     };
 }
