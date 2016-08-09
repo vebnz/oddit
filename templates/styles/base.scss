@@ -1,43 +1,57 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Montserrat:400,700');
+@import 'mixin';
+
+
 $font-family-sans-serif: 'Roboto', Helvetica, arial, sans-serif;
 $font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
-$brand-primary: #FF5722;
-$brand-secondary: #ff9800; // $base-font-size: 16px;
+$brand-primary: #F012BE;
+$brand-secondary: adjust-hue($brand-primary, 120deg); // $base-font-size: 16px;
 $dark-secondary: darken($brand-secondary, 11.5%);
 $very-dark-secondary: darken($brand-secondary, 33.5%);
-$light-secondary: lighten($brand-secondary, 35.5%);
+$light-secondary: lighten($brand-secondary, 22.5%);
 $dark-brand: darken($brand-primary, 11.5%);
 $very-dark-brand: darken($brand-primary, 33.5%);
 $light-brand: lighten($brand-primary, 35.5%);
 $spacer: 0.5em;
-@import '../components/bootstrap-sass/assets/stylesheets/bootstrap';
-$gray-lightest: lighten($gray-base, 99%);
-@import 'paper/swatch';
+$navbar-default-bg: #fff;
+
 @import 'paper/variables';
+@import '../components/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+
+@import '../components/bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'paper/swatch';
+$gray-lightest: lighten($gray-base, 99%);
 $chosen-sprite-path: "../static/bootstrap-chosen/chosen-sprite.png" !default;
 $chosen-sprite-retina-path: "../static/bootstrap-chosen/chosen-sprite@2x.png" !default;
 @import '../components/bootstrap-chosen/bootstrap-chosen';
 $fa-font-path: "../static/font-awesome/fonts";
 @import '../components/font-awesome/scss/font-awesome';
-@media (max-width: 767px) {
-    .container,
-    .row {
+
+// hacky thing
+.navbar-form .input-group .input-group-btn {
+    width: 1%;
+}
+
+.container,
+.row {
+    @include screen-tablet {
         padding: 0;
-    }
-    .navbar-header {
+    };
+}
+.navbar-header {
+    @include screen-tablet {
         margin: 0;
-    }
+    };
 }
 html {
     min-height: 100%;
 }
-body {
-    display       : flex;
-    min-height    : 100vh;
-    flex-direction: column;
-}
+body {}
 body > .content {
-    @extend .container;
+    @extend .container-fluid;
+    @include screen-tablet {
+        padding: 0;
+    };
 }
 button,
 input[type='submit'] {
@@ -47,57 +61,13 @@ input[type='submit'] {
     @extend .btn-primary;
 }
 @import "compass/css3";
-body > .content > header {
-    margin: ($line-height-computed) 0 $line-height-computed;
-    .navbar {
-        border-radius: 0;
-        border-left  : transparent;
-        @include box-shadow(transparent 0px 0px 0px);
-    }
-    #navbar-collapse {
-        border-bottom: 1px solid $brand-secondary;
-    }
-    .lower-nav {
-        color    : #fff;
-        font-size: 20px;
-        padding  : 23px 20px;
-        height   : 0px;
-    }
-    #brand-logo {
-        background-size: cover;
-        position       : absolute;
-        img {
-            background-color: $brand-primary;
-            width           : 100%;
-        }
-    }
-    div.nopadding {
-        padding: 0;
-        margin : 0;
-    }
-    .nav-buttons {
-        border-radius: 0;
-    }
+body > header {
     .navbar-brand {
-        display: none;
+        padding: 0 $navbar-padding-horizontal;
         img {
             background-color: $brand-primary;
-            width           : 100%;
-        }
-    }
-    @media (max-width: 768px) {
-        .lower-nav {
-            font-size: 20px;
-            padding  : 10px 20px;
-        }
-        .navbar-brand {
-            display: block;
-        }
-    }
-    @media (max-width: 480px) {
-        .lower-nav {
-            font-size: 18px;
-            padding  : 20px 10px;
+            width           : auto;
+            height          : 50px;
         }
     }
     .navbar {
@@ -112,21 +82,17 @@ body > .content > header {
             height: auto;
         }
     }
-    .category_menu {
-        background-color: $light-secondary;
-        .current-cat {
-            @extend .active;
-        }
-    }
 }
 body > .content > main {
-    @extend .container;
-    flex: 1;
+    @extend .container-fluid;
+    @include screen-tablet {
+        padding: 0;
+    };
     .sidebar {
         .search-panel {
             padding-bottom: $line-height-computed;
         }
-        @extend .col-md-3;
+        @extend .col-sm-3;
         ul {
             @extend .list-group;
             li {
@@ -135,7 +101,7 @@ body > .content > main {
         }
     }
     article {
-        @extend .col-md-9;
+        @extend .col-sm-9;
     }
 }
 body > footer {
@@ -164,8 +130,10 @@ body > footer {
     .job-list {
         @extend .row;
         @media (min-width: $screen-sm-min) {
-            display    : flex;
             align-items: center;
+        }
+        h1,h2,h3,h4,h5,h6 {
+          margin: 0;
         }
     }
 }
@@ -190,6 +158,13 @@ body > footer {
     }
 }
 .post {
+    .panel {
+        .panel-body {
+            @include screen-tablet {
+                padding: 0;
+            };
+        }
+    }
     form {
         input[type]:not([type=search]):not([type=url]):not([type=hidden]):not([type=submit]):not([type=file]),
         select,
