@@ -25,3 +25,4 @@ requests-oauthlib==0.6.2
 rjsmin==1.0.12
 six==1.10.0
 update-checker==0.11
+Whoosh==2.7.4
