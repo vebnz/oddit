@@ -24,6 +24,7 @@
     "moment-datepicker": "^1.2.0",
     "bootstrap-datepicker": "^1.6.2",
     "bootstrap-validator": "^0.11.5",
-    "bootstrap-tagsinput": "^0.8.0"
+    "bootstrap-tagsinput": "^0.8.0",
+    "bootstrap-social": "^5.0.0"
   }
 }
