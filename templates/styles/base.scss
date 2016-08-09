@@ -4,12 +4,12 @@
 
 $font-family-sans-serif: 'Roboto', Helvetica, arial, sans-serif;
 $font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
-$brand-primary: #4CAF50;
+$brand-primary: #8BC34A;
 $brand-secondary: adjust-hue($brand-primary, 120deg); // $base-font-size: 16px;
 $dark-secondary: darken($brand-secondary, 11.5%);
 $very-dark-secondary: darken($brand-secondary, 33.5%);
 $light-secondary: lighten($brand-secondary, 22.5%);
-$dark-brand: darken($brand-primary, 11.5%);
+$dark-brand: #689F38;
 $very-dark-brand: darken($brand-primary, 33.5%);
 $light-brand: lighten($brand-primary, 35.5%);
 $spacer: 0.5em;
@@ -82,7 +82,7 @@ body > header {
     .navbar-brand {
         padding: $line-height-computed/3 $navbar-padding-horizontal;
         img {
-            background-color: $brand-primary;
+            background-color: $dark-brand;
             width           : auto;
             height          : 50px;
         }

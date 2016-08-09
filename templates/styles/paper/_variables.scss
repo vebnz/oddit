@@ -27,7 +27,7 @@ $brand-danger:          #ee5f5b !default;
 //## Settings for some of the most global styles.
 
 //** Background color for `<body>`.
-$body-bg:               $gray-darker !default;
+$body-bg:               darken(#455A64, 15%) !default;
 //** Global text color on `<body>`.
 $text-color:            #C8C8C8 !default;
 
