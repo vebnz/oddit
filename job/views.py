@@ -14,9 +14,6 @@ from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 
-from indextank.client import ApiClient
-from indextank.client import InvalidQuery
-
 from  django.utils.datastructures  import  MultiValueDictKeyError
 
 def index(request, category_name='all', type_name='all'):
