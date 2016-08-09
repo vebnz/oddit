@@ -4,12 +4,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from tagging.models import Tag
 from django.db.models.signals import post_save
-from indextank.client import ApiClient
 from django.forms import ModelForm
 from job.validators import validate_pdf
-
-api = ApiClient('http://:deqemyqymegy@deguby.api.indexden.com')
-search = api.get_index('jobs')
 
 # Create your models here.
 class Region(models.Model):

@@ -83,6 +83,15 @@ INSTALLED_APPS = (
     'bootstrapform',
 )
 
+
+import os
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
+
 COMPRESS_PRECOMPILERS = (
     ('text/scss', 'sass --scss --compass {infile} {outfile}'),
 )
