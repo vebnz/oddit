@@ -66,6 +66,8 @@ def detail(request, job_id, job_name):
 
     job = get_object_or_404(Job, pk=job_id)
 
+    job_tags = job.tag_list.split(',');
+
     try:
         checkApply = JobApply.objects.get(user=request.user.id, job=job)
     except JobApply.DoesNotExist:
@@ -73,6 +75,7 @@ def detail(request, job_id, job_name):
 
     return render_to_response('jobs/job.html', {
         'job': job,
+        'job_tags': job_tags,
         'applied': checkApply,
         'company': job.title,
         'categories': category_list,
