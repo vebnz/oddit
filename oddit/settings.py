@@ -98,7 +98,7 @@ COMPRESS_PRECOMPILERS = (
     ('text/scss', 'sass --scss --compass {infile} {outfile}'),
 )
 
-COMPRESS_OFFLINE = False
+COMPRESS_OFFLINE = True
 COMPRESS_ENABLED = True
 
 # allauth configs
