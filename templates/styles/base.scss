@@ -81,7 +81,7 @@ body > header {
         };
     };
     .navbar-brand {
-        padding: $line-height-computed/3 $navbar-padding-horizontal;
+        padding: 0 $navbar-padding-horizontal;
         img {
             background-color: $dark-brand;
             width           : auto;
