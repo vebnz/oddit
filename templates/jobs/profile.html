@@ -7,22 +7,31 @@
 		<div class="listing whiteboard">
 			<div class="panel panel-info">
 				<div class="panel-body">
+                    {%if view_user.id = user.id %}
 					<h1>Your Profile</h1>
+                    {% else %}
+                    <h1>{{ view_user.first_name}}'s Profile</h1>
+                    {% endif %}
 				</div>
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						{%if not user.first_name or not user.last_name %}
-							<span class="text-muted">Complete your profile</span>
-						{% else %}
-							{{user.first_name}}
-							{{user.last_name}}
-						{% endif %}
-						({{user.username}})</h3>
+                        {%if view_user.id = user.id %}
+                            {%if not user.first_name or not user.last_name %}
+                                <span class="text-muted">Complete your profile</span>
+                            {% else %}
+                                {{user.first_name}}
+                                {{user.last_name}}
+                            {% endif %}
+                        {% else %}
+                            {{user.first_name}}
+                            {{user.last_name}}
+                        {% endif %}
+                    </h3>
 				</div>
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-lg-3 " align="center">
-                            {{ user.email|avatar }}
+                            {%if view_user.id = user.id %} {{ user.email|avatar }} {% else %} {{ view_user.email|avatar }} {% endif %}
 						</div>
 						<div class="col-lg-9 ">
 							<table class="table table-user-information">
@@ -33,12 +42,12 @@
 									</tr>
 									<tr>
 										<td>Join Date:</td>
-										<td>{{user.date_joined}}</td>
+										<td>{%if view_user.id = user.id %} {{ user.date_joined }} {% else %} {{ view_user.date_joined }} {% endif %}</td>
 									</tr>
 									<tr>
 										<td>Email</td>
 										<td>
-											{{ user.email }}
+											{%if view_user.id = user.id %} {{ user.email }} {% else %} {{ view_user.email }} {% endif %}
 										</td>
 									</tr>
 									<tr>
@@ -62,27 +71,29 @@
 						</table>
 
 						<a href="/jobs/my-jobs" class="btn btn-primary">Jobs Posted</a>
-						<a href="/jobs/applied-for" class="btn btn-primary">Jobs Applied</a>
+						{%if view_user.id = user.id %} <a href="/jobs/applied-for" class="btn btn-primary">Jobs Applied</a> {% endif %}
 					</div>
 				</div>
 			</div>
 			<div class="panel-footer clearfix">
-				{% if user.is_superuser %}
-				<div class="btn-group pull-left">
-					<a class="btn btn-sm btn-warning" href="/admin/">
-						<i class="fa fa-gears fa-fw" aria-hidden="true"></i> Admin
-					</a>
-				</div>
+                {%if view_user.id = user.id %}
+                    {% if user.is_superuser %}
+                    <div class="btn-group pull-left">
+                        <a class="btn btn-sm btn-warning" href="/admin/">
+                            <i class="fa fa-gears fa-fw" aria-hidden="true"></i> Admin
+                        </a>
+                    </div>
 
-				{% endif %}
-				<div class="btn-group pull-right">
-					<a class="btn btn-sm btn-primary" href="/my-profile/edit">
-						<i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Edit
-					</a>
-					<a class="btn btn-sm btn-danger" href="/accounts/logout/">
-						<i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Log out
-					</a>
-				</span>
+                    {% endif %}
+                    <div class="btn-group pull-right">
+                        <a class="btn btn-sm btn-primary" href="/my-profile/edit">
+                            <i class="fa fa-pencil fa-fw" aria-hidden="true"></i> Edit
+                        </a>
+                        <a class="btn btn-sm btn-danger" href="/accounts/logout/">
+                            <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i> Log out
+                        </a>
+                    </div>
+                {% endif %}
 			</div>
 		</div>
 	</div>
