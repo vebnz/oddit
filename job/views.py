@@ -2,7 +2,7 @@
 import operator, datetime, sys
 
 from django.template import Context, loader, RequestContext
-from job.models import Job, Company, Category, JobType, Tag, City, JobApply
+from job.models import Job, Company, Category, JobType, Tag, City, JobApply, User
 from django.db.models import Count
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render_to_response, get_object_or_404
@@ -305,6 +305,21 @@ def new_job(request):
         'categories': category_list},
         context_instance=RequestContext(request))
 
+def view_profile(request, user_id):
+    popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
+    popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
+    popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
+    category_list = Category.objects.all()[:10]
+    
+    user = get_object_or_404(User, pk=user_id)
+    
+    return render_to_response('jobs/profile.html',  {
+        'view_user' : user,
+        'popular_categories': popular_categories_list,
+        'popular_tags': popular_tags,
+        'categories': category_list},
+        context_instance=RequestContext(request))
+        
 @login_required
 def profile(request):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
