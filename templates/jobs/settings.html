@@ -8,7 +8,12 @@
 		</div>
 		<div class="description cms">
 			<p>Account settings</p>
-            <p>insert form here</p>
+                <form id="post" enctype="multipart/form-data" name="post" action="" method="post">{% csrf_token %}
+                {% for field in form %}
+                  {{ field.label }}  {{ field }} <br /><br />
+                {% endfor %}
+                <input id="profilesubmit" name="profilesubmit" type="submit" value="Save" class="btn btn-primary pull-right"/>
+            </form>
 		</div>
 		<div class="cap">
 			<div class="button_set">
