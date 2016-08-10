@@ -4,7 +4,7 @@
 	<div class="title white panel-body">
 		<div class="row">
 			<div class="jobtitle col-lg-8">
-				<h1>{{ job.title }}</h1>
+				<h2 class="panel-page-title">{{ job.title }}</h2>
 			</div>
 			<div class="jobtitle col-lg-8">
                 {% if not job.remote %}
@@ -36,9 +36,17 @@
             <p></p>
 			<p>{{ job.description|linebreaksbr }}</p>
 			<p><strong>Budget:</strong> ${{ job.budget|intcomma }}</p>
-            <p><strong>Job Type:</strong> {{ job.type }}</p>
-            <hr />
-            <p>Job added by <a href="#"><strong>{{ job.company }}</strong></a>
+      <p><strong>Job Type:</strong> {{ job.type }}</p>
+      <hr />
+			<p><strong>Tags:</strong>
+				<div class="tag-list">
+					{% for job_tag in job_tags %}
+						<a href="/jobs/search?query={{job_tag}}"><span class="label label-primary">{{job_tag}}</span></a>
+					{% endfor %}
+				</div>
+			</p>
+			<hr />
+			<p>Job added by <a href="#"><strong>{{ job.company }}</strong></a></p>
 		</li>
 	</ul>
 	<div class="panel-footer">

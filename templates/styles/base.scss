@@ -3,7 +3,7 @@
 $font-family-sans-serif: 'Roboto', Helvetica, arial, sans-serif;
 $font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
 $brand-primary: #8BC34A;
-$brand-secondary: adjust-hue($brand-primary, 120deg); // $base-font-size: 16px;
+$brand-secondary: #FF6F00;
 $dark-secondary: darken($brand-secondary, 11.5%);
 $very-dark-secondary: darken($brand-secondary, 33.5%);
 $light-secondary: lighten($brand-secondary, 22.5%);
@@ -18,6 +18,11 @@ $spacer: 0.5em;
 $gray-lightest: lighten($gray-base, 99%);
 $chosen-sprite-path: "../static/bootstrap-chosen/chosen-sprite.png" !default;
 $chosen-sprite-retina-path: "../static/bootstrap-chosen/chosen-sprite@2x.png" !default;
+$chosen-border: 0 !default;
+$chosen-box-shadow: inset 0 -1px 0 #ddd;
+$chosen-focus-border: 0;
+$chosen-focus-box-shadow: inset 0 -2px 0 $brand-primary;
+$chosen-focus-transition: 0 !default;
 @import '../components/bootstrap-chosen/bootstrap-chosen';
 $fa-font-path: "../static/font-awesome/fonts";
 @import '../components/font-awesome/scss/font-awesome';
@@ -138,7 +143,7 @@ body > footer {
     .btn-footer {
         @include button-variant($btn-primary-color, $brand-secondary, darken($brand-secondary, 5%));
         &:hover {
-            @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+            @include button-variant($btn-primary-color, $btn-primary-border, $btn-primary-bg);
         }
     }
     .widget {
@@ -255,19 +260,27 @@ body > footer {
 form {
     .form-group {
         &.has-error {
-            .chosen-container {
+            .chosen-container > a {
                 background-color: $state-danger-bg;
             }
         }
         &.has-warning {
-            .chosen-container {
+            .chosen-container > a {
                 background-color: $state-warning-bg;
             }
         }
         &.has-success {
-            .chosen-container {
+            .chosen-container > a {
                 background-color: $state-success-bg;
             }
         }
     }
+}
+.panel-page-title {
+    font-weight: bold;
+}
+.job_tag_label,
+.tag-list > a > .label {
+    font-size  : 100%;
+    line-height: 2em;
 }
