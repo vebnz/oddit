@@ -98,7 +98,7 @@ COMPRESS_PRECOMPILERS = (
     ('text/scss', 'sass --scss --compass {infile} {outfile}'),
 )
 
-COMPRESS_OFFLINE = True
+COMPRESS_OFFLINE = False
 COMPRESS_ENABLED = True
 
 # allauth configs
@@ -142,7 +142,7 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SOCIALACCOUNT_PROVIDERS = {
-'linkedin_oauth2': 
+'linkedin_oauth2':
     {'SCOPE': [ 'r_emailaddress',
                 'r_fullprofile',
                 'r_emailaddress',

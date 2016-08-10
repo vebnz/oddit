@@ -1,7 +1,5 @@
 @import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Montserrat:400,700');
 @import 'mixin';
-
-
 $font-family-sans-serif: 'Roboto', Helvetica, arial, sans-serif;
 $font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
 $brand-primary: #8BC34A;
@@ -9,15 +7,12 @@ $brand-secondary: adjust-hue($brand-primary, 120deg); // $base-font-size: 16px;
 $dark-secondary: darken($brand-secondary, 11.5%);
 $very-dark-secondary: darken($brand-secondary, 33.5%);
 $light-secondary: lighten($brand-secondary, 22.5%);
-$dark-brand: #689F38;
+$dark-brand: darken($brand-primary, 10.5%);
 $very-dark-brand: darken($brand-primary, 33.5%);
 $light-brand: lighten($brand-primary, 35.5%);
 $spacer: 0.5em;
-
-
 @import 'paper/variables';
 @import '../components/bootstrap-sass/assets/stylesheets/bootstrap/variables';
-
 @import '../components/bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'paper/swatch';
 $gray-lightest: lighten($gray-base, 99%);
@@ -27,37 +22,27 @@ $chosen-sprite-retina-path: "../static/bootstrap-chosen/chosen-sprite@2x.png" !d
 $fa-font-path: "../static/font-awesome/fonts";
 @import '../components/font-awesome/scss/font-awesome';
 @import '../components/bootstrap-social/bootstrap-social';
-
 .navbar {
-  .nav {
-    > li {
-      > a {
-        color: $dark-brand;
-        font-weight: bold;
-        &:hover,
-        &:focus {
-          color: $navbar-default-link-active-color;
-          background-color: $navbar-default-link-active-bg;
-
+    .nav {
+        > li {
+            > a {
+                color      : $dark-brand;
+                font-weight: bold;
+                &:focus,
+                &:hover {
+                    color           : $navbar-default-link-active-color;
+                    background-color: $navbar-default-link-active-bg;
+                }
+            }
+            > a:not(.dropdown-toggle) {
+                text-transform: uppercase;
+            }
         }
-      }
-      > a:not(.dropdown-toggle) {
-        text-transform: uppercase;
-      }
     }
-  }
 }
-
-
 // hacky thing
 .navbar-form .input-group .input-group-btn {
     width: 1%;
-}
-
-.container, .row {
-    @include screen-tablet {
-        padding: 0;
-    };
 }
 .navbar-header {
     @include screen-tablet {
@@ -69,6 +54,12 @@ html {
 }
 body {}
 body > .content {
+    .container,
+    .row {
+        @include screen-tablet {
+            padding: 0;
+        };
+    }
     @extend .container-fluid;
     @include screen-tablet {
         padding: 0;
@@ -83,6 +74,12 @@ input[type='submit'] {
 }
 @import "compass/css3";
 body > header {
+    .container,
+    .row {
+        @include screen-tablet {
+            padding: 0;
+        };
+    };
     .navbar-brand {
         padding: $line-height-computed/3 $navbar-padding-horizontal;
         img {
@@ -126,24 +123,77 @@ body > .content > main {
     }
 }
 body > footer {
-    padding-top     : 50px;
-    padding-bottom  : 50px;
-    margin-top      : 100px;
-    color           : $gray;
-    background-color: $gray-lighter;
-    .inner {
-        @extend .container;
-        .menu {
-            @extend .col-md-8, .text-right;
-            ul {
-                @extend .list-inline;
+    background: $gray-darker;
+    border-top: $brand-secondary 5px solid;
+    .main-footer {
+        padding: 20px 0;
+    }
+    .footer-copyright {
+        padding: 5px 0;
+        p {
+            color : #969696;
+            margin: 2px 0 0;
+        }
+    }
+    .btn-footer {
+        @include button-variant($btn-primary-color, $brand-secondary, darken($brand-secondary, 5%));
+        &:hover {
+            @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-border);
+        }
+    }
+    .widget {
+        padding      : 20px;
+        margin-bottom: 40px;
+        &.widget-last {
+            margin-bottom: 0;
+        }
+        &.no-box {
+            padding: 0;
+        }
+        &.subscribe p {
+            margin-bottom: 18px;
+        }
+        li a {
+            color: $brand-secondary;
+            &:hover {
+                color: $brand-primary;
             }
         }
-        .copyright {
-            @extend .col-md-4;
+    }
+    .widget-title {
+        margin-bottom: 20px;
+        span {
+            background: $dark-brand none repeat scroll 0 0;
+            display   : block;
+            height    : 1px;
+            margin-top: 10px;
+            position  : relative;
+            width     : 75%;
         }
-        .seo {
-            @extend .col-lg-12;
+        &.text-center span {
+            margin-left : auto;
+            margin-right: auto;
+            left        : 0;
+            right       : 0;
+            &::after {
+                margin-left : auto;
+                margin-right: auto;
+                left        : 0;
+                right       : 0;
+            }
+        }
+    }
+    .typo-light {
+        div,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        small {
+            color: $gray-lighter;
         }
     }
 }
@@ -153,8 +203,13 @@ body > footer {
         @media (min-width: $screen-sm-min) {
             align-items: center;
         }
-        h1,h2,h3,h4,h5,h6 {
-          margin: 0;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
         }
     }
 }
@@ -194,7 +249,6 @@ body > footer {
         }
         .input-block {
             @extend .well, .well-sm;
-
         }
     }
 }
