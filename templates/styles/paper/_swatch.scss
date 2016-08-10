@@ -42,11 +42,6 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
   font-weight: bold;
   text-transform: uppercase;
 
-  &:hover {
-    margin-top: 1px;
-    border-bottom-width: 3px;
-  }
-
   &:active {
     margin-top: 2px;
     border-bottom-width: 2px;
@@ -72,43 +67,43 @@ $web-font-path: "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"
   &-default:hover,
   &-default:focus,
   &-group.open .dropdown-toggle.btn-default {
-    background-color: $btn-default-bg;
-    border-color: $btn-default-border;
+    border-color: $btn-default-bg;
+    background-color: $btn-default-border;
   }
 
   &-primary:hover,
   &-primary:focus,
   &-group.open .dropdown-toggle.btn-primary {
-    background-color: $btn-primary-bg;
-    border-color: $btn-primary-border;
+    border-color: $btn-primary-bg;
+    background-color: $btn-primary-border;
   }
 
   &-success:hover,
   &-success:focus,
   &-group.open .dropdown-toggle.btn-success {
-    background-color: $btn-success-bg;
-    border-color: $btn-success-border;
+    border-color: $btn-success-bg;
+    background-color: $btn-success-border;
   }
 
   &-info:hover,
   &-info:focus,
   &-group.open .dropdown-toggle.btn-info {
-    background-color: $btn-info-bg;
-    border-color: $btn-info-border;
+    border-color: $btn-info-bg;
+    background-color: $btn-info-border;
   }
 
   &-warning:hover,
   &-warning:focus,
   &-group.open .dropdown-toggle.btn-warning {
-    background-color: $btn-warning-bg;
-    border-color: $btn-warning-border;
+    border-color: $btn-warning-bg;
+    background-color: $btn-warning-border;
   }
 
   &-danger:hover,
   &-danger:focus,
   &-group.open .dropdown-toggle.btn-danger {
-    background-color: $btn-danger-bg;
-    border-color: $btn-danger-border;
+    border-color: $btn-danger-bg;
+    background-color: $btn-danger-border;
   }
 
   &-group.open .dropdown-toggle {
@@ -542,8 +537,8 @@ input[type="checkbox"],
     text-transform: uppercase;
 
     &:hover {
-      top: 1px;
-      border-bottom-width: 3px;
+      border-color: $pagination-hover-bg;
+      background-color: $pagination-hover-border;
     }
 
     &:active {
