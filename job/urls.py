@@ -20,7 +20,6 @@ urlpatterns = patterns('',
 	(r'^expire/(?P<job_id>\d+)/$', 'job.views.expire_job'),
 	(r'^applications/(?P<job_name>[\w|\W]+)/(?P<job_id>\d+)/$', 'job.views.applications'),
     (r'^my-profile$', 'job.views.profile'),
-    (r'^settings$', 'job.views.settings'),
 )
 
 if settings.DEBUG:

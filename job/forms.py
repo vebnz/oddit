@@ -65,3 +65,27 @@ class ApplyForm(forms.ModelForm):
         model = JobApply
 
         exclude = ('user', 'job')
+
+class ProfileForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        self.user = kwargs.pop('user', None)
+        super(ProfileForm, self).__init__(*args, **kwargs)
+
+    def save(self, commit=True):
+        instance = super(ProfileForm, self).save(commit=False)
+        if self.user:
+            instance.user = self.user
+            return instance.save()
+
+    class Meta:
+        model = User
+        exclude = ('username','password','is_staff','is_active','last_login','is_superuser', 'groups', 'user_permissions', 'date_joined')
+        
+class SignupForm(forms.Form):
+    first_name = forms.CharField(max_length=30, label='First Name')
+    last_name = forms.CharField(max_length=30, label='Last Name')
+
+    def signup(self, request, user):
+        user.first_name = self.cleaned_data['first_name']
+        user.last_name = self.cleaned_data['last_name']
+        user.save()

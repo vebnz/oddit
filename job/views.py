@@ -2,13 +2,13 @@
 import operator, datetime, sys
 
 from django.template import Context, loader, RequestContext
-from job.models import Job, Company, Category, JobType, Tag, City, JobApply
+from job.models import Job, Company, Category, JobType, Tag, City, JobApply, User
 from django.db.models import Count
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.exceptions import ObjectDoesNotExist
-from job.forms import JobForm, ApplyForm
+from job.forms import JobForm, ApplyForm, ProfileForm
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
@@ -308,6 +308,21 @@ def new_job(request):
         'categories': category_list},
         context_instance=RequestContext(request))
 
+def view_profile(request, user_id):
+    popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
+    popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
+    popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
+    category_list = Category.objects.all()[:10]
+    
+    user = get_object_or_404(User, pk=user_id)
+    
+    return render_to_response('jobs/profile.html',  {
+        'view_user' : user,
+        'popular_categories': popular_categories_list,
+        'popular_tags': popular_tags,
+        'categories': category_list},
+        context_instance=RequestContext(request))
+        
 @login_required
 def profile(request):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
@@ -327,8 +342,18 @@ def settings(request):
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
     popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
     category_list = Category.objects.all()[:10]
+    
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=request.user)
+        form.user = request.user
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/my-profile')
+    else:
+        form = ProfileForm(instance=request.user)
 
     return render_to_response('jobs/settings.html',  {
+        'form' : form,
         'popular_categories': popular_categories_list,
         'popular_tags': popular_tags,
         'categories': category_list},
