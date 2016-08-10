@@ -79,4 +79,4 @@ class ProfileForm(forms.ModelForm):
 
     class Meta:
         model = User
-        exclude = ('password','is_staff','is_active','last_login','is_superuser', 'groups', 'user_permissions', 'date_joined')
+        exclude = ('username','password','is_staff','is_active','last_login','is_superuser', 'groups', 'user_permissions', 'date_joined')
