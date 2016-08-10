@@ -11,7 +11,11 @@
 					<li class="list-group-item">
 						<div class="details">
 							<h3>
-								<a href="">{{ app.user }}</a>
+                                {% if not user.first_name %}
+                                    <a href="">{{ user.username }}</a>
+                                {% else %}
+                                    <a href="">{{ user.first_name }} {{ app.user.last_name }}</a>
+                                {% endif %}
 							</h3>
 							<div class="company">
 									<div class="panel-body">
