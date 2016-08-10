@@ -4,7 +4,7 @@
 	<div class="title white panel-body">
 		<div class="row">
 			<div class="jobtitle col-lg-8">
-				<h1>{{ job.title }}</h1>
+				<h2 class="panel-page-title">{{ job.title }}</h2>
 			</div>
 			<div class="jobtitle col-lg-8">
                 {% if not job.remote %}
@@ -46,7 +46,7 @@
 				<a class="btn btn-warning btn-block" href="#">Already applied</a>
 			{% else %}
 				<a class="btn btn-info btn-block" href="/jobs/apply/{{ job.id }}/">Apply</a>
-			{% endif %}	
+			{% endif %}
 	</div>
 </div>
 {% endblock %}
