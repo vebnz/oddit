@@ -3,7 +3,7 @@
 $font-family-sans-serif: 'Roboto', Helvetica, arial, sans-serif;
 $font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
 $brand-primary: #8BC34A;
-$brand-secondary: adjust-hue($brand-primary, 120deg); // $base-font-size: 16px;
+$brand-secondary: #FF6F00;
 $dark-secondary: darken($brand-secondary, 11.5%);
 $very-dark-secondary: darken($brand-secondary, 33.5%);
 $light-secondary: lighten($brand-secondary, 22.5%);
@@ -274,4 +274,11 @@ form {
 
 .panel-page-title {
   font-weight: bold;
+}
+
+.tag-list {
+  .label {
+    font-size: 100%;
+    line-height: 2em;
+  }
 }
