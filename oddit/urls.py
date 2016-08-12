@@ -10,6 +10,7 @@ urlpatterns = patterns('',
     (r'^', include('job.urls')),
     (r'^search/', include('haystack.urls')),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^my-profile$', 'job.views.profile'),
     url(r'^my-profile/edit$', 'job.views.settings'),
     url(r'^profile/(?P<user_id>\d+)/$$', 'job.views.view_profile'),
 )

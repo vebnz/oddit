@@ -38,7 +38,7 @@
 								<tbody>
 									<tr>
 										<td>Location:</td>
-										<td></td>
+										<td>{%if view_user.id = user.id %} {{ user.profile.location }} {% else %} {{ view_user.profile.location }} {% endif %}</td>
 									</tr>
 									<tr>
 										<td>Join Date:</td>
@@ -52,7 +52,7 @@
 									</tr>
 									<tr>
 										<td>Contact Number</td>
-										<td></td>
+										<td>{%if view_user.id = user.id %} {{ user.profile.phone }} {% else %} {{ view_user.profile.phone }} {% endif %}</td>
 									</tr>
 									<tr>
 										<td>

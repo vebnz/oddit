@@ -149,8 +149,9 @@ class JobApply(models.Model):
         verbose_name = 'Job Application'
 
 class UserProfile(models.Model):
-    user = models.OneToOneField(User)
-    nickname = models.CharField(max_length=30)
+    user = models.OneToOneField(User, related_name='profile')
+    location = models.CharField(max_length=30, blank=True)
+    phone = models.CharField(max_length=30, blank=True)
 
     def __str__(self):
         return u"%s's profile" % self.user
