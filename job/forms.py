@@ -91,7 +91,7 @@ class UserProfileForm(forms.ModelForm):
 
     class Meta:
         model = UserProfile
-        exclude = ()
+        exclude = ('user',)
         
 class SignupForm(forms.Form):
     first_name = forms.CharField(max_length=30, label='First Name')
