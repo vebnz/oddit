@@ -331,6 +331,7 @@ def profile(request):
     category_list = Category.objects.all()[:10]
 
     return render_to_response('jobs/profile.html',  {
+        'view_user' : request.user,
         'popular_categories': popular_categories_list,
         'popular_tags': popular_tags,
         'categories': category_list},
