@@ -8,7 +8,7 @@ from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidde
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.exceptions import ObjectDoesNotExist
-from job.forms import JobForm, ApplyForm, ProfileForm
+from job.forms import JobForm, ApplyForm, UserProfileForm
 from django.core.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
@@ -313,23 +313,23 @@ def view_profile(request, user_id):
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
     popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
     category_list = Category.objects.all()[:10]
-    
+
     user = get_object_or_404(User, pk=user_id)
-    
+
     return render_to_response('jobs/profile.html',  {
         'view_user' : user,
         'popular_categories': popular_categories_list,
         'popular_tags': popular_tags,
         'categories': category_list},
         context_instance=RequestContext(request))
-        
+
 @login_required
 def profile(request):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
     popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
     category_list = Category.objects.all()[:10]
-    
+
     user = get_object_or_404(User, pk=request.user.id)
 
     return render_to_response('jobs/profile.html',  {
@@ -345,15 +345,15 @@ def settings(request):
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
     popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
     category_list = Category.objects.all()[:10]
-    
+
     if request.method == 'POST':
-        form = ProfileForm(request.POST, instance=request.user)
+        form = UserProfileForm(request.POST, instance=request.user.profile)
         form.user = request.user
         if form.is_valid():
             form.save()
             return HttpResponseRedirect('/my-profile')
     else:
-        form = ProfileForm(instance=request.user)
+        form = UserProfileForm(instance=request.user.profile)
 
     return render_to_response('jobs/settings.html',  {
         'form' : form,
