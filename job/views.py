@@ -313,16 +313,16 @@ def view_profile(request, user_id):
     popular_tags = Tag.objects.usage_for_model(Job, counts=True)[:5]
     popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
     category_list = Category.objects.all()[:10]
-    
+
     user = get_object_or_404(User, pk=user_id)
-    
+
     return render_to_response('jobs/profile.html',  {
         'view_user' : user,
         'popular_categories': popular_categories_list,
         'popular_tags': popular_tags,
         'categories': category_list},
         context_instance=RequestContext(request))
-        
+
 @login_required
 def profile(request):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
@@ -330,8 +330,10 @@ def profile(request):
     popular_tags.sort(key=operator.attrgetter('count'), reverse=True)
     category_list = Category.objects.all()[:10]
 
+    user = get_object_or_404(User, pk=request.user.id)
+
     return render_to_response('jobs/profile.html',  {
-        'view_user' : request.user,
+        'view_user' : user,
         'popular_categories': popular_categories_list,
         'popular_tags': popular_tags,
         'categories': category_list},
