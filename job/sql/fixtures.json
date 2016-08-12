@@ -169,6 +169,38 @@
 },
 {
     "fields": {
+        "model": "socialtoken",
+        "app_label": "socialaccount"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 22
+},
+{
+    "fields": {
+        "model": "socialapp",
+        "app_label": "socialaccount"
+    },
+    "model": "contenttypes.contenttype",
+    "pk": 23
+},
+{
+    "fields": {
+        "expire_date": "2016-08-26T04:44:53.415",
+        "session_data": "YTE2NTNiYWQ0YjU5ZTM1OTMxODY4YmQ3NDA0ZTBlMTgyM2Y0YzdiMTp7Il9zZXNzaW9uX2V4cGlyeSI6MCwiX2F1dGhfdXNlcl9oYXNoIjoiNGFkN2M3YzdlODkyNGIxNDAwYzkwNzVlNTk2NjIxZjc4NmY3ZGZjMyIsIl9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiYWxsYXV0aC5hY2NvdW50LmF1dGhfYmFja2VuZHMuQXV0aGVudGljYXRpb25CYWNrZW5kIn0="
+    },
+    "model": "sessions.session",
+    "pk": "1aa4lzrscptue9glu3kv2kgjq0n4867f"
+},
+{
+    "fields": {
+        "expire_date": "2016-08-26T04:46:17.671",
+        "session_data": "ZmMxNzMzZDA3NjIwMjRhMTRhOGI4YzRiOWFkMTdjNDFmMjU4Y2QwOTp7ImFjY291bnRfdXNlciI6IjIiLCJfbWVzc2FnZXMiOiJbW1wiX19qc29uX21lc3NhZ2VcIiwwLDIwLFwiQ29uZmlybWF0aW9uIGUtbWFpbCBzZW50IHRvIG1pa2VAdmViLmNvLm56LlwiXV0iLCJhY2NvdW50X3ZlcmlmaWVkX2VtYWlsIjpudWxsfQ=="
+    },
+    "model": "sessions.session",
+    "pk": "rwvwlj2cvgbv6jit5f1lklambx76fvd3"
+},
+{
+    "fields": {
         "domain": "oddit.co.nz",
         "name": "OddIT"
     },
@@ -712,6 +744,45 @@
     },
     "model": "job.jobtype",
     "pk": 4
+},
+{
+    "fields": {
+        "name": "github",
+        "sites": [
+            1
+        ],
+        "secret": "d4b9456057e6daa655c57d2c45f89c8c85fd15f1",
+        "client_id": "2034745644403a93b410",
+        "key": "",
+        "provider": "github"
+    },
+    "model": "socialaccount.socialapp",
+    "pk": 1
+},
+{
+    "fields": {
+        "name": "linkedin",
+        "sites": [
+            1
+        ],
+        "secret": "G910eqZwgzIKPLXA",
+        "client_id": "754quuztq1mcnb",
+        "key": "",
+        "provider": "linkedin"
+    },
+    "model": "socialaccount.socialapp",
+    "pk": 2
+},
+{
+    "fields": {
+        "app": 1,
+        "token_secret": "",
+        "expires_at": null,
+        "account": 1,
+        "token": "33f2d990c1912e0a65db88995a294c8bf64b181b"
+    },
+    "model": "socialaccount.socialtoken",
+    "pk": 1
 },
 {
     "fields": {
@@ -1279,5 +1350,157 @@
     },
     "model": "auth.permission",
     "pk": 63
+},
+{
+    "fields": {
+        "codename": "add_socialtoken",
+        "name": "Can add social application token",
+        "content_type": 22
+    },
+    "model": "auth.permission",
+    "pk": 64
+},
+{
+    "fields": {
+        "codename": "change_socialtoken",
+        "name": "Can change social application token",
+        "content_type": 22
+    },
+    "model": "auth.permission",
+    "pk": 65
+},
+{
+    "fields": {
+        "codename": "delete_socialtoken",
+        "name": "Can delete social application token",
+        "content_type": 22
+    },
+    "model": "auth.permission",
+    "pk": 66
+},
+{
+    "fields": {
+        "username": "jamie",
+        "first_name": "",
+        "last_name": "",
+        "is_active": true,
+        "is_superuser": true,
+        "is_staff": true,
+        "last_login": "2016-08-12T04:41:10.175",
+        "groups": [],
+        "user_permissions": [],
+        "password": "pbkdf2_sha256$20000$Su5bh7tremwK$D8iL8dhXNVWcu1ZwaFkkMTQG/yhgEG6CdAvEHD7I+Z4=",
+        "email": "k1hosting@gmail.com",
+        "date_joined": "2016-08-12T04:38:06.840"
+    },
+    "model": "auth.user",
+    "pk": 1
+},
+{
+    "fields": {
+        "username": "veb",
+        "first_name": "Mike",
+        "last_name": "Mackenzie",
+        "is_active": true,
+        "is_superuser": false,
+        "is_staff": false,
+        "last_login": null,
+        "groups": [],
+        "user_permissions": [],
+        "password": "!ykCcDf6rXSGMOB4xVKu8cwKJdo2abJHBkgGy0GdG",
+        "email": "mike@veb.co.nz",
+        "date_joined": "2016-08-12T04:46:14.912"
+    },
+    "model": "auth.user",
+    "pk": 2
+},
+{
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2016-08-12T04:43:42.299",
+        "object_repr": "github",
+        "object_id": "1",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    },
+    "model": "admin.logentry",
+    "pk": 1
+},
+{
+    "fields": {
+        "action_flag": 1,
+        "action_time": "2016-08-12T04:44:13.642",
+        "object_repr": "linkedin",
+        "object_id": "2",
+        "change_message": "",
+        "user": 1,
+        "content_type": 23
+    },
+    "model": "admin.logentry",
+    "pk": 2
+},
+{
+    "fields": {
+        "action_flag": 2,
+        "action_time": "2016-08-12T04:44:53.398",
+        "object_repr": "jamie",
+        "object_id": "1",
+        "change_message": "Changed password.",
+        "user": 1,
+        "content_type": 3
+    },
+    "model": "admin.logentry",
+    "pk": 3
+},
+{
+    "fields": {
+        "phone": "",
+        "user": 1,
+        "location": ""
+    },
+    "model": "job.userprofile",
+    "pk": 1
+},
+{
+    "fields": {
+        "phone": "",
+        "user": 2,
+        "location": ""
+    },
+    "model": "job.userprofile",
+    "pk": 2
+},
+{
+    "fields": {
+        "verified": true,
+        "user": 1,
+        "primary": true,
+        "email": "k1hosting@gmail.com"
+    },
+    "model": "account.emailaddress",
+    "pk": 1
+},
+{
+    "fields": {
+        "verified": false,
+        "user": 2,
+        "primary": true,
+        "email": "mike@veb.co.nz"
+    },
+    "model": "account.emailaddress",
+    "pk": 2
+},
+{
+    "fields": {
+        "uid": "376245",
+        "last_login": "2016-08-12T04:46:14.948",
+        "user": 2,
+        "provider": "github",
+        "extra_data": "{\"bio\": null, \"site_admin\": false, \"updated_at\": \"2016-08-08T08:04:20Z\", \"gravatar_id\": \"\", \"hireable\": true, \"id\": 376245, \"followers_url\": \"https://api.github.com/users/veb/followers\", \"following_url\": \"https://api.github.com/users/veb/following{/other_user}\", \"blog\": \"http://veb.co.nz\", \"followers\": 15, \"location\": \"Dunedin, New Zealand\", \"type\": \"User\", \"email\": \"mike@veb.co.nz\", \"public_repos\": 22, \"events_url\": \"https://api.github.com/users/veb/events{/privacy}\", \"company\": \"veb ltd\", \"gists_url\": \"https://api.github.com/users/veb/gists{/gist_id}\", \"html_url\": \"https://github.com/veb\", \"subscriptions_url\": \"https://api.github.com/users/veb/subscriptions\", \"received_events_url\": \"https://api.github.com/users/veb/received_events\", \"starred_url\": \"https://api.github.com/users/veb/starred{/owner}{/repo}\", \"public_gists\": 44, \"name\": \"Mike Mackenzie\", \"organizations_url\": \"https://api.github.com/users/veb/orgs\", \"url\": \"https://api.github.com/users/veb\", \"created_at\": \"2010-08-25T22:38:44Z\", \"avatar_url\": \"https://avatars.githubusercontent.com/u/376245?v=3\", \"repos_url\": \"https://api.github.com/users/veb/repos\", \"following\": 28, \"login\": \"veb\"}",
+        "date_joined": "2016-08-12T04:46:14.948"
+    },
+    "model": "socialaccount.socialaccount",
+    "pk": 1
 }
 ]
