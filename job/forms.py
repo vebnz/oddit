@@ -1,5 +1,5 @@
 from django import forms
-from job.models import Job, JobApply
+from job.models import Job, JobApply, UserProfile
 from django.forms import CharField
 from django.forms.widgets import TextInput
 from django.contrib.auth.models import User
@@ -66,20 +66,32 @@ class ApplyForm(forms.ModelForm):
 
         exclude = ('user', 'job')
 
-class ProfileForm(forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        self.user = kwargs.pop('user', None)
-        super(ProfileForm, self).__init__(*args, **kwargs)
-
-    def save(self, commit=True):
-        instance = super(ProfileForm, self).save(commit=False)
-        if self.user:
-            instance.user = self.user
-            return instance.save()
-
+class UserForm(forms.ModelForm):
     class Meta:
         model = User
         exclude = ('username','password','is_staff','is_active','last_login','is_superuser', 'groups', 'user_permissions', 'date_joined')
+
+class UserProfileForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        # magic 
+        self.user = kwargs['instance'].user
+        user_kwargs = kwargs.copy()
+        user_kwargs['instance'] = self.user
+        self.user_form = UserForm(*args, **user_kwargs)
+        # magic end 
+
+        super(UserProfileForm, self).__init__(*args, **kwargs)
+
+        self.fields.update(self.user_form.fields)
+        self.initial.update(self.user_form.initial)
+
+    def save(self, *args, **kwargs):
+        self.user_form.save(*args, **kwargs)
+        return super(UserProfileForm, self).save(*args, **kwargs)
+
+    class Meta:
+        model = UserProfile
+        exclude = ()
         
 class SignupForm(forms.Form):
     first_name = forms.CharField(max_length=30, label='First Name')
