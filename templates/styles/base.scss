@@ -1,15 +1,16 @@
-@import url( 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Montserrat:400,700');
+@import url( 'https://fonts.googleapis.com/css?family=Oxygen:300,400,700|Montserrat:400,700');
 @import 'mixin';
-$font-family-sans-serif: 'Roboto', Helvetica, arial, sans-serif;
+$font-family-sans-serif: 'Oxygen', Helvetica, arial, sans-serif;
 $font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
-$brand-primary: #8BC34A;
-$brand-secondary: #60a917;
-$dark-secondary: darken($brand-secondary, 11.5%);
-$very-dark-secondary: darken($brand-secondary, 33.5%);
-$light-secondary: lighten($brand-secondary, 22.5%);
-$dark-brand: darken($brand-primary, 10.5%);
-$very-dark-brand: darken($brand-primary, 33.5%);
-$light-brand: lighten($brand-primary, 35.5%);
+$brand-header: #FFDC00;
+$brand-header-accent: #eee;
+$brand-footer-main: #6D6A3D;
+$brand-footer-accent: #eee;
+$brand-body: darken(#ffc107, 5%);
+$brand-primary: $brand-body;
+$navbar-inverse-link-color: $brand-header !default;
+$navbar-inverse-link-active-color: $brand-header-accent !default;
+$brand-secondary: #FFDC00;
 $spacer: 0.5em;
 @import 'paper/variables';
 @import '../components/bootstrap-sass/assets/stylesheets/bootstrap/variables';
@@ -31,11 +32,11 @@ $fa-font-path: "../static/font-awesome/fonts";
     .nav {
         > li {
             > a {
-                color      : $dark-brand;
+                color      : $brand-header;
                 font-weight: bold;
                 &:focus,
                 &:hover {
-                    color           : $navbar-default-link-active-color;
+                    color           : $brand-header-accent;
                     background-color: $navbar-default-link-active-bg;
                 }
             }
@@ -79,6 +80,7 @@ input[type='submit'] {
 }
 @import "compass/css3";
 body > header {
+    border-top: 5px solid $brand-header;
     .container,
     .row {
         @include screen-tablet {
@@ -88,7 +90,7 @@ body > header {
     .navbar-brand {
         padding: 0 $navbar-padding-horizontal;
         img {
-            background-color: $dark-brand;
+            background-color: $brand-header;
             width           : auto;
             height          : 50px;
         }
@@ -104,6 +106,9 @@ body > header {
         .navbar-brand {
             height: auto;
         }
+    }
+    .btn-header {
+        @include button-variant($btn-primary-color, $brand-header, darken($brand-header, 5%));
     }
 }
 body > .content > main {
@@ -141,10 +146,8 @@ body > footer {
         }
     }
     .btn-footer {
-        @include button-variant($btn-primary-color, $brand-secondary, darken($brand-secondary, 5%));
-        &:hover {
-            @include button-variant($btn-primary-color, $btn-primary-border, $btn-primary-bg);
-        }
+      @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+        // @include button-variant($btn-primary-color, $brand-header-accent, darken($brand-header-accent, 5%));
     }
     .widget {
         padding      : 20px;
@@ -159,16 +162,29 @@ body > footer {
             margin-bottom: 18px;
         }
         li a {
-            color: $brand-secondary;
+            color: $brand-footer-accent;
             &:hover {
-                color: $brand-primary;
+                color: $link-hover-color;
+            }
+        }
+    }
+    .social {
+        li a {
+            .fa-inverse {
+                color: $gray-darker;
+            }
+            &:hover {
+                color: $gray-darker;
+                .fa-inverse {
+                  color: $brand-footer-accent;
+                }
             }
         }
     }
     .widget-title {
         margin-bottom: 20px;
         span {
-            background: $dark-brand none repeat scroll 0 0;
+            background: $brand-footer-accent none repeat scroll 0 0;
             display   : block;
             height    : 1px;
             margin-top: 10px;
@@ -215,6 +231,13 @@ body > footer {
         h5,
         h6 {
             margin: 0;
+        }
+        h3 > a {
+          color: $text-color;
+          font-weight: bold;
+          &:hover {
+            color: $link-hover-color;
+          }
         }
     }
 }
