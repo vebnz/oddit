@@ -56,14 +56,12 @@
 
 	<body>
 		<header>
-			<nav class="navbar navbar-default" role="navigation">
+			<nav class="navbar navbar-inverse" role="navigation">
 				<div class="container-fluid">
 					<div class="navbar-header">
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
 							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
+							<i class="fa fa-bars fa-lg" aria-hidden="true"></i>
 						</button>
 						<a class="navbar-brand" id="brand-logo" href="http://oddit.co.nz">
 							<img alt="oddit" src="/static/images/odditx_lg.png"/>
@@ -154,7 +152,7 @@
 							<div class="input-group">
 								<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
 								<div class="input-group-btn">
-									<button class="btn btn-primary" id="submit" type="submit">
+									<button class="btn btn-header" id="submit" type="submit">
 										<i class="fa fa-search"></i>
 									</button>
 								</div>
@@ -298,10 +296,15 @@
 								<h5 class="widget-title">Contact Us<span></span>
 								</h5>
 
-								<p>
-									<a href="mailto:hello@oddit.co.nz" title="glorythemes">hello@oddit.co.nz</a>
-								</p>
-								<ul class="list-inline">
+								<ul class="list-unstyled">
+									<li>
+										<div class="thumb-content">
+											<a href="mailto:hello@oddit.co.nz">hello@oddit.co.nz</a>
+										</div>
+									</li>
+								</ul>
+
+								<ul class="list-inline social">
                 <li><a href="#">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
