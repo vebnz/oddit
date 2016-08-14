@@ -2,7 +2,7 @@ anyjson==0.3.3
 cffi==1.7.0
 cryptography==1.4
 decorator==4.0.9
-Django==1.8
+Django==1.9
 django-allauth==0.26.1
 django-appconf==1.0.2
 django-bootstrap-form==3.2.1

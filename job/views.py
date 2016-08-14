@@ -9,7 +9,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.exceptions import ObjectDoesNotExist
 from job.forms import JobForm, ApplyForm, UserProfileForm
-from django.core.context_processors import csrf
+from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
