@@ -83,8 +83,18 @@ INSTALLED_APPS = (
     'compressor',
     'widget_tweaks',
     'bootstrapform',
+    'channels',
 )
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG" : {
+            "hosts" : [REDIS_URL]
+        },
+        "ROUTING": "oddit.routing.channel_routing",
+    },
+}
 
 import os
 HAYSTACK_CONNECTIONS = {
