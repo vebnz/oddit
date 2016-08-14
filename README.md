@@ -38,6 +38,7 @@ Packages are required, please see requirements.txt:
 
  - Valid ruby environment (http://www.ruby-lang.org/en/downloads/)
  - Valid nodejs environment (https://nodejs.org/en/download/)
+ - Valid redis (http://redis.io/topics/quickstart)
  - Install following Packages
 
  `gem install compass`
@@ -45,6 +46,7 @@ Packages are required, please see requirements.txt:
  `npm install -g bower`
 
  `bower install`
+
 
 
 There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
