@@ -4,6 +4,7 @@ from django.conf import settings
 
 from django.views import static
 import job.views as jobs
+import notification.views as notifications
 
 urlpatterns = [
     url(r'^$', jobs.index),
@@ -22,6 +23,7 @@ urlpatterns = [
 	url(r'^edit/(?P<job_id>\d+)/$', jobs.edit_job),
 	url(r'^expire/(?P<job_id>\d+)/$', jobs.expire_job),
 	url(r'^applications/(?P<job_name>[\w|\W]+)/(?P<job_id>\d+)/$', jobs.applications),
+    url(r'^dump/', notifications.view_message_dump),
 ]
 
 if settings.DEBUG:
