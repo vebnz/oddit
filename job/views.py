@@ -77,7 +77,6 @@ def detail(request, job_id, job_name):
         'job': job,
         'job_tags': job_tags,
         'applied': checkApply,
-        'company': job.title,
         'categories': category_list,
         'popular_categories': popular_categories_list,
         'popular_tags': popular_tags,},
@@ -106,7 +105,6 @@ def results_search(request):
     job_types = JobType.objects.all()
 
     jobs = Job.objects.filter(title__icontains=query) | \
-            Job.objects.filter(company__icontains=query) | \
             Job.objects.filter(tag_list__icontains=query) | \
             Job.objects.filter(description__icontains=query)
 
