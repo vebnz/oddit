@@ -93,7 +93,7 @@ CHANNEL_LAYERS = {
         "CONFIG" : {
             "hosts" : [REDIS_URL]
         },
-        "ROUTING": "oddit.routing.channel_routing",
+        "ROUTING": "notification.routing.channel_routing",
     },
 }
 

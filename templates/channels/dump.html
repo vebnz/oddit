@@ -16,10 +16,15 @@
         $(document).ready(function () {
             var socket = new WebSocket("ws://" + window.location.host + "/lobby/");
             socket.onmessage = function (e) {
-                $("#message_dump").append("<p>" + e.data + "</p>")
+                $("#message_dump").prepend("<p>" + e.data + "</p>")
             }
             $("#btn-push").click(function (e) {
-                socket.send("msg: " + moment().format('MMMM Do YYYY, h:mm:ss a'));
+                socket.send(JSON.stringify({
+                    "msg": moment().format('MMMM Do YYYY, h:mm:ss a'),
+                    "action": "ping",
+                    "job": 2,
+                    "assignee": 3,
+                }));
             })
         });
     </script>
