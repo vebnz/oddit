@@ -7,6 +7,8 @@ from django.db.models.signals import post_save
 from django.forms import ModelForm
 from job.validators import validate_pdf
 
+from channels import Channel
+
 # Create your models here.
 class Region(models.Model):
     name = models.CharField(max_length=30)
@@ -115,6 +117,15 @@ class JobApply(models.Model):
         if not self.id:
             self.created = datetime.date.today()
         self.updated = datetime.datetime.today()
+        
+        Channel("lobby-messages").send({
+            "sender": self.user.id,
+            "assignee": self.job.user.id,
+            "job": self.job.id,
+            "action": "applied to",
+            "message": "%s applied to %s" % (self.user.username, self.job.title) ,
+        });
+
         super(JobApply, self).save()
 
     def __unicode__(self):

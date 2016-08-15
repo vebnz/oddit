@@ -50,7 +50,7 @@
 				$(document).ready(function () {
 						var socket = new WebSocket("ws://" + window.location.host + "/lobby/");
 						socket.onmessage = function (e) {
-							toastr.info(e.data);
+							toastr.info(e.data, "", {"positionClass": "toast-bottom-center"});
 							var $number = $("#notify_count");
 							$number.html((parseInt($number.html(),10) || 0) + 1);
 						}
