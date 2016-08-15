@@ -63,6 +63,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'oddit.urls'
 
 INSTALLED_APPS = (
+    'jet.dashboard',
+    'jet',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -83,8 +85,19 @@ INSTALLED_APPS = (
     'compressor',
     'widget_tweaks',
     'bootstrapform',
+    'channels',
+    'notification'
 )
 
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG" : {
+            "hosts" : [REDIS_URL]
+        },
+        "ROUTING": "notification.routing.channel_routing",
+    },
+}
 
 import os
 HAYSTACK_CONNECTIONS = {
@@ -177,3 +190,5 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': ['user:email']
     }
 }
+
+TEMPLATES[0]['OPTIONS']['context_processors'].append('notification.context_processors.notify_count')
