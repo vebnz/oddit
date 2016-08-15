@@ -39,13 +39,22 @@
 			<script type="text/javascript" src="/static/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
 
 			<script type="text/javascript" src="/static/bootstrap-validator/dist/validator.js"></script>
+			<script type="text/javascript" src="/static/toastr/toastr.js"></script>
 
 			<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
-			<script type="text/javascript" src="/static/scripts/jquery.select_skin.js"></script>
 			<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
 			<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
-			<script type="text/javascript" src="/static/scripts/jquery.tipTip.js"></script>
+
 			{% endcompress %}
+			<script type="text/javascript">
+				$(document).ready(function () {						
+						var socket = new WebSocket("ws://" + window.location.host + "/lobby/");
+						socket.onmessage = function (e) {
+							debugger;
+							toastr.info(e.data);
+						}
+				});
+			</script>
 			{% compress css %}
 			<link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
 			<link rel="stylesheet" type="text/css" href="/static/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css"/>
