@@ -1,0 +1,31 @@
+{% extends "jobs/base.html" %}
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Message Dump</h3>
+        </div>
+        <div class="panel-body pre-scrollable" id="message_dump"></div>
+        <div class="panel-footer" id="room_info">
+            <button id="btn-push" type="button" class="btn btn-default">
+                push message
+            </button>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var socket = new WebSocket("ws://" + window.location.host + "/lobby/");
+            socket.onmessage = function (e) {
+                $("#message_dump").prepend("<p>" + e.data + "</p>")
+            }
+            $("#btn-push").click(function (e) {
+                socket.send(JSON.stringify({
+                    "msg": moment().format('MMMM Do YYYY, h:mm:ss a'),
+                    "action": "ping",
+                    "job": 2,
+                    "assignee": 4,
+                }));
+            })
+        });
+    </script>
+{% endblock %}

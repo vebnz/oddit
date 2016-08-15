@@ -28,6 +28,13 @@ $chosen-focus-transition: 0 !default;
 $fa-font-path: "../static/font-awesome/fonts";
 @import '../components/font-awesome/scss/font-awesome';
 @import '../components/bootstrap-social/bootstrap-social';
+
+@import '../components/toastr/toastr.scss';
+@import "compass/css3/opacity";
+#toast-container > div {
+    @include opacity(1);
+}
+
 .navbar {
     .nav {
         > li {
