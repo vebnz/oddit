@@ -48,7 +48,7 @@
 			{% endcompress %}
 			<script type="text/javascript">
 				$(document).ready(function () {
-						var socket = new WebSocket("ws://" + window.location.host + "/lobby/");
+						var socket = new WebSocket("wss://" + window.location.host + "/lobby/");
 						socket.onmessage = function (e) {
 							toastr.info(e.data, "", {"positionClass": "toast-bottom-center"});
 							var $number = $("#notify_count");
