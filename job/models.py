@@ -68,7 +68,7 @@ class Job(models.Model):
     position = models.IntegerField(default=0, choices=POSITION_CHOICES)
     region = models.ForeignKey(Region)
     city = models.ForeignKey(City)
-    remote = models.IntegerField(default=0, choices=REMOTE_CHOICES)
+    remote = models.IntegerField(default=1, choices=REMOTE_CHOICES)
     created = models.DateField(editable=False)
     updated = models.DateTimeField(editable=False)
     type = models.ForeignKey(JobType)
