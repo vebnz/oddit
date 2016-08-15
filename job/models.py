@@ -36,23 +36,6 @@ class Category(models.Model):
     class Meta:
         verbose_name_plural = "Categories"
 
-class Company(models.Model):
-    name =  models.CharField(max_length=30)
-    created = models.DateField(editable=False)
-    updated = models.DateTimeField(editable=False)
-
-    def save(self):
-        if not self.id:
-            self.created = datetime.date.today()
-        self.updated = datetime.datetime.today()
-        super(Company, self).save()
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = "Companies"
-
 class JobType(models.Model):
     name = models.CharField(max_length=30)
 
@@ -73,11 +56,6 @@ class Job(models.Model):
         (2, 'Senior'),
 	(3, 'Intern')
     )
-    BUDGET_CHOICES = (
-            (0, 'Per Hour'),
-            (1, 'Total'),
-	    (2, 'Negotiable')
-    )
     STATUS_CHOICES = (
         (0, 'Draft'),
         (1, 'Published'),
@@ -87,7 +65,6 @@ class Job(models.Model):
     title = models.CharField(max_length=30)
     category = models.ForeignKey(Category)
     description = models.TextField()
-    company = models.CharField(max_length=30)
     position = models.IntegerField(default=0, choices=POSITION_CHOICES)
     region = models.ForeignKey(Region)
     city = models.ForeignKey(City)
@@ -96,7 +73,6 @@ class Job(models.Model):
     updated = models.DateTimeField(editable=False)
     type = models.ForeignKey(JobType)
     budget = models.IntegerField()
-    budget_type = models.IntegerField(default=0, choices=BUDGET_CHOICES)
     ip = models.GenericIPAddressField(default="225.225.225.225")
     status = models.IntegerField(default=1, choices=STATUS_CHOICES)
     expires = models.DateField()
