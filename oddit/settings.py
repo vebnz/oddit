@@ -188,3 +188,5 @@ SOCIALACCOUNT_PROVIDERS = {
         'SCOPE': ['user:email']
     }
 }
+
+TEMPLATES[0]['OPTIONS']['context_processors'].append('notification.context_processors.notify_count')

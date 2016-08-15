@@ -47,11 +47,12 @@
 
 			{% endcompress %}
 			<script type="text/javascript">
-				$(document).ready(function () {						
+				$(document).ready(function () {
 						var socket = new WebSocket("ws://" + window.location.host + "/lobby/");
 						socket.onmessage = function (e) {
-							debugger;
 							toastr.info(e.data);
+							var $number = $("#notify_count");
+							$number.html((parseInt($number.html(),10) || 0) + 1);
 						}
 				});
 			</script>
@@ -107,6 +108,9 @@
 							<li class="dropdown">
 								{% if user.is_authenticated %}
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+										{% if notify_count > 0 %}
+											<span id="notify_count" class="badge">{{notify_count}}</span>
+										{% endif %}
 										<i class="fa fa-user" aria-hidden="true"></i>
 										{% if not user.first_name %}
 											<strong>{{ user.username }}</strong>
