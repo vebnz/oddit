@@ -2,7 +2,7 @@
 import operator, datetime, sys
 
 from django.template import Context, loader, RequestContext
-from job.models import Job, Company, Category, JobType, Tag, City, JobApply, User
+from job.models import Job, Category, JobType, Tag, City, JobApply, User
 from django.db.models import Count
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render_to_response, get_object_or_404
