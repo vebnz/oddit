@@ -2,15 +2,15 @@
 @import 'mixin';
 $font-family-sans-serif: 'Oxygen', Helvetica, arial, sans-serif;
 $font-family-display: 'Montserrat', Helvetica, arial, sans-serif;
-$brand-header: #FFDC00;
+$brand-header: #59c02c;
 $brand-header-accent: #eee;
 $brand-footer-main: #6D6A3D;
 $brand-footer-accent: #eee;
-$brand-body: darken(#ffc107, 5%);
+$brand-body: darken(#59c02c, 5%);
 $brand-primary: $brand-body;
 $navbar-inverse-link-color: $brand-header !default;
 $navbar-inverse-link-active-color: $brand-header-accent !default;
-$brand-secondary: #FFDC00;
+$brand-secondary: #59c02c;
 $spacer: 0.5em;
 @import 'paper/variables';
 @import '../components/bootstrap-sass/assets/stylesheets/bootstrap/variables';
