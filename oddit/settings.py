@@ -84,6 +84,7 @@ INSTALLED_APPS = (
     'widget_tweaks',
     'bootstrapform',
     'channels',
+    'notification'
 )
 
 CHANNEL_LAYERS = {
