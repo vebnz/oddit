@@ -14,3 +14,4 @@ venv/
 job/migrations/*
 mike/
 oddit/whoosh_index/*
+job/sql/fixtures.json
