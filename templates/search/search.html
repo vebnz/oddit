@@ -21,6 +21,9 @@
     <p>
      <a href="/jobs/show/{{ result.object.title|slugify }}/{{ result.object.id }}">{{ result.object.title }}</a>
      - Category: {{ result.object.category.name }}
+       (Tags: {% for tag in result.object.tags %}  
+       <em>{{ tag }}{{ forloop.last|yesno:",&#44;"|safe }}</em>
+        {% endfor %})
     </p>
     {% empty %}
     <p>No results found.</p>
