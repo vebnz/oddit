@@ -1,11 +1,13 @@
 import datetime
 from haystack import indexes
 from job.models import Job, Category
+from tagging.models import Tag
 
 class JobIndex(indexes.SearchIndex, indexes.Indexable):
     text = indexes.CharField(document=True, use_template=True)
     title = indexes.CharField(model_attr='title')
     category = indexes.CharField()
+    tag_list = indexes.CharField(model_attr='tags')
 
     def get_model(self):
         return Job
