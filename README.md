@@ -2,11 +2,11 @@
 
 Oddit stands for "Odd IT Jobs".
 
-Here's a screenshot of our first alpha version:
-![oddit alpha screenshot](http://i.imgur.com/LPqr8.png)
+A screenshot of our beta version:
+![oddit beta screenshot](http://i.imgur.com/VDob5Cj.png)
 
-Here's the admin panel:
-![oddit alpha admin screen](http://i.imgur.com/UZgs3hO.png)
+A screenshot of the beta admin panel:
+![oddit admin beta screenshot](http://i.imgur.com/paEFzTG.png)
 
 ### Tell me more...
 We started this project out of a need for small jobs we could do.  Take an Electrician for example, they can come around and put in a new light switch for you, you pay them $80 and they go away. Job well done. But why is such a thing uncommon in the Information Technology industry?
