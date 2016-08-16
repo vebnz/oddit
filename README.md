@@ -48,17 +48,14 @@ Packages are required, please see requirements.txt:
  `bower install`
 
 
-
-There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
-remember parts of it were created 5 years ago.
-
 ### Initial Data load
 
  - `python manage.py makemigrations`
  - `python manage.py migrate`
  - `python manage.py loaddata job/sql/fixtures.json`
+ - `python manage.py rebuild_index` (refer to [haystack documentation](http://django-haystack.readthedocs.io/en/v2.5.0/tutorial.html#installation) for more info.)
 
-We'll be accepting pull requests and fixing issues/bugs posted. Help Oddit thrive!
+We'll be accepting pull requests and fixing issues/bugs posted. We welcome anyone who'd like to join the project.
 
 ### Developed by [veb ltd](http://veb.nz)
 - [Mike Mackenzie](https://github.com/veb)
