@@ -20,6 +20,7 @@
     {% for result in page.object_list %}
     <p>
      <a href="/jobs/show/{{ result.object.title|slugify }}/{{ result.object.id }}">{{ result.object.title }}</a>
+     - Category: {{ result.object.category.name }}
     </p>
     {% empty %}
     <p>No results found.</p>
