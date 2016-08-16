@@ -12,3 +12,4 @@ oddit/secret_settings.py
 templates/static/.DS_Store
 venv/
 job/migrations/*
+mike/
