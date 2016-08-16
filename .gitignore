@@ -11,3 +11,7 @@ oddit/secret_settings.py
 
 templates/static/.DS_Store
 venv/
+job/migrations/*
+mike/
+oddit/whoosh_index/*
+job/sql/fixtures.json

@@ -2,11 +2,11 @@
 
 Oddit stands for "Odd IT Jobs".
 
-Here's a screenshot of our first alpha version:
-![oddit alpha screenshot](http://i.imgur.com/LPqr8.png)
+A screenshot of our beta version:
+![oddit beta screenshot](http://i.imgur.com/VDob5Cj.png)
 
-Here's the admin panel:
-![oddit alpha admin screen](http://i.imgur.com/UZgs3hO.png)
+A screenshot of the beta admin panel:
+![oddit admin beta screenshot](http://i.imgur.com/paEFzTG.png)
 
 ### Tell me more...
 We started this project out of a need for small jobs we could do.  Take an Electrician for example, they can come around and put in a new light switch for you, you pay them $80 and they go away. Job well done. But why is such a thing uncommon in the Information Technology industry?
@@ -48,17 +48,14 @@ Packages are required, please see requirements.txt:
  `bower install`
 
 
-
-There's not really much to making this work, it's all very simple-like. If you do end up fiddling with this code
-remember parts of it were created 5 years ago.
-
 ### Initial Data load
 
  - `python manage.py makemigrations`
  - `python manage.py migrate`
  - `python manage.py loaddata job/sql/fixtures.json`
+ - `python manage.py rebuild_index` (refer to [haystack documentation](http://django-haystack.readthedocs.io/en/v2.5.0/tutorial.html#installation) for more info.)
 
-We'll be accepting pull requests and fixing issues/bugs posted. Help Oddit thrive!
+We'll be accepting pull requests and fixing issues/bugs posted. We welcome anyone who'd like to join the project.
 
 ### Developed by [veb ltd](http://veb.nz)
 - [Mike Mackenzie](https://github.com/veb)
