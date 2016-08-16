@@ -13,3 +13,4 @@ templates/static/.DS_Store
 venv/
 job/migrations/*
 mike/
+oddit/whoosh_index/*
