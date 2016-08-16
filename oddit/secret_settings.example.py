@@ -86,3 +86,5 @@ MEDIA_URL = 'http://example.com/jobs/static/'
 # Example: "/home/media/media.lawrence.com/static/"
 STATIC_ROOT = '/path/to/static/'
 COMPRESS_ROOT = '/path/to/templates/static'
+
+REDIS_URL =  'redis://localhost:6379'
