@@ -1,6 +1,7 @@
 {% extends "jobs/base.html" %}
 {% load bootstrap %}
 {% load widget_tweaks %}
+{% load wysiwyg %}
 {% block content %}
 	<div class="post whiteboard">
 		<div class="panel panel-default">
@@ -16,6 +17,7 @@
 				</p>
 			</div>
 			<form id="post" name="post"  action="" method="post" class="form-horizontal">{% csrf_token %}
+				{% wysiwyg_setup %}
 				<div class="panel-body">
 
 					<div class="input-block">
@@ -23,6 +25,7 @@
 							<label for="inputEmail3" class="col-sm-2 control-label">{{ form.title.label_tag }}</label>
 							<div class="col-sm-10">
 								{{ form.title|attr:'required:true'}}
+								{% wysiwyg_editor "id_description" %}
 								<p class="help-block">Enter a descriptive title for the job listing.</p>
 								<div class="help-block with-errors"></div>
 							</div>
