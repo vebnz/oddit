@@ -88,7 +88,9 @@ INSTALLED_APPS = (
     'widget_tweaks',
     'bootstrapform',
     'channels',
-    'notification'
+    'notification',
+    'tinymce',
+    'django_wysiwyg'
 )
 
 CHANNEL_LAYERS = {
@@ -192,3 +194,5 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 TEMPLATES[0]['OPTIONS']['context_processors'].append('notification.context_processors.notify_count')
+
+DJANGO_WYSIWYG_FLAVOR = "tinymce"
