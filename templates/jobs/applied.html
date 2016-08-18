@@ -26,7 +26,7 @@
                             {% for app in job.jobapply_set.all %}
                                 {% if app.user.id = user.id %}
                                     <div>
-                                        <p>Notes: {{ app.notes }}</p>
+                                        <p>Notes: {{ app.notes|linebreaksbr }}</p>
                                     </div>
                                     <div>
                                         <span>Résumé: <a href="/jobs/static/{{ app.resume }}">download</a></span>
