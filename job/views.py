@@ -2,12 +2,14 @@
 import operator, datetime, sys
 
 from django.template import Context, loader, RequestContext
+from django.template.loader import render_to_string
 from job.models import Job, Category, JobType, Tag, City, JobApply, User
 from django.db.models import Count
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseForbidden
 from django.shortcuts import render_to_response, get_object_or_404
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.mail import send_mail
 from job.forms import JobForm, ApplyForm, UserProfileForm
 from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
@@ -147,8 +149,15 @@ def apply_job(request, job_id):
           errors = 'aaaa'
           form = ApplyForm(request.POST, request.FILES, instance=app, user=request.user, job=j)
 
+          msg = 'Dear ' + j.user.first_name + ',\n\n' + app.user.first_name + ' ' + app.user.last_name + ' has applied for your job "' + j.title + '".\n\nDownload their CV now and get in touch' 
+
           if form.is_valid():
              form.save()
+
+             msg_plain = render_to_string('jobapplicationemail.txt', {'j': j, 'app': app})
+             msg_html  = render_to_string('jobapplicationemail.html', {'j': j, 'app': app})
+
+             send_mail('Someone applied for your Job ', msg_plain, 'mike@oddit.co.nz', [j.user.email], html_message=msg_html, fail_silently=False)
              return HttpResponseRedirect('/jobs/applied-for')
           else:
             print "JobApply fucked\n"
