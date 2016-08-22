@@ -1,3 +1,5 @@
+COMPRESS_OFFLINE = True
+COMPRESS_ENABLED = True
 from secret_settings import *
 
 # Django settings for somenewone project.
@@ -111,8 +113,6 @@ COMPRESS_PRECOMPILERS = (
     ('text/scss', 'sass --scss --compass {infile} {outfile}'),
 )
 
-COMPRESS_OFFLINE = True
-COMPRESS_ENABLED = True
 
 # allauth configs
 ACCOUNT_EMAIL_REQUIRED = True
