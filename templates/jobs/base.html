@@ -1,415 +1,159 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load staticfiles %}
 
-<html class="nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
+<head>
+        {% block head %}
+            <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Oddit - Odd IT Jobs</title>
+            <link rel='index' title='Oddit' href='index.html'/>
 
-	<head>
-		{% block head %}
-			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-			<meta name="viewport" content="width=device-width, initial-scale=1">
-			<title>Oddit - Odd IT Jobs</title>
-			<link rel='index' title='Oddit' href='index.html'/>
+            <link rel="apple-touch-icon" sizes="57x57" href="/static/images/fav/apple-icon-57x57.png">
+            <link rel="apple-touch-icon" sizes="60x60" href="/static/images/fav/apple-icon-60x60.png">
+            <link rel="apple-touch-icon" sizes="72x72" href="/static/images/fav/apple-icon-72x72.png">
+            <link rel="apple-touch-icon" sizes="76x76" href="/static/images/fav/apple-icon-76x76.png">
+            <link rel="apple-touch-icon" sizes="114x114" href="/static/images/fav/apple-icon-114x114.png">
+            <link rel="apple-touch-icon" sizes="120x120" href="/static/images/fav/apple-icon-120x120.png">
+            <link rel="apple-touch-icon" sizes="144x144" href="/static/images/fav/apple-icon-144x144.png">
+            <link rel="apple-touch-icon" sizes="152x152" href="/static/images/fav/apple-icon-152x152.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="/static/images/fav/apple-icon-180x180.png">
+            <link rel="icon" type="image/png" sizes="192x192" href="/static/images/fav/android-icon-192x192.png">
+            <link rel="icon" type="image/png" sizes="32x32" href="/static/images/fav/favicon-32x32.png">
+            <link rel="icon" type="image/png" sizes="96x96" href="/static/images/fav/favicon-96x96.png">
+            <link rel="icon" type="image/png" sizes="16x16" href="/static/images/fav/favicon-16x16.png">
+            <link rel="manifest" href="/static/images/fav/manifest.json">
+            <meta name="msapplication-TileColor" content="#8BC34A">
+            <meta name="msapplication-TileImage" content="/static/images/fav/ms-icon-144x144.png">
+            <meta name="theme-color" content="#8BC34A">
 
-			<link rel="apple-touch-icon" sizes="57x57" href="/static/images/fav/apple-icon-57x57.png">
-			<link rel="apple-touch-icon" sizes="60x60" href="/static/images/fav/apple-icon-60x60.png">
-			<link rel="apple-touch-icon" sizes="72x72" href="/static/images/fav/apple-icon-72x72.png">
-			<link rel="apple-touch-icon" sizes="76x76" href="/static/images/fav/apple-icon-76x76.png">
-			<link rel="apple-touch-icon" sizes="114x114" href="/static/images/fav/apple-icon-114x114.png">
-			<link rel="apple-touch-icon" sizes="120x120" href="/static/images/fav/apple-icon-120x120.png">
-			<link rel="apple-touch-icon" sizes="144x144" href="/static/images/fav/apple-icon-144x144.png">
-			<link rel="apple-touch-icon" sizes="152x152" href="/static/images/fav/apple-icon-152x152.png">
-			<link rel="apple-touch-icon" sizes="180x180" href="/static/images/fav/apple-icon-180x180.png">
-			<link rel="icon" type="image/png" sizes="192x192" href="/static/images/fav/android-icon-192x192.png">
-			<link rel="icon" type="image/png" sizes="32x32" href="/static/images/fav/favicon-32x32.png">
-			<link rel="icon" type="image/png" sizes="96x96" href="/static/images/fav/favicon-96x96.png">
-			<link rel="icon" type="image/png" sizes="16x16" href="/static/images/fav/favicon-16x16.png">
-			<link rel="manifest" href="/static/images/fav/manifest.json">
-			<meta name="msapplication-TileColor" content="#8BC34A">
-			<meta name="msapplication-TileImage" content="/static/images/fav/ms-icon-144x144.png">
-			<meta name="theme-color" content="#8BC34A">
+            {% load compress %}
+            {% load staticfiles %}
+            {% compress js %}
+            <script type="text/javascript" src="/static/scripts/modernizr.js"></script>
+            <script type="text/javascript" src="/static/jquery/dist/jquery.js"></script>
+            <script type="text/javascript" src="/static/chosen/chosen.jquery.js"></script>
+            <script type="text/javascript" src="/static/moment/moment.js"></script>
+            <script type="text/javascript" src="/static/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
+            <script type="text/javascript" src="/static/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+            <script type="text/javascript" src="/static/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
 
-			{% load compress %}
-			{% load staticfiles %}
-			{% compress js %}
-			<script type="text/javascript" src="/static/scripts/modernizr.js"></script>
-			<script type="text/javascript" src="/static/jquery/dist/jquery.js"></script>
-			<script type="text/javascript" src="/static/chosen/chosen.jquery.js"></script>
-			<script type="text/javascript" src="/static/moment/moment.js"></script>
-			<script type="text/javascript" src="/static/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
-			<script type="text/javascript" src="/static/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-			<script type="text/javascript" src="/static/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
+            <script type="text/javascript" src="/static/bootstrap-validator/dist/validator.js"></script>
+            <script type="text/javascript" src="/static/toastr/toastr.js"></script>
 
-			<script type="text/javascript" src="/static/bootstrap-validator/dist/validator.js"></script>
-			<script type="text/javascript" src="/static/toastr/toastr.js"></script>
+            <script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
+            <script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
+            <script type="text/javascript" src="/static/scripts/jcookie.js"></script>
 
-			<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
-			<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
-			<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
+            {% endcompress %}
+            <script type="text/javascript">
+                $(document).ready(function () {
+                        var socket = new WebSocket("wss://" + window.location.host + "/lobby/");
+                        socket.onmessage = function (e) {
+                            toastr.info(e.data, "", {"positionClass": "toast-bottom-center"});
+                            var $number = $("#notify_count");
+                            $number.html((parseInt($number.html(),10) || 0) + 1);
+                        }
+                });
+            </script>
+            {% compress css %}
+            <link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
+            <link rel="stylesheet" type="text/css" href="/static/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css"/>
+            {% endcompress %}
 
-			{% endcompress %}
-			<script type="text/javascript">
-				$(document).ready(function () {
-						var socket = new WebSocket("wss://" + window.location.host + "/lobby/");
-						socket.onmessage = function (e) {
-							toastr.info(e.data, "", {"positionClass": "toast-bottom-center"});
-							var $number = $("#notify_count");
-							$number.html((parseInt($number.html(),10) || 0) + 1);
-						}
-				});
-			</script>
-			{% compress css %}
-			<link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
-			<link rel="stylesheet" type="text/css" href="/static/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css"/>
-			{% endcompress %}
+        {% endblock %}
+    <title>My Project</title>
+</head>
+<!--<body style="background-image: url(http://oddit.co.nz/static/images/pexels-photo-113850.jpeg); min-height:100%; background-position: center center; background-repeat:no-repeat;  background-attachment:fixed; background-position: 50% 50%; background-size: 1900px 1069px; width: 100%; height: 100%;">--!>
+<body style="background-color: #E8E8E8;">
+        <header>
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <i class="fa fa-bars fa-lg" aria-hidden="true"></i>
+                        </button>
+                        <a class="navbar-brand" id="brand-logo" href="http://oddit.co.nz">
+                            <img alt="oddit" src="/static/images/odditx_lg.png"/>
+                        </a>
 
-		{% endblock %}
-	</head>
+                    </div>
+                        <ul class="nav navbar-form navbar-right">
+                            <li class="dropdown">
+                                {% if user.is_authenticated %}
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        {% if notify_count > 0 %}
+                                            <span id="notify_count" class="badge">{{notify_count}}</span>
+                                        {% endif %}
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                        {% if not user.first_name %}
+                                            <strong>{{ user.username }}</strong>
+                                        {% else %}
+                                            <strong>{{ user.first_name }}</strong>
+                                        {% endif %}
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="navbar-login">
+                                                <p class="text-left">
+                                                    {% if not user.first_name %}
+                                                        <strong>{{ user.username }}</strong>
+                                                    {% else %}
+                                                        <strong>{{ user.first_name }}
+                                                            {{ user.last_name }}</strong>
+                                                    {% endif %}
+                                                </p>
+                                                <p class="text-left small">{{ user.email }}</p>
+                                                <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                                    <a href="/my-profile" class="btn btn-primary btn-block">Profile</a>
+                                                    <a href="/accounts/logout/" class="btn btn-danger btn-block">Logout</a>
+                                                </div>
+                                            </div>
+                                    </ul>
+                                {% else %}
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                        Register/Sign In
+                                        <span class="caret"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <div class="navbar-login navbar-login-session">
+                                                <p>
+                                                    <a href="/accounts/signup/" class="btn btn-danger btn-block">Register</a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="navbar-login navbar-login-session">
+                                                <p>
+                                                    <a href="/accounts/login" class="btn btn-danger btn-block">Sign In</a>
+                                                </p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                {% endif %}
+                            </li>
+                        </ul>
+</header>
+<div style="background-color: black; padding: 10px; opacity: 0.7; display: block; width: 50%; margin-left: 25%">
+                        <form class="navbar-form" action="/jobs/search" method="get" role="search">
+                            <div class="input-group">
+                                <input type="text" style="padding: 5px;" class="form-control" name="query" id="search_box" value="Search: `css`, `javascript`, `rails`..." onfocus="if (this.value == 'Search: `css`, `javascript`, `rails`...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search: `css`, `javascript`, `rails`...';}"/>
+                                <div class="input-group-btn">
+                                    <button class="btn btn-header" id="submit" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
 
-	<body>
-		<header>
-			<nav class="navbar navbar-inverse" role="navigation">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-							<span class="sr-only">Toggle navigation</span>
-							<i class="fa fa-bars fa-lg" aria-hidden="true"></i>
-						</button>
-						<a class="navbar-brand" id="brand-logo" href="http://oddit.co.nz">
-							<img alt="oddit" src="/static/images/odditx_lg.png"/>
-						</a>
-
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="navbar">
-						<ul class="category_menu nav navbar-nav navbar-left">
-							<li class="cat-item-all">
-								<a href="/jobs">All Jobs</a>
-							</li>
-
-							{% if categories %}
-								{% for cat in categories %}
-									<li class="cat-item-4 {% if category_name == cat.name|lower %}active{% endif %}">
-										<a href="/jobs/category/{{ cat.name|slugify }}/">{{ cat.name }}</a>
-									</li>
-								{% endfor %}
-							{% endif %}
-							{% if user.is_superuser %}
-								<li class="cat-item-4 ">
-									<a href="/admin/job/category/add/">Add</a>
-								</li>
-							{% endif %}
-
-							<li class="rss">
-								<a href=""><img src="/static/images/icon.rss.png"/></a>
-							</li>
-						</ul>
-
-						<ul class="nav navbar-form navbar-right">
-							<li class="dropdown">
-								{% if user.is_authenticated %}
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										{% if notify_count > 0 %}
-											<span id="notify_count" class="badge">{{notify_count}}</span>
-										{% endif %}
-										<i class="fa fa-user" aria-hidden="true"></i>
-										{% if not user.first_name %}
-											<strong>{{ user.username }}</strong>
-										{% else %}
-											<strong>{{ user.first_name }}</strong>
-										{% endif %}
-										<span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu">
-										<li>
-											<div class="navbar-login">
-												<p class="text-left">
-													{% if not user.first_name %}
-														<strong>{{ user.username }}</strong>
-													{% else %}
-														<strong>{{ user.first_name }}
-															{{ user.last_name }}</strong>
-													{% endif %}
-												</p>
-												<p class="text-left small">{{ user.email }}</p>
-												<div class="btn-group btn-group-justified" role="group" aria-label="...">
-													<a href="/my-profile" class="btn btn-primary btn-block">Profile</a>
-													<a href="/accounts/logout/" class="btn btn-danger btn-block">Logout</a>
-												</div>
-											</div>
-									</ul>
-								{% else %}
-									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-										Register/Sign In
-										<span class="caret"></span>
-									</a>
-									<ul class="dropdown-menu">
-										<li>
-											<div class="navbar-login navbar-login-session">
-												<p>
-													<a href="/accounts/signup/" class="btn btn-danger btn-block">Register</a>
-												</p>
-											</div>
-										</li>
-										<li>
-											<div class="navbar-login navbar-login-session">
-												<p>
-													<a href="/accounts/login" class="btn btn-danger btn-block">Sign In</a>
-												</p>
-											</div>
-										</li>
-									</ul>
-								{% endif %}
-							</li>
-						</ul>
-						<form class="navbar-form" action="/jobs/search" method="get" role="search">
-							<div class="input-group">
-								<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
-								<div class="input-group-btn">
-									<button class="btn btn-header" id="submit" type="submit">
-										<i class="fa fa-search"></i>
-									</button>
-								</div>
-							</div>
-
-						</form>
-					</div>
-					<!-- /.navbar-collapse -->
-				</div>
-				<!-- /.container-fluid -->
-			</nav>
-		</header>
-		<div class="content">
-			<main>
-				<article>
-					{% block content %}{% endblock %}
-				</article>
-				<div class="sidebar">
-					<div class="panel panel-default">
-						<div class="panel-body">
-							<p>For a limited time only, post a job free of charge to our site!</p>
-							<a href="/jobs/new" class="btn btn-primary btn-block">
-								<span>Post a job</span>
-							</a>
-						</div>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Popular Categories</h3>
-						</div>
-						<ul class="list-group">
-
-							{% if popular_categories %}
-								{% for category in popular_categories.all %}
-									<li class=list-group-item>
-										<a href="/jobs/category/{{ category.category__name|slugify }}/">{{ category.category__name }}
-											<span class="badge pull-right">{{ category.num_jobs }}</span>
-										</a>
-									</li>
-								{% endfor %}
-							{% else %}
-								<li class=list-group-item>
-									<a href="#">No popular categories yet</a>
-								</li>
-							{% endif %}
-
-						</ul>
-					</div>
-
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">Popular Skills</h3>
-						</div>
-						<ul class="list-group">
-
-							{% if popular_tags %}
-								{% for tag in popular_tags %}
-									<li class="list-group-item">
-										<a href="/jobs/search?query={{ tag.name }}">{{ tag.name }}
-											<span class="badge pull-right">{{ tag.count }}</span>
-										</a>
-									</li>
-								{% endfor %}
-							{% else %}
-								<li class="list-group-item">
-									<a href="#">No popular tags yet</a>
-								</li>
-							{% endif %}
-
-						</ul>
-					</div>
-				</div>
-			</main>
-		</div>
-
-		<footer>
-			<div class="main-footer typo-light">
-				<div class="container">
-					<div class="row">
-						<div class="col-xs-12 col-sm-6 col-md-3">
-							<div class="widget subscribe no-box">
-								<h5 class="widget-title">OddIT<span></span>
-								</h5>
-								<p>Oddit is Odd Information Technology jobs, aimed at freelancers in New Zealand. It's a place where you can advertise for small jobs that require a professional or a student. It's cheap, and incredibly easy to use.
-								</p>
-							</div>
-						</div>
-
-						<div class="col-xs-12 col-sm-6 col-md-3">
-							<div class="widget no-box">
-								<h5 class="widget-title">Quick Links<span></span>
-								</h5>
-								<ul class="list-unstyled">
-									<li>
-										<div class="thumb-content">
-											<a href="#.">Lifestyle</a>
-										</div>
-									</li>
-									<li>
-										<div class="thumb-content">
-											<a href="#.">Get Started</a>
-										</div>
-									</li>
-									<li>
-										<div class="thumb-content">
-											<a href="#.">Top Leaders</a>
-										</div>
-									</li>
-									<li>
-										<div class="thumb-content">
-											<a href="#.">Success Stories</a>
-										</div>
-									</li>
-									<li>
-										<div class="thumb-content">
-											<a href="#.">News</a>
-										</div>
-									</li>
-									<li>
-										<div class="thumb-content">
-											<a href="#.">About</a>
-										</div>
-									</li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-xs-12 col-sm-6 col-md-3">
-							<div class="widget no-box">
-								<h5 class="widget-title">Get Started<span></span>
-								</h5>
-								<p>Get access to your job posting and other features.</p>
-								<a class="btn btn-footer" href="#." target="_blank">Register Now</a>
-							</div>
-						</div>
-
-						<div class="col-xs-12 col-sm-6 col-md-3">
-
-							<div class="widget no-box">
-								<h5 class="widget-title">Contact Us<span></span>
-								</h5>
-
-								<ul class="list-unstyled">
-									<li>
-										<div class="thumb-content">
-											<a href="mailto:hello@oddit.co.nz">hello@oddit.co.nz</a>
-										</div>
-									</li>
-								</ul>
-
-								<ul class="list-inline social">
-                <li><a href="#">
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                    </span>
-                </a></li>
-                <li><a href="#">
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                    </span>
-                </a></li>
-                <li><a href="#">
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-youtube fa-stack-1x fa-inverse"></i>
-                    </span>
-                </a></li>
-                <li><a href="#">
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
-                    </span>
-                </a></li>
-                <li><a href="#">
-                    <span class="fa-stack fa-lg">
-                        <i class="fa fa-circle fa-stack-2x"></i>
-                        <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
-                    </span>
-                </a></li>
-            </ul><!--//social-icons-->
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-
-			<div class="footer-copyright">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<p>Copyright veb ltd © 2016. All rights reserved.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
-
-
-		<!-- insert javascript tracking -->
-		<!-- start Mixpanel -->
-		<script type="text/javascript">
-			(function (c, a) {
-				window.mixpanel = a;
-				var b,
-					d,
-					h,
-					e;
-				b = c.createElement("script");
-				b.type = "text/javascript";
-				b.async = !0;
-				b.src = ("https:" === c.location.protocol
-					? "https:"
-					: "http:") + '//cdn.mxpnl.com/libs/mixpanel-2.1.min.js';
-				d = c.getElementsByTagName("script")[0];
-				d.parentNode.insertBefore(b, d);
-				a._i = [];
-				a.init = function (b, c, f) {
-					function d(a, b) {
-						var c = b.split(".");
-						2 == c.length && (a = a[c[0]], b = c[1]);
-						a[b] = function () {
-							a.push([b].concat(Array.prototype.slice.call(arguments, 0)))
-						}
-					}
-					var g = a;
-					"undefined" !== typeof f
-						? g = a[f] = []
-						: f = "mixpanel";
-					g.people = g.people || [];
-					h = "disable track track_pageview track_links track_forms register register_once unregister identify name_tag set_config people.identify people.set people.increment".split(" ");
-					for (e = 0; e < h.length; e++)
-						d(g, h[e]);
-					a._i.push([b, c, f])
-				};
-				a.__SV = 1.1
-			})(document, window.mixpanel || []);
-			mixpanel.init("1a7df73008f28cbcdec0fe15f7911d66");
-			mixpanel.track("test");
-		</script>
-		<!-- end Mixpanel -->
-	</body>
-
+                        </form>
+                    </div>
+        <div class="content">
+    <br />
+            <main>
+                    {% block content %}{% endblock %}
+</main>
+</body>
 </html>

@@ -21,32 +21,6 @@
 		});
 	</script>
 
-	<div class="results whiteboard">
-		<div class="filter grey">
-			<div class="push">
-				<ul class="nav nav-tabs nav-justified">
-					<li class="first active">
-						<a href="/jobs" id="all" class="first" name="all">
-							<span>All Types</span>
-						</a>
-					</li>
-					{% for type in job_types %}
-						<li class="first {% if type_name == type.name|lower %}active{% endif %}">
-							<a href="/jobs/type/{{ type.name|slugify }}/" id="all" class="first" name="all">
-								<span>{{ type.name }}</span>
-							</a>
-						</li>
-					{% endfor %}
-					{% if user.is_superuser %}
-						<li class="first">
-							<a href="/admin/job/jobtype/add/" id="all" class="first" name="all">
-								<span>Add</span>
-							</a>
-						</li>
-					{% endif %}
-			</ul>
-		</div>
-	</div>
 
 	<div id="results"></div>
 
