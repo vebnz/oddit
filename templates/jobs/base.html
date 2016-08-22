@@ -1,5 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
+{% load staticfiles %}
+{% load pipeline %}
 <html class="nojs" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 	<head>
@@ -9,43 +10,27 @@
 			<title>Oddit - Odd IT Jobs</title>
 			<link rel='index' title='Oddit' href='index.html'/>
 
-			<link rel="apple-touch-icon" sizes="57x57" href="/static/images/fav/apple-icon-57x57.png">
-			<link rel="apple-touch-icon" sizes="60x60" href="/static/images/fav/apple-icon-60x60.png">
-			<link rel="apple-touch-icon" sizes="72x72" href="/static/images/fav/apple-icon-72x72.png">
-			<link rel="apple-touch-icon" sizes="76x76" href="/static/images/fav/apple-icon-76x76.png">
-			<link rel="apple-touch-icon" sizes="114x114" href="/static/images/fav/apple-icon-114x114.png">
-			<link rel="apple-touch-icon" sizes="120x120" href="/static/images/fav/apple-icon-120x120.png">
-			<link rel="apple-touch-icon" sizes="144x144" href="/static/images/fav/apple-icon-144x144.png">
-			<link rel="apple-touch-icon" sizes="152x152" href="/static/images/fav/apple-icon-152x152.png">
-			<link rel="apple-touch-icon" sizes="180x180" href="/static/images/fav/apple-icon-180x180.png">
-			<link rel="icon" type="image/png" sizes="192x192" href="/static/images/fav/android-icon-192x192.png">
-			<link rel="icon" type="image/png" sizes="32x32" href="/static/images/fav/favicon-32x32.png">
-			<link rel="icon" type="image/png" sizes="96x96" href="/static/images/fav/favicon-96x96.png">
-			<link rel="icon" type="image/png" sizes="16x16" href="/static/images/fav/favicon-16x16.png">
-			<link rel="manifest" href="/static/images/fav/manifest.json">
+			<link rel="apple-touch-icon" sizes="57x57" href="{% static 'images/fav/apple-icon-57x57.png' %}">
+			<link rel="apple-touch-icon" sizes="60x60" href="{% static 'images/fav/apple-icon-60x60.png' %}">
+			<link rel="apple-touch-icon" sizes="72x72" href="{% static 'images/fav/apple-icon-72x72.png' %}">
+			<link rel="apple-touch-icon" sizes="76x76" href="{% static 'images/fav/apple-icon-76x76.png' %}">
+			<link rel="apple-touch-icon" sizes="114x114" href="{% static 'images/fav/apple-icon-114x114.png' %}">
+			<link rel="apple-touch-icon" sizes="120x120" href="{% static 'images/fav/apple-icon-120x120.png' %}">
+			<link rel="apple-touch-icon" sizes="144x144" href="{% static 'images/fav/apple-icon-144x144.png' %}">
+			<link rel="apple-touch-icon" sizes="152x152" href="{% static 'images/fav/apple-icon-152x152.png' %}">
+			<link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/fav/apple-icon-180x180.png' %}">
+			<link rel="icon" type="image/png" sizes="192x192" href="{% static 'images/fav/android-icon-192x192.png' %}">
+			<link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/fav/favicon-32x32.png' %}">
+			<link rel="icon" type="image/png" sizes="96x96" href="{% static 'images/fav/favicon-96x96.png' %}">
+			<link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/fav/favicon-16x16.png' %}">
+			<link rel="manifest" href="{% static 'images/fav/manifest.json">
 			<meta name="msapplication-TileColor" content="#8BC34A">
-			<meta name="msapplication-TileImage" content="/static/images/fav/ms-icon-144x144.png">
+			<meta name="msapplication-TileImage" content="{% static 'images/fav/ms-icon-144x144.png' %}">
 			<meta name="theme-color" content="#8BC34A">
 
-			{% load compress %}
-			{% load staticfiles %}
-			{% compress js %}
-			<script type="text/javascript" src="/static/scripts/modernizr.js"></script>
-			<script type="text/javascript" src="/static/jquery/dist/jquery.js"></script>
-			<script type="text/javascript" src="/static/chosen/chosen.jquery.js"></script>
-			<script type="text/javascript" src="/static/moment/moment.js"></script>
-			<script type="text/javascript" src="/static/bootstrap-tagsinput/dist/bootstrap-tagsinput.js"></script>
-			<script type="text/javascript" src="/static/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-			<script type="text/javascript" src="/static/bootstrap-datepicker/dist/js/bootstrap-datepicker.js"></script>
 
-			<script type="text/javascript" src="/static/bootstrap-validator/dist/validator.js"></script>
-			<script type="text/javascript" src="/static/toastr/toastr.js"></script>
-
-			<script type="text/javascript" src="/static/scripts/jquery.autocomplete.pack.js"></script>
-			<script type="text/javascript" src="/static/scripts/jquery.pngfix.js"></script>
-			<script type="text/javascript" src="/static/scripts/jcookie.js"></script>
-
-			{% endcompress %}
+			{% stylesheet 'styles' %}
+			{% javascript 'scripts' %}
 			<script type="text/javascript">
 				$(document).ready(function () {
 					var socket = new WebSocket("wss://" + window.location.host + "/lobby/");
@@ -56,10 +41,7 @@
 					}
 				});
 			</script>
-			{% compress css %}
-			<link rel="stylesheet" type="text/scss" href="{% static 'base.scss' %}"/>
-			<link rel="stylesheet" type="text/css" href="/static/bootstrap-datepicker/dist/css/bootstrap-datepicker3.standalone.css"/>
-			{% endcompress %}
+
 
 		{% endblock %}
 	</head>
@@ -74,7 +56,7 @@
 							<i class="fa fa-bars fa-lg" aria-hidden="true"></i>
 						</button>
 						<a class="navbar-brand" id="brand-logo" href="http://oddit.co.nz">
-							<img alt="oddit" src="/static/images/odditx_lg.png"/>
+							<img alt="oddit" src="{% static 'images/odditx_lg.png' %}"/>
 						</a>
 
 					</div>
@@ -100,11 +82,11 @@
 							{% endif %}
 
 							<li class="rss">
-								<a href=""><img src="/static/images/icon.rss.png"/></a>
+								<a href=""><img src="{% static 'images/icon.rss.png' %}"/></a>
 							</li>
 						</ul>
 
-						<ul class="nav navbar-right">
+						<ul class="nav navbar-form navbar-right">
 							<li class="dropdown">
 								{% if user.is_authenticated %}
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -170,7 +152,7 @@
 
 		<div class="content">
 			<div class="searchbar container col-sm-6 col-center-block">
-				<form class="navbar-form" action="/jobs/search" method="get" role="search">
+				<form class="searchbar-form" action="/jobs/search" method="get" role="search">
 					<div class="input-group">
 						<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
 						<div class="input-group-btn">

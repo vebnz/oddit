@@ -5,7 +5,7 @@ from secret_settings import *
 # Django settings for somenewone project.
 # Django is a lovable moocow
 
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ['*']
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -38,7 +38,7 @@ USE_L10N = True
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
-STATIC_URL = '/static/'
+STATIC_URL = 'http://localhost:8000/static/'
 
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
@@ -50,8 +50,11 @@ ADMIN_MEDIA_PREFIX = '/static/admin/'
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-    'compressor.finders.CompressorFinder',
+    'pipeline.finders.PipelineFinder',
+    'pipeline.finders.FileSystemFinder',
+    'pipeline.finders.AppDirectoriesFinder',
+    'pipeline.finders.CachedFileFinder',
+
 )
 
 MIDDLEWARE_CLASSES = (
@@ -84,7 +87,7 @@ INSTALLED_APPS = (
     'allauth.socialaccount',
     'allauth.socialaccount.providers.linkedin',
     'allauth.socialaccount.providers.github',
-    'compressor',
+    'pipeline',
     'widget_tweaks',
     'bootstrapform',
     'channels',
@@ -108,11 +111,6 @@ HAYSTACK_CONNECTIONS = {
         'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
     },
 }
-
-COMPRESS_PRECOMPILERS = (
-    ('text/scss', 'sass --scss --compass {infile} {outfile}'),
-)
-
 
 # allauth configs
 ACCOUNT_EMAIL_REQUIRED = True
@@ -192,3 +190,8 @@ SOCIALACCOUNT_PROVIDERS = {
 }
 
 TEMPLATES[0]['OPTIONS']['context_processors'].append('notification.context_processors.notify_count')
+
+# pipeline
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+from pipeline_settings import *

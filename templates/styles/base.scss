@@ -13,8 +13,8 @@ $navbar-inverse-link-active-color: $brand-header-accent !default;
 $brand-secondary: #59c02c;
 $spacer: 0.5em;
 @import 'paper/variables';
-@import '../components/bootstrap-sass/assets/stylesheets/bootstrap/variables';
-@import '../components/bootstrap-sass/assets/stylesheets/bootstrap';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'paper/swatch';
 $gray-lightest: lighten($gray-base, 99%);
 $chosen-sprite-path: "../static/bootstrap-chosen/chosen-sprite.png" !default;
@@ -24,12 +24,12 @@ $chosen-box-shadow: inset 0 -1px 0 #ddd;
 $chosen-focus-border: 0;
 $chosen-focus-box-shadow: inset 0 -2px 0 $brand-primary;
 $chosen-focus-transition: 0 !default;
-@import '../components/bootstrap-chosen/bootstrap-chosen';
+@import 'bootstrap-chosen/bootstrap-chosen';
 $fa-font-path: "../static/font-awesome/fonts";
-@import '../components/font-awesome/scss/font-awesome';
-@import '../components/bootstrap-social/bootstrap-social';
+@import 'font-awesome/scss/font-awesome';
+@import 'bootstrap-social/bootstrap-social';
 
-@import '../components/toastr/toastr.scss';
+@import 'toastr/toastr.scss';
 @import "compass/css3/opacity";
 #toast-container > div {
     @include opacity(1);
@@ -67,7 +67,8 @@ $fa-font-path: "../static/font-awesome/fonts";
 }
 
 
-.navbar-form {
+.searchbar-form {
+    @extend .navbar-form;
     padding: 20px;
     background-color: $navbar-inverse-bg;
     border-radius: $input-border-radius-large;

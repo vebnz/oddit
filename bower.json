@@ -24,8 +24,11 @@
     "moment-datepicker": "^1.2.0",
     "bootstrap-datepicker": "^1.6.2",
     "bootstrap-validator": "^0.11.5",
-    "bootstrap-tagsinput": "^0.8.0",
+    "bootstrap-tagsinput": "https://github.com/avwave/bootstrap-tagsinput.git#2b2883da9f4a99979c12aa3c6e92552e96cdc64c",
     "bootstrap-social": "^5.0.0",
     "toastr": "^2.1.3"
+  },
+  "resolutions": {
+    "bootstrap-tagsinput": "2b2883da9f4a99979c12aa3c6e92552e96cdc64c"
   }
 }
