@@ -1,10 +1,105 @@
-<body>
-<p>Dear {{ j.user.first_name }}</p>
-<p>{{ app.user.first_name }} has applied for your job {{ j.title }}.</p>
-<p>Their CV is attached to this email and any notes they wrote are below:</p>
-<p></p>
-<p>{{ app.notes }}</p>
-<p></p>
-<p>Regards,</p>
-<p>Oddit Team</p>
-</body>
+{% extends "allauth/account/email/email_base.html" %}
+{% block mail-content %}
+<table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#000000" style="background-color: #000000;" id="ko_singleArticleBlock_9">
+    <tbody>
+        <tr>
+            <td class="vb-outer" align="center" valign="top" bgcolor="#000000" style="padding-left: 9px; padding-right: 9px; background-color: #000000;">
+
+                <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                <div class="oldwebkit" style="max-width: 570px;">
+                    <table
+                        width="570"
+                        border="0"
+                        cellpadding="0"
+                        cellspacing="18"
+                        class="vb-container fullpad"
+                        bgcolor="#ffffff"
+                        style="border-collapse: separate; border-spacing: 18px; padding-left: 0; padding-right: 0; width: 100%; max-width: 570px; background-color: #ffffff;">
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <table align="left" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                        <tbody>
+                                            <tr>
+                                                <td style="font-size: 18px; font-family: Oxygen, Arial, Helvetica, sans-serif; color: #3f3f3f; text-align: left;">
+                                                    <span style="color: #3f3f3f;">You have a new applicant</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="9" style="font-size: 1px; line-height: 1px;">&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="left" class="long-text links-color" style="text-align: left; font-size: 13px; font-family: Oxygen, Arial, Helvetica, sans-serif; color: #3f3f3f;"><hr>
+                                                    <p style="Margin: 1em 0px;">Hello,&nbsp;<strong>{{ j.user.first_name }}</strong>!</p>
+                                                    <p style="Margin: 1em 0px;">
+                                                        <strong>{{ app.user.first_name }}</strong>
+                                                        has applied for your job
+                                                        <strong>{{ j.title }}</strong>.</p>
+                                                    <p style="Margin: 1em 0px;">Any notes they have written are below:</p>
+                                                    <blockquote>
+                                                        <p style="Margin: 1em 0px; Margin-top: 0px;">{{ app.notes }}</p><br></blockquote>
+                                                    <p style="Margin: 1em 0px;">Best regards,</p>
+                                                    <p style="Margin: 1em 0px; Margin-bottom: 0px;">Oddit Team</p>
+                                                </td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}
+{% block mail_calltoaction %}
+<table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#000000" style="background-color: #000000;" id="ko_buttonBlock_13">
+    <tbody>
+        <tr>
+            <td class="vb-outer" align="center" valign="top" bgcolor="#000000" style="padding-left: 9px; padding-right: 9px; background-color: #000000;">
+
+                <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                <div class="oldwebkit" style="max-width: 570px;">
+                    <table
+                        width="570"
+                        border="0"
+                        cellpadding="0"
+                        cellspacing="18"
+                        class="vb-container fullpad"
+                        bgcolor="#ffffff"
+                        style="border-collapse: separate; border-spacing: 18px; padding-left: 0; padding-right: 0; width: 100%; max-width: 570px; background-color: #ffffff;">
+                        <tbody>
+                            <tr>
+                                <td valign="top" bgcolor="#ffffff" align="center" style="background-color: #ffffff;">
+
+                                    <table cellpadding="0" border="0" align="center" cellspacing="0" class="mobile-full">
+                                        <tbody>
+                                            <tr>
+                                                <td
+                                                    width="auto"
+                                                    valign="middle"
+                                                    bgcolor="#59c02c"
+                                                    align="center"
+                                                    height="50"
+                                                    style="font-size: 14px; font-family: Oxygen, Arial, Helvetica, sans-serif; color: #0c0c0c; font-weight: normal; padding-left: 14px; padding-right: 14px; background-color: #59c02c; border-radius: 4px;">
+                                                    <strong>View&nbsp;{{ app.user.first_name }}'s application&nbsp;</strong>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+            </td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

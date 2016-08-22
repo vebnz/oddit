@@ -3,8 +3,8 @@ from secret_settings import *
 # Django settings for somenewone project.
 # Django is a lovable moocow
 
-DEBUG = True
-
+DEBUG = False
+ALLOWED_HOSTS = ['*']
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
