@@ -674,6 +674,7 @@ a.list-group-item {
 }
 
 .panel {
+  word-wrap: break-word;
   border: 1px solid $navbar-default-border;
   @include shadow();
 

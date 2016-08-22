@@ -1,261 +1,374 @@
-<!doctype html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+{% load staticfiles %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title></title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="initial-scale=1.0">
+        <meta name="format-detection" content="telephone=no">
+        <title>
+            {{ current_site.name }}
+        </title>
+
+        <link href="https://fonts.googleapis.com/css?family=Oxygen:400,700" rel="stylesheet">
+
         <style type="text/css">
-            #outlook a {
-                padding: 0;
-            }
-            .ReadMsgBody {
-                width: 100%;
-            }
-            .ExternalClass {
-                width: 100%;
-            }
-            .ExternalClass * {
-                line-height: 100%;
-            }
             body {
-                margin: 0;
+                Margin: 0;
                 padding: 0;
-                -webkit-text-size-adjust: 100%;
-                -ms-text-size-adjust: 100%;
-            }
-            table,
-            td {
-                border-collapse: collapse;
-                mso-table-lspace: 0;
-                mso-table-rspace: 0;
             }
             img {
                 border: 0;
-                height: auto;
+                display: block;
+            }
+
+            .socialLinks {
+                font-size: 6px;
+            }
+            .socialLinks a {
+                display: inline-block;
+            }
+            .socialIcon {
+                display: inline-block;
+                vertical-align: top;
+                padding-bottom: 0;
+                border-radius: 100%;
+            }
+            .oldwebkit {
+                max-width: 570px;
+            }
+            td.vb-outer {
+                padding-left: 9px;
+                padding-right: 9px;
+            }
+            table.vb-container,
+            table.vb-content,
+            table.vb-row {
+                border-collapse: separate;
+            }
+            table.vb-row {
+                border-spacing: 9px;
+            }
+            table.vb-row.halfpad {
+                border-spacing: 0;
+                padding-left: 9px;
+                padding-right: 9px;
+            }
+            table.vb-row.fullwidth {
+                border-spacing: 0;
+                padding: 0;
+            }
+            table.vb-container {
+                padding-left: 18px;
+                padding-right: 18px;
+            }
+            table.vb-container.fullpad {
+                border-spacing: 18px;
+                padding-left: 0;
+                padding-right: 0;
+            }
+            table.vb-container.halfpad {
+                border-spacing: 9px;
+                padding-left: 9px;
+                padding-right: 9px;
+            }
+            table.vb-container.fullwidth {
+                padding-left: 0;
+                padding-right: 0;
+            }
+
+        </style>
+        <style type="text/css">
+            /* yahoo, hotmail */
+            .ExternalClass,
+            .ExternalClass div,
+            .ExternalClass font,
+            .ExternalClass p,
+            .ExternalClass span,
+            .ExternalClass td {
                 line-height: 100%;
+            }
+            .yshortcuts a {
+                border-bottom: none !important;
+            }
+            .vb-outer {
+                min-width: 0 !important;
+            }
+            .ExternalClass,
+            .RMsgBdy {
+                width: 100%;
+                background-color: #3f3f3f;
+                background-color: #3f3f3f;
+            }
+
+            /* outlook */
+            table {
+                mso-table-rspace: 0;
+                mso-table-lspace: 0;
+            }
+            #outlook a {
+                padding: 0;
+            }
+            img {
                 outline: none;
                 text-decoration: none;
+                border: none;
                 -ms-interpolation-mode: bicubic;
             }
-            p {
-                display: block;
-                margin: 13px 0;
+            a img {
+                border: none;
+            }
+            @media screen and (max-device-width: 600px), screen and (max-width: 600px) {
+                table.vb-container,
+                table.vb-row {
+                    width: 95% !important;
+                }
+
+                .mobile-hide {
+                    display: none !important;
+                }
+                .mobile-textcenter {
+                    text-align: center !important;
+                }
+
+                .mobile-full {
+                    float: none !important;
+                    width: 100% !important;
+                    max-width: none !important;
+                    padding-right: 0 !important;
+                    padding-left: 0 !important;
+                }
+                img.mobile-full {
+                    width: 100% !important;
+                    max-width: none !important;
+                    height: auto !important;
+                }
             }
 
         </style>
-        <!--[if !mso]><!-->
         <style type="text/css">
-            @media only screen and (max-width:480px) {
-                 @-ms-viewport{
-                    width: 320px;
-                }
-                @viewport {
-                    width: 320px;
-                }
+
+            #ko_singleArticleBlock_9 .links-color a,
+            #ko_singleArticleBlock_9 .links-color a:hover,
+            #ko_singleArticleBlock_9 .links-color a:link,
+            #ko_singleArticleBlock_9 .links-color a:visited {
+                color: #3f3f3f;
+                color: #3f3f3f;
+                text-decoration: underline;
             }
-
-        </style>
-        <!--<![endif]-->
-        <!--[if mso]> <xml> <o:OfficeDocumentSettings> <o:AllowPNG/> <o:PixelsPerInch>96</o:PixelsPerInch> </o:OfficeDocumentSettings> </xml> <![endif]-->
-
-        <!--[if !mso]><!-->
-        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet" type="text/css">
-        <style type="text/css">
-
-            @import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700);
-        </style>
-        <!--<![endif]-->
-        <style type="text/css">
-            @media only screen and (min-width:480px) {
-                * [aria-labelledby="mj-column-per-50"],
-                .mj-column-per-50 {
-                    width: 50%!important;
-                }
-                * [aria-labelledby="mj-column-per-100"],
-                .mj-column-per-100 {
-                    width: 100%!important;
-                }
-                * [aria-labelledby="mj-column-per-33"],
-                .mj-column-per-33 {
-                    width: 33%!important;
-                }
+            #ko_singleArticleBlock_9 .long-text p {
+                Margin: 1em 0;
+            }
+            #ko_singleArticleBlock_9 .long-text p:last-child {
+                Margin-bottom: 0;
+            }
+            #ko_singleArticleBlock_9 .long-text p:first-child {
+                Margin-top: 0;
+            }
+            #ko_socialBlock_10 .links-color a,
+            #ko_socialBlock_10 .links-color a:hover,
+            #ko_socialBlock_10 .links-color a:link,
+            #ko_socialBlock_10 .links-color a:visited {
+                color: #cccccc;
+                color: #cccccc;
+                text-decoration: underline;
+            }
+            #ko_socialBlock_10 .long-text p {
+                Margin: 1em 0;
+            }
+            #ko_socialBlock_10 .long-text p:last-child {
+                Margin-bottom: 0;
+            }
+            #ko_socialBlock_10 .long-text p:first-child {
+                Margin-top: 0;
+            }
+            #ko_footerBlock_2 .links-color a,
+            #ko_footerBlock_2 .links-color a:hover,
+            #ko_footerBlock_2 .links-color a:link,
+            #ko_footerBlock_2 .links-color a:visited {
+                color: #cccccc;
+                color: #cccccc;
+                text-decoration: underline;
+            }
+            #ko_footerBlock_2 .long-text p {
+                Margin: 1em 0;
+            }
+            #ko_footerBlock_2 .long-text p:last-child {
+                Margin-bottom: 0;
+            }
+            #ko_footerBlock_2 .long-text p:first-child {
+                Margin-top: 0;
+            }
+            #ko_textBlock_14 .links-color a,
+            #ko_textBlock_14 .links-color a:hover,
+            #ko_textBlock_14 .links-color a:link,
+            #ko_textBlock_14 .links-color a:visited {
+                color: #3f3f3f;
+                color: #3f3f3f;
+                text-decoration: underline;
+            }
+            #ko_textBlock_14 .long-text p {
+                Margin: 1em 0;
+            }
+            #ko_textBlock_14 .long-text p:last-child {
+                Margin-bottom: 0;
+            }
+            #ko_textBlock_14 .long-text p:first-child {
+                Margin-top: 0;
             }
 
         </style>
     </head>
-    <body style="background: #d6dde5;">
-        <div style="background-color:#d6dde5;">
-            <!--[if mso | IE]> <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;"> <tr> <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"> <![endif]-->
-            <div style="margin:0 auto;max-width:600px;background:#ffffff;">
-                <table cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#ffffff;" align="center" border="0">
-                    <tbody>
-                        <tr>
-                            <td style="text-align:center;vertical-align:top;font-size:0px;padding:10px;">
-                                <!--[if mso | IE]> <table border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:top;width:300px;"> <![endif]-->
-                                <div aria-labelledby="mj-column-per-50" class="mj-column-per-50" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
-                                    <table cellpadding="0" cellspacing="0" style="vertical-align:top;" width="100%" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td style="word-break:break-word;background:#fff;font-size:0px;padding:0px;" align="center" background="#fff">
-                                                    <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px;" align="center" border="0">
+    <body bgcolor="#3f3f3f" text="#919191" alink="#cccccc" vlink="#cccccc" style="Margin: 0; padding: 0; background-color: #3f3f3f; color: #919191;">
+
+        <center>
+
+            <!-- preheaderBlock -->
+
+            <!-- /preheaderBlock -->
+
+            <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#000000" style="background-color: #000000;" id="ko_logoBlock_3">
+                <tbody>
+                    <tr>
+                        <td class="vb-outer" align="center" valign="top" bgcolor="#000000" style="padding-left: 9px; padding-right: 9px; background-color: #000000;">
+
+                            <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                            <div class="oldwebkit" style="max-width: 570px;">
+                                <table width="570" style="border-collapse: separate; border-spacing: 18px; padding-left: 0; padding-right: 0; width: 100%; max-width: 570px;" border="0" cellpadding="0" cellspacing="18" class="vb-container fullpad">
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top" align="center">
+
+                                                <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="258"><tr><td align="center" valign="top"><![endif]-->
+                                                <div class="mobile-full" style="display: inline-block; max-width: 258px; vertical-align: top; width: 100%;">
+                                                    <a target="_new" href="https://oddit.co.nz" style="font-size: 18px; font-family: Oxygen, Arial, Helvetica, sans-serif; color: #f3f3f3; text-decoration: none;"><img
+                                                        width="258"
+                                                        vspace="0"
+                                                        hspace="0"
+                                                        border="0"
+                                                        alt="OdditNZ"
+                                                        style="border: 0px; display: block; width: 100%; max-width: 258px;"
+                                                        src="http://oddit.co.nz/static/images/odditmail_header.png"></a>
+                                                </div>
+                                                <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            {% block mail_content %}{% endblock %}
+            <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#000000" style="background-color: #000000;" id="ko_hrBlock_11">
+                <tbody>
+                    <tr>
+                        <td class="vb-outer" align="center" valign="top" bgcolor="#000000" style="padding-left: 9px; padding-right: 9px; background-color: #000000;">
+
+                            <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                            <div class="oldwebkit" style="max-width: 570px;">
+                                <table
+                                    width="570"
+                                    border="0"
+                                    cellpadding="0"
+                                    cellspacing="9"
+                                    class="vb-container halfpad"
+                                    bgcolor="#ffffff"
+                                    style="border-collapse: separate; border-spacing: 9px; padding-left: 9px; padding-right: 9px; width: 100%; max-width: 570px; background-color: #ffffff;">
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top" bgcolor="#ffffff" align="center" style="background-color: #ffffff;">
+                                                <table width="100%" cellspacing="0" cellpadding="0" border="0" style="width: 100%;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td width="100%" height="1" style="font-size: 1px; line-height: 1px; width: 100%; background-color: #3f3f3f;">&nbsp;</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            {% block mail_calltoaction %}{% endblock %}
+            <table width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#3f3f3f" style="background-color: #3f3f3f;" id="ko_socialBlock_10">
+                <tbody>
+                    <tr>
+                        <td align="center" valign="top" bgcolor="#3f3f3f" style="background-color: #3f3f3f;">
+                            <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="570"><tr><td align="center" valign="top"><![endif]-->
+                            <div class="oldwebkit" style="max-width: 570px;">
+                                <table width="570" style="border-collapse: separate; border-spacing: 9px; width: 100%; max-width: 570px;" border="0" cellpadding="0" cellspacing="9" class="vb-row fullpad" align="center">
+                                    <tbody>
+                                        <tr>
+                                            <td valign="top" align="center" style="font-size: 0;">
+
+                                                <!--[if (gte mso 9)|(lte ie 8)]><table align="center" border="0" cellspacing="0" cellpadding="0" width="552"><tr><![endif]-->
+                                                <!--[if (gte mso 9)|(lte ie 8)]><td align="left" valign="top" width="276"><![endif]-->
+                                                <div style="display: inline-block; max-width: 276px; vertical-align: top; width: 100%;" class="mobile-full">
+
+                                                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="border-collapse: separate; width: 100%;" align="left">
                                                         <tbody>
                                                             <tr>
-                                                                <td style="width:300px;">
-                                                                    <a href="http://oddit.co.nz" target="_blank"><img alt="OddIT logo" title="" height="120" src="http://oddit.co.nz/static/images/oddit-reverse-lg.png" style="border:none;border-radius:;display:block;outline:none;text-decoration:none;width:100%;height:120px;" width="300"></a>
+                                                                <td valign="middle" align="left" class="long-text links-color mobile-textcenter" style="font-size: 13px; font-family: Oxygen, Arial, Helvetica, sans-serif; color: #919191; text-align: left;">
+                                                                    <p style="Margin: 1em 0px; Margin-top: 0px;">Orange powered and<a href="veb.co.nz" style="color: #cccccc; text-decoration: underline;">
+                                                                            veb fueled</a>&nbsp;</p>
+                                                                    <p style="Margin: 1em 0px; Margin-bottom: 0px;">e-Solutions for e-Verybody</p>
                                                                 </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!--[if mso | IE]> </td><td style="vertical-align:top;width:300px;"> <![endif]-->
-                                <div aria-labelledby="mj-column-per-50" class="mj-column-per-50" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
-                                    <table cellpadding="0" cellspacing="0" style="vertical-align:top;" width="100%" border="0">
-                                        <tbody></tbody>
-                                    </table>
-                                </div>
-                                <!--[if mso | IE]> </td></tr></table> <![endif]-->
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!--[if mso | IE]> </td></tr></table> <![endif]-->
-            {% block content %}{% endblock %}
-            <!--[if mso | IE]> <table border="0" cellpadding="0" cellspacing="0" width="600" align="center" style="width:600px;"> <tr> <td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"> <![endif]-->
-            <div style="margin:0 auto;max-width:600px;background:#FF5722;">
-                <table cellpadding="0" cellspacing="0" style="font-size:0px;width:100%;background:#FF5722;" align="center" border="0">
-                    <tbody>
-                        <tr>
-                            <td style="text-align:center;vertical-align:top;font-size:0px;padding:20px 0px;padding-bottom:0px;padding-top:0px;">
-                                <!--[if mso | IE]> <table border="0" cellpadding="0" cellspacing="0"><tr><td style="vertical-align:top;width:198px;"> <![endif]-->
-                                <div aria-labelledby="mj-column-per-33" class="mj-column-per-33" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
-                                    <table cellpadding="0" cellspacing="0" style="vertical-align:top;" width="100%" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td style="word-break:break-word;font-size:0px;padding:10px 25px;padding-top:10px;padding-bottom:0px;padding-right:0px;padding-left:25px;" align="left">
-                                                    <table cellpadding="0" cellspacing="0" style="border-collapse:collapse;border-spacing:0px;" align="left" border="0">
+
+                                                </div>
+                                                <!--[if (gte mso 9)|(lte ie 8)]></td> <td align="left" valign="top" width="276"> <![endif]-->
+                                                <div style="display: inline-block; max-width: 276px; vertical-align: top; width: 100%;" class="mobile-full">
+
+                                                    <table class="vb-content" border="0" cellspacing="9" cellpadding="0" width="276" style="border-collapse: separate; width: 100%;" align="right">
                                                         <tbody>
                                                             <tr>
-                                                                <td style="width:80px;"><img alt="OddIT logo" title="" height="auto" src="http://oddit.co.nz/static/images/oddit-reverse.png" style="border:none;border-radius:;display:block;outline:none;text-decoration:none;width:100%;height:auto;" width="80"></td>
+
+                                                                <td align="right" valign="middle" class="links-color socialLinks mobile-textcenter" style="font-size: 6px;">
+                                                                    &nbsp;
+                                                                    <a target="_new" href="" style="display: inline-block; color: #cccccc; text-decoration: underline;">
+                                                                        <img src="http://oddit.co.nz/static/images/footsoc-fb.png" alt="Facebook" border="0" class="socialIcon" style="border: 0px; display: inline-block; vertical-align: top; padding-bottom: 0px; border-radius: 100%;">
+                                                                    </a>
+                                                                    &nbsp;
+                                                                    <a target="_new" href="" style="display: inline-block; color: #cccccc; text-decoration: underline;">
+                                                                        <img src="http://oddit.co.nz/static/images/footsoc-tw.png" alt="Twitter" border="0" class="socialIcon" style="border: 0px; display: inline-block; vertical-align: top; padding-bottom: 0px; border-radius: 100%;">
+                                                                    </a>
+
+                                                                    &nbsp;
+                                                                    <a target="_new" href="" style="display: inline-block; color: #cccccc; text-decoration: underline;">
+                                                                        <img src="http://oddit.co.nz/static/images/footsoc-gb.png" alt="Web" border="0" class="socialIcon" style="border: 0px; display: inline-block; vertical-align: top; padding-bottom: 0px; border-radius: 100%;">
+                                                                    </a>
+
+                                                                </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!--[if mso | IE]> </td><td style="vertical-align:top;width:198px;"> <![endif]-->
-                                <div aria-labelledby="mj-column-per-33" class="mj-column-per-33" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
-                                    <table cellpadding="0" cellspacing="0" style="vertical-align:top;" width="100%" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td style="word-break:break-word;font-size:0px;padding:10px 25px;padding-top:0px;padding-bottom:0px;padding-right:25px;padding-left:25px;" align="center">
-                                                    <div style="cursor:auto;color:#000000;font-family:Roboto, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;">
-                                                        <p>
-                                                            <a href="http://oddit.co.nz" style="text-decoration: none; color: inherit;">
-                                                                <span style="color: rgb(255, 255, 255);">Privacy policy</span>
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!--[if mso | IE]> </td><td style="vertical-align:top;width:198px;"> <![endif]-->
-                                <div aria-labelledby="mj-column-per-33" class="mj-column-per-33" style="vertical-align:top;display:inline-block;font-size:13px;text-align:left;width:100%;">
-                                    <table cellpadding="0" cellspacing="0" style="vertical-align:top;" width="100%" border="0">
-                                        <tbody>
-                                            <tr>
-                                                <td style="word-break:break-word;font-size:0px;padding:10px 25px;padding-top:10px;padding-bottom:10px;padding-right:25px;padding-left:25px;" align="center">
-                                                    <div>
-                                                        <!--[if mso | IE]> <table border="0" cellpadding="0" cellspacing="0" align="undefined"><tr><td> <![endif]-->
-                                                        <table cellpadding="0" cellspacing="0" style="float:none;display:inline-table;" align="center" border="0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="padding:4px;vertical-align:middle;">
-                                                                        <table cellpadding="0" cellspacing="0" style="background:#3b5998;border-radius:3px;width:20px;" border="0">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td style="vertical-align:middle;width:20px;height:20px;">
-                                                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=[[SHORT_PERMALINK]]"><img alt="facebook" height="20" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/facebook.png" style="display:block;border-radius:3px;" width="20"></a>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                    <td style="padding:4px 4px 4px 0;vertical-align:middle;">
-                                                                        <a
-                                                                            href="https://www.facebook.com/sharer/sharer.php?u=[[SHORT_PERMALINK]]"
-                                                                            style="text-decoration:none;text-align:left;display:block;border-radius:3px;color:#333333;font-family:Roboto, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;"></a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!--[if mso | IE]> </td><td> <![endif]-->
-                                                        <table cellpadding="0" cellspacing="0" style="float:none;display:inline-table;" align="center" border="0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="padding:4px;vertical-align:middle;">
-                                                                        <table cellpadding="0" cellspacing="0" style="background:#55acee;border-radius:3px;width:20px;" border="0">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td style="vertical-align:middle;width:20px;height:20px;">
-                                                                                        <a href="https://twitter.com/home?status=[[SHORT_PERMALINK]]"><img alt="twitter" height="20" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/twitter.png" style="display:block;border-radius:3px;" width="20"></a>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                    <td style="padding:4px 4px 4px 0;vertical-align:middle;">
-                                                                        <a
-                                                                            href="https://twitter.com/home?status=[[SHORT_PERMALINK]]"
-                                                                            style="text-decoration:none;text-align:left;display:block;border-radius:3px;color:#333333;font-family:Roboto, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;"></a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!--[if mso | IE]> </td><td> <![endif]-->
-                                                        <table cellpadding="0" cellspacing="0" style="float:none;display:inline-table;" align="center" border="0">
-                                                            <tbody>
-                                                                <tr>
-                                                                    <td style="padding:4px;vertical-align:middle;">
-                                                                        <table cellpadding="0" cellspacing="0" style="background:#dc4e41;border-radius:3px;width:20px;" border="0">
-                                                                            <tbody>
-                                                                                <tr>
-                                                                                    <td style="vertical-align:middle;width:20px;height:20px;">
-                                                                                        <a href="https://plus.google.com/share?url=[[SHORT_PERMALINK]]"><img alt="google" height="20" src="https://www.mailjet.com/images/theme/v1/icons/ico-social/google-plus.png" style="display:block;border-radius:3px;" width="20"></a>
-                                                                                    </td>
-                                                                                </tr>
-                                                                            </tbody>
-                                                                        </table>
-                                                                    </td>
-                                                                    <td style="padding:4px 4px 4px 0;vertical-align:middle;">
-                                                                        <a
-                                                                            href="https://plus.google.com/share?url=[[SHORT_PERMALINK]]"
-                                                                            style="text-decoration:none;text-align:left;display:block;border-radius:3px;color:#333333;font-family:Roboto, Helvetica, Arial, sans-serif, Helvetica, Arial, sans-serif;font-size:13px;line-height:22px;"></a>
-                                                                    </td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                        <!--[if mso | IE]> </td></tr></table> <![endif]-->
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!--[if mso | IE]> </td></tr></table> <![endif]-->
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <!--[if mso | IE]> </td></tr></table> <![endif]-->
-        </div>
+
+                                                </div>
+                                                <!--[if (gte mso 9)|(lte ie 8)]></td><![endif]-->
+                                                <!--[if (gte mso 9)|(lte ie 8)]></tr></table><![endif]-->
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!--[if (gte mso 9)|(lte ie 8)]></td></tr></table><![endif]-->
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </center>
+
     </body>
 </html>

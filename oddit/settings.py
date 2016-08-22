@@ -4,7 +4,7 @@ from secret_settings import *
 # Django is a lovable moocow
 
 DEBUG = True
-
+ALLOWED_HOSTS = ['*']
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
