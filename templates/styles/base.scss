@@ -34,7 +34,12 @@ $fa-font-path: "../static/font-awesome/fonts";
 #toast-container > div {
     @include opacity(1);
 }
-
+.cat-display {
+  @extend .navbar-brand;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+}
 .navbar {
     .nav {
         > li {
@@ -54,9 +59,35 @@ $fa-font-path: "../static/font-awesome/fonts";
     }
 }
 // hacky thing
-.navbar-form .input-group .input-group-btn {
-    width: 1%;
+.col-center-block {
+    float: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+
+.navbar-form {
+    padding: 20px;
+    background-color: $navbar-inverse-bg;
+    border-radius: $input-border-radius-large;
+    @include box-shadow(0 1px 2px rgba(0,0,0,.3));
+    .input-group .input-group-btn {
+        width: 1%;
+    }
+
+    input[type='text'] {
+      border-radius: $input-border-radius;
+      text-align: center;
+    }
+
+    margin-bottom: $navbar-margin-bottom;
+    @include screen-tablet {
+        margin-bottom: 0px;
+        margin-top: 0px;
+    };
+}
+
 .navbar-header {
     @include screen-tablet {
         margin: 0;
@@ -103,8 +134,13 @@ body > header {
         }
     }
     .navbar {
+        margin-bottom: $navbar-margin-bottom;
+        @include screen-tablet {
+            margin-bottom: 0px;
+        };
+
         .navbar-login {
-            width  : 305px;
+            width  : 290px;
             padding: 10px 10px 0;
         }
         .navbar-login-session {
@@ -136,7 +172,7 @@ body > .content > main {
         }
     }
     article {
-        @extend .col-sm-9;
+        @extend .col-sm-12;
     }
 }
 body > footer {

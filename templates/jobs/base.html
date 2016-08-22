@@ -48,12 +48,12 @@
 			{% endcompress %}
 			<script type="text/javascript">
 				$(document).ready(function () {
-						var socket = new WebSocket("wss://" + window.location.host + "/lobby/");
-						socket.onmessage = function (e) {
-							toastr.info(e.data, "", {"positionClass": "toast-bottom-center"});
-							var $number = $("#notify_count");
-							$number.html((parseInt($number.html(),10) || 0) + 1);
-						}
+					var socket = new WebSocket("wss://" + window.location.host + "/lobby/");
+					socket.onmessage = function (e) {
+						toastr.info(e.data, "", {"positionClass": "toast-bottom-center"});
+						var $number = $("#notify_count");
+						$number.html((parseInt($number.html(), 10) || 0) + 1);
+					}
 				});
 			</script>
 			{% compress css %}
@@ -161,29 +161,32 @@
 								{% endif %}
 							</li>
 						</ul>
-						<form class="navbar-form" action="/jobs/search" method="get" role="search">
-							<div class="input-group">
-								<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
-								<div class="input-group-btn">
-									<button class="btn btn-header" id="submit" type="submit">
-										<i class="fa fa-search"></i>
-									</button>
-								</div>
-							</div>
-
-						</form>
 					</div>
 					<!-- /.navbar-collapse -->
 				</div>
 				<!-- /.container-fluid -->
 			</nav>
 		</header>
+
 		<div class="content">
+			<div class="searchbar container col-sm-6 col-center-block">
+				<form class="navbar-form" action="/jobs/search" method="get" role="search">
+					<div class="input-group">
+						<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
+						<div class="input-group-btn">
+							<button class="btn btn-header" id="submit" type="submit">
+								<i class="fa fa-search"></i>
+							</button>
+						</div>
+					</div>
+				</form>
+			</div>
 			<main>
 				<article>
 					{% block content %}{% endblock %}
 				</article>
-				<div class="sidebar">
+				{% comment %}
+					<div class="sidebar">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<p>For a limited time only, post a job free of charge to our site!</p>
@@ -239,10 +242,13 @@
 						</ul>
 					</div>
 				</div>
-			</main>
-		</div>
+				{% endcomment %}
 
-		<footer>
+			</main>
+
+		</div>
+		{% comment %}
+			<footer>
 			<div class="main-footer typo-light">
 				<div class="container">
 					<div class="row">
@@ -366,11 +372,11 @@
 				</div>
 			</div>
 		</footer>
-
-
+		{% endcomment %}
 		<!-- insert javascript tracking -->
 		<!-- start Mixpanel -->
 		<script type="text/javascript">
+
 			(function (c, a) {
 				window.mixpanel = a;
 				var b,
@@ -411,5 +417,4 @@
 		</script>
 		<!-- end Mixpanel -->
 	</body>
-
 </html>
