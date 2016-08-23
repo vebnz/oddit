@@ -54,24 +54,13 @@
 										<td>Contact Number</td>
 										<td>{%if view_user.id = user.id %} {{ user.profile.phone }} {% else %} {{ view_user.profile.phone }} {% endif %}</td>
 									</tr>
-									<tr>
-										<td>
-											Skills
-										</td>
-										<td>
-											<span class="label label-default">Python</span>
-											<span class="label label-default">Java</span>
-											<span class="label label-default">Brainfuck</span>
-											<span class="label label-default">Numberwang</span>
-										</td>
-									</tr>
 								</tr>
 
 							</tbody>
 						</table>
 
-						<a href="/jobs/my-jobs" class="btn btn-primary">Jobs Posted</a>
-						{%if view_user.id = user.id %} <a href="/jobs/applied-for" class="btn btn-primary">Jobs Applied</a> {% endif %}
+						<a href="/my-jobs" class="btn btn-primary">Jobs Posted</a>
+						{%if view_user.id = user.id %} <a href="/applied-for" class="btn btn-primary">Jobs Applied</a> {% endif %}
 					</div>
 				</div>
 			</div>

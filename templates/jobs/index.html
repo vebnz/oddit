@@ -5,7 +5,7 @@
 		$(document).ready(function () {
 			$('#search_button').click(function () {
 				q = $('#search_box').val();
-				$('#results').html('&nbsp;').load('jobs/search/' + q + '/');
+				$('#results').html('&nbsp;').load('search/' + q + '/');
 			});
 
 			$(".expire_date").each(function() {
@@ -41,13 +41,13 @@
 				    <div class="collapse navbar-collapse" id="navbar-cats">
 							<ul class="nav navbar-nav navbar-right">
 								<li class="first active">
-									<a href="/jobs" id="all" class="first" name="all">
+									<a href="/" id="all" class="first" name="all">
 										<span>All Types</span>
 									</a>
 								</li>
 								{% for type in job_types %}
 									<li class="first {% if type_name == type.name|lower %}active{% endif %}">
-										<a href="/jobs/type/{{ type.name|slugify }}/" id="all" class="first" name="all">
+										<a href="/type/{{ type.name|slugify }}/" id="all" class="first" name="all">
 											<span>{{ type.name }}</span>
 										</a>
 									</li>
@@ -66,13 +66,13 @@
 
 				<ul class="nav nav-tabs nav-justified hidden-xs">
 					<li class="first active">
-						<a href="/jobs" id="all" class="first" name="all">
+						<a href="/" id="all" class="first" name="all">
 							<span>All Types</span>
 						</a>
 					</li>
 					{% for type in job_types %}
 						<li class="first {% if type_name == type.name|lower %}active{% endif %}">
-							<a href="/jobs/type/{{ type.name|slugify }}/" id="all" class="first" name="all">
+							<a href="/type/{{ type.name|slugify }}/" id="all" class="first" name="all">
 								<span>{{ type.name }}</span>
 							</a>
 						</li>
@@ -105,7 +105,7 @@
 					<div class="job-list">
 						<div class="col-sm-6 col-xs-12">
 							<h3>
-								<a href="/jobs/show/{{ job.title|slugify }}/{{ job.id }}">{{ job.title }}</a>
+								<a href="/show/{{ job.title|slugify }}/{{ job.id }}">{{ job.title }}</a>
 							</h3>
 						</div>
 						<div class="col-sm-4">
@@ -125,7 +125,7 @@
 	<ul class="list-group">
 		<li class="list-group-item design_filter_2">
 			No jobs matching that query were found.
-			<a href="/jobs/new">Perhaps you'd like to add one?</a>
+			<a href="/new">Perhaps you'd like to add one?</a>
 		</li>
 	</ul>
 {% endif %}

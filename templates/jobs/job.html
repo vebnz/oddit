@@ -41,7 +41,7 @@
 			<p><strong>Tags:</strong>
 				<div class="tag-list">
 					{% for job_tag in job_tags %}
-						<a href="/jobs/search?query={{job_tag}}"><span class="label label-primary">{{job_tag}}</span></a>
+						<a href="/search?query={{job_tag}}"><span class="label label-primary">{{job_tag}}</span></a>
 					{% endfor %}
 				</div>
 			</p>
@@ -52,7 +52,7 @@
 			{% if applied %}
 				<a class="btn btn-default btn-block disabled" href="#">Already applied</a>
 			{% else %}
-				<a class="btn btn-primary btn-block" href="/jobs/apply/{{ job.id }}/">Apply</a>
+				<a class="btn btn-primary btn-block" href="/apply/{{ job.id }}/">Apply</a>
 			{% endif %}
 	</div>
 </div>

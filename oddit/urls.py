@@ -1,4 +1,5 @@
 #from django.conf.urls import patterns, url, include
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import admin, admindocs
 from django.conf.urls import *
 import job.views as jobs
@@ -9,8 +10,9 @@ urlpatterns = [
     # url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    url(r'jobs/', include('job.urls')),
+    #url(r'jobs/', include('job.urls')),
     url(r'^', include('job.urls')),
+    #url(r'^', lambda r: HttpResponseRedirect('jobs/')),
     url(r'^search/', include('haystack.urls')),
     url(r'^accounts/', include('allauth.urls')),
     url(r'^my-profile$', jobs.profile),

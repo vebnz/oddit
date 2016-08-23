@@ -65,13 +65,13 @@
 					<div class="collapse navbar-collapse" id="navbar">
 						<ul class="category_menu nav navbar-nav navbar-left">
 							<li class="cat-item-all">
-								<a href="/jobs">All Jobs</a>
+								<a href="/">All Jobs</a>
 							</li>
 
 							{% if categories %}
 								{% for cat in categories %}
 									<li class="cat-item-4 {% if category_name == cat.name|lower %}active{% endif %}">
-										<a href="/jobs/category/{{ cat.name|slugify }}/">{{ cat.name }}</a>
+										<a href="/category/{{ cat.name|slugify }}/">{{ cat.name }}</a>
 									</li>
 								{% endfor %}
 							{% endif %}
@@ -152,7 +152,7 @@
 
 		<div class="content">
 			<div class="searchbar container col-sm-6 col-center-block">
-				<form class="searchbar-form" action="/jobs/search" method="get" role="search">
+				<form class="searchbar-form" action="/search" method="get" role="search">
 					<div class="input-group">
 						<input type="text" class="form-control" name="query" id="search_box" value="Search by keyword" onfocus="if (this.value == 'Search by keyword') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search by keyword';}"/>
 						<div class="input-group-btn">
@@ -172,7 +172,7 @@
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<p>For a limited time only, post a job free of charge to our site!</p>
-							<a href="/jobs/new" class="btn btn-primary btn-block">
+							<a href="/new" class="btn btn-primary btn-block">
 								<span>Post a job</span>
 							</a>
 						</div>
@@ -187,7 +187,7 @@
 							{% if popular_categories %}
 								{% for category in popular_categories.all %}
 									<li class=list-group-item>
-										<a href="/jobs/category/{{ category.category__name|slugify }}/">{{ category.category__name }}
+										<a href="/category/{{ category.category__name|slugify }}/">{{ category.category__name }}
 											<span class="badge pull-right">{{ category.num_jobs }}</span>
 										</a>
 									</li>
@@ -210,7 +210,7 @@
 							{% if popular_tags %}
 								{% for tag in popular_tags %}
 									<li class="list-group-item">
-										<a href="/jobs/search?query={{ tag.name }}">{{ tag.name }}
+										<a href="/search?query={{ tag.name }}">{{ tag.name }}
 											<span class="badge pull-right">{{ tag.count }}</span>
 										</a>
 									</li>

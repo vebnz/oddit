@@ -154,7 +154,7 @@
 			$("#post").validator();
 			$('#id_region').on('change', function (evt, params) {
 				val = this.value;
-				$.post("/jobs/new/region", {
+				$.post("/new/region", {
 					id: val,
 					'csrfmiddlewaretoken': '{{ csrf_token }}'
 				}, function (data) {
