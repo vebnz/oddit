@@ -90,7 +90,9 @@ INSTALLED_APPS = (
     'widget_tweaks',
     'bootstrapform',
     'channels',
-    'notification'
+    'notification',
+    'tinymce',
+    'django_wysiwyg'
 )
 
 CHANNEL_LAYERS = {
@@ -192,5 +194,5 @@ TEMPLATES[0]['OPTIONS']['context_processors'].append('notification.context_proce
 
 # pipeline
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-
+DJANGO_WYSIWYG_FLAVOR = "tinymce"
 from pipeline_settings import *
