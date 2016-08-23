@@ -14,6 +14,7 @@ $brand-secondary: #59c02c;
 $spacer: 0.5em;
 @import 'paper/variables';
 @import 'bootstrap-sass/assets/stylesheets/bootstrap/variables';
+$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "fonts/bootstrap/") !default;
 @import 'bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'paper/swatch';
 $gray-lightest: lighten($gray-base, 99%);
