@@ -31,6 +31,9 @@ $fa-font-path: "../static/font-awesome/fonts";
 @import 'bootstrap-social/bootstrap-social';
 @import 'toastr/toastr.scss';
 @import "compass/css3/opacity";
+
+@import "trumbowyg/dist/ui/sass/trumbowyg";
+
 #toast-container > div {
     @include opacity(1);
 }
@@ -331,17 +334,17 @@ body > footer {
 form {
     .form-group {
         &.has-error {
-            .chosen-container > a {
+            .trumbowyg-box, .chosen-container > a {
                 background-color: $state-danger-bg;
             }
         }
         &.has-warning {
-            .chosen-container > a {
+            .trumbowyg-box, .chosen-container > a {
                 background-color: $state-warning-bg;
             }
         }
         &.has-success {
-            .chosen-container > a {
+            .trumbowyg-box, .chosen-container > a {
                 background-color: $state-success-bg;
             }
         }
