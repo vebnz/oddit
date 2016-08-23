@@ -149,7 +149,7 @@ def apply_job(request, job_id):
           errors = 'aaaa'
           form = ApplyForm(request.POST, request.FILES, instance=app, user=request.user, job=j)
 
-          msg = 'Dear ' + j.user.first_name + ',\n\n' + app.user.first_name + ' ' + app.user.last_name + ' has applied for your job "' + j.title + '".\n\nDownload their CV now and get in touch' 
+          msg = 'Dear ' + j.user.first_name + ',\n\n' + app.user.first_name + ' ' + app.user.last_name + ' has applied for your job "' + j.title + '".\n\nDownload their CV now and get in touch'
 
           if form.is_valid():
              form.save()
@@ -247,7 +247,7 @@ def edit_job(request, job_id):
         form = JobForm(request.POST, instance=job, user=request.user)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/jobs/my-jobs')
+            return HttpResponseRedirect('/my-jobs')
     else:
         form = JobForm(instance=job, user=request.user)
 
@@ -273,12 +273,12 @@ def expire_job(request, job_id):
     if request.method == 'POST':
         form = JobForm(data=request.POST, instance=job, user=request.user)
         if 'no' in request.POST:
-            return HttpResponseRedirect('/jobs/my-jobs')
+            return HttpResponseRedirect('/my-jobs')
         elif 'yes' in request.POST:
             print 'expiring job'
             job.status = 2
             job.save()
-            return HttpResponseRedirect('/jobs/my-jobs')
+            return HttpResponseRedirect('/my-jobs')
     else:
         form = JobForm(instance=job, user=request.user)
 
@@ -301,9 +301,9 @@ def new_job(request):
         form = JobForm(data=request.POST, instance=job, user=request.user)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/jobs/')
+            return HttpResponseRedirect('/my-jobs')
         else:
-            return HttpResponseRedirect('/jobs/')
+            return HttpResponseRedirect('/')
             print "something fucked!"
     else:
         form = JobForm(instance=job, user=request.user)
