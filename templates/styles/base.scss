@@ -29,17 +29,16 @@ $chosen-focus-transition: 0 !default;
 $fa-font-path: "../static/font-awesome/fonts";
 @import 'font-awesome/scss/font-awesome';
 @import 'bootstrap-social/bootstrap-social';
-
 @import 'toastr/toastr.scss';
 @import "compass/css3/opacity";
 #toast-container > div {
     @include opacity(1);
 }
 .cat-display {
-  @extend .navbar-brand;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 14px;
+    @extend .navbar-brand;
+    text-transform: uppercase;
+    font-weight   : bold;
+    font-size     : 14px;
 }
 .navbar {
     .nav {
@@ -61,34 +60,29 @@ $fa-font-path: "../static/font-awesome/fonts";
 }
 // hacky thing
 .col-center-block {
-    float: none;
-    display: block;
-    margin-left: auto;
+    float       : none;
+    display     : block;
+    margin-left : auto;
     margin-right: auto;
 }
-
-
 .searchbar-form {
-    padding: 20px;
+    padding         : 20px;
     background-color: $navbar-inverse-bg;
-    border-radius: $input-border-radius-large;
+    border-radius   : $input-border-radius-large;
     @include box-shadow(0 1px 2px rgba(0,0,0,.3));
     .input-group .input-group-btn {
         width: 1%;
     }
-
     input[type='text'] {
-      border-radius: $input-border-radius;
-      text-align: center;
+        border-radius: $input-border-radius;
+        text-align   : center;
     }
-
-    margin-bottom: $navbar-margin-bottom;
+    margin-bottom   : $navbar-margin-bottom;
     @include screen-tablet {
-        margin-bottom: 0px;
-        margin-top: 0px;
+        margin-bottom: 0;
+        margin-top   : 0;
     };
 }
-
 .navbar-header {
     @include screen-tablet {
         margin: 0;
@@ -137,11 +131,10 @@ body > header {
     .navbar {
         margin-bottom: $navbar-margin-bottom;
         @include screen-tablet {
-            margin-bottom: 0px;
+            margin-bottom: 0;
         };
-
         .navbar-login {
-            width  : 290px;
+            width  : 291px;
             padding: 10px 10px 0;
         }
         .navbar-login-session {
@@ -151,8 +144,19 @@ body > header {
             height: auto;
         }
     }
+    .navbar-collapse {
+        &.in {
+            overflow-y: visible;
+        }
+        @media (min-width: $grid-float-breakpoint) {
+            &.in {
+                overflow-y: visible;
+            }
+        }
+    }
     .btn-header {
         @include button-variant($btn-primary-color, $brand-header, darken($brand-header, 5%));
+        color: $navbar-inverse-link-active-color !important;
     }
 }
 body > .content > main {
@@ -190,7 +194,7 @@ body > footer {
         }
     }
     .btn-footer {
-      @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+        @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
         // @include button-variant($btn-primary-color, $brand-header-accent, darken($brand-header-accent, 5%));
     }
     .widget {
@@ -220,7 +224,7 @@ body > footer {
             &:hover {
                 color: $gray-darker;
                 .fa-inverse {
-                  color: $brand-footer-accent;
+                    color: $brand-footer-accent;
                 }
             }
         }
@@ -277,11 +281,11 @@ body > footer {
             margin: 0;
         }
         h3 > a {
-          color: $text-color;
-          font-weight: bold;
-          &:hover {
-            color: $link-hover-color;
-          }
+            color      : $text-color;
+            font-weight: bold;
+            &:hover {
+                color: $link-hover-color;
+            }
         }
     }
 }
