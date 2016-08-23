@@ -158,7 +158,7 @@ def apply_job(request, job_id):
              msg_html  = render_to_string('jobapplicationemail.html', {'j': j, 'app': app})
 
              send_mail('Someone applied for your Job ', msg_plain, 'mike@oddit.co.nz', [j.user.email], html_message=msg_html, fail_silently=False)
-             return HttpResponseRedirect('/jobs/applied-for')
+             return HttpResponseRedirect('/applied-for')
           else:
             print "JobApply fucked\n"
        else:
