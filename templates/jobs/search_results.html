@@ -3,7 +3,47 @@
 <div class="results whiteboard">
 	<div class="filter grey">
 		<div class="push">
-			<ul class="nav nav-tabs nav-justified">
+
+			<nav class="navbar navbar-default visible-xs" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-cats">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="cat-display">{{type_name|upper}}</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="navbar-cats">
+						<ul class="nav navbar-nav navbar-right">
+							<li class="first active">
+								<a href="/jobs" id="all" class="first" name="all">
+									<span>All Types</span>
+								</a>
+							</li>
+							{% for type in job_types %}
+								<li class="first {% if type_name == type.name|lower %}active{% endif %}">
+									<a href="/jobs/type/{{ type.name|slugify }}/" id="all" class="first" name="all">
+										<span>{{ type.name }}</span>
+									</a>
+								</li>
+							{% endfor %}
+							{% if user.is_superuser %}
+								<li class="first">
+									<a href="/admin/job/jobtype/add/" id="all" class="first" name="all">
+										<span>Add</span>
+									</a>
+								</li>
+							{% endif %}
+					</ul>
+					</div><!-- /.navbar-collapse -->
+				</div><!-- /.container-fluid -->
+			</nav>
+
+			<ul class="nav nav-tabs nav-justified hidden-xs">
 				<li class="first active">
 					<a href="/jobs" id="all" class="first" name="all">
 						<span>All Types</span>
@@ -23,8 +63,7 @@
 						</a>
 					</li>
 				{% endif %}
-			</ul>
-		</div>
+		</ul>
 	</div>
 
 	<div id="results">

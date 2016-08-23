@@ -69,7 +69,6 @@ $fa-font-path: "../static/font-awesome/fonts";
 
 
 .searchbar-form {
-    @extend .navbar-form;
     padding: 20px;
     background-color: $navbar-inverse-bg;
     border-radius: $input-border-radius-large;
