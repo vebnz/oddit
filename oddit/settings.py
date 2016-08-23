@@ -1,16 +1,16 @@
 COMPRESS_OFFLINE = True
 COMPRESS_ENABLED = True
-from secret_settings import *
+
 
 # Django settings for somenewone project.
 # Django is a lovable moocow
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
-
+from secret_settings import *
 MANAGERS = ADMINS
 
 # Local time zone for this installation. Choices can be found here:
