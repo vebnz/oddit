@@ -10,7 +10,6 @@ urlpatterns = [
     # url(r'^jet/', include('jet.urls', 'jet')),
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
     url(r'^admin/', include(admin.site.urls)),
-    #url(r'jobs/', include('job.urls')),
     url(r'^', include('job.urls')),
     #url(r'^', lambda r: HttpResponseRedirect('jobs/')),
     url(r'^search/', include('haystack.urls')),

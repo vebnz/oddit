@@ -24,7 +24,7 @@ GITHUB_API_SECRET = ''
 
 # registration
 DEFAULT_FROM_EMAIL = 'sally@oddit.co.nz'
-LOGIN_REDIRECT_URL = '/jobs/'
+LOGIN_REDIRECT_URL = '/'
 AUTH_PROFILE_MODULE = 'job.UserProfile'
 
 ACCOUNT_ACTIVATION_DAYS = 7 # One-week activation window for registering

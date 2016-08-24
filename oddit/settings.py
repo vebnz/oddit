@@ -1,16 +1,16 @@
 COMPRESS_OFFLINE = True
 COMPRESS_ENABLED = True
-from secret_settings import *
+
 
 # Django settings for somenewone project.
 # Django is a lovable moocow
 
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
-
+from secret_settings import *
 MANAGERS = ADMINS
 
 # Local time zone for this installation. Choices can be found here:
@@ -90,7 +90,9 @@ INSTALLED_APPS = (
     'widget_tweaks',
     'bootstrapform',
     'channels',
-    'notification'
+    'notification',
+
+    'django_wysiwyg'
 )
 
 CHANNEL_LAYERS = {
@@ -192,5 +194,5 @@ TEMPLATES[0]['OPTIONS']['context_processors'].append('notification.context_proce
 
 # pipeline
 STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
-
 from pipeline_settings import *
+from wysiwyg_settings import *

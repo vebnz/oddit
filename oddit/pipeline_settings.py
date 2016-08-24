@@ -18,6 +18,7 @@ PIPELINE = {
             'source_filenames': (
                 'scripts/modernizr.js',
                 'jquery/dist/jquery.js',
+                'reMarked.js/reMarked.js',
                 'chosen/chosen.jquery.js',
                 'moment/moment.js',
                 'bootstrap-tagsinput/dist/bootstrap-tagsinput.js',
@@ -28,6 +29,7 @@ PIPELINE = {
                 'scripts/jquery.autocomplete.pack.js',
                 'scripts/jquery.pngfix.js',
                 'scripts/jcookie.js',
+                'trumbowyg/dist/trumbowyg.js',
             ),
             'output_filename': 'js/scripts.js',
             'extra_context': {

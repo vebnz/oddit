@@ -1,6 +1,6 @@
 {% extends "jobs/base.html" %}
 {% block content %}
-
+{% load markdownify %}
 	<div class="results whiteboard">
 
 		<div class="panel panel-default">
@@ -26,10 +26,13 @@
                             {% for app in job.jobapply_set.all %}
                                 {% if app.user.id = user.id %}
                                     <div>
-                                        <p>Notes: {{ app.notes|linebreaksbr }}</p>
+                                        <p>Notes: </p>
+																				<div class="well well-sm">
+																					{{ app.notes|markdownify|safe }}
+																				</div>
                                     </div>
                                     <div>
-                                        <span>Résumé: <a href="/static/uploads/{{ app.resume }}">download</a></span>
+                                        <span>Résumé: <a href="{{MEDIA_URL}}{{ app.resume }}">download</a></span>
                                     </div>
                                     <div>
                                         <span>Applied: {{ app.created }}</span>

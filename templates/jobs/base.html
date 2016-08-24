@@ -81,12 +81,14 @@
 								</li>
 							{% endif %}
 
+							<li class="cat-item-4">
+								<a href="/new" type="button" class="btn-header"><strong>Post new job</strong></a>
+							</li>
+
 							<li class="rss">
 								<a href=""><img src="{% static 'images/icon.rss.png' %}"/></a>
 							</li>
-                            <li class="cat-item-4">
-                            <a href="/new" style="color: lime;">Add job</a>
-                            </li>
+
 						</ul>
 
 						<ul class="nav navbar-form navbar-right">
@@ -94,7 +96,7 @@
 								{% if user.is_authenticated %}
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 										{% if notify_count > 0 %}
-											<span id="notify_count" class="badge">{{notify_count}}</span>
+											{# <span id="notify_count" class="badge">{{notify_count}}</span>#}
 										{% endif %}
 										<i class="fa fa-user" aria-hidden="true"></i>
 										{% if not user.first_name %}
