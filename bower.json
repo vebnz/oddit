@@ -32,6 +32,7 @@
     "trumbowyg": "^2.2.0"
   },
   "resolutions": {
-    "bootstrap-tagsinput": "2b2883da9f4a99979c12aa3c6e92552e96cdc64c"
+    "bootstrap-tagsinput": "2b2883da9f4a99979c12aa3c6e92552e96cdc64c",
+    "font-awesome": "^4.6.3"
   }
 }
