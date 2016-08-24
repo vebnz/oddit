@@ -35,7 +35,7 @@
 		<li class="list-group-item description">
 			<h4 class="list-group-item-heading">Job Details</h4>
             <p></p>
-			<p>{{ job.description|markdownify|safe }}</p>
+			<p>{{ job.description|safe }}</p>
 			<p><strong>Budget:</strong> ${{ job.budget|intcomma }}</p>
       <p><strong>Job Type:</strong> {{ job.type }}</p>
       <hr />

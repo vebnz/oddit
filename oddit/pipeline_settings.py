@@ -28,8 +28,7 @@ PIPELINE = {
                 'toastr/toastr.js',
                 'scripts/jquery.autocomplete.pack.js',
                 'scripts/jquery.pngfix.js',
-                'scripts/jcookie.js',
-                'trumbowyg/dist/trumbowyg.js',
+                'scripts/jcookie.js',                
             ),
             'output_filename': 'js/scripts.js',
             'extra_context': {

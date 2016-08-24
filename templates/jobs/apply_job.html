@@ -2,110 +2,49 @@
 {% load bootstrap %}
 {% load widget_tweaks %}
 {% block content %}
-{% load wysiwyg %}
-{% load markdownify %}
-<div class="post whiteboard">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h2 class="panel-page-title">Apply for this position</h2>
-			<p>
-				For help,
-				<a href="#">click here</a>
-			</p>
+	{% load wysiwyg %}
+	{% load markdownify %}
+	<div class="post whiteboard">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h2 class="panel-page-title">Apply for this position</h2>
+				<p>
+					For help,
+					<a href="#">click here</a>
+				</p>
+			</div>
+
+			<form id="post" enctype="multipart/form-data" name="post" action="" method="post">{% csrf_token %}
+				<div class="panel-body">
+					<div class="form-group {% if form.resume.errors %} has-error {% endif %}">
+						<label for="inputEmail3" class="col-sm-2 control-label">{{ form.resume.label_tag }}</label>
+						<div class="col-sm-10">
+							{{ form.resume|attr:'required:true'}}
+							<div class="help-block with-errors"></div>
+						</div>
+					</div>
+					{% wysiwyg_setup %}
+					{% wysiwyg_editor "id_notes" %}
+					<div class="form-group {% if form.notes.errors %} has-error {% endif %}">
+						<label for="inputEmail3" class="col-sm-2 control-label">{{ form.notes.label_tag }}</label>
+						<div class="col-sm-10">
+							{{ form.notes|attr:'required:true' }}
+							<p class="help-block">Fill in as much detail as you can about the position, outlining responsibilities, perks and information about your company.</p>
+							<div class="help-block with-errors"></div>
+						</div>
+					</div>
+
+				</div>
+				<div class="panel-footer clearfix">
+					<input id="jobapplysubmit" name="jobapplysubmit" type="submit" value="Apply" class="btn btn-primary pull-right"/>
+				</div>
+			</form>
 		</div>
-
-		<form id="post" enctype="multipart/form-data" name="post" action="" method="post">{% csrf_token %}
-			<div class="panel-body">
-				<div class="form-group {% if form.resume.errors %} has-error {% endif %}">
-					<label for="inputEmail3" class="col-sm-2 control-label">{{ form.resume.label_tag }}</label>
-					<div class="col-sm-10">
-						{{ form.resume|attr:'required:true'}}
-						<div class="help-block with-errors"></div>
-					</div>
-				</div>
-				{% wysiwyg_setup %}
-				{% wysiwyg_editor "id_notes" %}
-				<div class="form-group {% if form.notes.errors %} has-error {% endif %}">
-					<label for="inputEmail3" class="col-sm-2 control-label">{{ form.notes.label_tag }}</label>
-					<div class="col-sm-10">
-						<textarea class="validation" cols="40" id="{{form.notes.id_for_label}}" name="{{form.notes.html_name}}" required="true" rows="10">{{form.notes.value|markdownify}}</textarea>
-						<p class="help-block">Add any applicable notes that you feel may be important for this application.</p>
-						<div class="help-block with-errors"></div>
-					</div>
-				</div>
-			</div>
-			<div class="panel-footer clearfix">
-				<input id="jobapplysubmit" name="jobapplysubmit" type="submit" value="Apply" class="btn btn-primary pull-right"/>
-			</div>
-		</form>
 	</div>
-</div>
 
-<script type="text/javascript">
-	$(document).ready(function () {
-		$("#post").validator();
-
-		$('#post').validator().on('submit', function (e) {
-			if (e.isDefaultPrevented()) {
-				// handle the invalid form...
-			} else {
-				var dataArray = $("#post").serializeArray(),
-					len = dataArray.length,
-					dataObj = {};
-
-				for (i = 0; i < len; i++) {
-					dataObj[dataArray[i].name] = dataArray[i].value;
-				}
-				var options = {
-					link_list: false, // render links as references, create link list as appendix
-					h1_setext: false, // underline h1 headers
-					h2_setext: false, // underline h2 headers
-					h_atx_suf: true, // header suffixes (###)
-					gfm_code: "```", // gfm code blocks
-					trim_code: false, // trim whitespace within <pre><code> blocks (full block, not per line)
-					li_bullet: "*", // list item bullet style
-					hr_char: "-", // hr style
-					indnt_str: "    ", // indentation string
-					bold_char: "*", // char used for strong
-					emph_char: "_", // char used for em
-					gfm_del: true, // ~~strikeout~~ for <del>strikeout</del>
-					gfm_tbls: true, // markdown-extra tables
-					tbl_edges: false, // show side edges on tables
-					hash_lnks: false, // anchors w/hash hrefs as links
-					br_only: false, // avoid using "  " as line break indicator
-					col_pre: "col ", // column prefix to use when creating missing headers for tables
-					nbsp_spc: true, // convert &nbsp; entities in html to regular spaces
-					span_tags: true, // output spans (ambiguous) using html tags
-					div_tags: true, // output divs (ambiguous) using html tags
-					unsup_tags: { // handling of unsupported tags, defined in terms of desired output style. if not listed, output = outerHTML
-						// no output
-						ignore: "script style noscript",
-						// eg: "<tag>some content</tag>"
-						inline: "span sup sub i u b center big",
-						// eg: "\n\n<tag>\n\tsome content\n</tag>"
-						block2: "div form fieldset dl header footer address article aside figure hgroup section",
-						// eg: "\n<tag>some content</tag>"
-						block1c: "dt dd caption legend figcaption output",
-						// eg: "\n\n<tag>some content</tag>"
-						block2c: "canvas audio video iframe"
-					},
-					tag_remap: { // remap of variants or deprecated tags to internal classes
-						"i": "em",
-						"b": "strong"
-					}
-				};
-				var reMarker = new reMarked();
-				var markdown = reMarker.render(dataObj.notes);
-				$("#id_notes").val(markdown);
-				// $.post(window.location, dataObj).done(function functionName() {
-				// 	window.location = '/';
-				// }).fail(function (e) {
-				// 	console.log(e);
-				// });
-				return true;
-			}
-		})
-
-	});
-</script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#post").validator();
+		});
+	</script>
 {% endblock %}
