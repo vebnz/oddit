@@ -9,7 +9,7 @@ cssmin==0.2.0
 daphne==0.14.3
 decorator==4.0.9
 Django==1.9
-django-allauth==0.26.1
+django-allauth==0.27.0
 django-appconf==1.0.2
 django-bootstrap-form==3.2.1
 django-ckeditor==5.1.0
