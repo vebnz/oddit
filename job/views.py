@@ -15,7 +15,7 @@ from django.template.context_processors import csrf
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
-
+from django.http import JsonResponse
 from  django.utils.datastructures  import  MultiValueDictKeyError
 
 def index(request, category_name='all', type_name='all'):
@@ -160,7 +160,7 @@ def apply_job(request, job_id):
              send_mail('Someone applied for your Job ', msg_plain, 'mike@oddit.co.nz', [j.user.email], html_message=msg_html, fail_silently=False)
              return HttpResponseRedirect('/applied-for')
           else:
-            print "JobApply fucked\n"
+            return JsonResponse(form.errors.as_json(), safe=False, status=400)
        else:
           form = ApplyForm(instance=app, user=request.user, job=j)
 

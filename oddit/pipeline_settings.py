@@ -18,7 +18,7 @@ PIPELINE = {
             'source_filenames': (
                 'scripts/modernizr.js',
                 'jquery/dist/jquery.js',
-                'remarked/dist/remarked.js',
+                'reMarked.js/reMarked.js',
                 'chosen/chosen.jquery.js',
                 'moment/moment.js',
                 'bootstrap-tagsinput/dist/bootstrap-tagsinput.js',

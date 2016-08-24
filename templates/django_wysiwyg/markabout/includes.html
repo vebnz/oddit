@@ -8,7 +8,19 @@
     var django_wysiwyg_editor_configs = [];
     {% block django_wysiwyg_editor_config %}
         var django_wysiwyg_editor_config = {
-            autogrow: true,
+          btns: [
+              ['formatting'],
+              'btnGrp-semantic',
+              ['link'],
+              'btnGrp-justify',
+              'btnGrp-lists',
+              ['horizontalRule'],
+              ['removeformat'],
+              ['fullscreen']
+          ],
+          autogrow: true,
+          semantic: true,
+
         };
     {% endblock %}
 
@@ -20,15 +32,12 @@
             }
             if (!this.editors[editor_name]) {
                 jQuery.fn.ready(function () {
-                    django_wysiwyg.editors[editor_name] = jQuery("#" + field_id)
-                                                                .trumbowyg(config)
-                                                                .on('tbwblur', function(e){
-                                                                  $(this).text($(this).trumbowyg('html'));
-                                                                  $("#post").validator('validate');
-                                                                }).on('tbwchange', function(e){
-                                                                  $(this).text($(this).trumbowyg('html'));
-                                                                  $("#post").validator('validate');
-                                                                })
+                    django_wysiwyg.editors[editor_name] = jQuery("#" + field_id).trumbowyg(config).on('tbwblur', function (e) {
+                        $(this).text($(this).trumbowyg('html'));
+                        $("#post").validator('validate');
+                    }).on('tbwchange', function (e) {
+                        $(this).text($(this).trumbowyg('html'));
+                    })
                 });
             }
         },
