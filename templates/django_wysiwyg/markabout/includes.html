@@ -8,6 +8,7 @@
     var django_wysiwyg_editor_configs = [];
     {% block django_wysiwyg_editor_config %}
         var django_wysiwyg_editor_config = {
+          removeformatPasted: true,
           btns: [
               ['formatting'],
               'btnGrp-semantic',
@@ -36,7 +37,7 @@
                         $(this).text($(this).trumbowyg('html'));
                         $("#post").validator('validate');
                     }).on('tbwchange', function (e) {
-                        $(this).text($(this).trumbowyg('html'));
+                        // $(this).text($(this).trumbowyg('html'));
                     })
                 });
             }
