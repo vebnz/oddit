@@ -2,9 +2,8 @@ Dear {{ j.user.first_name }}
 
 {{ app.user.first_name }} has applied for your job {{ j.title }}.
 
-Their CV is attached to this email and any notes they wrote are below:
-
-{{ app.notes }}
+You can access their application at
+{{ app_url }}
 
 Regards,
 Oddit Team

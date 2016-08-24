@@ -17,6 +17,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from django.http import JsonResponse
 from  django.utils.datastructures  import  MultiValueDictKeyError
+from django.template.defaultfilters import slugify
 
 def index(request, category_name='all', type_name='all'):
     popular_categories_list = Job.objects.values('category', 'category__name').annotate(num_jobs=Count("id")).distinct()
@@ -154,8 +155,9 @@ def apply_job(request, job_id):
           if form.is_valid():
              form.save()
 
-             msg_plain = render_to_string('jobapplicationemail.txt', {'j': j, 'app': app})
-             msg_html  = render_to_string('jobapplicationemail.html', {'j': j, 'app': app})
+             app_url = request.build_absolute_uri('/applications/%s/%s' % (slugify(j.title), j.id))
+             msg_plain = render_to_string('jobapplicationemail.txt', {'j': j, 'app': app, 'app_url': app_url})
+             msg_html  = render_to_string('jobapplicationemail.html', {'j': j, 'app': app, 'app_url': app_url})
 
              send_mail('Someone applied for your Job ', msg_plain, 'mike@oddit.co.nz', [j.user.email], html_message=msg_html, fail_silently=False)
              return HttpResponseRedirect('/applied-for')
