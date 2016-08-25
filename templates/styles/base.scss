@@ -32,7 +32,6 @@ $fa-font-path: "../static/font-awesome/fonts";
 @import 'toastr/toastr.scss';
 @import "compass/css3/opacity";
 
-@import "trumbowyg/dist/ui/sass/trumbowyg";
 
 #toast-container > div {
     @include opacity(1);

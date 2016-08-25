@@ -91,7 +91,6 @@ INSTALLED_APPS = (
     'bootstrapform',
     'channels',
     'notification',
-
     'django_wysiwyg'
 )
 

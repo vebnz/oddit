@@ -1,5 +1,5 @@
 {% extends "allauth/account/email/email_base.html" %}
-{% block mail-content %}
+{% block mail_content %}
 <table class="vb-outer" width="100%" cellpadding="0" border="0" cellspacing="0" bgcolor="#000000" style="background-color: #000000;" id="ko_singleArticleBlock_9">
     <tbody>
         <tr>
@@ -37,7 +37,7 @@
                                                         <strong>{{ j.title }}</strong>.</p>
                                                     <p style="Margin: 1em 0px;">Any notes they have written are below:</p>
                                                     <blockquote>
-                                                        <p style="Margin: 1em 0px; Margin-top: 0px;">{{ app.notes }}</p><br></blockquote>
+                                                        <p style="Margin: 1em 0px; Margin-top: 0px;">{{ app.notes|safe }}</p><br></blockquote>
                                                     <p style="Margin: 1em 0px;">Best regards,</p>
                                                     <p style="Margin: 1em 0px; Margin-bottom: 0px;">Oddit Team</p>
                                                 </td>
@@ -86,7 +86,7 @@
                                                     align="center"
                                                     height="50"
                                                     style="font-size: 14px; font-family: Oxygen, Arial, Helvetica, sans-serif; color: #0c0c0c; font-weight: normal; padding-left: 14px; padding-right: 14px; background-color: #59c02c; border-radius: 4px;">
-                                                    <strong>View&nbsp;{{ app.user.first_name }}'s application&nbsp;</strong>
+                                                    <a target="_new" href="{{app_url}}" style="text-decoration: none; color: #0c0c0c; font-weight: normal;">View&nbsp;{{ app.user.first_name }}'s application&nbsp;</a>                                                    
                                                 </td>
                                             </tr>
                                         </tbody>
