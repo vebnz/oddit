@@ -57,7 +57,7 @@ Packages are required, please see requirements.txt:
 
 We'll be accepting pull requests and fixing issues/bugs posted. We welcome anyone who'd like to join the project.
 
-### Developed by [veb ltd](http://veb.nz)
+### Developed by vebnz
 - [Mike Mackenzie](https://github.com/veb)
 - [Ray Arvin Rimorin](https://github.com/avwave)
 - [Jamie Gracie](https://github.com/Kingy)
